@@ -2,7 +2,10 @@
 templateKey: blog-post
 title: Design with a beginner’s mind
 date: 2019-01-11T00:15:32.894Z
-description: Design with a beginner’s mind
+description: |-
+  Jeong-Sook Lee
+  VP @ SAP Design
+  SAP Labs, LLC. (Palo Alto)
 tags:
   - Design Culture
   - design mindset
