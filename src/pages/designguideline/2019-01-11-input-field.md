@@ -1,12 +1,12 @@
 ---
 templateKey: design-guideline-post
-title: Button
+title: Input-Field
 date: 2019-01-11T00:15:32.894Z
 description: |-
-  Button
+  Input Field
 tags:
-  - Button
-  - design Button
+  - Input-Field
+  - design Input-Field
   - SAP Fiori
 ---
-Button design guideline here
+Input-Field design guideline here

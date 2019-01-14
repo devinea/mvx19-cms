@@ -31,6 +31,18 @@ collections:
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
+  - name: "developerguideline"
+    label: "DeveloperGuideline"
+    folder: "src/pages/developerguideline"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "developer-guideline-post"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Tags", name: "tags", widget: "list"}
 
   - name: "learning"
     label: "Learning"
@@ -55,11 +67,11 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
-      - file: "src/pages/products/index.md"
-        label: "Products Page"
-        name: "products"
+      - file: "src/pages/designguideline/index.md"
+        label: "SAP Fiori Design Guidelines"
+        name: "designguideline"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-page"}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "design-guideline-page"}
           - {label: Title, name: title, widget: string}
           - {label: Image, name: image, widget: image}
           - {label: Heading, name: heading, widget: string}

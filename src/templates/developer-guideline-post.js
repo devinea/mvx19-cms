@@ -6,7 +6,7 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-export const DesignGuidelinePostTemplate = ({
+export const DeveloperGuidelinePostTemplate = ({
   content,
   contentComponent,
   description,
@@ -46,7 +46,7 @@ export const DesignGuidelinePostTemplate = ({
   )
 }
 
-DesignGuidelinePostTemplate.propTypes = {
+DeveloperGuidelinePostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
@@ -54,12 +54,12 @@ DesignGuidelinePostTemplate.propTypes = {
   helmet: PropTypes.object,
 }
 
-const DesignGuidelinePost = ({ data }) => {
+const DeveloperGuidelinePost = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
     <Layout>
-      <DesignGuidelinePostTemplate
+      <DeveloperGuidelinePostTemplate
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
@@ -78,16 +78,16 @@ const DesignGuidelinePost = ({ data }) => {
   )
 }
 
-DesignGuidelinePost.propTypes = {
+DeveloperGuidelinePost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
 }
 
-export default DesignGuidelinePost
+export default DeveloperGuidelinePost
 
 export const pageQuery = graphql`
-  query DesignGuidelinePostByID($id: String!) {
+  query DeveloperGuidelinePostByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
