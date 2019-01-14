@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from "gatsby"
 
 import Navbar from '../components/Navbar'
 import './all.sass'
+import './nav.sass'
 
 const TemplateWrapper = ({ children }) => (
   <StaticQuery
@@ -37,7 +38,7 @@ const TemplateWrapper = ({ children }) => (
           <meta property="og:image" content="/img/og-image.jpg" />
         </Helmet>
         <Navbar />
-        <div>{children}</div>
+        <div className="main-content">{children}</div>
       </div>
     )}
   />
