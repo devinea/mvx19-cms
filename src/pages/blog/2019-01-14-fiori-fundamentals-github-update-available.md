@@ -3,9 +3,6 @@ templateKey: blog-post
 title: Fiori Fundamentals GitHub update available
 date: 2019-01-14T17:28:48.700Z
 description: >-
-  ![](/img/2017©jeongsooklee.jpg)
-
-
   SAP Fiori Fundamentals is a Fiori 3.0 component library and SASS toolkit for
   building SAP user interfaces with any technology
 tags:
