@@ -30,22 +30,25 @@ const Navbar = class extends React.Component {
 
  render() {
    return (
-     <nav className="nav">
-        <div class="nav-title">SAP Fiori</div>
-        <div className="navbar">
-          <Link className="nav-item" to="/about">
-            Design
-         </Link>
-         <Link className="nav-item" to="/products">
-           Develop
-         </Link>
-         <Link className="nav-item" to="/getstarted">
-           Get Started
-         </Link>
-         <Link className="nav-item" to="/contact/examples">
-           Contribute
-         </Link>
-        </div>
+     <nav className="nav-wrapper">
+      <div className="nav">
+          <Link className="nav-title" to="/">SAP Fiori</Link>
+          <div className="navbar">
+            <Link className="nav-item" to="/about">
+              Design
+          </Link>
+          <Link className="nav-item" to="/products">
+            Develop
+          </Link>
+          <Link className="nav-item" to="/getstarted">
+            Get Started
+          </Link>
+          <Link className="nav-item" to="/contact/examples">
+            Contribute
+          </Link>
+          <div className="nav-search"></div>
+          </div>
+      </div>
      </nav>
 
   // <nav className="navbar is-transparent" role="navigation" aria-label="main-navigation">

@@ -10,35 +10,66 @@ export default class IndexPage extends React.Component {
 
     return (
       <Layout>
-        <section className="section">
+        <section className="trending">
+          <div className="trending-content">
+            <div className="trending-header">Explore, Design and Develop with the Design System for the Enterprise</div>
+            <div className="trending-search"><input name="search"></input></div>
+            <div className="trending-suggestions">
+              <div className="trending-title">Trending</div>
+              <div className="item">Fiori Toolkit v1.1</div>
+              <div className="item">Fiori Fundamentals</div>
+              <div className="item">Sample Apps</div>
+              <div className="item">Getting Started with Fiori</div>
+              <div className="item">72 TypeFace</div>
+            </div>
+          </div>
+          <div className="trending-footer"></div>
+        </section>
+        <section className="section whatsnew">
           <div className="container">
             <div className="content">
-              <h1 className="has-text-weight-bold is-size-2">What's new</h1>
+              <div className="whatsnew-header">
+                <h1 className="whatsnew-title">what's new</h1>
+                <div className="whatsnew-options">
+                  <div className="selected">web</div>
+                  <div>Mobile</div>
+                  <div>CUX</div>
+                  <div>AR/VR</div>
+                </div>                
+              </div>
             </div>
-            {posts
-              .map(({ node: post }) => (
-                <div
-                  className="content"
-                  style={{ border: '1px solid #333', padding: '2em 4em' }}
-                  key={post.id}
-                >
-                  <p>
-                    <Link className="has-text-primary" to={post.fields.slug}>
-                      {post.frontmatter.title}
-                    </Link>
-                    <span> &bull; </span>
-                    <small>{post.frontmatter.date}</small>
-                  </p>
-                  <p>
-                    {post.excerpt}
-                    <br />
-                    <br />
-                    <Link className="button is-small" to={post.fields.slug}>
-                      Keep Reading →
-                    </Link>
-                  </p>
-                </div>
-              ))}
+            <div className="new-lhs">
+              <div className="new-lhs-title">Learn about the latest updates and announcements to the Fiori Design System.</div>
+              <div class="new-lhs-option selected">all</div>
+              <div class="new-lhs-option">designer</div>
+              <div class="new-lhs-option">developer</div>
+            </div>
+            <div className="new-rhs">
+              {posts
+                .map(({ node: post }) => (
+                  <div
+                    className="content whatsnew-items"
+                    style={{ border: '1px solid #333' }}
+                    key={post.id}
+                  >
+                    <p>
+                      <Link className="newitem-title" to={post.fields.slug}>
+                        {post.frontmatter.title}
+                      </Link>
+                      {/* <span> &bull; </span>
+                      <small>{post.frontmatter.date}</small> */}
+                    </p>
+                    <div className="newitem-details">
+                      {post.excerpt}
+                      {/* <Link className="button is-small" to={post.fields.slug}>
+                        Keep Reading →
+                      </Link> */}
+                    </div>
+                    <Link className="newitem-more" to={post.fields.slug}>Read More</Link>
+                    <div className="newitem-date">{post.frontmatter.date}</div>
+                  </div>
+                ))}
+              </div>
           </div>
         </section>
       </Layout>
