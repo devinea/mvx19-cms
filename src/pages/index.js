@@ -26,6 +26,7 @@ export default class IndexPage extends React.Component {
           <div className="trending-footer"></div>
         </section>
         <section className="section whatsnew">
+          <div className="whatsnew-wrapper">
           <div className="container">
             <div className="content">
               <div className="whatsnew-header">
@@ -49,26 +50,22 @@ export default class IndexPage extends React.Component {
                 .map(({ node: post }) => (
                   <div
                     className="content whatsnew-items"
-                    style={{ border: '1px solid #333' }}
+                    id={post.img}
                     key={post.id}
                   >
                     <p>
                       <Link className="newitem-title" to={post.fields.slug}>
                         {post.frontmatter.title}
                       </Link>
-                      {/* <span> &bull; </span>
-                      <small>{post.frontmatter.date}</small> */}
                     </p>
                     <div className="newitem-details">
                       {post.excerpt}
-                      {/* <Link className="button is-small" to={post.fields.slug}>
-                        Keep Reading →
-                      </Link> */}
                     </div>
                     <Link className="newitem-more" to={post.fields.slug}>Read More</Link>
                     <div className="newitem-date">{post.frontmatter.date}</div>
                   </div>
                 ))}
+              </div>
               </div>
           </div>
         </section>

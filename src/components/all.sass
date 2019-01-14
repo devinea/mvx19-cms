@@ -29,6 +29,9 @@ $body-color: #333
 
 .main-content
   padding-top: 70px;
+  width: 100%;
+  float: left;
+  background-color: #F5F5F5;
 
 .trending
   width: 1440px;
@@ -89,81 +92,112 @@ $body-color: #333
   margin-left: auto;
   margin-right: auto;
   padding-left: 0px;
-  padding: 0;
-  .container
-    padding-left: 40px;
+  padding: 40px 0 20px 0 !important;
 
-  .content
-    .whatsnew-header
-      clear: both;
-      width: 100%;
-      height: 50px;
-      .whatsnew-title
-        font-family: '72-Bold';
-        font-size: 35px;
-        float: left;
-      .whatsnew-options
-        float: right;
-        div
-          float: left;
-          font-family: '72-Light';
-          font-size: 28px;
-          color: #A1A1A1;
-          cursor: pointer;
-        div:not(:last-child)   
-          padding-right: 150px;   
-        div.selected
-          color: #5C5C5C;
-          cursor: default;
-  .new-lhs 
-    width: 385px;
+  .whatsnew-wrapper 
     float: left;
-    .new-lhs-title
-      font-family: '72-Light';
-      font-size: 24px;
-      color: #7E7E7E;
-      width: 280px;
-      margin-bottom: 100px;
-    .new-lhs-option
-      font-family: '72-Light';
-      font-size: 24px;
-      color: #A1A1A1;
-      line-height: 55px;
-      cursor: pointer;
-    .new-lhs-option.selected
-      color: #5C5C5C;
-      cursor: default;
-  .new-rhs
-    float: right;
-    width: calc(100% - 385px);
+    width: 100%;
+    background-color: white;
+    .container
+      padding-left: 40px;
 
-    .whatsnew-items
-      padding: 30px;
-      .newitem-title
-        font-family: '72-Bold';
-        font-size: 24px;
-        color: #5C5C5C;
-      .newitem-details
-        font-family: '72-Light';
-        font-size: 18px;
-        color: #A1A1A1;
-        float: left;
-        width: calc(100% - 150px);
-      .newitem-more
-        float: right;
-        font-family: '72-Bold';
-        font-size: 14px;
-        text-transform: uppercase;
-        color: #A1A1A1;
-        width: 150px;
-        text-align: right;
-        cursor: pointer;
-      .newitem-date
+    .content
+      .whatsnew-header
         clear: both;
+        width: 100%;
+        height: 50px;
+        .whatsnew-title
+          font-family: '72-Bold';
+          font-size: 35px;
+          float: left;
+        .whatsnew-options
+          float: right;
+          div
+            float: left;
+            font-family: '72-Light';
+            font-size: 28px;
+            color: #A1A1A1;
+            cursor: pointer;
+          div:not(:last-child)   
+            padding-right: 150px;   
+          div.selected
+            color: #5C5C5C;
+            cursor: default;
+    .new-lhs 
+      width: 385px;
+      float: left;
+      background-color: white;
+      .new-lhs-title
         font-family: '72-Light';
-        font-size: 14px;
-        color: #A1A1A1;  
-        padding-top: 20px;      
+        font-size: 24px;
+        color: #7E7E7E;
+        width: 280px;
+        margin-bottom: 100px;
+      .new-lhs-option
+        font-family: '72-Light';
+        font-size: 24px;
+        color: #A1A1A1;
+        line-height: 55px;
+        cursor: pointer;
+      .new-lhs-option.selected
+        color: #5C5C5C;
+        cursor: default;
+    .new-rhs
+      float: right;
+      width: calc(100% - 385px);
+      padding-bottom: 40px;
+
+      .whatsnew-items
+        padding: 30px 30px 30px 160px;
+        .newitem-title
+          font-family: '72-Bold';
+          font-size: 24px;
+          color: #5C5C5C;
+        .newitem-details
+          font-family: '72-Light';
+          font-size: 18px;
+          color: #A1A1A1;
+          float: left;
+          width: calc(100% - 150px);
+        .newitem-more
+          float: right;
+          font-family: '72-Bold';
+          font-size: 14px;
+          text-transform: uppercase;
+          color: #A1A1A1;
+          width: 150px;
+          text-align: right;
+          cursor: pointer;
+        .newitem-date
+          clear: both;
+          font-family: '72-Light';
+          font-size: 14px;
+          color: #A1A1A1;  
+          padding-top: 20px;
+        background-repeat: no-repeat;
+        &:hover
+          box-shadow: 1px 1px 10px 1px lightgray;   
+        &:nth-child(1) 
+          background-image: url("../img/sketch.png");
+          background-size: 75px;
+          background-position: 50px 30px;
+        &:nth-child(2) 
+          background-image: url("../img/ui5.jpg");
+          background-size: 125px;
+          background-position: 25px 30px;          
+        &:nth-child(3) 
+          background-image: url("../img/github.svg");
+          background-size: 75px;
+          background-position: 50px 30px;     
+        &:nth-child(4) 
+          background-image: url("../img/theming.png");
+          background-size: 75px;
+          background-position: 50px 30px;      
+        &:nth-child(5) 
+          background-image: url("../img/design.png");
+          background-size: 125px;
+          background-position: 25px 30px;                          
+        
 
 
 .content .taglist
@@ -197,5 +231,27 @@ $body-color: #333
 
 .margin-top-0
   margin-top: 0 !important
+
+
+.blog
+  padding: 40px 0 0 40px !important;
+  width: 1440px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+
+.about
+  padding: 40px 0 0 40px !important;
+  width: 1440px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+
+.contact
+  padding: 40px 0 0 40px !important;
+  width: 1440px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;  
 
 @import "~bulma"
