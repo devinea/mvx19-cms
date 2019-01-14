@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
-import logo from '../img/logo.png'
+// import github from '../img/github-icon.svg'
+// import logo from '../img/logo.png'
 
 const Navbar = class extends React.Component {
 
@@ -34,10 +34,10 @@ const Navbar = class extends React.Component {
       <div className="nav">
           <Link className="nav-title" to="/">SAP Fiori</Link>
           <div className="navbar">
-            <Link className="nav-item" to="/about">
+            <Link className="nav-item" to="/design/guidelines">
               Design
           </Link>
-          <Link className="nav-item" to="/products">
+          <Link className="nav-item" to="/develop/guidelines">
             Develop
           </Link>
           <Link className="nav-item" to="/getstarted">

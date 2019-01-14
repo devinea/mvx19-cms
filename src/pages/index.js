@@ -36,7 +36,7 @@ export default class IndexPage extends React.Component {
                   <div>Mobile</div>
                   <div>CUX</div>
                   <div>AR/VR</div>
-                </div>                
+                </div>
               </div>
             </div>
             <div className="new-lhs">
@@ -59,7 +59,7 @@ export default class IndexPage extends React.Component {
                       </Link>
                     </p>
                     <div className="newitem-details">
-                      {post.excerpt}
+                      {post.frontmatter.description}
                     </div>
                     <Link className="newitem-more" to={post.fields.slug}>Read More</Link>
                     <div className="newitem-date">{post.frontmatter.date}</div>
@@ -98,6 +98,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             templateKey
+            description
             date(formatString: "MMMM DD, YYYY")
           }
         }
