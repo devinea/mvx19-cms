@@ -3,10 +3,11 @@ import PropTypes from 'prop-types'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
-import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
+import Layout from '../../components/Layout'
+import Content, { HTMLContent } from '../../components/Content'
+import './learning-post.scss'
 
-export const DeveloperGuidelinePostTemplate = ({
+export const LearningPostTemplate = ({
   content,
   contentComponent,
   description,
@@ -46,7 +47,7 @@ export const DeveloperGuidelinePostTemplate = ({
   )
 }
 
-DeveloperGuidelinePostTemplate.propTypes = {
+LearningPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
@@ -54,12 +55,12 @@ DeveloperGuidelinePostTemplate.propTypes = {
   helmet: PropTypes.object,
 }
 
-const DeveloperGuidelinePost = ({ data }) => {
+const LearningPost = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
     <Layout>
-      <DeveloperGuidelinePostTemplate
+      <LearningPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
@@ -78,16 +79,16 @@ const DeveloperGuidelinePost = ({ data }) => {
   )
 }
 
-DeveloperGuidelinePost.propTypes = {
+LearningPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
 }
 
-export default DeveloperGuidelinePost
+export default LearningPost
 
 export const pageQuery = graphql`
-  query DeveloperGuidelinePostByID($id: String!) {
+  query LearningPostByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
+import './index.scss'
+
 export default class IndexPage extends React.Component {
   render() {
     const { data } = this.props
