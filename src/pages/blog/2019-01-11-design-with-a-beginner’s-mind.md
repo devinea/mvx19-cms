@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-title: Design with a beginner’s mind
+title: Design with a beginner’s mind UPDATED
 date: 2019-01-11T00:15:32.894Z
 description: |-
   Jeong-Sook Lee
