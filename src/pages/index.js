@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import Img from 'gatsby-image'
+
 
 import './index.scss'
 
@@ -56,6 +58,7 @@ export default class IndexPage extends React.Component {
                     key={post.id}
                   >
                     <p>
+                      <Img sizes={post.frontmatter.featuredImage.childImageSharp.sizes} />
                       <Link className="newitem-title" to={post.fields.slug}>
                         {post.frontmatter.title}
                       </Link>
@@ -102,6 +105,13 @@ export const pageQuery = graphql`
             templateKey
             description
             date(formatString: "MMMM DD, YYYY")
+            featuredImage {
+                childImageSharp{
+                    sizes(maxWidth: 630) {
+                        ...GatsbyImageSharpSizes
+                    }
+                }
+            }
           }
         }
       }
