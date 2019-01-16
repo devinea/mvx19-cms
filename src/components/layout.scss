@@ -19,9 +19,14 @@
     font-style: normal;
 }
 
+body {
+    background-color: #F5F5F5;
+}
+
 .main-content {
   padding-top: 70px;
-  width: 100%;
-  float: left;
-  background-color: #F5F5F5;
+  width: 1440px;
+  min-height: 100vh;
+  background-color: white;
+  margin-left: calc((100% - 1440px)/2);
 }

@@ -70,16 +70,15 @@
   padding: 40px 0 20px 0 !important;
 
   .whatsnew-wrapper {
-    float: left;
     width: 100%;
     background-color: white;
     .container {
       padding-left: 40px;
+      height: 1200px;
     }
 
     .content {
       .whatsnew-header {
-        clear: both;
         width: 100%;
         height: 50px;
         .whatsnew-title {
