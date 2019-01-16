@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
-import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
+import Layout from '../../components/Layout'
+import Content, { HTMLContent } from '../../components/Content'
+import './blog-post.scss'
 
 export const BlogPostTemplate = ({
   content,

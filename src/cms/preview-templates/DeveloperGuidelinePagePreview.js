@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { DesignGuidelinePostTemplate } from '../../templates/design-guideline-post'
+import { DesignGuidelinePostTemplate } from '../../templates/design-guideline-post/design-guideline-post'
 
 const ProductPagePreview = ({ entry, getAsset }) => {
   const entryBlurbs = entry.getIn(['data', 'intro', 'blurbs'])

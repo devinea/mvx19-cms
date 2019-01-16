@@ -1,0 +1,32 @@
+@font-face {
+    font-family: '72-Regular';
+    src: url('../fonts/72-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: '72-Light';
+    src: url('../fonts/72-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: '72-Bold';
+    src: url('../fonts/72-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: #F5F5F5;
+}
+
+.main-content {
+  padding-top: 70px;
+  width: 1440px;
+  min-height: 100vh;
+  background-color: white;
+  margin-left: calc((100% - 1440px)/2);
+}

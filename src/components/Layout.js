@@ -2,10 +2,9 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from "gatsby"
 
-import Navbar from '../components/Navbar'
+import Navbar from '../components/nav-bar/nav-bar'
 import './all.sass'
-import './nav.sass'
-
+import './layout.scss'
 const TemplateWrapper = ({ children }) => (
   <StaticQuery
     query={graphql`
