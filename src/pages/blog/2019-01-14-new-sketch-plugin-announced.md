@@ -12,6 +12,7 @@ tags:
   - Developer
   - Designer
   - Sketch
+featuredImage: /img/2017©jeongsooklee.jpg
 ---
 Lorem ipsum dolor sit amet, integre intellegam an qui, id aperiri aliquam menandri nec. Justo ocurreret usu at. No inani iracundia mel, eu quo propriae mandamus. Id diam reque nec, inermis maiestatis ius ei. Sit ei autem soluta tempor, vel ei legere verterem oportere.
 
