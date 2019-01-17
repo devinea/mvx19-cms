@@ -2,7 +2,7 @@
 templateKey: blog-post
 title: UI5 library updated to version 1.56.9
 date: 2019-01-14T17:30:17.837Z
-featuredImage: /img/2017©jeongsooklee.jpg
+featuredImage: "/img/ui5.jpg"
 description: >-
   Includes translation and internationalization support, along with a built-in
   support tool for exploring the object tree and binding status

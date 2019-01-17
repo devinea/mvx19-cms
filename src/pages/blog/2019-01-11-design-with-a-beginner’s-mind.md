@@ -2,7 +2,7 @@
 templateKey: blog-post
 title: Design with a beginner’s mind
 date: 2019-01-11T00:15:32.894Z
-featuredImage: /img/2017©jeongsooklee.jpg
+featuredImage: "/img/design.png"
 description: |-
   Jeong-Sook Lee
   VP @ SAP Design
