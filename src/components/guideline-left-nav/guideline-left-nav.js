@@ -10,11 +10,13 @@ import './guideline-left-nav.scss'
 const GuidelineLeftNav = class extends React.Component {
     render() {
         console.log('props:', this.props);
+        const to = this.props.persona + '/guidelines';
+        console.log('TO:', to);
         return (
             <nav className="guideline-left-nav">
                 <h1>Fiori For Web</h1>
                 <input></input>
-                <Link className="main-nav" to="/design/guidelines">Home</Link>
+                <Link className="main-nav" to={to}>Home</Link>
                 <h2>Foundation</h2>
                 <h2>Layouts &amp; Floorplans</h2>
                 <h2>Controls</h2>

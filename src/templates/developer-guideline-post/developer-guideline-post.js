@@ -22,7 +22,7 @@ export const DeveloperGuidelinePostTemplate = ({
   return (
     <div>
     <GuidelineHeader></GuidelineHeader>        
-    <GuidelineLeftNav controls={ [] }></GuidelineLeftNav>       
+    <GuidelineLeftNav controls={ [] }  persona="develop"></GuidelineLeftNav>       
     <section className="section guidelines-post">
       {helmet || ''}
       <div className="container content">
