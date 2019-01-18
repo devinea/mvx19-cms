@@ -14,7 +14,7 @@ export default class DeveloperGuidelineIndexPage extends React.Component {
     return (
       <Layout>
         <GuidelineHeader></GuidelineHeader>        
-        <GuidelineLeftNav controls={ posts }></GuidelineLeftNav>        
+        <GuidelineLeftNav controls={ posts } persona="develop"></GuidelineLeftNav>        
         <section className="section develop-guidelines">
           <div className="welcome"></div>
         </section>
