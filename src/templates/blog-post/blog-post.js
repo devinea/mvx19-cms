@@ -15,8 +15,7 @@ export const BlogPostTemplate = ({
   description,
   tags,
   title,
-  featuredImage,
-  helmet,
+  helmet
 }) => {
   const PostContent = contentComponent || Content
 
@@ -29,7 +28,6 @@ export const BlogPostTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
-            <p><Img sizes={featuredImage || ''}/></p>
             <p>{description}</p>
             <PostContent content={content} />
             {tags && tags.length ? (
@@ -68,7 +66,6 @@ const BlogPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
-        featuredImage={post.frontmatter.featuredImage.childImageSharp.sizes}
         helmet={
           <Helmet
             titleTemplate="%s | Blog"
@@ -98,13 +95,6 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        featuredImage {
-          childImageSharp{
-              sizes(maxWidth: 630) {
-                  ...GatsbyImageSharpSizes
-              }
-          }
-        }
         date(formatString: "MMMM DD, YYYY")
         title
         description
