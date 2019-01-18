@@ -6,6 +6,8 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../../components/Layout'
 import Content, { HTMLContent } from '../../components/Content'
 import './developer-guideline-post.scss'
+import GuidelineHeader from '../../components/guideline-header/guideline-header'
+import GuidelineLeftNav from '../../components/guideline-left-nav/guideline-left-nav';
 
 export const DeveloperGuidelinePostTemplate = ({
   content,
@@ -18,7 +20,10 @@ export const DeveloperGuidelinePostTemplate = ({
   const PostContent = contentComponent || Content
 
   return (
-    <section className="section">
+    <div>
+    <GuidelineHeader></GuidelineHeader>        
+    <GuidelineLeftNav controls={ [] }></GuidelineLeftNav>       
+    <section className="section guidelines-post">
       {helmet || ''}
       <div className="container content">
         <div className="columns">
@@ -44,6 +49,7 @@ export const DeveloperGuidelinePostTemplate = ({
         </div>
       </div>
     </section>
+    </div>
   )
 }
 
