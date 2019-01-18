@@ -1,7 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../../components/Layout'
+import GuidelineHeader from '../../components/guideline-header/guideline-header'
+import GuidelineLeftNav from '../../components/guideline-left-nav/guideline-left-nav';
+import './guidelines.scss'
 
 export default class DeveloperGuidelineIndexPage extends React.Component {
   render() {
@@ -10,28 +13,14 @@ export default class DeveloperGuidelineIndexPage extends React.Component {
 
     return (
       <Layout>
-        <section className="section">
+        <GuidelineHeader></GuidelineHeader>        
+        <GuidelineLeftNav controls={ posts }></GuidelineLeftNav>        
+        <section className="section guidelines">
           <div className="container">
             <div className="content">
               <h1 className="has-text-weight-bold is-size-2">Develop Guidelines</h1>
             </div>
-            {posts
-              .map(({ node: post }) => (
-                <div
-                  className="content"
-                  style={{ border: '1px solid #333', padding: '2em 4em' }}
-                  key={post.id}
-                >
-                  <p>
-                    <Link className="has-text-primary" to={post.fields.slug}>
-                      {post.frontmatter.title}
-                    </Link>
-                    <small>{post.frontmatter.date}</small>
-                  </p>
-                  <p>
-                  </p>
-                </div>
-              ))}
+          
           </div>
         </section>
       </Layout>
