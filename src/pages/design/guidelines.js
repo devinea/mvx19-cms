@@ -15,14 +15,8 @@ export default class DesignGuidelineIndexPage extends React.Component {
       <Layout>
         <GuidelineHeader></GuidelineHeader>        
         <GuidelineLeftNav controls={ posts }></GuidelineLeftNav>
-        <section className="section guidelines">
-          <div className="container">
-            
-            <div className="content">
-              <h1 className="has-text-weight-bold is-size-2">Design Guidelines</h1>
-            </div>
-           
-          </div>
+        <section className="section design-guidelines">
+          <div className="welcome"></div>
         </section>
       </Layout>
     )
