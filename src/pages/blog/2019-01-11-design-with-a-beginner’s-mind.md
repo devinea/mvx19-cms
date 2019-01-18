@@ -2,6 +2,7 @@
 templateKey: blog-post
 title: Design with a beginner’s mind
 date: 2019-01-11T00:15:32.894Z
+featuredImage: "/img/design.png"
 description: |-
   Jeong-Sook Lee
   VP @ SAP Design
@@ -14,7 +15,6 @@ tags:
   - product design
   - SAP Fiori
 ---
-![](/img/2017©jeongsooklee.jpg)
 
 A few summers back, I was riding on horseback through the deep mountains of Kyrgyzstan with a young local woman. She said, “When I was a little girl, I always wondered what would be behind these high mountains.”
 
