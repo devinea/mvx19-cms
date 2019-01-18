@@ -136,11 +136,29 @@
       padding-bottom: 40px;
 
       .whatsnew-items {
-        padding: 30px 30px 30px 160px;
+        .newitem-item-content {
+          padding-left: 1px;
+          padding-right: 1px;
+          padding-top: 30px;
+          padding-bottom: 20px;
+          height: 207px;
+
+        }
+        .newitem-item-thumbnail {
+          width: 75px;
+          height: 75px;
+          padding-left: 20px;
+          //padding-right: 20px;
+          //padding-top: 10px;
+          //padding-bottom: 10px;
+          background-size: 125px;
+          float:left
+        }
         .newitem-title {
           font-family: '72-Bold';
           font-size: 24px;
           color: #5c5c5c;
+          padding-left: 20px;
         }
         .newitem-details {
           font-family: '72-Light';
@@ -148,6 +166,7 @@
           color: #a1a1a1;
           float: left;
           width: calc(100% - 150px);
+          padding-left: 20px;
         }
         .newitem-more {
           float: right;
@@ -165,35 +184,11 @@
           font-size: 14px;
           color: #a1a1a1;
           padding-top: 20px;
+          padding-left: 95px;
         }
         background-repeat: no-repeat;
         &:hover {
           box-shadow: 1px 1px 10px 1px lightgray;
-        }
-        &:nth-child(1) {
-          background-image: url('../img/sketch.png');
-          background-size: 75px;
-          background-position: 50px 30px;
-        }
-        &:nth-child(2) {
-          background-image: url('../img/ui5.jpg');
-          background-size: 125px;
-          background-position: 25px 30px;
-        }
-        &:nth-child(3) {
-          background-image: url('../img/github.svg');
-          background-size: 75px;
-          background-position: 50px 30px;
-        }
-        &:nth-child(4) {
-          background-image: url('../img/theming.png');
-          background-size: 75px;
-          background-position: 50px 30px;
-        }
-        &:nth-child(5) {
-          background-image: url('../img/design.png');
-          background-size: 125px;
-          background-position: 25px 30px;
         }
       }
     }

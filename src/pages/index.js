@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import Img from 'gatsby-image'
+
 
 import './index.scss'
 
@@ -43,9 +45,9 @@ export default class IndexPage extends React.Component {
             </div>
             <div className="new-lhs">
               <div className="new-lhs-title">Learn about the latest updates and announcements to the Fiori Design System.</div>
-              <div class="new-lhs-option selected">all</div>
-              <div class="new-lhs-option">designer</div>
-              <div class="new-lhs-option">developer</div>
+              <div className="new-lhs-option selected">all</div>
+              <div className="new-lhs-option">designer</div>
+              <div className="new-lhs-option">developer</div>
             </div>
             <div className="new-rhs">
               {posts
@@ -55,16 +57,19 @@ export default class IndexPage extends React.Component {
                     id={post.img}
                     key={post.id}
                   >
-                    <p>
-                      <Link className="newitem-title" to={post.fields.slug}>
-                        {post.frontmatter.title}
-                      </Link>
-                    </p>
-                    <div className="newitem-details">
-                      {post.frontmatter.description}
+                    <div className="newitem-item-content">
+                      <Img className="newitem-item-thumbnail" sizes={post.frontmatter.featuredImage.childImageSharp.sizes} />
+                      <p>
+                        <Link className="newitem-title" to={post.fields.slug}>
+                          {post.frontmatter.title}
+                        </Link>
+                      </p>
+                      <div className="newitem-details">
+                        {post.frontmatter.description}
+                      </div>
+                      <Link className="newitem-more" to={post.fields.slug}>Read More</Link>
+                      <div className="newitem-date">{post.frontmatter.date}</div>
                     </div>
-                    <Link className="newitem-more" to={post.fields.slug}>Read More</Link>
-                    <div className="newitem-date">{post.frontmatter.date}</div>
                   </div>
                 ))}
               </div>
@@ -96,12 +101,21 @@ export const pageQuery = graphql`
           id
           fields {
             slug
+            
           }
+          
           frontmatter {
             title
             templateKey
             description
             date(formatString: "MMMM DD, YYYY")
+            featuredImage{
+              childImageSharp {
+                sizes(maxWidth: 75) {
+                  ...GatsbyImageSharpSizes
+                }
+              }
+            }
           }
         }
       }
