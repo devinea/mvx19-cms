@@ -6,8 +6,6 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../../components/Layout'
 import Content, { HTMLContent } from '../../components/Content'
 import './blog-post.scss'
-import Img from 'gatsby-image'
-
 
 export const BlogPostTemplate = ({
   content,
