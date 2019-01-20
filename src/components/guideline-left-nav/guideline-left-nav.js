@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import './guideline-left-nav.scss'
+import { StaticQuery, graphql } from "gatsby"
+
 
 // console.log(props.controls);
 
