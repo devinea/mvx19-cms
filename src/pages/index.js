@@ -4,6 +4,8 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Img from 'gatsby-image'
 
+import Search from '../components/search/search'
+
 
 import './index.scss'
 
@@ -17,7 +19,9 @@ export default class IndexPage extends React.Component {
         <section className="trending">
           <div className="trending-content">
             <div className="trending-header">Explore, Design and Develop with the Design System for the Enterprise</div>
-            <div className="trending-search"><input name="search"></input></div>
+            {/*<div className="trending-search"><input name="search"></input></div>*/}
+            <div className="trending-search"><Search name="search"/></div>
+
             <div className="trending-suggestions">
               <div className="trending-title">Trending</div>
               <div className="item">Fiori Toolkit v1.1</div>
@@ -86,7 +90,7 @@ IndexPage.propTypes = {
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
     }),
-  }),
+  })
 }
 
 export const pageQuery = graphql`
