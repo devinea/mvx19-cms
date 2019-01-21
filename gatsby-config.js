@@ -67,37 +67,39 @@ module.exports = {
         resolvers: {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           MarkdownRemark: {
+            templateKeyName: node => {
+              let templateKeyName = ''
+              switch (node.frontmatter.templateKey) {
+                case 'blog-post': {
+                  templateKeyName = 'News'
+                  break;
+                }
+                case 'design-guideline-post': {
+                  templateKeyName = 'Fiori for Web'
+                  break;
+                }
+                case 'developer-guideline-post': {
+                  templateKeyName = 'Fiori for Web'
+                  break;
+                }
+                default:
+                  {
+                    templateKeyName = 'Page'
+                    break;
+                  }
+              }
+              return templateKeyName
+            },
             title: node => node.frontmatter.title,
-            path: node => node.frontmatter.path,
+            path: node => node.fields.slug,
+            featuredImage: node => node.frontmatter.featuredImage,
+            description: node => node.frontmatter.description,
+
             tags: node => node.frontmatter.tags
-          },
-        },
-      },
+          }
+        }
+      }
     },
-    // {
-    //   resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
-    //   options: {
-    //     fields: [`title`, `data`, `tags`],
-    //     resolvers: {
-    //       MarkdownRemark: {
-    //         data: node => {
-    //           const str = node.dataString
-    //           const regexp = new RegExp('(?:text":")(.+?)(?:",")', 'gi')
-    //           const arr = []
-    //           let result
-    //           // eslint-disable-next-line no-cond-assign
-    //           while ((result = regexp.exec(str))) {
-    //             arr.push(result[1])
-    //           }
-    //           return arr.join(' ').replace(/\\n?/g, '')
-    //         },
-    //         tags: node => node.tags,
-    //         title: node => node.data.title.text,
-    //         uid: node => node.uid,
-    //       },
-    //     },
-    //   },
-    // },
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
