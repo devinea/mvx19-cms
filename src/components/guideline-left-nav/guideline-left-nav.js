@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, StaticQuery, graphql } from 'gatsby'
 import './guideline-left-nav.scss'
 
 const LeftNav = ({ data }) => (
