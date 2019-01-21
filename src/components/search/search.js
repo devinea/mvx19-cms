@@ -307,7 +307,7 @@ class Search extends Component {
                 `(${this.state.query})(.{0,48})`,
                 'gim'
               )
-              const matched = regex.exec(page.data)
+              const matched = regex.exec(page)
               const searched = propPathOr(null, [1], matched)
               const matchedQuery = regexQuery.exec(searched)
               const searchedQuery = propPathOr('', [1], matchedQuery)
@@ -315,7 +315,8 @@ class Search extends Component {
 
               return (
                 <li key={uuid()}>
-                  <Link  to={`/${page.uid}`}>
+                  {/*<Link  to={`/${page.uid}`}>*/}
+                  <Link  to={`/${page.path}`}>
                     <span >{page.title}</span>
                     <span>
                       :{' '}

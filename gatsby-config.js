@@ -69,11 +69,35 @@ module.exports = {
           MarkdownRemark: {
             title: node => node.frontmatter.title,
             path: node => node.frontmatter.path,
-            tags: node => node.frontmatter.tags,
+            tags: node => node.frontmatter.tags
           },
         },
       },
     },
+    // {
+    //   resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+    //   options: {
+    //     fields: [`title`, `data`, `tags`],
+    //     resolvers: {
+    //       MarkdownRemark: {
+    //         data: node => {
+    //           const str = node.dataString
+    //           const regexp = new RegExp('(?:text":")(.+?)(?:",")', 'gi')
+    //           const arr = []
+    //           let result
+    //           // eslint-disable-next-line no-cond-assign
+    //           while ((result = regexp.exec(str))) {
+    //             arr.push(result[1])
+    //           }
+    //           return arr.join(' ').replace(/\\n?/g, '')
+    //         },
+    //         tags: node => node.tags,
+    //         title: node => node.data.title.text,
+    //         uid: node => node.uid,
+    //       },
+    //     },
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
