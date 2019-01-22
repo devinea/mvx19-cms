@@ -3,9 +3,31 @@ import { Link } from 'gatsby'
 import './guideline-left-nav.scss'
 import { StaticQuery, graphql } from "gatsby"
 
+const LeftNav = class extends React.Component {
+    render() {
+        console.log('here!');
+        console.log(this.props);
+        return (
+            <nav className="guideline-left-nav">
+                <h1>Fiori For Web</h1>
+            <input></input>
+            <Link className="main-nav" to={ 'design/guidelines'}>Home</Link>
+            <h2>Foundation</h2>
+            <h2>Layouts &amp; Floorplans</h2>
+            <h2>Controls</h2>
+            {this.props.data.allMarkdownRemark.edges
+                .map(({ node: data }) => (
+                <Link className="control-menu" key={data.id} to={data.fields.slug}>{data.frontmatter.title}</Link>
+                ))  
+            }
+            <h2>Sample Apps</h2>
+            <h2>What's new</h2>
+            <h2>Resources</h2>
+            </nav>
+    )}
+};
 
-// console.log(props.controls);
-const LeftNav = ({ data }) => (
+const LeftNav2 = ({ data }) => (
   <nav className="guideline-left-nav">
     <h1>Fiori For Web</h1>
   <input></input>
