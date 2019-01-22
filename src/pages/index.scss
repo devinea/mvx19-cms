@@ -162,7 +162,7 @@
           font-size: 18px;
           color: #a1a1a1;
           float: left;
-          width: calc(100% - 150px);
+          width: calc(100% - 200px);
           padding-left: 20px;
         }
         .newitem-more {
@@ -171,8 +171,8 @@
           font-size: 14px;
           text-transform: uppercase;
           color: #a1a1a1;
-          width: 150px;
-          text-align: right;
+          width: 100px;
+          padding-top: 3px;
           cursor: pointer;
         }
         .newitem-date {

@@ -1,12 +1,18 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import './guideline-left-nav.scss'
+import { Location } from '@reach/router';
+
 
 const LeftNav = ({ data }) => (
   <nav className="guideline-left-nav">
     <h1>Fiori For Web</h1>
   <input></input>
-  <Link className="main-nav" to={ 'design/guidelines'}>Home</Link>
+  <Location>
+  {({ location }) => {
+    return <Link className="main-nav" to={ (location.pathname.startsWith('/develop') ? 'develop' : 'design') + '/guidelines'}>Home</Link>
+  }}
+  </Location>
   <h2>Foundation</h2>
   <h2>Layouts &amp; Floorplans</h2>
   <h2>Controls</h2>
@@ -23,7 +29,6 @@ const LeftNav = ({ data }) => (
 /**
  * Generates the guideline LHS navigation.
  */
-// const GuidelineLeftNav = class extends React.Component (
 export default props => (
 <StaticQuery
 query={graphql`{
@@ -45,7 +50,6 @@ query={graphql`{
       }
     }
   }`}
-    render={data => <LeftNav data={data} {...props} />}
-
+    render={(data) => <LeftNav data={data} {...props} /> }
 />
 )
