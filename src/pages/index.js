@@ -10,17 +10,31 @@ import Search from '../components/search/search'
 import './index.scss'
 
 export default class IndexPage extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      searchToggle: 'off'
+    }
+    this.handler = this.handler.bind(this)
+  }
+  
+  handler(toggleVal) {
+    this.setState({
+      searchToggle: toggleVal
+    })
+  }
+
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
 
     return (
       <Layout>
-        <section className="trending">
-          <div className="trending-content">
-            <div className="trending-header">Explore, Design and Develop with the Design System for the Enterprise</div>
+        <section className={`${this.state.searchToggle == 'on' ? 'search-results' : 'trending'}`}>
+          <div className="content">
+            <div className="header">Explore, Design and Develop with the Design System for the Enterprise</div>
             {/*<div className="trending-search"><input name="search"></input></div>*/}
-            <div className="trending-search"><Search name="search"/></div>
+            <div className="search"><Search name="search" searchToggle = {this.handler}/></div>
 
             <div className="trending-suggestions">
               <div className="trending-title">Trending</div>
@@ -56,25 +70,25 @@ export default class IndexPage extends React.Component {
             <div className="new-rhs">
               {posts
                 .map(({ node: post }) => (
-                  <div
-                    className="content whatsnew-items"
-                    id={post.img}
-                    key={post.id}
-                  >
-                    <div className="newitem-item-content">
-                      <Img className="newitem-item-thumbnail" sizes={post.frontmatter.featuredImage.childImageSharp.sizes} />
-                      <p>
-                        <Link className="newitem-title" to={post.fields.slug}>
-                          {post.frontmatter.title}
-                        </Link>
-                      </p>
-                      <div className="newitem-details">
-                        {post.frontmatter.description}
+                  <Link to={post.fields.slug}>
+                    <div
+                      className="content whatsnew-items"
+                      id={post.img}
+                      key={post.id}
+                    >
+                      <div className="newitem-item-content">
+                        <Img className="newitem-item-thumbnail" sizes={post.frontmatter.featuredImage.childImageSharp.sizes} />
+                        <p>
+                            <span className="newitem-title">{post.frontmatter.title}</span>
+                        </p>
+                        <div className="newitem-details">
+                          {post.frontmatter.description}
+                        </div>
+                        <Link className="newitem-more" to={post.fields.slug}>Read More</Link>
+                        <div className="newitem-date">{post.frontmatter.date}</div>
                       </div>
-                      <Link className="newitem-more" to={post.fields.slug}>Read More</Link>
-                      <div className="newitem-date">{post.frontmatter.date}</div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
               </div>
