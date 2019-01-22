@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import './guideline-left-nav.scss'
-import { StaticQuery, graphql } from "gatsby"
 import { Location } from '@reach/router';
 
 
