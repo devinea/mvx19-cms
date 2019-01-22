@@ -59,6 +59,48 @@ module.exports = {
       },
     },
     {
+      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      options: {
+        // Fields to index
+        fields: [`title`, `tags`, `slug`],
+        // How to resolve each field`s value for a supported node type
+        resolvers: {
+          // For any node of type MarkdownRemark, list how to resolve the fields` values
+          MarkdownRemark: {
+            templateKeyName: node => {
+              let templateKeyName = ''
+              switch (node.frontmatter.templateKey) {
+                case 'blog-post': {
+                  templateKeyName = 'News'
+                  break;
+                }
+                case 'design-guideline-post': {
+                  templateKeyName = 'Fiori for Web'
+                  break;
+                }
+                case 'developer-guideline-post': {
+                  templateKeyName = 'Fiori for Web'
+                  break;
+                }
+                default:
+                  {
+                    templateKeyName = 'Page'
+                    break;
+                  }
+              }
+              return templateKeyName
+            },
+            title: node => node.frontmatter.title,
+            path: node => node.fields.slug,
+            featuredImage: node => node.frontmatter.featuredImage,
+            description: node => node.frontmatter.description,
+
+            tags: node => node.frontmatter.tags
+          }
+        }
+      }
+    },
+    {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,

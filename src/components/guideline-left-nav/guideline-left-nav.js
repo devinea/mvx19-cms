@@ -1,8 +1,9 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, StaticQuery, graphql } from 'gatsby'
 import './guideline-left-nav.scss'
 import { StaticQuery, graphql } from "gatsby"
 import { Location } from '@reach/router';
+
 
 const LeftNav = ({ data }) => (
   <nav className="guideline-left-nav">
