@@ -4,7 +4,7 @@ import { StaticQuery, Link, graphql } from 'gatsby'
 import { Index } from 'elasticlunr'
 import { Location } from '@reach/router'
 import uuid from 'uuid/v4'
-
+import './search.scss'
 
 class Search extends Component {
   constructor(props) {
@@ -55,8 +55,10 @@ class Search extends Component {
           .search(query, { expand: true })
           .map(({ ref }) => this.index.documentStore.getDoc(ref)), // Map over each ID and return the full document
       })
+      this.props.searchToggle('on');
     } else {
       this.setState({ results: [] })
+      this.props.searchToggle('off');
     }
   }
 
@@ -80,19 +82,28 @@ class Search extends Component {
                 type="search"
                 value={this.state.query}
               />
-            {this.state.results.slice(0, 5).map(page => {
-              return (
-                <li key={uuid()}>
-                  <Link  to={`/${page.path}`}>
-                    <span >{page.title}</span>
-                    <span >'--'</span>
-                    <span >{page.description}</span>
-                    <span >'--'</span>
-                    <span >{page.templateKeyName}</span>
-                  </Link>
-                </li>
-              )
-            })}
+              <div className={`search-results-list ${this.state.query.length > 1 ? 'on' : ''}`}>
+                <div className="title">{this.state.results.length} results for "{this.state.query}"</div>
+                <div className="search-categories">
+                  <div className="selected">Fiori for Web</div>
+                  <div>Fiori for iOS</div>
+                  <div>Fiori for Android</div>
+                  <div class="close"></div>
+                </div>
+                <div class="search-results-wrapper">
+                {this.state.results.map(page => {
+                  return (
+                    <Link  to={`/${page.path}`}>
+                      <div className="search-result" key={uuid()}>
+                        <div class="title">{page.title}</div>
+                        <div class="description">{page.description}</div>
+                        <div class="search-section">{page.templateKeyName}</div>
+                      </div>
+                    </Link>
+                  )
+                })}
+                </div>
+            </div>
       </div>
     )
   }
@@ -109,7 +120,7 @@ Search.defaultProps = {
   search: null,
 }
 
-const withStaticQuery = () => (
+const withStaticQuery = (props) => (
   <Location>
     {({ location }) => (
       <StaticQuery
@@ -120,7 +131,7 @@ const withStaticQuery = () => (
             }
           }
         `}
-        render={({ search }) => <Search search={search} location={location} />}
+        render={({ search }) => <Search search={search} location={location} searchToggle={props.searchToggle} />}
       />
     )}
   </Location>
