@@ -17,7 +17,7 @@ export default class IndexPage extends React.Component {
     }
     this.handler = this.handler.bind(this)
   }
-  
+
   handler(toggleVal) {
     this.setState({
       searchToggle: toggleVal
@@ -30,10 +30,9 @@ export default class IndexPage extends React.Component {
 
     return (
       <Layout>
-        <section className={`${this.state.searchToggle == 'on' ? 'search-results' : 'trending'}`}>
+        <section className={`${this.state.searchToggle === 'on' ? 'search-results' : 'trending'}`}>
           <div className="content">
             <div className="header">Explore, Design and Develop with the Design System for the Enterprise</div>
-            {/*<div className="trending-search"><input name="search"></input></div>*/}
             <div className="search"><Search name="search" searchToggle = {this.handler}/></div>
 
             <div className="trending-suggestions">
@@ -70,7 +69,7 @@ export default class IndexPage extends React.Component {
             <div className="new-rhs">
               {posts
                 .map(({ node: post }) => (
-                  <Link to={post.fields.slug}>
+                  <Link to={post.fields.slug} key={post.id}>
                     <div
                       className="content whatsnew-items"
                       id={post.img}
@@ -84,7 +83,7 @@ export default class IndexPage extends React.Component {
                         <div className="newitem-details">
                           {post.frontmatter.description}
                         </div>
-                        <Link className="newitem-more" to={post.fields.slug}>Read More</Link>
+                        <span className="newitem-more">Read More</span>
                         <div className="newitem-date">{post.frontmatter.date}</div>
                       </div>
                     </div>
