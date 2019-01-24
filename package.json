@@ -43,9 +43,11 @@
     "develop": "npm run clean && gatsby develop",
     "serve": "gatsby serve",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scrap": "node -e 'require(\"./gatsby-node.js\").scrapFundamentals()'"
   },
   "devDependencies": {
+    "axios": "^0.18.0",
     "prettier": "^1.15.3",
     "rimraf": "^2.6.2"
   }

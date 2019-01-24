@@ -1,10 +1,19 @@
 const _ = require('lodash')
 const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
-const { fmImagesToRelative } = require('gatsby-remark-relative-images')
+const {
+  createFilePath
+} = require('gatsby-source-filesystem')
+const {
+  fmImagesToRelative
+} = require('gatsby-remark-relative-images')
 
-exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
+exports.createPages = ({
+  actions,
+  graphql
+}) => {
+  const {
+    createPage
+  } = actions
 
   return graphql(`
     {
@@ -73,16 +82,61 @@ exports.createPages = ({ actions, graphql }) => {
   })
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+exports.onCreateNode = ({
+  node,
+  actions,
+  getNode
+}) => {
+  const {
+    createNodeField
+  } = actions
   fmImagesToRelative(node) // convert image paths for gatsby images
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    const value = createFilePath({
+      node,
+      getNode
+    })
     createNodeField({
       name: `slug`,
       node,
       value,
     })
   }
+}
+
+exports.scrapFundamentals = () => {
+  const axios = require('axios');
+  let fundamentalComponents = [];
+  // Make a request for a user with a given ID
+  axios.get('https://api.github.com/repos/SAP/fundamental/contents/docs/pages/components')
+    .then(function (response) {
+      // handle success
+      
+      fundamentalComponents = response.data;
+      const token = fundamentalComponents.filter((c) => {
+        return c.name === "token.md";
+      });
+
+      axios.get('https://raw.githubusercontent.com/SAP/fundamental/develop/docs/pages/components/token.md')
+      .then(function (response1) {
+        // console.log(response1.data.replace('\n', ''));
+        let md = response1.data
+        .replace('\n', '')
+        // .replace(/(\{.*?\})/gi, '```')
+        .replace(/(\{% capture.*?\})/gi, '```')
+        .replace(/(\{% endcapture.*?\})/gi, '```')
+        .replace(/(\{%.*?\})/gi, '')
+        console.log(md)
+      })
+
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
+
 }
