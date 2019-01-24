@@ -1,0 +1,15 @@
+.design-controls {
+    float: left;
+    width: calc(100% - 270px);
+    padding: 0px;
+
+    .welcome {
+        width: 100%;
+        height: 200px;
+        background-color: #f8f9fb;
+        height: 682px;
+        background-image: url('img/design.png');
+        background-repeat: no-repeat;
+        background-position: top right;
+    }
+}
