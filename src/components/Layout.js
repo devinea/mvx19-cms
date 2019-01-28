@@ -6,6 +6,7 @@ import Navbar from '../components/nav-bar/nav-bar'
 import './all.scss'
 import './layout.scss'
 import 'fiori-fundamentals/dist/fiori-fundamentals.min.css'
+import './prism-vs.css'
 const TemplateWrapper = ({ children }) => (
   <StaticQuery
     query={graphql`
