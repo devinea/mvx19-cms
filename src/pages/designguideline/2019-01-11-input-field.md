@@ -2,6 +2,7 @@
 templateKey: design-guideline-post
 title: Input-Field
 date: 2019-01-11T00:15:32.894Z
+featuredImage: "/img/toolbarbuttons1-Belize.png"
 description: |-
   Input Field
 tags:

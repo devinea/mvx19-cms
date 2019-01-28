@@ -3,13 +3,23 @@
     width: calc(100% - 270px);
     padding: 0px;
 
-    .welcome {
-        width: 100%;
+    .control-menu {
+        float: left;
+        width: 50%;
         height: 200px;
-        background-color: #f8f9fb;
-        height: 682px;
-        background-image: url('img/design.png');
+        background-position: center center;
         background-repeat: no-repeat;
-        background-position: top right;
+        border: 1px black solid;
+        transform: translateZ(0);
+        .control-title {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            position: fixed;
+        }
+        .control-img {
+            width: 100%;
+            height: auto;
+        }
     }
 }

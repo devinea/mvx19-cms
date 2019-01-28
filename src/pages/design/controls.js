@@ -16,7 +16,7 @@ class DesignControlsIndexPage extends React.Component {
           <h2>Controls</h2>
           {this.props.data.allMarkdownRemark.edges
             .map(({ node: data }) => (
-              <ul><Link className="control-menu" key={data.id} to={data.fields.slug}>{data.frontmatter.title}</Link></ul>
+              <Link className="control-menu" key={data.id} to={data.fields.slug}><img className="control-img" src={data.frontmatter.featuredImage.publicURL}/><div className="control-title">{data.frontmatter.title}</div></Link>
             ))}
         </section>
       </Layout>
@@ -41,6 +41,9 @@ export default props => (
           frontmatter {
             title
             templateKey
+            featuredImage {
+                publicURL
+            }
           }
         }
       }
