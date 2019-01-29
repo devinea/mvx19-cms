@@ -32,6 +32,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "design-guideline-post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Link", name: "link", widget: "relation", collection: "developerguideline", searchFields: ["title", "body"], valueField: "title", required: false}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
