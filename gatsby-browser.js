@@ -1,2 +1,3 @@
-import "./src/styles/prism-vs.css"
+import './src/styles/prism-vs.css'
 import './node_modules/fiori-fundamentals/dist/fiori-fundamentals.min.css'
+import './src/styles/global.css'
