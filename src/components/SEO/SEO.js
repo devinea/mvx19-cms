@@ -38,7 +38,7 @@ const SEO = props => (
           meta={[
             { property: 'og:title', content: `${title}` },
             { property: 'og:type', content: 'website' },
-            { property: 'og:image', content: '/img/SAP_logo_big.jpg' },
+            { property: 'og:image', content: '/img/og-image.jpg' },
             { property: 'og:description', content: `${description}` },
             { property: 'og:url', content: `${url}` }
           ]}
