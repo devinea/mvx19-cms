@@ -4,6 +4,7 @@ import GuidelineHeader from '../../components/guideline-header/guideline-header'
 import GuidelineLeftNav from '../../components/guideline-left-nav/guideline-left-nav';
 import './controls.scss'
 import { graphql, Link, StaticQuery } from "gatsby";
+import Img from 'gatsby-image';
 
 class DesignControlsIndexPage extends React.Component {
   render() {
@@ -16,7 +17,11 @@ class DesignControlsIndexPage extends React.Component {
           <h2>Controls</h2>
           {this.props.data.allMarkdownRemark.edges
             .map(({ node: data }) => (
-              <Link className="control-menu" key={data.id} to={data.fields.slug}><img className="control-img" src={data.frontmatter.featuredImage.publicURL}/><div className="control-title">{data.frontmatter.title}</div></Link>
+              <Link className="control-menu" key={data.id} to={data.fields.slug}>
+                <Img className="control-img" imgStyle={{ 'object-fit': 'contain' }}
+                     sizes={data.frontmatter.featuredImage.childImageSharp.sizes}/>
+                <div className="control-title">{data.frontmatter.title}</div>
+                </Link>
             ))}
         </section>
       </Layout>
@@ -41,8 +46,12 @@ export default props => (
           frontmatter {
             title
             templateKey
-            featuredImage {
-                publicURL
+             featuredImage {
+              childImageSharp {
+                sizes {
+                  ...GatsbyImageSharpSizes
+                }
+              }
             }
           }
         }

@@ -2,7 +2,7 @@
 templateKey: design-guideline-post
 title: Input-Field
 date: 2019-01-11T00:15:32.894Z
-featuredImage: "/img/control-input-field.jpg"
+featuredImage: "/img/control-input-field.png"
 description: |-
   Input Field
 tags:
