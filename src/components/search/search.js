@@ -88,16 +88,16 @@ class Search extends Component {
                   <div className="selected">Fiori for Web</div>
                   <div>Fiori for iOS</div>
                   <div>Fiori for Android</div>
-                  <div class="close"></div>
+                  <div className="close"></div>
                 </div>
-                <div class="search-results-wrapper">
+                <div className="search-results-wrapper">
                 {this.state.results.map(page => {
                   return (
                     <Link  to={`/${page.path}`}>
                       <div className="search-result" key={uuid()}>
-                        <div class="title">{page.title}</div>
-                        <div class="description">{page.description}</div>
-                        <div class="search-section">{page.templateKeyName}</div>
+                        <div className="title">{page.title}</div>
+                        <div className="description">{page.description}</div>
+                        <div className="search-section">{page.templateKeyName}</div>
                       </div>
                     </Link>
                   )
