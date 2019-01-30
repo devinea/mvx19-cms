@@ -47,7 +47,10 @@ const AboutPage = ({ data, location }) => {
 };
 
 AboutPage.propTypes = {
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired
+  })
 };
 
 export default AboutPage;

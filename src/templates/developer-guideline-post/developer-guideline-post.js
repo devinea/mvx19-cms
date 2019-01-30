@@ -53,7 +53,8 @@ export const DeveloperGuidelinePostTemplate = ({
       </div>
     </div>
   );
-};1
+};
+1;
 
 DeveloperGuidelinePostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
@@ -91,6 +92,9 @@ const DeveloperGuidelinePost = ({ data, location }) => {
 DeveloperGuidelinePost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object
+  }),
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired
   })
 };
 

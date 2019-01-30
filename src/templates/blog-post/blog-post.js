@@ -83,7 +83,10 @@ const BlogPost = ({ data, location }) => {
 BlogPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object
-  })
+  }),
+	location: PropTypes.shape({
+		pathname: PropTypes.string.isRequired
+	})
 };
 
 export default BlogPost;

@@ -89,6 +89,9 @@ const DesignGuidelinePost = ({ data, location }) => {
 DesignGuidelinePost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object
+  }),
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired
   })
 };
 
