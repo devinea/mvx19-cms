@@ -19,6 +19,9 @@ const SEO = props => (
     query={detailsQuery}
     render={(data) => {
       const title = props.title || data.site.siteMetadata.title;
+      const description = props.description || data.site.siteMetadata.description;
+      const url = '/';
+
       return (
         <Helmet
           htmlAttributes={{
@@ -26,11 +29,18 @@ const SEO = props => (
           }}
           title={title}
           meta={[
-            { name: 'description', content: `${data.site.siteMetadata.description}` },
+            { name: 'description', content: `${description}` }
           ]}
-          titleTemplate={`%s - ${data.site.siteMetadata.title}`}
+          titleTemplate={`%s - ${title}`}
           link={[
-            { rel: 'shortcut icon', type: 'image/png', href: `${favicon}` },
+            { rel: 'shortcut icon', type: 'image/png', href: `${favicon}` }
+          ]}
+          meta={[
+            { property: 'og:title', content: `${title}` },
+            { property: 'og:type', content: 'website' },
+            { property: 'og:image', content: '/img/SAP_logo_big.jpg' },
+            { property: 'og:description', content: `${description}` },
+            { property: 'og:url', content: `${url}` }
           ]}
         />
       );
