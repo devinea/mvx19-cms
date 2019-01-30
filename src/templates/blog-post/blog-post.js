@@ -1,12 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
-import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
-import Layout from '../../components/Layout'
-import Content, { HTMLContent } from '../../components/Content'
-import './blog-post.scss'
-
+import React from 'react';
+import PropTypes from 'prop-types';
+import { kebabCase } from 'lodash';
+import Helmet from 'react-helmet';
+import { graphql, Link } from 'gatsby';
+import Layout from '../../components/Layout';
+import Content, { HTMLContent } from '../../components/Content';
+import './blog-post.scss';
 
 export const BlogPostTemplate = ({
   content,
@@ -16,15 +15,15 @@ export const BlogPostTemplate = ({
   title,
   helmet
 }) => {
-  const PostContent = contentComponent || Content
+  const PostContent = contentComponent || Content;
 
   return (
-    <section className="section blog">
+    <section className='section blog'>
       {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+      <div className='container content'>
+        <div className='columns'>
+          <div className='column is-10 is-offset-1'>
+            <h1 className='title is-size-2 has-text-weight-bold is-bold-light'>
               {title}
             </h1>
             <p>{description}</p>
@@ -32,7 +31,7 @@ export const BlogPostTemplate = ({
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
                 <h4>Tags</h4>
-                <ul className="taglist">
+                <ul className='taglist'>
                   {tags.map(tag => (
                     <li key={tag + `tag`}>
                       <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
@@ -45,48 +44,49 @@ export const BlogPostTemplate = ({
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 BlogPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
-  helmet: PropTypes.object,
-}
+  helmet: PropTypes.object
+};
 
-const BlogPost = ({ data }) => {
-  const { markdownRemark: post } = data
+const BlogPost = ({ data, location }) => {
+  const { markdownRemark: post } = data;
 
   return (
-    <Layout>
+    <Layout location={location}>
       <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
         helmet={
-          <Helmet
-            titleTemplate="%s | Blog"
-          >
+          <Helmet titleTemplate='%s | Blog'>
             <title>{`${post.frontmatter.title}`}</title>
-            <meta name="description" content={`${post.frontmatter.description}`} />
+            <meta
+              name='description'
+              content={`${post.frontmatter.description}`}
+            />
           </Helmet>
         }
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
       />
     </Layout>
-  )
-}
+  );
+};
 
 BlogPost.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
-}
+    markdownRemark: PropTypes.object
+  })
+};
 
-export default BlogPost
+export default BlogPost;
 
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
@@ -101,4 +101,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
