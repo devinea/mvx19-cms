@@ -13,6 +13,7 @@ import GuidelineHeader from '../../components/guideline-header/guideline-header'
 import GuidelineLeftNav from '../../components/guideline-left-nav/guideline-left-nav';
 
 export const DeveloperGuidelinePostTemplate = ({
+  location,
   content,
   contentComponent,
   description,
@@ -23,7 +24,7 @@ export const DeveloperGuidelinePostTemplate = ({
   const PostContent = contentComponent || Content;
 
   return (
-    <div>
+    <Layout location={location}>
       <GuidelineHeader />
       <Flex
         direction='row'
@@ -71,7 +72,7 @@ export const DeveloperGuidelinePostTemplate = ({
           </section>
         </div>
       </Flex>
-    </div>
+    </Layout>
   );
 };
 
@@ -87,24 +88,23 @@ const DeveloperGuidelinePost = ({ data, location }) => {
   const { markdownRemark: post } = data;
 
   return (
-    <Layout location={location}>
-      <DeveloperGuidelinePostTemplate
-        content={post.html}
-        contentComponent={HTMLContent}
-        description={post.frontmatter.description}
-        helmet={
-          <Helmet titleTemplate='%s | Blog'>
-            <title>{`${post.frontmatter.title}`}</title>
-            <meta
-              name='description'
-              content={`${post.frontmatter.description}`}
-            />
-          </Helmet>
-        }
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
-      />
-    </Layout>
+    <DeveloperGuidelinePostTemplate
+      location={location}
+      content={post.html}
+      contentComponent={HTMLContent}
+      description={post.frontmatter.description}
+      helmet={
+        <Helmet titleTemplate='%s | Blog'>
+          <title>{`${post.frontmatter.title}`}</title>
+          <meta
+            name='description'
+            content={`${post.frontmatter.description}`}
+          />
+        </Helmet>
+      }
+      tags={post.frontmatter.tags}
+      title={post.frontmatter.title}
+    />
   );
 };
 

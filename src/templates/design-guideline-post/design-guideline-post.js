@@ -13,6 +13,7 @@ import GuidelineHeader from '../../components/guideline-header/guideline-header'
 import GuidelineLeftNav from '../../components/guideline-left-nav/guideline-left-nav';
 
 export const DesignGuidelinePostTemplate = ({
+  location,
   content,
   contentComponent,
   description,
@@ -23,7 +24,7 @@ export const DesignGuidelinePostTemplate = ({
   const PostContent = contentComponent || Content;
 
   return (
-    <div>
+    <Layout location={location}>
       <GuidelineHeader />
       <Flex
         direction='row'
@@ -32,7 +33,8 @@ export const DesignGuidelinePostTemplate = ({
         overflow='auto'
         valign='stretch'
         css={{
-          width: '100%'
+          width: '100%',
+          height: '100%'
         }}
       >
         <GuidelineLeftNav />
@@ -71,7 +73,7 @@ export const DesignGuidelinePostTemplate = ({
           </section>
         </div>
       </Flex>
-    </div>
+    </Layout>
   );
 };
 
@@ -87,24 +89,23 @@ const DesignGuidelinePost = ({ data, location }) => {
   const { markdownRemark: post } = data;
 
   return (
-    <Layout location={location}>
-      <DesignGuidelinePostTemplate
-        content={post.html}
-        contentComponent={HTMLContent}
-        description={post.frontmatter.description}
-        helmet={
-          <Helmet titleTemplate='%s | Blog'>
-            <title>{`${post.frontmatter.title}`}</title>
-            <meta
-              name='description'
-              content={`${post.frontmatter.description}`}
-            />
-          </Helmet>
-        }
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
-      />
-    </Layout>
+    <DesignGuidelinePostTemplate
+      location={location}
+      content={post.html}
+      contentComponent={HTMLContent}
+      description={post.frontmatter.description}
+      helmet={
+        <Helmet titleTemplate='%s | Blog'>
+          <title>{`${post.frontmatter.title}`}</title>
+          <meta
+            name='description'
+            content={`${post.frontmatter.description}`}
+          />
+        </Helmet>
+      }
+      tags={post.frontmatter.tags}
+      title={post.frontmatter.title}
+    />
   );
 };
 
