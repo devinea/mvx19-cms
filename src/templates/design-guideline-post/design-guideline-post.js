@@ -13,7 +13,6 @@ import GuidelineHeader from '../../components/guideline-header/guideline-header'
 import GuidelineLeftNav from '../../components/guideline-left-nav/guideline-left-nav';
 
 export const DesignGuidelinePostTemplate = ({
-  location,
   content,
   contentComponent,
   description,
@@ -22,6 +21,47 @@ export const DesignGuidelinePostTemplate = ({
   helmet
 }) => {
   const PostContent = contentComponent || Content;
+
+  return (
+    <section className='section guidelines-post'>
+      {helmet || ''}
+      <div className='container content'>
+        <div className='columns'>
+          <div className='column is-10 is-offset-1'>
+            <h1 className='title is-size-2 has-text-weight-bold is-bold-light'>
+              {title}
+            </h1>
+            <p>{description}</p>
+            <PostContent content={content} />
+            {tags && tags.length ? (
+              <div style={{ marginTop: `4rem` }}>
+                <h4>Tags</h4>
+                <ul className='taglist'>
+                  {tags.map(tag => (
+                    <li key={tag + `tag`}>
+                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+DesignGuidelinePostTemplate.propTypes = {
+  content: PropTypes.node.isRequired,
+  contentComponent: PropTypes.func,
+  description: PropTypes.string,
+  title: PropTypes.string,
+  helmet: PropTypes.object
+};
+
+const DesignGuidelinePost = ({ data, location }) => {
+  const { markdownRemark: post } = data;
 
   return (
     <Layout location={location}>
@@ -45,67 +85,25 @@ export const DesignGuidelinePostTemplate = ({
             paddingBottom: 20
           }}
         >
-          <section className='section guidelines-post'>
-            {helmet || ''}
-            <div className='container content'>
-              <div className='columns'>
-                <div className='column is-10 is-offset-1'>
-                  <h1 className='title is-size-2 has-text-weight-bold is-bold-light'>
-                    {title}
-                  </h1>
-                  <p>{description}</p>
-                  <PostContent content={content} />
-                  {tags && tags.length ? (
-                    <div style={{ marginTop: `4rem` }}>
-                      <h4>Tags</h4>
-                      <ul className='taglist'>
-                        {tags.map(tag => (
-                          <li key={tag + `tag`}>
-                            <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ) : null}
-                </div>
-              </div>
-            </div>
-          </section>
+          <DesignGuidelinePostTemplate
+            content={post.html}
+            contentComponent={HTMLContent}
+            description={post.frontmatter.description}
+            helmet={
+              <Helmet titleTemplate='%s | Blog'>
+                <title>{`${post.frontmatter.title}`}</title>
+                <meta
+                  name='description'
+                  content={`${post.frontmatter.description}`}
+                />
+              </Helmet>
+            }
+            tags={post.frontmatter.tags}
+            title={post.frontmatter.title}
+          />
         </div>
       </Flex>
     </Layout>
-  );
-};
-
-DesignGuidelinePostTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
-  title: PropTypes.string,
-  helmet: PropTypes.object
-};
-
-const DesignGuidelinePost = ({ data, location }) => {
-  const { markdownRemark: post } = data;
-
-  return (
-    <DesignGuidelinePostTemplate
-      location={location}
-      content={post.html}
-      contentComponent={HTMLContent}
-      description={post.frontmatter.description}
-      helmet={
-        <Helmet titleTemplate='%s | Blog'>
-          <title>{`${post.frontmatter.title}`}</title>
-          <meta
-            name='description'
-            content={`${post.frontmatter.description}`}
-          />
-        </Helmet>
-      }
-      tags={post.frontmatter.tags}
-      title={post.frontmatter.title}
-    />
   );
 };
 
