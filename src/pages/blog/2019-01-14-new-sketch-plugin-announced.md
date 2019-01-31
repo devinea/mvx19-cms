@@ -1,8 +1,8 @@
 ---
 templateKey: blog-post
 title: New Sketch Plugin announced
+featuredImage: /img/sketch.png
 date: 2019-01-14T17:31:16.654Z
-featuredImage: "/img/sketch.png"
 description: >-
   Rapidly design Fiori experiences on the platform of your choice using the new
   Fiori Toolkit available on Sketch
@@ -13,6 +13,8 @@ tags:
   - Designer
   - Sketch
 ---
+youtube Ke90Tje7VS0
+
 Lorem ipsum dolor sit amet, integre intellegam an qui, id aperiri aliquam menandri nec. Justo ocurreret usu at. No inani iracundia mel, eu quo propriae mandamus. Id diam reque nec, inermis maiestatis ius ei. Sit ei autem soluta tempor, vel ei legere verterem oportere.
 
 Has cu falli epicuri, cibo aliquip volutpat duo ex. Everti vidisse ullamcorper ad vel. Vim justo illum in, mei ei dicat sententiae. Nostro partiendo gubergren ei nec, viris omnesque temporibus ne eos. Sea te dicant sanctus reformidans, an mea labitur mandamus.
