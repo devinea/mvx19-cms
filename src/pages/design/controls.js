@@ -8,22 +8,22 @@ import Img from 'gatsby-image';
 
 class DesignControlsIndexPage extends React.Component {
   render() {
-
+    const { location } = this.props;
     return (
-      <Layout>
+      <Layout  location={location}>
         <GuidelineHeader></GuidelineHeader>
         <GuidelineLeftNav></GuidelineLeftNav>
-        <section className="section design-controls">
+        <secton className="section design-controls" >
           <h2>Controls</h2>
           {this.props.data.allMarkdownRemark.edges
             .map(({ node: data }) => (
-              <Link className="control-menu" key={data.id} to={data.fields.slug}>
-                <Img className="control-img" imgStyle={{ 'object-fit': 'contain' }}
+              <Link className="control-menu" key={data.id} to={data.fields.slug} >
+                <Img className="control-img" imgStyle={{ 'objectFit': 'contain' }}
                      sizes={data.frontmatter.featuredImage.childImageSharp.sizes}/>
                 <div className="control-title">{data.frontmatter.title}</div>
                 </Link>
             ))}
-        </section>
+        </secton>
       </Layout>
     )
   }
