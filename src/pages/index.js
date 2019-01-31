@@ -1,38 +1,38 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Img from 'gatsby-image'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link, graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import Img from 'gatsby-image';
 
-import Search from '../components/search/search'
+import Search from '../components/search/search';
 
-
-import './index.scss'
+import './index.scss';
 
 export default class IndexPage extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       searchToggle: 'off'
-    }
-    this.handler = this.handler.bind(this)
+    };
+    this.handler = this.handler.bind(this);
   }
 
   handler(toggleVal) {
     this.setState({
       searchToggle: toggleVal
-    })
+    });
   }
 
   render() {
-    const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
+    const { data, location } = this.props;
+    const { edges: posts } = data.allMarkdownRemark;
 
     return (
-      <Layout>
+      <Layout location={location}>
         <section className={`${this.state.searchToggle === 'on' ? 'search-results' : 'trending'}`}>
           <div className="content">
             <div className="header">Explore, Design and Develop with the Design System for the Enterprise</div>
+            {/*<div className="trending-search"><input name="search"></input></div>*/}
             <div className="search"><Search name="search" searchToggle = {this.handler}/></div>
 
             <div className="trending-suggestions">
@@ -69,7 +69,7 @@ export default class IndexPage extends React.Component {
             <div className="new-rhs">
               {posts
                 .map(({ node: post }) => (
-                  <Link to={post.fields.slug} key={post.id}>
+                  <Link to={post.fields.slug}>
                     <div
                       className="content whatsnew-items"
                       id={post.img}
@@ -83,7 +83,7 @@ export default class IndexPage extends React.Component {
                         <div className="newitem-details">
                           {post.frontmatter.description}
                         </div>
-                        <span className="newitem-more">Read More</span>
+                        <Link className="newitem-more" to={post.fields.slug}>Read More</Link>
                         <div className="newitem-date">{post.frontmatter.date}</div>
                       </div>
                     </div>
@@ -101,16 +101,16 @@ export default class IndexPage extends React.Component {
 IndexPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
+      edges: PropTypes.array
+    })
   })
-}
+};
 
 export const pageQuery = graphql`
   query IndexQuery {
     allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] },
-      filter: { frontmatter: { templateKey: { eq: "blog-post" } }}
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
     ) {
       edges {
         node {
@@ -118,15 +118,14 @@ export const pageQuery = graphql`
           id
           fields {
             slug
-            
           }
-          
+
           frontmatter {
             title
             templateKey
             description
             date(formatString: "MMMM DD, YYYY")
-            featuredImage{
+            featuredImage {
               childImageSharp {
                 sizes(maxWidth: 75) {
                   ...GatsbyImageSharpSizes
@@ -138,4 +137,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
