@@ -25,6 +25,7 @@ class Template extends Component {
           direction='column'
           shrink='0'
           grow='1'
+          overflow='auto'
           valign='stretch'
           css={{
             flex: '1 0 auto',

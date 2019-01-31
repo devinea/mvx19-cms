@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Flex from '../../components/Flex';
 import Layout from '../../components/Layout';
 import GuidelineHeader from '../../components/guideline-header/guideline-header';
 import GuidelineLeftNav from '../../components/guideline-left-nav/guideline-left-nav';
@@ -12,11 +13,13 @@ export default class DeveloperGuidelineIndexPage extends React.Component {
     return (
       <Layout location={location}>
         <GuidelineHeader />
-        <div
+        <Flex
+          direction='row'
+          shrink='0'
+          grow='1'
+          overflow='auto'
+          valign='stretch'
           css={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'start',
             width: '100%'
           }}
         >
@@ -38,7 +41,7 @@ export default class DeveloperGuidelineIndexPage extends React.Component {
               }}
             />
           </div>
-        </div>
+        </Flex>
       </Layout>
     );
   }
