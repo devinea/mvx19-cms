@@ -22,7 +22,7 @@ exports.importFundamentals = () => {
                             cmd.get(
                                 `
                                     cd fundamental/docs/
-                                    bundle exec jekyll build --baseurl /_site
+                                    bundle exec jekyll build --config _config.yml,_mvx.yml --baseurl /_site
                                 `,
                                 (err, data, stderr) => {
                                     if (!err) {
