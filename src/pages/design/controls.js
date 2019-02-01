@@ -5,15 +5,26 @@ import GuidelineLeftNav from '../../components/guideline-left-nav/guideline-left
 import './controls.scss'
 import { graphql, Link, StaticQuery } from "gatsby";
 import Img from 'gatsby-image';
+import Flex from "../../components/Flex";
 
 class DesignControlsIndexPage extends React.Component {
   render() {
     const { location } = this.props;
     return (
-      <Layout  location={location}>
-        <GuidelineHeader></GuidelineHeader>
-        <GuidelineLeftNav></GuidelineLeftNav>
-        <secton className="section design-controls" >
+      <Layout location={location}>
+        <GuidelineHeader />
+        <Flex
+          direction='row'
+          shrink='0'
+          grow='1'
+          overflow='auto'
+          valign='stretch'
+          css={{
+            width: '100%',
+          }}
+        >
+        <GuidelineLeftNav />
+        <section className="section design-controls" >
           <h2>Controls</h2>
           {this.props.data.allMarkdownRemark.edges
             .map(({ node: data }) => (
@@ -23,7 +34,8 @@ class DesignControlsIndexPage extends React.Component {
                 <div className="control-title">{data.frontmatter.title}</div>
                 </Link>
             ))}
-        </secton>
+        </section>
+        </Flex>
       </Layout>
     )
   }
