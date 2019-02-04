@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" global navigation">
+<title>
+	
+	Global Navigation - SAP Fiori Fundamentals
+	
+
+</title>
+
+<!-- Google Tag Manager -->
+<script>
+	(function (w, d, s, l, i) {
+		w[l] = w[l] || []; w[l].push({
+			'gtm.start':
+				new Date().getTime(), event: 'gtm.js'
+		}); var f = d.getElementsByTagName(s)[0],
+			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+	})(window, document, 'script', 'dataLayer', 'GTM-M953JX6');
+</script>
+<!-- End Google Tag Manager -->
+
+<link rel="stylesheet" href="/docs/fundamental//css/syntax.css?1549295562819717000">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css?1549295562819717000" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/docs/fundamental//css/customstyles.css?1549295562819717000">
+<link rel="stylesheet" href="/docs/fundamental//css/fui-site.css?1549295562819717000">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="fundamental" href="/feed.xml">
+</head>
+
+<body>
+    
+    <div class="docs-wrapper">
+
+
+        
+
+        <!-- Page Content -->
+        <div class="docs-container">
+            <!-- Sidebar Column -->
+            
+
+            <div class="main-content" id="tg-sb-content">
+                <!-- Content Column -->
+                
+
+<div class="post-content">
+
+    <h1 class="docs-header-h1">Global Navigation</h1>
+
+  
+
+
+<p class="docs-status">
+  <span class="fd-badge fd-badge--error" style="cursor: help;" title="These should not be used and will be removed in the future">
+    Deprecated
+  </span>
+  <span class="fd-label fd-has-font-weight-normal">
+    Available since 1.0.0
+  </span>
+  
+  
+    <span class="fd-label">
+      Remove 1.7.0
+    </span>
+  
+</p>
+
+
+
+   
+
+    
+
+
+    
+
+  <p class="docs-intro">The global navigation component offers a similar navigation approach between Hybris applications. It allows for branding, application groupings, access to a left navigation, switch between applications, contexts and access tooling such as search or a users’ profile.</p>
+
+<blockquote>
+  <p>Use <code class="highlighter-rouge">shellbar</code> instead</p>
+</blockquote>
+
+<p>Elements and positioning in the global navigation are optional but included are:</p>
+
+<ul>
+  <li><strong>Suite name</strong>: identifies the suite or common grouping of the applications</li>
+  <li><strong>Logo</strong>: allows for common branding. SAP Hybris applications display the SAP logo.</li>
+  <li><strong>Left navigation menu icon</strong>: allows for the left navigation to be expanded or collapsed</li>
+  <li><strong>Application switcher</strong>: allows for the identification of the application. Users can switch between applications within the suite/grouping of applications.</li>
+  <li><strong>Context switcher</strong>: allows for switching context of application such as an organization or subscription.</li>
+  <li><strong>Search icon</strong>: on click, a search field is displayed.</li>
+  <li><strong>User icon</strong>: on click, user options are displayed such as Sign Off and Preferences.</li>
+</ul>
+
+<p><br /></p>
+
+<div class="fd-tile docs-component docs-component__global-nav">
+    <label class="fd-form__label docs-component__bg-toggle" for="68050" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="68050" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<nav class="fd-global-nav">
+   <div class="fd-global-nav__group fd-global-nav__group--left">
+      <div class="fd-global-nav__side-menu">
+         <button class=" fd-button--secondary fd-button--l sap-icon--menu2 fd-global-nav__btn" aria-label="BUTTON_LABEL"></button>
+      </div>
+      <div class="fd-global-nav__logo fd-has-margin-left-none"></div>
+      <div class="fd-global-nav__product-name">
+         Product Name
+      </div>
+   </div>
+   <div class="fd-global-nav__group fd-global-nav__launchpad">
+      <button class=" fd-button--secondary fd-button--l" aria-haspopup="true" aria-controls="launchpad">Suite Name</button>
+      <nav class="fd-mega-menu" aria-hidden="true" id="launchpad">
+         <div class="fd-mega-menu__header">
+            <a href="#" class="fd-mega-menu__header-link sap-icon--home">SAP Hybris Home</a>
+         </div>
+         <div class="fd-mega-menu__group">
+            <h1 class="fd-mega-menu__title">Group Name</h1>
+            <ul class="fd-mega-menu__list">
+               <li class="fd-mega-menu__item"><a class="fd-mega-menu__link" href="#">
+                  item link
+                  </a>
+               </li>
+               <li class="fd-mega-menu__item">
+                  <a class="fd-mega-menu__link has-child" href="#" aria-controls="odYv1850" aria-haspopup="true">
+                  item link
+                  </a>
+                  <ul class="fd-mega-menu__sublist" id="odYv1850" aria-hidden="true">
+                     <li class="fd-mega-menu__subitem">
+                        <a class="fd-mega-menu__sublink" href="#">
+                        Link
+                        </a>
+                     </li>
+                     <li class="fd-mega-menu__subitem">
+                        <a class="fd-mega-menu__sublink" href="#">
+                        Link
+                        </a>
+                     </li>
+                     <li class="fd-mega-menu__subitem">
+                        <a class="fd-mega-menu__sublink" href="#">
+                        Link
+                        </a>
+                     </li>
+                  </ul>
+               </li>
+               <li class="fd-mega-menu__item"><a class="fd-mega-menu__link" href="#">
+                  item link
+                  </a>
+               </li>
+            </ul>
+         </div>
+         <div class="fd-mega-menu__group">
+            <h1 class="fd-mega-menu__title">Group Name</h1>
+            <ul class="fd-mega-menu__list">
+               <li class="fd-mega-menu__item"><a class="fd-mega-menu__link" href="#">
+                  item link
+                  </a>
+               </li>
+               <li class="fd-mega-menu__item">
+                  <a class="fd-mega-menu__link has-child" href="#" aria-controls="WnLXh310" aria-haspopup="true">
+                  item link
+                  </a>
+                  <ul class="fd-mega-menu__sublist" id="WnLXh310" aria-hidden="true">
+                     <li class="fd-mega-menu__subitem">
+                        <a class="fd-mega-menu__sublink" href="#">
+                        Link
+                        </a>
+                     </li>
+                     <li class="fd-mega-menu__subitem">
+                        <a class="fd-mega-menu__sublink" href="#">
+                        Link
+                        </a>
+                     </li>
+                     <li class="fd-mega-menu__subitem">
+                        <a class="fd-mega-menu__sublink" href="#">
+                        Link
+                        </a>
+                     </li>
+                  </ul>
+               </li>
+               <li class="fd-mega-menu__item"><a class="fd-mega-menu__link" href="#">
+                  item link
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </nav>
+   </div>
+   <div class="fd-global-nav__group fd-global-nav__group--right">
+      <div class="fd-global-nav__context-menu">
+         <div class="fd-popover">
+            <div class="fd-popover__control"><button class="fd-button--secondary" aria-label="Image label" aria-controls="3A2YE389" aria-expanded="false" aria-haspopup="true">Context Switcher</button></div>
+            <div class="fd-popover__body" aria-hidden="true" id="3A2YE389">
+               <nav class="fd-menu">
+                  <ul class="fd-menu__list">
+                     <li><a href="#" class="fd-menu__item">Link 1</a>
+                     </li>
+                     <li><a href="#" class="fd-menu__item">Link 2</a>
+                     </li>
+                     <li><a href="#" class="fd-menu__item">Link 3</a>
+                     </li>
+                     <li><a href="#" class="fd-menu__item">Link 4</a>
+                     </li>
+                  </ul>
+               </nav>
+            </div>
+         </div>
+      </div>
+      <div class="fd-global-nav__actions">
+         <div class="fd-global-nav__search">
+            <button class=" fd-button--secondary fd-button--m sap-icon--search fd-global-nav__btn" aria-label="BUTTON_LABEL" aria-controls="RUmA0636" aria-haspopup="true" aria-expanded="false"></button>
+            <input type="text" class="fd-form__control" id="RUmA0636" aria-hidden="true" placeholder="Search... " />
+         </div>
+         <button class=" fd-button--secondary fd-button--m sap-icon--action-settings fd-global-nav__btn" aria-label="BUTTON_LABEL"></button>
+         <button class=" fd-button--secondary fd-button--m fd-global-nav__btn" aria-label="BUTTON_LABEL"><span class=" fd-identifier--s fd-identifier--circle">WW</span></button>
+      </div>
+   </div>
+</nav>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-global-nav"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-global-nav__group fd-global-nav__group--left"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-global-nav__side-menu"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">" fd-button--secondary fd-button--l sap-icon--menu2 fd-global-nav__btn"</span> <span class="na">aria-label=</span><span class="s">"BUTTON_LABEL"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-global-nav__logo fd-has-margin-left-none"</span><span class="nt">&gt;&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-global-nav__product-name"</span><span class="nt">&gt;</span>
+         Product Name
+      <span class="nt">&lt;/div&gt;</span>
+   <span class="nt">&lt;/div&gt;</span>
+   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-global-nav__group fd-global-nav__launchpad"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">" fd-button--secondary fd-button--l"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-controls=</span><span class="s">"launchpad"</span><span class="nt">&gt;</span>Suite Name<span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-mega-menu"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"launchpad"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-mega-menu__header"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-mega-menu__header-link sap-icon--home"</span><span class="nt">&gt;</span>SAP Hybris Home<span class="nt">&lt;/a&gt;</span>
+         <span class="nt">&lt;/div&gt;</span>
+         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-mega-menu__group"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"fd-mega-menu__title"</span><span class="nt">&gt;</span>Group Name<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-mega-menu__list"</span><span class="nt">&gt;</span>
+               <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-mega-menu__item"</span><span class="nt">&gt;&lt;a</span> <span class="na">class=</span><span class="s">"fd-mega-menu__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                  item link
+                  <span class="nt">&lt;/a&gt;</span>
+               <span class="nt">&lt;/li&gt;</span>
+               <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-mega-menu__item"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-mega-menu__link has-child"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">aria-controls=</span><span class="s">"odYv1850"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                  item link
+                  <span class="nt">&lt;/a&gt;</span>
+                  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-mega-menu__sublist"</span> <span class="na">id=</span><span class="s">"odYv1850"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-mega-menu__subitem"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-mega-menu__sublink"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                        Link
+                        <span class="nt">&lt;/a&gt;</span>
+                     <span class="nt">&lt;/li&gt;</span>
+                     <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-mega-menu__subitem"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-mega-menu__sublink"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                        Link
+                        <span class="nt">&lt;/a&gt;</span>
+                     <span class="nt">&lt;/li&gt;</span>
+                     <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-mega-menu__subitem"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-mega-menu__sublink"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                        Link
+                        <span class="nt">&lt;/a&gt;</span>
+                     <span class="nt">&lt;/li&gt;</span>
+                  <span class="nt">&lt;/ul&gt;</span>
+               <span class="nt">&lt;/li&gt;</span>
+               <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-mega-menu__item"</span><span class="nt">&gt;&lt;a</span> <span class="na">class=</span><span class="s">"fd-mega-menu__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                  item link
+                  <span class="nt">&lt;/a&gt;</span>
+               <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;/ul&gt;</span>
+         <span class="nt">&lt;/div&gt;</span>
+         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-mega-menu__group"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"fd-mega-menu__title"</span><span class="nt">&gt;</span>Group Name<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-mega-menu__list"</span><span class="nt">&gt;</span>
+               <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-mega-menu__item"</span><span class="nt">&gt;&lt;a</span> <span class="na">class=</span><span class="s">"fd-mega-menu__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                  item link
+                  <span class="nt">&lt;/a&gt;</span>
+               <span class="nt">&lt;/li&gt;</span>
+               <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-mega-menu__item"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-mega-menu__link has-child"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">aria-controls=</span><span class="s">"WnLXh310"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                  item link
+                  <span class="nt">&lt;/a&gt;</span>
+                  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-mega-menu__sublist"</span> <span class="na">id=</span><span class="s">"WnLXh310"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-mega-menu__subitem"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-mega-menu__sublink"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                        Link
+                        <span class="nt">&lt;/a&gt;</span>
+                     <span class="nt">&lt;/li&gt;</span>
+                     <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-mega-menu__subitem"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-mega-menu__sublink"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                        Link
+                        <span class="nt">&lt;/a&gt;</span>
+                     <span class="nt">&lt;/li&gt;</span>
+                     <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-mega-menu__subitem"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-mega-menu__sublink"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                        Link
+                        <span class="nt">&lt;/a&gt;</span>
+                     <span class="nt">&lt;/li&gt;</span>
+                  <span class="nt">&lt;/ul&gt;</span>
+               <span class="nt">&lt;/li&gt;</span>
+               <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-mega-menu__item"</span><span class="nt">&gt;&lt;a</span> <span class="na">class=</span><span class="s">"fd-mega-menu__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                  item link
+                  <span class="nt">&lt;/a&gt;</span>
+               <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;/ul&gt;</span>
+         <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/nav&gt;</span>
+   <span class="nt">&lt;/div&gt;</span>
+   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-global-nav__group fd-global-nav__group--right"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-global-nav__context-menu"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__control"</span><span class="nt">&gt;&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--secondary"</span> <span class="na">aria-label=</span><span class="s">"Image label"</span> <span class="na">aria-controls=</span><span class="s">"3A2YE389"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="nt">&gt;</span>Context Switcher<span class="nt">&lt;/button&gt;&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__body"</span>  <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"3A2YE389"</span><span class="nt">&gt;</span>
+               <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-menu"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-menu__list"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Link 1<span class="nt">&lt;/a&gt;</span>
+                     <span class="nt">&lt;/li&gt;</span>
+                     <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Link 2<span class="nt">&lt;/a&gt;</span>
+                     <span class="nt">&lt;/li&gt;</span>
+                     <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Link 3<span class="nt">&lt;/a&gt;</span>
+                     <span class="nt">&lt;/li&gt;</span>
+                     <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Link 4<span class="nt">&lt;/a&gt;</span>
+                     <span class="nt">&lt;/li&gt;</span>
+                  <span class="nt">&lt;/ul&gt;</span>
+               <span class="nt">&lt;/nav&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+         <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-global-nav__actions"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-global-nav__search"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">" fd-button--secondary fd-button--m sap-icon--search fd-global-nav__btn"</span> <span class="na">aria-label=</span><span class="s">"BUTTON_LABEL"</span> <span class="na">aria-controls=</span><span class="s">"RUmA0636"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;&lt;/button&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"fd-form__control"</span> <span class="na">id=</span><span class="s">"RUmA0636"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">placeholder=</span><span class="s">"Search... "</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;/div&gt;</span>
+         <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">" fd-button--secondary fd-button--m sap-icon--action-settings fd-global-nav__btn"</span> <span class="na">aria-label=</span><span class="s">"BUTTON_LABEL"</span><span class="nt">&gt;&lt;/button&gt;</span>
+         <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">" fd-button--secondary fd-button--m fd-global-nav__btn"</span> <span class="na">aria-label=</span><span class="s">"BUTTON_LABEL"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--s fd-identifier--circle"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+   <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/nav&gt;</span></code></pre></figure>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+</div>
+
+            </div>
+
+        </div>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/docs/fundamental//js/customscripts.js" }}"></script>
+        
+    </div>
+    
+</body>
+
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" time">
+<title>
+	
+	Time - SAP Fiori Fundamentals
+	
+
+</title>
+
+<!-- Google Tag Manager -->
+<script>
+	(function (w, d, s, l, i) {
+		w[l] = w[l] || []; w[l].push({
+			'gtm.start':
+				new Date().getTime(), event: 'gtm.js'
+		}); var f = d.getElementsByTagName(s)[0],
+			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+	})(window, document, 'script', 'dataLayer', 'GTM-M953JX6');
+</script>
+<!-- End Google Tag Manager -->
+
+<link rel="stylesheet" href="/docs/fundamental//css/syntax.css?1549295562819717000">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css?1549295562819717000" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/docs/fundamental//css/customstyles.css?1549295562819717000">
+<link rel="stylesheet" href="/docs/fundamental//css/fui-site.css?1549295562819717000">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="fundamental" href="/feed.xml">
+</head>
+
+<body>
+    
+    <div class="docs-wrapper">
+
+
+        
+
+        <!-- Page Content -->
+        <div class="docs-container">
+            <!-- Sidebar Column -->
+            
+
+            <div class="main-content" id="tg-sb-content">
+                <!-- Content Column -->
+                
+
+<div class="post-content">
+
+    <h1 class="docs-header-h1">Time</h1>
+
+  
+
+
+<p class="docs-status">
+  <span class="fd-badge fd-badge--warning" style="cursor: help;" title="These are being actively reviewed to be refactored, safe to use but talk to us">
+    Under Review
+  </span>
+  <span class="fd-label fd-has-font-weight-normal">
+    Available since 1.1.0
+  </span>
+  
+  
+</p>
+
+
+
+   
+
+    
+
+
+    
+
+  <p class="docs-intro">The time component is used to select a time value.</p>
+
+<p>Multiple instances can be used in the <code class="highlighter-rouge">time-picker</code> to choose hours, minutes, seconds and period of the day. It will be rare to see this component used alone.</p>
+
+<p><br /></p>
+
+<h2 id="with-values">With Values</h2>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="37350" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="37350" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="fd-time">
+  <div class="fd-time__item">
+      <div class="fd-time__control">
+          <button class="fd-button--light fd-button--xs sap-icon--navigation-up-arrow" aria-label="Increase hours" aria-controls="1610C873"></button>
+      </div>
+      <div class="fd-time__input">
+          <input class="fd-form__control" type="text" placeholder="hh" value="02" id="1610C873" aria-label="Hours" />
+      </div>
+      <div class="fd-time__control">
+          <button class="fd-button--light fd-button--xs sap-icon--navigation-down-arrow" aria-label="Decrease hours" aria-controls="1610C873"></button>
+      </div>
+  </div>
+
+  <div class="fd-time__item">
+      <div class="fd-time__control">
+          <button class="fd-button--light fd-button--xs sap-icon--navigation-up-arrow" aria-label="Increase minutes" aria-controls="DDlHR199"></button>
+      </div>
+      <div class="fd-time__input">
+          <input class="fd-form__control" type="text" placeholder="mm" value="34" id="DDlHR199" aria-label="Minutes" />
+      </div>
+      <div class="fd-time__control">
+          <button class="fd-button--light fd-button--xs sap-icon--navigation-down-arrow" aria-label="Decrease minutes" aria-controls="DDlHR199"></button>
+      </div>
+  </div>
+  <div class="fd-time__item">
+      <div class="fd-time__control">
+          <button class="fd-button--light fd-button--xs sap-icon--navigation-up-arrow" aria-label="Increase seconds" aria-controls="8CAnL947"></button>
+      </div>
+      <div class="fd-time__input">
+          <input class="fd-form__control" type="text" placeholder="ss" value="56" id="8CAnL947" aria-label="Seconds" />
+      </div>
+      <div class="fd-time__control">
+          <button class="fd-button--light fd-button--xs sap-icon--navigation-down-arrow" aria-label="Decrease seconds" aria-controls="8CAnL947"></button>
+      </div>
+  </div>
+  <div class="fd-time__item">
+      <div class="fd-time__control">
+          <button class="fd-button--light fd-button--xs sap-icon--navigation-up-arrow" aria-label="Increase period" aria-controls="sEWOL676"></button>
+      </div>
+      <div class="fd-time__input">
+          <input class="fd-form__control" type="text" placeholder="am" value="pm" id="sEWOL676" aria-label="Period" />
+      </div>
+      <div class="fd-time__control">
+          <button class="fd-button--light fd-button--xs sap-icon--navigation-down-arrow" aria-label="Decrease period" aria-controls="sEWOL676"></button>
+      </div>
+  </div>
+</div>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__control"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-button--xs sap-icon--navigation-up-arrow"</span>
+          <span class="na">aria-label=</span><span class="s">"Increase hours"</span> <span class="na">aria-controls=</span><span class="s">"1610C873"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__input"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"fd-form__control"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"hh"</span> <span class="na">value=</span><span class="s">"02"</span>
+          <span class="na">id=</span><span class="s">"1610C873"</span> <span class="na">aria-label=</span><span class="s">"Hours"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__control"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-button--xs sap-icon--navigation-down-arrow"</span>
+          <span class="na">aria-label=</span><span class="s">"Decrease hours"</span> <span class="na">aria-controls=</span><span class="s">"1610C873"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__control"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-button--xs sap-icon--navigation-up-arrow"</span>
+          <span class="na">aria-label=</span><span class="s">"Increase minutes"</span> <span class="na">aria-controls=</span><span class="s">"DDlHR199"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__input"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"fd-form__control"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"mm"</span> <span class="na">value=</span><span class="s">"34"</span> <span class="na">id=</span><span class="s">"DDlHR199"</span>
+          <span class="na">aria-label=</span><span class="s">"Minutes"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__control"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-button--xs sap-icon--navigation-down-arrow"</span>
+          <span class="na">aria-label=</span><span class="s">"Decrease minutes"</span> <span class="na">aria-controls=</span><span class="s">"DDlHR199"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__control"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-button--xs sap-icon--navigation-up-arrow"</span>
+          <span class="na">aria-label=</span><span class="s">"Increase seconds"</span> <span class="na">aria-controls=</span><span class="s">"8CAnL947"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__input"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"fd-form__control"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"ss"</span> <span class="na">value=</span><span class="s">"56"</span> <span class="na">id=</span><span class="s">"8CAnL947"</span>
+          <span class="na">aria-label=</span><span class="s">"Seconds"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__control"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-button--xs sap-icon--navigation-down-arrow"</span>
+          <span class="na">aria-label=</span><span class="s">"Decrease seconds"</span> <span class="na">aria-controls=</span><span class="s">"8CAnL947"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__control"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-button--xs sap-icon--navigation-up-arrow"</span>
+          <span class="na">aria-label=</span><span class="s">"Increase period"</span> <span class="na">aria-controls=</span><span class="s">"sEWOL676"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__input"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"fd-form__control"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"am"</span> <span class="na">value=</span><span class="s">"pm"</span> <span class="na">id=</span><span class="s">"sEWOL676"</span>
+          <span class="na">aria-label=</span><span class="s">"Period"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__control"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-button--xs sap-icon--navigation-down-arrow"</span>
+          <span class="na">aria-label=</span><span class="s">"Decrease period"</span> <span class="na">aria-controls=</span><span class="s">"sEWOL676"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h2 id="with-placeholder">With Placeholder</h2>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="10650" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="10650" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="fd-time">
+  <div class="fd-time__item">
+      <div class="fd-time__control">
+          <button class="fd-button--light fd-button--xs sap-icon--navigation-up-arrow" aria-label="Increase hours" aria-controls="HgDLk176"></button>
+      </div>
+      <div class="fd-time__input">
+          <input class="fd-form__control" type="text" placeholder="hh" value="" id="HgDLk176" aria-label="Hours" />
+      </div>
+      <div class="fd-time__control">
+          <button class="fd-button--light fd-button--xs sap-icon--navigation-down-arrow" aria-label="Decrease hours" aria-controls="HgDLk176"></button>
+      </div>
+  </div>
+  <div class="fd-time__item">
+      <div class="fd-time__control">
+          <button class="fd-button--light fd-button--xs sap-icon--navigation-up-arrow" aria-label="Increase minutes" aria-controls="CHeFH472"></button>
+      </div>
+      <div class="fd-time__input">
+          <input class="fd-form__control" type="text" placeholder="mm" value="" id="CHeFH472" aria-label="Minutes" />
+      </div>
+      <div class="fd-time__control">
+          <button class="fd-button--light fd-button--xs sap-icon--navigation-down-arrow" aria-label="Decrease minutes" aria-controls="CHeFH472"></button>
+      </div>
+  </div>
+  <div class="fd-time__item">
+      <div class="fd-time__control">
+          <button class="fd-button--light fd-button--xs sap-icon--navigation-up-arrow" aria-label="Increase seconds" aria-controls="qMPpb855"></button>
+      </div>
+      <div class="fd-time__input">
+          <input class="fd-form__control" type="text" placeholder="ss" value="" id="qMPpb855" aria-label="Seconds" />
+      </div>
+      <div class="fd-time__control">
+          <button class="fd-button--light fd-button--xs sap-icon--navigation-down-arrow" aria-label="Decrease seconds" aria-controls="qMPpb855"></button>
+      </div>
+  </div>
+  <div class="fd-time__item">
+      <div class="fd-time__control">
+          <button class="fd-button--light fd-button--xs sap-icon--navigation-up-arrow" aria-label="Increase period" aria-controls="VpUG6928"></button>
+      </div>
+      <div class="fd-time__input">
+          <input class="fd-form__control" type="text" placeholder="am" value="" id="VpUG6928" aria-label="Period" />
+      </div>
+      <div class="fd-time__control">
+          <button class="fd-button--light fd-button--xs sap-icon--navigation-down-arrow" aria-label="Decrease period" aria-controls="VpUG6928"></button>
+      </div>
+  </div>
+</div>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__control"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-button--xs sap-icon--navigation-up-arrow"</span>
+          <span class="na">aria-label=</span><span class="s">"Increase hours"</span> <span class="na">aria-controls=</span><span class="s">"HgDLk176"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__input"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"fd-form__control"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"hh"</span> <span class="na">value=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"HgDLk176"</span>
+          <span class="na">aria-label=</span><span class="s">"Hours"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__control"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-button--xs sap-icon--navigation-down-arrow"</span>
+          <span class="na">aria-label=</span><span class="s">"Decrease hours"</span> <span class="na">aria-controls=</span><span class="s">"HgDLk176"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__control"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-button--xs sap-icon--navigation-up-arrow"</span>
+          <span class="na">aria-label=</span><span class="s">"Increase minutes"</span> <span class="na">aria-controls=</span><span class="s">"CHeFH472"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__input"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"fd-form__control"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"mm"</span> <span class="na">value=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"CHeFH472"</span>
+          <span class="na">aria-label=</span><span class="s">"Minutes"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__control"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-button--xs sap-icon--navigation-down-arrow"</span>
+          <span class="na">aria-label=</span><span class="s">"Decrease minutes"</span> <span class="na">aria-controls=</span><span class="s">"CHeFH472"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__control"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-button--xs sap-icon--navigation-up-arrow"</span>
+          <span class="na">aria-label=</span><span class="s">"Increase seconds"</span> <span class="na">aria-controls=</span><span class="s">"qMPpb855"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__input"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"fd-form__control"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"ss"</span> <span class="na">value=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"qMPpb855"</span>
+          <span class="na">aria-label=</span><span class="s">"Seconds"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__control"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-button--xs sap-icon--navigation-down-arrow"</span>
+          <span class="na">aria-label=</span><span class="s">"Decrease seconds"</span> <span class="na">aria-controls=</span><span class="s">"qMPpb855"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__control"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-button--xs sap-icon--navigation-up-arrow"</span>
+          <span class="na">aria-label=</span><span class="s">"Increase period"</span> <span class="na">aria-controls=</span><span class="s">"VpUG6928"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__input"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"fd-form__control"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"am"</span> <span class="na">value=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"VpUG6928"</span>
+          <span class="na">aria-label=</span><span class="s">"Period"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__control"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-button--xs sap-icon--navigation-down-arrow"</span>
+          <span class="na">aria-label=</span><span class="s">"Decrease period"</span> <span class="na">aria-controls=</span><span class="s">"VpUG6928"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h2 id="with-button-state">With Button State</h2>
+<p>Since the controls and inputs are standard components, they can take all states available to
+buttons and forms respectively, e.g., disabled, .is-invalid. In this case, the buttons are
+disabled when the first or last values are reached.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="84850" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="84850" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="fd-time">
+  <div class="fd-time__item">
+      <div class="fd-time__control">
+          <button class="fd-button--light fd-button--xs sap-icon--navigation-up-arrow" aria-label="Increase hours" aria-controls="Rjap5115"></button>
+      </div>
+      <div class="fd-time__input">
+          <input class="fd-form__control" type="text" placeholder="hh" value="00" id="Rjap5115" aria-label="Hours" />
+      </div>
+      <div class="fd-time__control">
+          <button class="fd-button--light fd-button--xs sap-icon--navigation-down-arrow is-disabled" aria-label="Decrease hours" aria-controls="Rjap5115"></button>
+      </div>
+  </div>
+  <div class="fd-time__item">
+      <div class="fd-time__control">
+          <button class="fd-button--light fd-button--xs sap-icon--navigation-up-arrow is-disabled" aria-label="Increase minutes" aria-controls="VnVPz732"></button>
+      </div>
+      <div class="fd-time__input">
+          <input class="fd-form__control" type="text" placeholder="mm" value="59" id="VnVPz732" aria-label="Minutes" />
+      </div>
+      <div class="fd-time__control">
+          <button class="fd-button--light fd-button--xs sap-icon--navigation-down-arrow" aria-label="Decrease minutes" aria-controls="VnVPz732"></button>
+      </div>
+  </div>
+</div>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__control"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-button--xs sap-icon--navigation-up-arrow"</span>
+          <span class="na">aria-label=</span><span class="s">"Increase hours"</span> <span class="na">aria-controls=</span><span class="s">"Rjap5115"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__input"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"fd-form__control"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"hh"</span> <span class="na">value=</span><span class="s">"00"</span> <span class="na">id=</span><span class="s">"Rjap5115"</span>
+          <span class="na">aria-label=</span><span class="s">"Hours"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__control"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-button--xs sap-icon--navigation-down-arrow is-disabled"</span>
+          <span class="na">aria-label=</span><span class="s">"Decrease hours"</span> <span class="na">aria-controls=</span><span class="s">"Rjap5115"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__control"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-button--xs sap-icon--navigation-up-arrow is-disabled"</span>
+          <span class="na">aria-label=</span><span class="s">"Increase minutes"</span> <span class="na">aria-controls=</span><span class="s">"VnVPz732"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__input"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"fd-form__control"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"mm"</span> <span class="na">value=</span><span class="s">"59"</span> <span class="na">id=</span><span class="s">"VnVPz732"</span>
+          <span class="na">aria-label=</span><span class="s">"Minutes"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-time__control"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-button--xs sap-icon--navigation-down-arrow"</span>
+          <span class="na">aria-label=</span><span class="s">"Decrease minutes"</span> <span class="na">aria-controls=</span><span class="s">"VnVPz732"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+</div>
+
+            </div>
+
+        </div>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/docs/fundamental//js/customscripts.js" }}"></script>
+        
+    </div>
+    
+</body>
+
+</html>

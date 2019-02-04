@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" localization editor">
+<title>
+	
+	Localization Editor - SAP Fiori Fundamentals
+	
+
+</title>
+
+<!-- Google Tag Manager -->
+<script>
+	(function (w, d, s, l, i) {
+		w[l] = w[l] || []; w[l].push({
+			'gtm.start':
+				new Date().getTime(), event: 'gtm.js'
+		}); var f = d.getElementsByTagName(s)[0],
+			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+	})(window, document, 'script', 'dataLayer', 'GTM-M953JX6');
+</script>
+<!-- End Google Tag Manager -->
+
+<link rel="stylesheet" href="/docs/fundamental//css/syntax.css?1549295562819717000">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css?1549295562819717000" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/docs/fundamental//css/customstyles.css?1549295562819717000">
+<link rel="stylesheet" href="/docs/fundamental//css/fui-site.css?1549295562819717000">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="fundamental" href="/feed.xml">
+</head>
+
+<body>
+    
+    <div class="docs-wrapper">
+
+
+        
+
+        <!-- Page Content -->
+        <div class="docs-container">
+            <!-- Sidebar Column -->
+            
+
+            <div class="main-content" id="tg-sb-content">
+                <!-- Content Column -->
+                
+
+<div class="post-content">
+
+    <h1 class="docs-header-h1">Localization Editor</h1>
+
+  
+
+
+<p class="docs-status">
+  <span class="fd-badge fd-badge--warning" style="cursor: help;" title="WIP that may be used but be prepared for changes in the future">
+    Experimental
+  </span>
+  <span class="fd-label fd-has-font-weight-normal">
+    Available since 1.2.0
+  </span>
+  
+  
+</p>
+
+
+
+   
+
+    
+
+
+    
+
+  <h2 id="with-input">With input</h2>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="43350" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="43350" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="fd-localization-editor">
+   <div class="fd-popover">
+      <div class="fd-popover__control">
+         <label class="fd-form__label" for="vTshu851">
+         Localization Editor Label
+         </label>
+         <div class="fd-input-group fd-input-group--after">
+            <input type="text" class="" aria-controls="NJvVh542c" aria-expanded="false" aria-haspopup="true" placeholder="Enter Label" />
+            <span class="fd-input-group__addon fd-input-group__addon--after fd-input-group__addon--button">
+            <button class="fd-button--light fd-localization-editor__button" aria-controls="test" aria-expanded="false" aria-haspopup="true">EN*</button>
+            </span>
+         </div>
+      </div>
+      <div class="fd-popover__body fd-popover__body--no-arrow" aria-hidden="true" id="NJvVh542c">
+         <nav class="fd-menu">
+            <ul class="fd-menu__list fd-localization-editor__list">
+               <li>
+                  <div class="fd-input-group fd-input-group--after">
+                     <input type="text" class="" placeholder="Enter Label" />
+                     <span class="fd-input-group__addon fd-input-group__addon--after">
+                     ES
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <div class="fd-input-group fd-input-group--after">
+                     <input type="text" class="" placeholder="Enter Label" />
+                     <span class="fd-input-group__addon fd-input-group__addon--after">
+                     CH
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <div class="fd-input-group fd-input-group--after">
+                     <input type="text" class="" placeholder="Enter Label" />
+                     <span class="fd-input-group__addon fd-input-group__addon--after">
+                     PL
+                     </span>
+                  </div>
+               </li>
+            </ul>
+         </nav>
+      </div>
+   </div>
+</div>
+
+<br />
+
+<div class="fd-localization-editor">
+   <div class="fd-popover">
+      <div class="fd-popover__control">
+         <label class="fd-form__label" for="vTshu851">
+         Localization Editor Compact Mode
+         </label>
+         <div class="fd-input-group fd-input-group--compact fd-input-group--after">
+            <input type="text" class="fd-input fd-input--compact" aria-controls="test22" aria-expanded="false" aria-haspopup="true" placeholder="Enter Label" />
+            <span class="fd-input-group__addon fd-input-group__addon--after fd-input-group__addon--button">
+            <button class="fd-button--light fd-localization-editor__button" aria-controls="test22" aria-expanded="false" aria-haspopup="true">EN*</button>
+            </span>
+         </div>
+      </div>
+      <div class="fd-popover__body fd-popover__body--no-arrow" aria-hidden="true" id="test22">
+         <nav class="fd-menu">
+            <ul class="fd-menu__list fd-localization-editor__list">
+               <li>
+                  <div class="fd-input-group fd-input-group--after fd-input-group--compact">
+                     <input type="text" class="fd-input fd-input--compact" placeholder="Enter Label" />
+                     <span class="fd-input-group__addon fd-input-group__addon--after">
+                     ES
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <div class="fd-input-group fd-input-group--after fd-input-group--compact">
+                     <input type="text" class="fd-input fd-input--compact" placeholder="Enter Label" />
+                     <span class="fd-input-group__addon fd-input-group__addon--after">
+                     CH
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <div class="fd-input-group fd-input-group--after fd-input-group--compact">
+                     <input type="text" class="fd-input fd-input--compact" placeholder="Enter Label" />
+                     <span class="fd-input-group__addon fd-input-group__addon--after">
+                     PL
+                     </span>
+                  </div>
+               </li>
+            </ul>
+         </nav>
+      </div>
+   </div>
+</div>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-localization-editor"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__control"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">"vTshu851"</span><span class="nt">&gt;</span>
+         Localization Editor Label
+         <span class="nt">&lt;/label&gt;</span>
+         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">""</span> <span class="na">id=</span><span class="s">""</span> <span class="na">aria-controls=</span><span class="s">"NJvVh542c"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span>
+            <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">placeholder=</span><span class="s">"Enter Label"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--after fd-input-group__addon--button"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-localization-editor__button"</span>
+            <span class="na">aria-controls=</span><span class="s">"test"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>EN*<span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;/span&gt;</span>
+         <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__body fd-popover__body--no-arrow"</span>  <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"NJvVh542c"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-menu"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-menu__list fd-localization-editor__list"</span><span class="nt">&gt;</span>
+               <span class="nt">&lt;li&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">""</span> <span class="na">id=</span><span class="s">""</span> <span class="na">placeholder=</span><span class="s">"Enter Label"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--after"</span><span class="nt">&gt;</span>
+                     ES
+                     <span class="nt">&lt;/span&gt;</span>
+                  <span class="nt">&lt;/div&gt;</span>
+               <span class="nt">&lt;/li&gt;</span>
+               <span class="nt">&lt;li&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">""</span> <span class="na">id=</span><span class="s">""</span> <span class="na">placeholder=</span><span class="s">"Enter Label"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--after"</span><span class="nt">&gt;</span>
+                     CH
+                     <span class="nt">&lt;/span&gt;</span>
+                  <span class="nt">&lt;/div&gt;</span>
+               <span class="nt">&lt;/li&gt;</span>
+               <span class="nt">&lt;li&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">""</span> <span class="na">id=</span><span class="s">""</span> <span class="na">placeholder=</span><span class="s">"Enter Label"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--after"</span><span class="nt">&gt;</span>
+                     PL
+                     <span class="nt">&lt;/span&gt;</span>
+                  <span class="nt">&lt;/div&gt;</span>
+               <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;/ul&gt;</span>
+         <span class="nt">&lt;/nav&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+   <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;br&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-localization-editor"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__control"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">"vTshu851"</span><span class="nt">&gt;</span>
+         Localization Editor Compact Mode
+         <span class="nt">&lt;/label&gt;</span>
+         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--compact fd-input-group--after"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"fd-input fd-input--compact"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">aria-controls=</span><span class="s">"test22"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span>
+            <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">placeholder=</span><span class="s">"Enter Label"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--after fd-input-group__addon--button"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-localization-editor__button"</span>
+            <span class="na">aria-controls=</span><span class="s">"test22"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>EN*<span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;/span&gt;</span>
+         <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__body fd-popover__body--no-arrow"</span>  <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"test22"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-menu"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-menu__list fd-localization-editor__list"</span><span class="nt">&gt;</span>
+               <span class="nt">&lt;li&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after fd-input-group--compact"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"fd-input fd-input--compact"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">placeholder=</span><span class="s">"Enter Label"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--after"</span><span class="nt">&gt;</span>
+                     ES
+                     <span class="nt">&lt;/span&gt;</span>
+                  <span class="nt">&lt;/div&gt;</span>
+               <span class="nt">&lt;/li&gt;</span>
+               <span class="nt">&lt;li&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after fd-input-group--compact"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"fd-input fd-input--compact"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">placeholder=</span><span class="s">"Enter Label"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--after"</span><span class="nt">&gt;</span>
+                     CH
+                     <span class="nt">&lt;/span&gt;</span>
+                  <span class="nt">&lt;/div&gt;</span>
+               <span class="nt">&lt;/li&gt;</span>
+               <span class="nt">&lt;li&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after fd-input-group--compact"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"fd-input fd-input--compact"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">placeholder=</span><span class="s">"Enter Label"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--after"</span><span class="nt">&gt;</span>
+                     PL
+                     <span class="nt">&lt;/span&gt;</span>
+                  <span class="nt">&lt;/div&gt;</span>
+               <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;/ul&gt;</span>
+         <span class="nt">&lt;/nav&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+   <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<p><br /><br /></p>
+
+<h2 id="with-textarea">With textarea</h2>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="63100" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="63100" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="fd-localization-editor">
+   <div class="fd-popover">
+      <div class="fd-popover__control">
+         <label class="fd-form__label" for="vTshu851">
+         Localization Editor Label
+         </label>
+         <div class="fd-input-group fd-input-group--after">
+            <textarea class="" aria-controls="NJvVh542" aria-expanded="false" aria-haspopup="true"></textarea>
+            <span class="fd-input-group__addon fd-input-group__addon--after fd-input-group__addon--textarea fd-input-group__addon--button">
+            <button class="fd-button--light fd-localization-editor__button" aria-controls="NJvVh542" aria-expanded="false" aria-haspopup="true">EN*</button>
+            </span>
+         </div>
+      </div>
+      <div class="fd-popover__body fd-popover__body--no-arrow" aria-hidden="true" id="NJvVh542">
+         <nav class="fd-menu">
+            <ul class="fd-menu__list fd-localization-editor__list">
+               <li>
+                  <div class="fd-input-group fd-input-group--after">
+                     <textarea class=""></textarea>
+                     <span class="fd-input-group__addon fd-input-group__addon--after fd-input-group__addon--textarea">
+                     ES
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <div class="fd-input-group fd-input-group--after">
+                     <textarea class=""></textarea>
+                     <span class="fd-input-group__addon fd-input-group__addon--after fd-input-group__addon--textarea">
+                     CH
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <div class="fd-input-group fd-input-group--after">
+                     <textarea class=""></textarea>
+                     <span class="fd-input-group__addon fd-input-group__addon--after fd-input-group__addon--textarea">
+                     PL
+                     </span>
+                  </div>
+               </li>
+            </ul>
+         </nav>
+      </div>
+   </div>
+</div>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-localization-editor"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__control"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">"vTshu851"</span><span class="nt">&gt;</span>
+         Localization Editor Label
+         <span class="nt">&lt;/label&gt;</span>
+         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">""</span> <span class="na">id=</span><span class="s">""</span> <span class="na">aria-controls=</span><span class="s">"NJvVh542"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span>
+            <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--after fd-input-group__addon--textarea fd-input-group__addon--button"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-localization-editor__button"</span>
+            <span class="na">aria-controls=</span><span class="s">"NJvVh542"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>EN*<span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;/span&gt;</span>
+         <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__body fd-popover__body--no-arrow"</span>  <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"NJvVh542"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-menu"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-menu__list fd-localization-editor__list"</span><span class="nt">&gt;</span>
+               <span class="nt">&lt;li&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">""</span> <span class="na">id=</span><span class="s">""</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+                     <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--after fd-input-group__addon--textarea"</span><span class="nt">&gt;</span>
+                     ES
+                     <span class="nt">&lt;/span&gt;</span>
+                  <span class="nt">&lt;/div&gt;</span>
+               <span class="nt">&lt;/li&gt;</span>
+               <span class="nt">&lt;li&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">""</span> <span class="na">id=</span><span class="s">""</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+                     <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--after fd-input-group__addon--textarea"</span><span class="nt">&gt;</span>
+                     CH
+                     <span class="nt">&lt;/span&gt;</span>
+                  <span class="nt">&lt;/div&gt;</span>
+               <span class="nt">&lt;/li&gt;</span>
+               <span class="nt">&lt;li&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">""</span> <span class="na">id=</span><span class="s">""</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+                     <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--after fd-input-group__addon--textarea"</span><span class="nt">&gt;</span>
+                     PL
+                     <span class="nt">&lt;/span&gt;</span>
+                  <span class="nt">&lt;/div&gt;</span>
+               <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;/ul&gt;</span>
+         <span class="nt">&lt;/nav&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+   <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+</div>
+
+            </div>
+
+        </div>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/docs/fundamental//js/customscripts.js" }}"></script>
+        
+    </div>
+    
+</body>
+
+</html>

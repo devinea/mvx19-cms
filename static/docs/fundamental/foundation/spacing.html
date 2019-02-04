@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" spacing">
+<title>
+	
+	Spacing - SAP Fiori Fundamentals
+	
+
+</title>
+
+<!-- Google Tag Manager -->
+<script>
+	(function (w, d, s, l, i) {
+		w[l] = w[l] || []; w[l].push({
+			'gtm.start':
+				new Date().getTime(), event: 'gtm.js'
+		}); var f = d.getElementsByTagName(s)[0],
+			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+	})(window, document, 'script', 'dataLayer', 'GTM-M953JX6');
+</script>
+<!-- End Google Tag Manager -->
+
+<link rel="stylesheet" href="/docs/fundamental//css/syntax.css?1549295562819717000">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css?1549295562819717000" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/docs/fundamental//css/customstyles.css?1549295562819717000">
+<link rel="stylesheet" href="/docs/fundamental//css/fui-site.css?1549295562819717000">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="fundamental" href="/feed.xml">
+</head>
+
+<body>
+    
+    <div class="docs-wrapper">
+
+
+        
+
+        <!-- Page Content -->
+        <div class="docs-container">
+            <!-- Sidebar Column -->
+            
+
+            <div class="main-content" id="tg-sb-content">
+                <!-- Content Column -->
+                
+
+<div class="post-content">
+
+    <h1 class="docs-header-h1">Spacing</h1>
+
+  
+
+
+<p class="docs-status">
+  <span class="fd-badge fd-badge--success" style="cursor: help;" title="Safe to use, no major updates planned">
+    Stable
+  </span>
+  <span class="fd-label fd-has-font-weight-normal">
+    Available since 1.0.0
+  </span>
+  
+  
+</p>
+
+
+
+   
+
+    
+
+
+    
+
+  <p class="docs-intro">
+Spacing helps content to breathe as well as create hierarchy and depth. It ensures optimal readability and space efficiency, all heights and widths are calculated from a base unit or 4.
+</p>
+
+
+<div class="fd-container">
+    <div class="fd-col--8">
+        <h2 class="docs-header-h2" id="spacing-sizes">Base Unit of 4</h2>
+        <p>All spacing is divisible by 4, the list below includes the most common spacing increments we use. </p>
+    </div>
+</div>
+
+<table class="docs-type__scale">
+    <tr>
+        <td class="fd-has-type-0 docs-type__scale--preview">
+            <div style="height: 8px;" class="docs-spacing-example"></div>
+        </td>
+        <td class="fd-has-type-1 docs-type__scale--preview">
+            <div style="height: 16px;" class="docs-spacing-example"></div>
+        </td>
+        <td class="fd-has-type-2 docs-type__scale--preview">
+            <div style="height: 32px;" class="docs-spacing-example"></div>
+        </td>
+        <td class="fd-has-type-3 docs-type__scale--preview">
+            <div style="height: 48px;" class="docs-spacing-example"></div>
+        </td>
+    </tr>
+    <tr>
+        <td class="fd-has-type-1 docs-type__scale--info"><strong>Tiny</strong><br>8px</td>
+        <td class="fd-has-type-1 docs-type__scale--info"><strong>Small</strong><br>16px</td>
+        <td class="fd-has-type-1 docs-type__scale--info"><strong>Medium</strong><br>32px</td>
+        <td class="fd-has-type-1 docs-type__scale--info"><strong>Large</strong><br>48px</td>
+    </tr>
+</table>
+
+<br>
+
+<h2 class="docs-header-h2" id="spacing-usage">Spacing Usage for <code>padding</code> </h2>
+
+<p><a href="/guides/how-to-use-scss.html#spacing-function" target="_blank">SCSS Mixin</a>: <code>@include fd-space([$size)</code> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="/guides/design-system-utilities.html#margin-and-padding" target="_blank">Helper class</a>: <code>.fd-has-padding-[size]</code></p>
+
+
+
+
+
+<div class="fd-tile docs-component docs-component__spacing-example">
+    <label class="fd-form__label docs-component__bg-toggle" for="2950" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="2950" class="toggle-bg">
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+
+<div class="fd-has-padding-tiny">
+    <code>padding</code> using <code>tiny</code> spacing option
+</div>
+<div class="fd-has-padding-small">
+    <code>padding</code> using <code>small</code> spacing option
+</div>
+<div class="fd-has-padding-medium">
+    <code>padding</code> using <code>medium</code> spacing option
+</div>
+<div class="fd-has-padding-large">
+    <code>padding</code> using <code>large</code> spacing option
+</div>
+
+	</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-has-padding-tiny"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;code&gt;</span>padding<span class="nt">&lt;/code&gt;</span> using <span class="nt">&lt;code&gt;</span>tiny<span class="nt">&lt;/code&gt;</span> spacing option
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-has-padding-small"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;code&gt;</span>padding<span class="nt">&lt;/code&gt;</span> using <span class="nt">&lt;code&gt;</span>small<span class="nt">&lt;/code&gt;</span> spacing option
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-has-padding-medium"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;code&gt;</span>padding<span class="nt">&lt;/code&gt;</span> using <span class="nt">&lt;code&gt;</span>medium<span class="nt">&lt;/code&gt;</span> spacing option
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-has-padding-large"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;code&gt;</span>padding<span class="nt">&lt;/code&gt;</span> using <span class="nt">&lt;code&gt;</span>large<span class="nt">&lt;/code&gt;</span> spacing option
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+
+
+<h2 class="docs-header-h2" id="spacing-usage">Spacing Usage for <code>margin</code> </h2>
+
+<p><a href="/guides/how-to-use-scss.html#spacing-function" target="_blank">SCSS Mixin</a>: <code>@include fd-space([$size)</code> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="/guides/design-system-utilities.html#margin-and-padding" target="_blank">Helper class</a>: <code>.fd-has-margin-[size]</code></p>
+
+
+
+
+
+<div class="fd-tile docs-component docs-component__spacing-example">
+    <label class="fd-form__label docs-component__bg-toggle" for="400" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="400" class="toggle-bg">
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+
+<div class="fd-has-margin-tiny">
+    <code>margin</code> using <code>tiny</code> spacing option
+</div>
+<div class="fd-has-margin-small">
+    <code>margin</code> using <code>small</code> spacing option
+</div>
+<div class="fd-has-margin-medium">
+    <code>margin</code> using <code>medium</code> spacing option
+</div>
+<div class="fd-has-margin-large">
+    <code>margin</code> using <code></code> spacing option
+</div>
+
+	</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-has-margin-tiny"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;code&gt;</span>margin<span class="nt">&lt;/code&gt;</span> using <span class="nt">&lt;code&gt;</span>tiny<span class="nt">&lt;/code&gt;</span> spacing option
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-has-margin-small"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;code&gt;</span>margin<span class="nt">&lt;/code&gt;</span> using <span class="nt">&lt;code&gt;</span>small<span class="nt">&lt;/code&gt;</span> spacing option
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-has-margin-medium"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;code&gt;</span>margin<span class="nt">&lt;/code&gt;</span> using <span class="nt">&lt;code&gt;</span>medium<span class="nt">&lt;/code&gt;</span> spacing option
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-has-margin-large"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;code&gt;</span>margin<span class="nt">&lt;/code&gt;</span> using <span class="nt">&lt;code&gt;&lt;/code&gt;</span> spacing option
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+
+<br>
+
+<div class="fd-container">
+    <div class="fd-col--8">
+        <h2 class="docs-header-h2" id="spacing-function">Sections & Panels Spacing</h2>
+        <p>For common content areas such as lists, tables, cards, or forms, there is a system of sections & panels that
+            work together to create a consistent visual layout.</p>
+
+        <h3 class="docs-header-h3">Sections</h3>
+        Sections are the outter most containers for all content. They can contain any combination of components.
+        Each Section has 40px above the content area and 20px below.
+        All components and information contained within the content area will use their own padding and spacing.
+    </div>
+</div>
+
+<img src="/docs/fundamental//images/spacing/sections.png" alt="section spacing" class="img-responsive">
+
+<br><br>
+
+<div class="fd-container">
+    <div class="fd-col--8">
+        <h3 class="docs-header-h3">Panels</h3>
+        <p>Panels are always contained inside a section and most commonly used when there are 2 panels side by side inside a section.
+            Card grids, however, follow their own spacing system independent of sections or panels.</p>
+    </div>
+</div>
+
+<img src="/docs/fundamental//images/spacing/panels.png" alt="panel spacing" class="img-responsive">
+
+<br><br>
+
+
+    <div class="tags">
+        
+    </div>
+
+</div>
+
+            </div>
+
+        </div>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/docs/fundamental//js/customscripts.js" }}"></script>
+        
+    </div>
+    
+</body>
+
+</html>

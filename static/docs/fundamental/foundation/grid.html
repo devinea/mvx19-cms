@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" grid">
+<title>
+	
+	Grid - SAP Fiori Fundamentals
+	
+
+</title>
+
+<!-- Google Tag Manager -->
+<script>
+	(function (w, d, s, l, i) {
+		w[l] = w[l] || []; w[l].push({
+			'gtm.start':
+				new Date().getTime(), event: 'gtm.js'
+		}); var f = d.getElementsByTagName(s)[0],
+			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+	})(window, document, 'script', 'dataLayer', 'GTM-M953JX6');
+</script>
+<!-- End Google Tag Manager -->
+
+<link rel="stylesheet" href="/docs/fundamental//css/syntax.css?1549295562819717000">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css?1549295562819717000" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/docs/fundamental//css/customstyles.css?1549295562819717000">
+<link rel="stylesheet" href="/docs/fundamental//css/fui-site.css?1549295562819717000">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="fundamental" href="/feed.xml">
+</head>
+
+<body>
+    
+    <div class="docs-wrapper">
+
+
+        
+
+        <!-- Page Content -->
+        <div class="docs-container">
+            <!-- Sidebar Column -->
+            
+
+            <div class="main-content" id="tg-sb-content">
+                <!-- Content Column -->
+                
+
+<div class="post-content">
+
+    <h1 class="docs-header-h1">Grid</h1>
+
+  
+
+
+<p class="docs-status">
+  <span class="fd-badge fd-badge--warning" style="cursor: help;" title="These are being actively reviewed to be refactored, safe to use but talk to us">
+    Under Review
+  </span>
+  <span class="fd-label fd-has-font-weight-normal">
+    Available since 1.0.0
+  </span>
+  
+  
+</p>
+
+
+
+   
+
+    
+
+
+    
+
+  <p class="docs-intro">
+Fiori Fundamentals uses responsive grid system with a 12-column flow layout. It is used to create flexible layouts for various screen sizes and device types.
+</p>
+
+<h3 class="docs-header-h3">Tablet example grid</h3>
+<p>
+<img src="/docs/fundamental//images/grid/default-grid.png" alt="default grid" class="img-responsive">
+</p>
+<!-- Images currently out of date. Must update to reflect table below
+
+<h2 class="docs-header-h2">Basic structure</h2>
+
+<h3 class="docs-header-h3">Default grid</h3>
+
+<img src="/docs/fundamental//images/grid/default-grid.png" alt="default grid" class="img-responsive">
+
+
+<h3 class="docs-header-h3 fd-has-margin-top-m">Grid with a left sidebar</h3>
+
+<img src="/docs/fundamental//images/grid/grid-with-left-sidebar.png" alt="default with left bar" class="img-responsive">
+
+<hr>
+
+-->
+
+
+
+<br><br>
+
+
+
+<h1 class="docs-header-h1">Breakpoints</h1>
+
+
+
+<p class="docs-status">
+  <span class="fd-badge fd-badge--success" style="cursor: help;" title="Newly updated styles, there may be room for improvement and some bugs">
+    New Release
+  </span>
+  <span class="fd-label fd-has-font-weight-normal">
+    Available since 1.0.0
+  </span>
+  
+    <span class="fd-label">
+      Last updated 1.4.0
+    </span>
+  
+  
+</p>
+
+
+
+<p>
+When considering responsive views we follow a mobile-first approach where screens are built for small screens and adapted for larger screens. This means that <code>S</code> is always the default and we modify for <code>M</code> and above.
+</p>
+
+
+<table class="fd-table docs-breakpoints-table">
+    <thead>
+        <tr>
+            <th>Size</th>
+            <th class="docs-breakpoints-table_col-legend docs-breakpoints-table_col-legend--column">Target Devices</th>
+            <th class="docs-breakpoints-table_col-legend docs-breakpoints-table_col-legend--margin">Breakpoints</th>
+            <th class="docs-breakpoints-table_col-legend docs-breakpoints-table_col-legend--column">Margin</th>
+            <th class="docs-breakpoints-table_col-legend docs-breakpoints-table_col-legend--gutter">Gutter</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>S</td>
+            <td>Portrait Phone</td>
+            <td>&lt;600px</td>
+            <td>8px</td>
+            <td>8px</td>
+        </tr>
+        <tr>
+            <td>M</td>
+            <td>Landscape Phone, Portrait Tablet</td>
+            <td>600-1023px</td>
+            <td>16px</td>
+            <td>16px</td>
+        </tr>
+        <tr>
+            <td>L</td>
+            <td>Landscape Tablet, Small Laptops</td>
+            <td>1024-1439px</td>
+            <td>32px</td>
+            <td>16px</td>
+        </tr>
+        <tr>
+            <td>XL</td>
+            <td>Pro Laptops, Desktop</td>
+            <td>1440-1919px</td>
+            <td>32px</td>
+            <td>20px</td>
+        </tr>
+        <tr>
+            <td>XXL</td>
+            <td>Pro Displays</td>
+            <td>1920px</td>
+            <td>48px</td>
+            <td>20px</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<!-- Images currently out of date. Must update to reflect table above
+
+<h3 class="docs-header-h3 fd-has-margin-top-m">Mobile (>320px)</h3>
+<img src="/docs/fundamental//images/grid/mobile-320.png" alt="Mobile breakpoint" width="200">
+
+<h3 class="docs-header-h3 fd-has-margin-top-m">Tablet (>760px)</h3>
+<img src="/docs/fundamental//images/grid/tablet-760.png" alt="Tablet breakpoint" width="400">
+
+<h3 class="docs-header-h3 fd-has-margin-top-m">Desktop(>1024px)</h3>
+<img src="/docs/fundamental//images/grid/desktop-1024.png" alt="Desktop breakpoint" width="600">
+
+<h3 class="docs-header-h3 fd-has-margin-top-m">Large (>1920px)</h3>
+<img src="/docs/fundamental//images/grid/large-1920.png" alt="Large breakpoint" width="700">
+
+-->
+
+
+    <div class="tags">
+        
+    </div>
+
+</div>
+
+            </div>
+
+        </div>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/docs/fundamental//js/customscripts.js" }}"></script>
+        
+    </div>
+    
+</body>
+
+</html>

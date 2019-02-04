@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" icon, identifier">
+<title>
+	
+	Identifier - SAP Fiori Fundamentals
+	
+
+</title>
+
+<!-- Google Tag Manager -->
+<script>
+	(function (w, d, s, l, i) {
+		w[l] = w[l] || []; w[l].push({
+			'gtm.start':
+				new Date().getTime(), event: 'gtm.js'
+		}); var f = d.getElementsByTagName(s)[0],
+			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+	})(window, document, 'script', 'dataLayer', 'GTM-M953JX6');
+</script>
+<!-- End Google Tag Manager -->
+
+<link rel="stylesheet" href="/docs/fundamental//css/syntax.css?1549295562819717000">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css?1549295562819717000" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/docs/fundamental//css/customstyles.css?1549295562819717000">
+<link rel="stylesheet" href="/docs/fundamental//css/fui-site.css?1549295562819717000">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="fundamental" href="/feed.xml">
+</head>
+
+<body>
+    
+    <div class="docs-wrapper">
+
+
+        
+
+        <!-- Page Content -->
+        <div class="docs-container">
+            <!-- Sidebar Column -->
+            
+
+            <div class="main-content" id="tg-sb-content">
+                <!-- Content Column -->
+                
+
+<div class="post-content">
+
+    <h1 class="docs-header-h1">Identifier</h1>
+
+  
+
+
+<p class="docs-status">
+  <span class="fd-badge fd-badge--success" style="cursor: help;" title="Newly updated styles, there may be room for improvement and some bugs">
+    New Release
+  </span>
+  <span class="fd-label fd-has-font-weight-normal">
+    Available since 1.0.0
+  </span>
+  
+    <span class="fd-label">
+      Last updated 1.3.2
+    </span>
+  
+  
+</p>
+
+
+
+   
+
+    
+
+
+    
+
+  <p class="docs-intro">Identifier is a way to visually present something using an icon or user initials.</p>
+
+<p>There are multiple sizes:</p>
+<ul>
+  <li>Default matches the base font size (14px)</li>
+  <li>Extra Extra Small (<code class="highlighter-rouge">--xxs</code> - 20px)</li>
+  <li>Extra Small (<code class="highlighter-rouge">--xs</code> - 28px)</li>
+  <li>Small (<code class="highlighter-rouge">--s</code>) - 32px</li>
+  <li>Medium (<code class="highlighter-rouge">--m</code>) - 48px</li>
+  <li>Large (<code class="highlighter-rouge">--l</code>) - 64px</li>
+  <li>Extra Large (<code class="highlighter-rouge">--xl</code>) - 88px</li>
+  <li>Extra Extra Large (<code class="highlighter-rouge">--xxl</code>) - 112px</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="icon">Icon</h2>
+<p>Include <code class="highlighter-rouge">role="presentation"</code> when the identifier is used for only illustrative purposes. For example, if the icon sits right next to a label, use role.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="43350" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="43350" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<span class=" fd-identifier--xxs sap-icon--washing-machine" role="presentation"></span>
+<span class=" fd-identifier--xs sap-icon--washing-machine" role="presentation"></span>
+<span class=" fd-identifier--s sap-icon--washing-machine" role="presentation"></span>
+<span class=" fd-identifier--m sap-icon--washing-machine" role="presentation"></span>
+<span class=" fd-identifier--l sap-icon--washing-machine" role="presentation"></span>
+<span class=" fd-identifier--xl sap-icon--washing-machine" role="presentation"></span>
+<span class=" fd-identifier--xxl sap-icon--washing-machine" role="presentation"></span>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xxs sap-icon--washing-machine"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xs sap-icon--washing-machine"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--s sap-icon--washing-machine"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--m sap-icon--washing-machine"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--l sap-icon--washing-machine"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xl sap-icon--washing-machine"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xxl sap-icon--washing-machine"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="initials">Initials</h2>
+<p>Include aria-label when there is no text equivalent for the identifier. This is not necessary if the identifier is used for illustrative purposes only. See Icon above.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="1800" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="1800" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<span class=" fd-identifier--xxs" aria-label="Wendy Wallace">WW</span>
+<span class=" fd-identifier--xs" aria-label="Wendy Wallace">WW</span>
+<span class=" fd-identifier--s" aria-label="Wendy Wallace">WW</span>
+<span class=" fd-identifier--m" aria-label="Wendy Wallace">WW</span>
+<span class=" fd-identifier--l" aria-label="Wendy Wallace">WW</span>
+<span class=" fd-identifier--xl" aria-label="Wendy Wallace">WW</span>
+<span class=" fd-identifier--xxl" aria-label="Wendy Wallace">WW</span>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xxs"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xs"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--s"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--m"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--l"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xl"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xxl"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="circle">Circle</h2>
+<p>A circle style can be rendered using the <code class="highlighter-rouge">--circle</code> modifier.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="200" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="200" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<span class=" fd-identifier--xxs fd-identifier--circle sap-icon--money-bills" role="presentation"></span>
+<span class=" fd-identifier--xs fd-identifier--circle sap-icon--money-bills" role="presentation"></span>
+<span class=" fd-identifier--s fd-identifier--circle sap-icon--money-bills" role="presentation"></span>
+<span class=" fd-identifier--m fd-identifier--circle sap-icon--money-bills" role="presentation"></span>
+<span class=" fd-identifier--l fd-identifier--circle sap-icon--money-bills" role="presentation"></span>
+<span class=" fd-identifier--l fd-identifier--circle sap-icon--money-bills" role="presentation"></span>
+<span class=" fd-identifier--l fd-identifier--circle sap-icon--money-bills" role="presentation"></span>
+
+<span class=" fd-identifier--xxs fd-identifier--circle" aria-label="Wendy Wallace">WW</span>
+<span class=" fd-identifier--xs fd-identifier--circle" aria-label="Wendy Wallace">WW</span>
+<span class=" fd-identifier--s fd-identifier--circle" aria-label="Wendy Wallace">WW</span>
+<span class=" fd-identifier--m fd-identifier--circle" aria-label="Wendy Wallace">WW</span>
+<span class=" fd-identifier--l fd-identifier--circle" aria-label="Wendy Wallace">WW</span>
+<span class=" fd-identifier--xl fd-identifier--circle" aria-label="Wendy Wallace">WW</span>
+<span class=" fd-identifier--xxl fd-identifier--circle" aria-label="Wendy Wallace">WW</span>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xxs fd-identifier--circle sap-icon--money-bills"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xs fd-identifier--circle sap-icon--money-bills"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--s fd-identifier--circle sap-icon--money-bills"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--m fd-identifier--circle sap-icon--money-bills"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--l fd-identifier--circle sap-icon--money-bills"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--l fd-identifier--circle sap-icon--money-bills"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--l fd-identifier--circle sap-icon--money-bills"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xxs fd-identifier--circle"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xs fd-identifier--circle"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--s fd-identifier--circle"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--m fd-identifier--circle"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--l fd-identifier--circle"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xl fd-identifier--circle"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xxl fd-identifier--circle"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="background-image">Background image</h2>
+
+<p>A background image can be applied to any style using the <code class="highlighter-rouge">--thumbnail</code> modifier.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="92800" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="92800" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<span class=" fd-identifier--xxs fd-identifier--circle fd-identifier--thumbnail" style="background-image: url('/docs/fundamental//images/thumbs/headshot-male.jpg')" role="presentation" aria-label="John Doe"></span>
+<span class=" fd-identifier--xs fd-identifier--circle fd-identifier--thumbnail" style="background-image: url('/docs/fundamental//images/thumbs/headshot-male.jpg')" role="presentation" aria-label="John Doe"></span>
+<span class=" fd-identifier--s fd-identifier--circle fd-identifier--thumbnail" style="background-image: url('/docs/fundamental//images/thumbs/headshot-male.jpg')" role="presentation" aria-label="John Doe"></span>
+<span class=" fd-identifier--m fd-identifier--circle fd-identifier--thumbnail" style="background-image: url('/docs/fundamental//images/thumbs/headshot-male.jpg')" role="presentation" aria-label="John Doe"></span>
+<span class=" fd-identifier--l fd-identifier--circle fd-identifier--thumbnail" style="background-image: url('/docs/fundamental//images/thumbs/headshot-male.jpg')" role="presentation" aria-label="John Doe"></span>
+<span class=" fd-identifier--xl fd-identifier--circle fd-identifier--thumbnail" style="background-image: url('/docs/fundamental//images/thumbs/headshot-male.jpg')" role="presentation" aria-label="John Doe"></span>
+<span class=" fd-identifier--xxl fd-identifier--circle fd-identifier--thumbnail" style="background-image: url('/docs/fundamental//images/thumbs/headshot-male.jpg')" role="presentation" aria-label="John Doe"></span>
+
+
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xxs fd-identifier--circle fd-identifier--thumbnail"</span> <span class="na">style=</span><span class="s">"background-image: url('/docs/fundamental//images/thumbs/headshot-male.jpg')"</span> <span class="na">role=</span><span class="s">"presentation"</span> <span class="na">aria-label=</span><span class="s">"John Doe"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xs fd-identifier--circle fd-identifier--thumbnail"</span> <span class="na">style=</span><span class="s">"background-image: url('/docs/fundamental//images/thumbs/headshot-male.jpg')"</span> <span class="na">role=</span><span class="s">"presentation"</span> <span class="na">aria-label=</span><span class="s">"John Doe"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--s fd-identifier--circle fd-identifier--thumbnail"</span> <span class="na">style=</span><span class="s">"background-image: url('/docs/fundamental//images/thumbs/headshot-male.jpg')"</span> <span class="na">role=</span><span class="s">"presentation"</span> <span class="na">aria-label=</span><span class="s">"John Doe"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--m fd-identifier--circle fd-identifier--thumbnail"</span> <span class="na">style=</span><span class="s">"background-image: url('/docs/fundamental//images/thumbs/headshot-male.jpg')"</span> <span class="na">role=</span><span class="s">"presentation"</span> <span class="na">aria-label=</span><span class="s">"John Doe"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--l fd-identifier--circle fd-identifier--thumbnail"</span> <span class="na">style=</span><span class="s">"background-image: url('/docs/fundamental//images/thumbs/headshot-male.jpg')"</span> <span class="na">role=</span><span class="s">"presentation"</span> <span class="na">aria-label=</span><span class="s">"John Doe"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xl fd-identifier--circle fd-identifier--thumbnail"</span> <span class="na">style=</span><span class="s">"background-image: url('/docs/fundamental//images/thumbs/headshot-male.jpg')"</span> <span class="na">role=</span><span class="s">"presentation"</span> <span class="na">aria-label=</span><span class="s">"John Doe"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xxl fd-identifier--circle fd-identifier--thumbnail"</span> <span class="na">style=</span><span class="s">"background-image: url('/docs/fundamental//images/thumbs/headshot-male.jpg')"</span> <span class="na">role=</span><span class="s">"presentation"</span> <span class="na">aria-label=</span><span class="s">"John Doe"</span><span class="nt">&gt;&lt;/span&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="transparent">Transparent</h2>
+
+<p>A transparent style can be rendered using the <code class="highlighter-rouge">--transparent</code> modifier.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="14350" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="14350" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<span class=" fd-identifier--xxs fd-identifier--circle fd-identifier--transparent sap-icon--money-bills" role="presentation"></span>
+<span class=" fd-identifier--xs fd-identifier--circle fd-identifier--transparent sap-icon--money-bills" role="presentation"></span>
+<span class=" fd-identifier--s fd-identifier--circle fd-identifier--transparent sap-icon--money-bills" role="presentation"></span>
+<span class=" fd-identifier--m fd-identifier--circle fd-identifier--transparent sap-icon--money-bills" role="presentation"></span>
+<span class=" fd-identifier--l fd-identifier--circle fd-identifier--transparent sap-icon--money-bills" role="presentation"></span>
+<span class=" fd-identifier--xl fd-identifier--circle fd-identifier--transparent sap-icon--money-bills" role="presentation"></span>
+<span class=" fd-identifier--xxl fd-identifier--circle fd-identifier--transparent sap-icon--money-bills" role="presentation"></span>
+
+<span class=" fd-identifier--xxs fd-identifier--circle fd-identifier--transparent" aria-label="Wendy Wallace">WW</span>
+<span class=" fd-identifier--xs fd-identifier--circle fd-identifier--transparent" aria-label="Wendy Wallace">WW</span>
+<span class=" fd-identifier--s fd-identifier--circle fd-identifier--transparent" aria-label="Wendy Wallace">WW</span>
+<span class=" fd-identifier--m fd-identifier--circle fd-identifier--transparent" aria-label="Wendy Wallace">WW</span>
+<span class=" fd-identifier--l fd-identifier--circle fd-identifier--transparent" aria-label="Wendy Wallace">WW</span>
+<span class=" fd-identifier--xl fd-identifier--circle fd-identifier--transparent" aria-label="Wendy Wallace">WW</span>
+<span class=" fd-identifier--xxl fd-identifier--circle fd-identifier--transparent" aria-label="Wendy Wallace">WW</span>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xxs fd-identifier--circle fd-identifier--transparent sap-icon--money-bills"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xs fd-identifier--circle fd-identifier--transparent sap-icon--money-bills"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--s fd-identifier--circle fd-identifier--transparent sap-icon--money-bills"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--m fd-identifier--circle fd-identifier--transparent sap-icon--money-bills"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--l fd-identifier--circle fd-identifier--transparent sap-icon--money-bills"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xl fd-identifier--circle fd-identifier--transparent sap-icon--money-bills"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xxl fd-identifier--circle fd-identifier--transparent sap-icon--money-bills"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xxs fd-identifier--circle fd-identifier--transparent"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xs fd-identifier--circle fd-identifier--transparent"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--s fd-identifier--circle fd-identifier--transparent"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--m fd-identifier--circle fd-identifier--transparent"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--l fd-identifier--circle fd-identifier--transparent"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xl fd-identifier--circle fd-identifier--transparent"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--xxl fd-identifier--circle fd-identifier--transparent"</span> <span class="na">aria-label=</span><span class="s">"Wendy Wallace"</span><span class="nt">&gt;</span>WW<span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="accent-colors">Accent Colors</h2>
+<p>Use helpers classes to change the background colors, for example, <code class="highlighter-rouge">.fd-has-background-color-accent-9</code>.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="11250" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="11250" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<span class=" fd-identifier--m sap-icon--money-bills fd-has-background-color-accent-1" role="presentation"></span>
+<span class=" fd-identifier--m sap-icon--money-bills fd-has-background-color-accent-2" role="presentation"></span>
+<span class=" fd-identifier--m sap-icon--money-bills fd-has-background-color-accent-3" role="presentation"></span>
+<span class=" fd-identifier--m sap-icon--money-bills fd-has-background-color-accent-4" role="presentation"></span>
+<span class=" fd-identifier--m sap-icon--money-bills fd-has-background-color-accent-5" role="presentation"></span>
+<span class=" fd-identifier--m sap-icon--money-bills fd-has-background-color-accent-6" role="presentation"></span>
+<span class=" fd-identifier--m sap-icon--money-bills fd-has-background-color-accent-7" role="presentation"></span>
+<span class=" fd-identifier--m sap-icon--money-bills fd-has-background-color-accent-8" role="presentation"></span>
+<span class=" fd-identifier--m sap-icon--money-bills fd-has-background-color-accent-9" role="presentation"></span>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--m sap-icon--money-bills fd-has-background-color-accent-1"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--m sap-icon--money-bills fd-has-background-color-accent-2"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--m sap-icon--money-bills fd-has-background-color-accent-3"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--m sap-icon--money-bills fd-has-background-color-accent-4"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--m sap-icon--money-bills fd-has-background-color-accent-5"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--m sap-icon--money-bills fd-has-background-color-accent-6"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--m sap-icon--money-bills fd-has-background-color-accent-7"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--m sap-icon--money-bills fd-has-background-color-accent-8"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">" fd-identifier--m sap-icon--money-bills fd-has-background-color-accent-9"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span></code></pre></figure>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+</div>
+
+            </div>
+
+        </div>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/docs/fundamental//js/customscripts.js" }}"></script>
+        
+    </div>
+    
+</body>
+
+</html>
