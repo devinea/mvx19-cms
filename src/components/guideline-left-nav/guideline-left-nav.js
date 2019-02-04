@@ -25,7 +25,11 @@ const LeftNav = ({ data }) => (
     </Location>
     <h2>Foundation</h2>
     <h2>Layouts &amp; Floorplans</h2>
-    <h2>Controls</h2>
+    <Location>
+    {({ location }) => {
+      return <Link className="main-nav" to={ (location.pathname.startsWith('/develop') ? 'develop' : 'design') + '/controls'}>Controls</Link>
+    }}
+    </Location>
     {data.allMarkdownRemark.edges.map(({ node: data }) => (
       <Link className='control-menu' key={data.id} to={data.fields.slug}>
         {data.frontmatter.title}

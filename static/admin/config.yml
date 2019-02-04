@@ -19,7 +19,7 @@ collections:
     fields:
     - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
     - {label: "Title", name: "title", widget: "string"}
-    - {label: "Featured Image", name: "featuredImage", widget: "image", required: false, tagname: ''}
+    - {label: "Featured Image", name: "featuredImage", widget: "image", tagname: ''}
     - {label: "Publish Date", name: "date", widget: "datetime"}
     - {label: "Description", name: "description", widget: "text"}
     - {label: "Body", name: "body", widget: "markdown"}
@@ -32,6 +32,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "design-guideline-post"}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Featured Image", name: "featuredImage", widget: "image", tagname: ''}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
@@ -44,6 +45,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "developer-guideline-post"}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Featured Image", name: "featuredImage", widget: "image", tagname: ''}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}

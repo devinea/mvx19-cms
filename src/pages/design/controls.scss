@@ -1,0 +1,23 @@
+.design-controls {
+    float: left;
+    width: 100%;
+
+    .control-menu {
+        float: left;
+        width: 50%;
+        height: 200px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        border: 1px black solid;
+        transform: translateZ(0);
+        .control-title {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            position: fixed;
+        }
+        .control-img {
+            max-height: 90%;
+        }
+    }
+}

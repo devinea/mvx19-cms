@@ -33,7 +33,6 @@ export default class DesignGuidelineIndexPage extends React.Component {
             <div
               css={{
                 width: '100%',
-                height: '200px',
                 backgroundColor: '#f8f9fb',
                 height: '682px',
                 backgroundImage: 'url(' + designImg + ')',
