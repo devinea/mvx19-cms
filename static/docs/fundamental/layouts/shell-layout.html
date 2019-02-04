@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" shell application layouts overlay">
+<title>
+	
+	Application Shell - SAP Fiori Fundamentals
+	
+
+</title>
+
+<!-- Google Tag Manager -->
+<script>
+	(function (w, d, s, l, i) {
+		w[l] = w[l] || []; w[l].push({
+			'gtm.start':
+				new Date().getTime(), event: 'gtm.js'
+		}); var f = d.getElementsByTagName(s)[0],
+			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+	})(window, document, 'script', 'dataLayer', 'GTM-M953JX6');
+</script>
+<!-- End Google Tag Manager -->
+
+<link rel="stylesheet" href="/docs/fundamental//css/syntax.css?1549295562819717000">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css?1549295562819717000" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/docs/fundamental//css/customstyles.css?1549295562819717000">
+<link rel="stylesheet" href="/docs/fundamental//css/fui-site.css?1549295562819717000">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="fundamental" href="/feed.xml">
+</head>
+
+<body>
+    
+    <div class="docs-wrapper">
+
+
+        
+
+        <!-- Page Content -->
+        <div class="docs-container">
+            <!-- Sidebar Column -->
+            
+
+            <div class="main-content" id="tg-sb-content">
+                <!-- Content Column -->
+                
+
+<div class="post-content">
+
+    <h1 class="docs-header-h1">Application Shell</h1>
+
+  
+
+
+<p class="docs-status">
+  <span class="fd-badge fd-badge--success" style="cursor: help;" title="Newly updated styles, there may be room for improvement and some bugs">
+    New Release
+  </span>
+  <span class="fd-label fd-has-font-weight-normal">
+    Available since 1.4.0
+  </span>
+  
+  
+</p>
+
+
+
+   
+
+    
+
+
+    
+
+  <p>Shell layout containers are used to construct the master template and application containers, providing structure to your application. The structure is divided into two layout components — <code class="highlighter-rouge">shell</code> and <code class="highlighter-rouge">app</code>.</p>
+
+<ul>
+  <li>The <code class="highlighter-rouge">shell</code> layer is only for high-level containers: global header, app content, global footer and full-page overlay.</li>
+  <li>The <code class="highlighter-rouge">app</code> layer is for application-level containers: sidebar and page content.</li>
+</ul>
+
+<p>These are dumb containers only concerned with placement with no effect on their contents. Simple responsive behaviors are built-in.
+<br /><br /></p>
+
+<h2 id="container-hierarchy">Container hierarchy</h2>
+
+<ul>
+  <li><code class="highlighter-rouge">.fd-shell</code>: The outermost full-screen root wrapper
+    <ul>
+      <li><code class="highlighter-rouge">.fd-shell__header</code>: Global header for <a href="/components/shellbar.html">shellbar component</a>
+        <ul>
+          <li><code class="highlighter-rouge">.fd-shell__header--fixed</code>: Modifier to make the header persistent (sticky)</li>
+        </ul>
+      </li>
+      <li><code class="highlighter-rouge">.fd-shell__app</code>: The wrapper for the app content
+        <ul>
+          <li><code class="highlighter-rouge">.fd-app</code>: The root application content container
+            <ul>
+              <li><code class="highlighter-rouge">.fd-app__navigation</code>: Optional navigation container, use <code class="highlighter-rouge">--horizontal</code> or <code class="highlighter-rouge">--vertical</code> orientations</li>
+              <li><code class="highlighter-rouge">.fd-app__main</code>: Main app content</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><code class="highlighter-rouge">.fd_shell__footer</code>: Optional global footer
+        <ul>
+          <li><code class="highlighter-rouge">.fd-shell__footer--fixed</code>: Modifier to make the footer persistent (sticky)</li>
+        </ul>
+      </li>
+      <li><code class="highlighter-rouge">.fd-shell__overlay</code>: Appended container for overlaying content
+        <ul>
+          <li><code class="highlighter-rouge">.fd-overlay</code>: Common standalone component used to dim background</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 class="docs-header-h2" id="application-with-only-top-bar">Application with only Top Bar</h2>
+<p>This is the master layout which provides the foundation for all page templates. Use this foundation when a full-width layout is needed, e.g., home page, launchpad, dashboard, etc.</p>
+
+<p>Both the header and footer can be fixed by applying the <code class="highlighter-rouge">.fd-shell--fixed</code> modifier to the <code class="highlighter-rouge">.fd-shell</code> container, or each can be fixed individual by apply <code class="highlighter-rouge">.fd-shell__header--fixed</code> or <code class="highlighter-rouge">.fd-shell__footer--fixed</code>.</p>
+
+<blockquote>
+  <p>See the <a href="/components/shellbar.html">shellbar component</a> which is used in the header container.</p>
+</blockquote>
+
+<p>The <code class="highlighter-rouge">app</code> containers here provide additional structure to application content.</p>
+
+<div class="fd-tile docs-component docs-component__app">
+    <label class="fd-form__label docs-component__bg-toggle" for="71750" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="71750" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="fd-shell fd-shell--fundamentals">
+    <div class="fd-shell__header">
+        fd-shell__header
+    </div>
+    <div class="fd-shell__app">
+        <div class="fd-app">
+            <main class="fd-app__main">
+                fd-app__main
+            </main>
+        </div>
+    </div>
+    <div class="fd-shell__footer">
+        fd-shell__footer
+    </div>
+</div>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell fd-shell--fundamentals"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell__header"</span><span class="nt">&gt;</span>
+        fd-shell__header
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell__app"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-app"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;main</span> <span class="na">class=</span><span class="s">"fd-app__main"</span><span class="nt">&gt;</span>
+                fd-app__main
+            <span class="nt">&lt;/main&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell__footer"</span><span class="nt">&gt;</span>
+        fd-shell__footer
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h2 class="docs-header-h2" id="application-with-horizontal-navigation">Application with horizontal navigation</h2>
+
+<p>The sidebar is an optional <code class="highlighter-rouge">app</code> layout container and should be used with applications with more than two levels of navigation.</p>
+
+<div class="fd-tile docs-component docs-component__app">
+    <label class="fd-form__label docs-component__bg-toggle" for="99100" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="99100" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="fd-shell fd-shell--fundamentals">
+    <div class="fd-shell__header">
+        fd-shell__header
+    </div>
+    <div class="fd-shell__app">
+        <div class="fd-app">
+            <div class="fd-app__navigation fd-app__navigation--horizontal">
+                fd-app__navigation--horizontal
+            </div>
+            <main class="fd-app__main">
+                fd-app__main
+            </main>
+        </div>
+    </div>
+    <div class="fd-shell__footer">
+        fd-shell__footer
+    </div>
+</div>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell fd-shell--fundamentals"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell__header"</span><span class="nt">&gt;</span>
+        fd-shell__header
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell__app"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-app"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-app__navigation fd-app__navigation--horizontal"</span><span class="nt">&gt;</span>
+                fd-app__navigation--horizontal
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;main</span> <span class="na">class=</span><span class="s">"fd-app__main"</span><span class="nt">&gt;</span>
+                fd-app__main
+            <span class="nt">&lt;/main&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell__footer"</span><span class="nt">&gt;</span>
+        fd-shell__footer
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h2 class="docs-header-h2" id="application-with-sidebar">Application with Sidebar</h2>
+
+<p>The sidebar is an optional <code class="highlighter-rouge">app</code> layout container and should be used with applications with more than two levels of navigation.</p>
+
+<div class="fd-tile docs-component docs-component__app">
+    <label class="fd-form__label docs-component__bg-toggle" for="42600" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="42600" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="fd-shell fd-shell--fundamentals">
+    <div class="fd-shell__header">
+        fd-shell__header
+    </div>
+    <div class="fd-shell__app">
+        <div class="fd-app">
+            <div class="fd-app__navigation fd-app__navigation--vertical">
+                fd-app__navigation--vertical
+            </div>
+            <main class="fd-app__main">
+                fd-app__main
+            </main>
+        </div>
+    </div>
+    <div class="fd-shell__footer">
+        fd-shell__footer
+    </div>
+</div>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell fd-shell--fundamentals"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell__header"</span><span class="nt">&gt;</span>
+        fd-shell__header
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell__app"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-app"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-app__navigation fd-app__navigation--vertical"</span><span class="nt">&gt;</span>
+                fd-app__navigation--vertical
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;main</span> <span class="na">class=</span><span class="s">"fd-app__main"</span><span class="nt">&gt;</span>
+                fd-app__main
+            <span class="nt">&lt;/main&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell__footer"</span><span class="nt">&gt;</span>
+        fd-shell__footer
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h2 class="docs-header-h2" id="application-with-ui-overlay">Application with UI overlay</h2>
+<p>The overlay container is meant to accommodate any content that needs to be positioned on top of the UI. The is often included at the bottom of the DOM to overcome positioning and overflow styles of content container.
+There are two options for Application overlay.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">.fd-overlay--modal</code>: Dims background and position the modal in the center of the viewport.</li>
+  <li><code class="highlighter-rouge">.fd-overlay--alert</code>: Does not dim the background and positions the alert component near the top of the viewport.
+Commonly the <code class="highlighter-rouge">fd-overlay</code> class will be added to the overlay to dim the background and center the content, as with a modal. However, the container is generic enough to accommodate any full-UI takeover.</li>
+</ul>
+
+<p>The container visibility can be toggled with the <code class="highlighter-rouge">aria-hidden</code> attribute.</p>
+
+<h3 class="docs-header-h3" id="application-overlay-modal-example">Application Overlay Modal example</h3>
+
+<div class="fd-tile docs-component docs-component__app">
+    <label class="fd-form__label docs-component__bg-toggle" for="3000" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="3000" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="fd-shell fd-shell--fundamentals">
+    <div class="fd-shell__header">
+        fd-shell__header
+    </div>
+    <div class="fd-shell__app">
+        <div class="fd-app">
+            <main class="fd-app__main">
+                fd-app__main
+            </main>
+        </div>
+    </div>
+    <div class="fd-shell__footer">
+        fd-shell__footer
+    </div>
+    <div class="fd-shell__overlay fd-overlay fd-overlay--modal" aria-hidden="false">
+        <div class="fd-modal" role="dialog">
+          <div class="fd-modal__content" role="document">
+              <header class="fd-modal__header">
+                  <h1 class="fd-modal__title">fd-modal__header</h1>
+                  <button class="fd-button--light fd-modal__close"></button>
+              </header>
+              <div class="fd-modal__body">
+                  fd-modal__body
+              </div>
+              <footer class="fd-modal__footer">
+                <div class="fd-modal__actions">
+                  <button class=" fd-button--light">fd-modal__action</button>
+                  <button class=" fd-button">fd-modal__action</button>
+                </div>
+                </footer>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell fd-shell--fundamentals"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell__header"</span><span class="nt">&gt;</span>
+        fd-shell__header
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell__app"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-app"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;main</span> <span class="na">class=</span><span class="s">"fd-app__main"</span><span class="nt">&gt;</span>
+                fd-app__main
+            <span class="nt">&lt;/main&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell__footer"</span><span class="nt">&gt;</span>
+        fd-shell__footer
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell__overlay fd-overlay fd-overlay--modal"</span> <span class="na">aria-hidden=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-modal"</span> <span class="na">role=</span><span class="s">"dialog"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-modal__content"</span> <span class="na">role=</span><span class="s">"document"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"fd-modal__header"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"fd-modal__title"</span><span class="nt">&gt;</span>fd-modal__header<span class="nt">&lt;/h1&gt;</span>
+                  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-modal__close"</span><span class="nt">&gt;&lt;/button&gt;</span>
+              <span class="nt">&lt;/header&gt;</span>
+              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-modal__body"</span><span class="nt">&gt;</span>
+                  fd-modal__body
+              <span class="nt">&lt;/div&gt;</span>
+              <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"fd-modal__footer"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-modal__actions"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">" fd-button--light"</span><span class="nt">&gt;</span>fd-modal__action<span class="nt">&lt;/button&gt;</span>
+                  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">" fd-button"</span><span class="nt">&gt;</span>fd-modal__action<span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;/footer&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h3 class="docs-header-h3" id="application-overlay-alert-example">Application Overlay Alert example</h3>
+
+<div class="fd-tile docs-component docs-component__app">
+    <label class="fd-form__label docs-component__bg-toggle" for="19650" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="19650" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="fd-shell fd-shell--fundamentals">
+    <div class="fd-shell__header">
+        fd-shell__header
+    </div>
+    <div class="fd-shell__app">
+        <div class="fd-app">
+            <main class="fd-app__main">
+                fd-app__main
+            </main>
+        </div>
+    </div>
+    <div class="fd-shell__footer">
+        fd-shell__footer
+    </div>
+    <div class="fd-shell__overlay fd-overlay fd-overlay--alert" aria-hidden="false">
+        <div class="fd-alert fd-alert--warning fd-alert--dismissible" role="alert" id="4Nolz351">
+          <button class="fd-alert__close" aria-controls="4Nolz351" aria-label="Close"></button>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit
+        </div>
+    </div>
+</div>
+
+
+
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell fd-shell--fundamentals"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell__header"</span><span class="nt">&gt;</span>
+        fd-shell__header
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell__app"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-app"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;main</span> <span class="na">class=</span><span class="s">"fd-app__main"</span><span class="nt">&gt;</span>
+                fd-app__main
+            <span class="nt">&lt;/main&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell__footer"</span><span class="nt">&gt;</span>
+        fd-shell__footer
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-shell__overlay fd-overlay fd-overlay--alert"</span> <span class="na">aria-hidden=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-alert fd-alert--warning fd-alert--dismissible"</span> <span class="na">role=</span><span class="s">"alert"</span> <span class="na">id=</span><span class="s">"4Nolz351"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-alert__close"</span> <span class="na">aria-controls=</span><span class="s">"4Nolz351"</span> <span class="na">aria-label=</span><span class="s">"Close"</span><span class="nt">&gt;&lt;/button&gt;</span>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+</div>
+
+            </div>
+
+        </div>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/docs/fundamental//js/customscripts.js" }}"></script>
+        
+    </div>
+    
+</body>
+
+</html>

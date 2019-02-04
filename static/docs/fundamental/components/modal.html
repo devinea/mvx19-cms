@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" modal, modals">
+<title>
+	
+	Modal - SAP Fiori Fundamentals
+	
+
+</title>
+
+<!-- Google Tag Manager -->
+<script>
+	(function (w, d, s, l, i) {
+		w[l] = w[l] || []; w[l].push({
+			'gtm.start':
+				new Date().getTime(), event: 'gtm.js'
+		}); var f = d.getElementsByTagName(s)[0],
+			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+	})(window, document, 'script', 'dataLayer', 'GTM-M953JX6');
+</script>
+<!-- End Google Tag Manager -->
+
+<link rel="stylesheet" href="/docs/fundamental//css/syntax.css?1549295562819717000">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css?1549295562819717000" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/docs/fundamental//css/customstyles.css?1549295562819717000">
+<link rel="stylesheet" href="/docs/fundamental//css/fui-site.css?1549295562819717000">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="fundamental" href="/feed.xml">
+</head>
+
+<body>
+    
+    <div class="docs-wrapper">
+
+
+        
+
+        <!-- Page Content -->
+        <div class="docs-container">
+            <!-- Sidebar Column -->
+            
+
+            <div class="main-content" id="tg-sb-content">
+                <!-- Content Column -->
+                
+
+<div class="post-content">
+
+    <h1 class="docs-header-h1">Modal</h1>
+
+  
+
+
+<p class="docs-status">
+  <span class="fd-badge fd-badge--warning" style="cursor: help;" title="These are being actively reviewed to be refactored, safe to use but talk to us">
+    Under Review
+  </span>
+  <span class="fd-label fd-has-font-weight-normal">
+    Available since 1.0.0
+  </span>
+  
+  
+</p>
+
+
+
+   
+
+    
+
+
+    
+
+  <p class="docs-intro">The modal is a container generally displayed in response to an action.</p>
+<p>It is used for short forms, confirmation messages or to display contextual information that does not require a page. The modal should always be used in conjunction with the <a href="/layouts/application-layout.html#application-with-ui-overlay">Application Layout Containers</a>. See an example <a href="/demo-pages/modal-overlay-demo-page.html">App layout page with Modal</a></p>
+
+<p><br /></p>
+
+<h2 id="informational-modal">Informational Modal</h2>
+<p>This is used to present information to the user but the Alert Component doesn’t fit all the information.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="46450" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="46450" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="modal-demo-bg">
+<div class="fd-modal">
+    <div class="fd-modal__content" role="document">
+        <div class="fd-modal__header">
+            <h1 class="fd-modal__title">Product Added</h1>
+            <button class="fd-button--light fd-modal__close" aria-label="close"></button>
+        </div>
+        <div class="fd-modal__body">
+            <b>Thew new product have been added to your catalog.</b><br />
+            <br />
+            Automatic Product ID: <b>PD-3465334</b><br />
+            <br />
+            Expiration date: <b>13/03/2018</b><br />
+            <br />
+        </div>
+    </div>
+</div>
+</div>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-demo-bg"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-modal"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-modal__content"</span> <span class="na">role=</span><span class="s">"document"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-modal__header"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"fd-modal__title"</span><span class="nt">&gt;</span>Product Added<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-modal__close"</span> <span class="na">aria-label=</span><span class="s">"close"</span><span class="nt">&gt;&lt;/button&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-modal__body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;b&gt;</span>Thew new product have been added to your catalog.<span class="nt">&lt;/b&gt;&lt;br/&gt;</span>
+            <span class="nt">&lt;br/&gt;</span>
+            Automatic Product ID: <span class="nt">&lt;b&gt;</span>PD-3465334<span class="nt">&lt;/b&gt;&lt;br/&gt;</span>
+            <span class="nt">&lt;br/&gt;</span>
+            Expiration date: <span class="nt">&lt;b&gt;</span>13/03/2018<span class="nt">&lt;/b&gt;&lt;br/&gt;</span>
+            <span class="nt">&lt;br/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="confirmation-modal">Confirmation Modal</h2>
+<p>This is used to confirm with the user before continuing with a destructive or complex action. In this case, the modal has action buttons at the bottom.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="26000" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="26000" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="modal-demo-bg">
+<div class="fd-modal">
+    <div class="fd-modal__content" role="document">
+        <div class="fd-modal__header">
+            <h1 class="fd-modal__title">Delete</h1>
+            <button class="fd-button--light fd-modal__close" aria-label="close"></button>
+        </div>
+        <div class="fd-modal__body">
+            Do you want to delete item <b>X</b>?
+        </div>
+        <footer class="fd-modal__footer">
+            <div class="fd-modal__actions">
+                <button class="fd-button">Yes</button>
+                <button class="fd-button--light">No</button>
+            </div>
+        </footer>
+    </div>
+</div>
+</div>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-demo-bg"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-modal"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-modal__content"</span> <span class="na">role=</span><span class="s">"document"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-modal__header"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"fd-modal__title"</span><span class="nt">&gt;</span>Delete<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-modal__close"</span> <span class="na">aria-label=</span><span class="s">"close"</span><span class="nt">&gt;&lt;/button&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-modal__body"</span><span class="nt">&gt;</span>
+            Do you want to delete item <span class="nt">&lt;b&gt;</span>X<span class="nt">&lt;/b&gt;</span>?
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"fd-modal__footer"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-modal__actions"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button"</span><span class="nt">&gt;</span>Yes<span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light"</span><span class="nt">&gt;</span>No<span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/footer&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="form-modal">Form Modal</h2>
+<p>This is used for short forms in order to collect information from the user.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="71550" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="71550" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="modal-demo-bg">
+<div class="fd-modal">
+    <div class="fd-modal__content" role="document">
+        <div class="fd-modal__header">
+            <h1 class="fd-modal__title">Invite user</h1>
+            <button class="fd-button--light fd-modal__close" aria-label="close"></button>
+        </div>
+        <div class="fd-modal__body">
+            <div class="fd-form__group">
+                <div class="fd-form__item">
+                    <label class="fd-form__label" aria-required="true" for="input-2">Email*</label>
+                    <input class="fd-form__control" type="text" id="input-2" />
+                </div>
+            </div>
+        </div>
+        <footer class="fd-modal__footer">
+            <div class="fd-modal__actions">
+                <button class="fd-button">Invite</button>
+                <button class="fd-button--light">Cancel</button>
+            </div>
+        </footer>
+    </div>
+</div>
+</div>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-demo-bg"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-modal"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-modal__content"</span> <span class="na">role=</span><span class="s">"document"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-modal__header"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"fd-modal__title"</span><span class="nt">&gt;</span>Invite user<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light fd-modal__close"</span> <span class="na">aria-label=</span><span class="s">"close"</span><span class="nt">&gt;&lt;/button&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-modal__body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__group"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">aria-required=</span><span class="s">"true"</span> <span class="na">for=</span><span class="s">"input-2"</span><span class="nt">&gt;</span>Email*<span class="nt">&lt;/label&gt;</span>
+                    <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"fd-form__control"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"input-2"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"fd-modal__footer"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-modal__actions"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button"</span><span class="nt">&gt;</span>Invite<span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light"</span><span class="nt">&gt;</span>Cancel<span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/footer&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+</div>
+
+            </div>
+
+        </div>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/docs/fundamental//js/customscripts.js" }}"></script>
+        
+    </div>
+    
+</body>
+
+</html>

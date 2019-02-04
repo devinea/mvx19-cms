@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" side navigation">
+<title>
+	
+	Side Navigation - SAP Fiori Fundamentals
+	
+
+</title>
+
+<!-- Google Tag Manager -->
+<script>
+	(function (w, d, s, l, i) {
+		w[l] = w[l] || []; w[l].push({
+			'gtm.start':
+				new Date().getTime(), event: 'gtm.js'
+		}); var f = d.getElementsByTagName(s)[0],
+			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+	})(window, document, 'script', 'dataLayer', 'GTM-M953JX6');
+</script>
+<!-- End Google Tag Manager -->
+
+<link rel="stylesheet" href="/docs/fundamental//css/syntax.css?1549295562819717000">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css?1549295562819717000" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/docs/fundamental//css/customstyles.css?1549295562819717000">
+<link rel="stylesheet" href="/docs/fundamental//css/fui-site.css?1549295562819717000">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="fundamental" href="/feed.xml">
+</head>
+
+<body>
+    
+    <div class="docs-wrapper">
+
+
+        
+
+        <!-- Page Content -->
+        <div class="docs-container">
+            <!-- Sidebar Column -->
+            
+
+            <div class="main-content" id="tg-sb-content">
+                <!-- Content Column -->
+                
+
+<div class="post-content">
+
+    <h1 class="docs-header-h1">Side Navigation</h1>
+
+  
+
+
+<p class="docs-status">
+  <span class="fd-badge fd-badge--warning" style="cursor: help;" title="These are being actively reviewed to be refactored, safe to use but talk to us">
+    Under Review
+  </span>
+  <span class="fd-label fd-has-font-weight-normal">
+    Available since 1.0.0
+  </span>
+  
+  
+</p>
+
+
+
+   
+
+    
+
+
+    
+
+  <p class="docs-intro">The left navigation can always display or expand/collapse using the menu icon within the global navigation.</p>
+
+<p><br /></p>
+
+<h2 id="side-navigation-with-one-level">Side Navigation with one level</h2>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="60200" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="60200" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<nav class="fd-side-nav">
+    <ul class="fd-side-nav__list">
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link" href="#">
+                Link Item
+            </a>
+        </li>
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link is-selected" aira-selected="true" href="#">
+                Link Item
+            </a>
+        </li>
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link" href="#">
+                Link Item
+            </a>
+        </li>
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link" href="#">
+                Link Item
+            </a>
+        </li>
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link" href="#">
+                Link Item
+            </a>
+        </li>
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link" href="#">
+                Link Item
+            </a>
+        </li>
+    </ul>
+</nav>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-side-nav"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-side-nav__list"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                Link Item
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link is-selected"</span> <span class="na">aira-selected=</span><span class="s">"true"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                Link Item
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                Link Item
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                Link Item
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                Link Item
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                Link Item
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/nav&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="side-navigation-with-titles">Side navigation with titles</h2>
+<p>Use this to group navigation. Titles are not clickable.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="69850" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="69850" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<nav class="fd-side-nav">
+    <div class="fd-side-nav__group">
+        <h1 class="fd-side-nav__title">Group Title</h1>
+        <ul class="fd-side-nav__list">
+            <li class="fd-side-nav__item">
+                <a class="fd-side-nav__link" href="#">
+                    icon link
+                </a>
+            </li>
+            <li class="fd-side-nav__item">
+                <a class="fd-side-nav__link" href="#">
+                    item link
+                </a>
+            </li>
+            <li class="fd-side-nav__item">
+                <a class="fd-side-nav__link" href="#">
+                    icon link
+                </a>
+            </li>
+            <li class="fd-side-nav__item">
+                <a class="fd-side-nav__link" href="#">
+                    item link
+                </a>
+            </li>
+            <li class="fd-side-nav__item">
+                <a class="fd-side-nav__link" href="#">
+                    item link
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="fd-side-nav__group">
+        <h1 class="fd-side-nav__title">Group Title</h1>
+        <ul class="fd-side-nav__list">
+            <li class="fd-side-nav__item">
+                <a class="fd-side-nav__link" href="#">
+                    item link
+                </a>
+            </li>
+            <li class="fd-side-nav__item">
+                <a class="fd-side-nav__link" href="#">
+                    item link
+                </a>
+            </li>
+            <li class="fd-side-nav__item">
+                <a class="fd-side-nav__link" href="#">
+                    item link
+                </a>
+            </li>
+            <li class="fd-side-nav__item">
+                <a class="fd-side-nav__link" href="#">
+                    item link
+                </a>
+            </li>
+            <li class="fd-side-nav__item">
+                <a class="fd-side-nav__link" href="#">
+                    item link
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-side-nav"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-side-nav__group"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"fd-side-nav__title"</span><span class="nt">&gt;</span>Group Title<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-side-nav__list"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                    icon link
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                    item link
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                    icon link
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                    item link
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                    item link
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-side-nav__group"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"fd-side-nav__title"</span><span class="nt">&gt;</span>Group Title<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-side-nav__list"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                    item link
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                    item link
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                    item link
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                    item link
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                    item link
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/nav&gt;</span></code></pre></figure>
+
+<h2 id="side-navigation-with-multiple-levels">Side navigation with multiple levels</h2>
+<p>Use this when there is more than one level of hierarchy in the left navigation. Each level can be expanded and collapsed.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="44950" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="44950" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<nav class="fd-side-nav">
+    <div class="fd-side-nav__group">
+        <h1 class="fd-side-nav__title">Group Name</h1>
+        <ul class="fd-side-nav__list">
+            <li class="fd-side-nav__item">
+                <a class="fd-side-nav__link" href="#">
+                    item link
+                </a>
+            </li>
+            <li class="fd-side-nav__item">
+                <a class="fd-side-nav__link has-child" href="#" aria-controls="Rk65C501" aria-haspopup="true">
+                item link
+            </a>
+            <ul class="fd-side-nav__sublist" id="Rk65C501" aria-hidden="true">
+                <li class="fd-side-nav__subitem">
+                    <a class="fd-side-nav__sublink" href="#">
+                        Link
+                    </a>
+                </li>
+                <li class="fd-side-nav__subitem">
+                    <a class="fd-side-nav__sublink" href="#">
+                        Link
+                    </a>
+                </li>
+                <li class="fd-side-nav__subitem">
+                    <a class="fd-side-nav__sublink" href="#">
+                        Link
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link has-child" href="#" aria-controls="mM3Zf660" aria-haspopup="true">
+            item link
+        </a>
+        <ul class="fd-side-nav__sublist" id="mM3Zf660" aria-hidden="true">
+            <li class="fd-side-nav__subitem">
+                <a class="fd-side-nav__sublink" href="#">
+                    Link
+                </a>
+            </li>
+            <li class="fd-side-nav__subitem">
+                <a class="fd-side-nav__sublink" href="#">
+                    Link
+                </a>
+            </li>
+            <li class="fd-side-nav__subitem">
+                <a class="fd-side-nav__sublink" href="#">
+                    Link
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="fd-side-nav__item">
+        <a class="fd-side-nav__link has-child" href="#" aria-controls="8t8RN919" aria-haspopup="true">
+        item link
+    </a>
+    <ul class="fd-side-nav__sublist" id="8t8RN919" aria-hidden="true">
+        <li class="fd-side-nav__subitem">
+            <a class="fd-side-nav__sublink" href="#">
+                Link
+            </a>
+        </li>
+        <li class="fd-side-nav__subitem">
+            <a class="fd-side-nav__sublink" href="#">
+                Link
+            </a>
+        </li>
+        <li class="fd-side-nav__subitem">
+            <a class="fd-side-nav__sublink" href="#">
+                Link
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="fd-side-nav__item">
+    <a class="fd-side-nav__link" href="#">
+        item link
+    </a>
+</li>
+</ul>
+</div>
+<div class="fd-side-nav__group">
+    <h1 class="fd-side-nav__title">Group Name</h1>
+    <ul class="fd-side-nav__list">
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link" href="#">
+                item link
+            </a>
+        </li>
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link" href="#">
+                item link
+            </a></li>
+            <li class="fd-side-nav__item">
+                <a class="fd-side-nav__link" href="#">
+                    item link
+                </a>
+            </li>
+            <li class="fd-side-nav__item">
+                <a class="fd-side-nav__link" href="#">
+                    item link
+                </a>
+            </li>
+            <li class="fd-side-nav__item">
+                <a class="fd-side-nav__link" href="#">
+                    item link
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-side-nav"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-side-nav__group"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"fd-side-nav__title"</span><span class="nt">&gt;</span>Group Name<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-side-nav__list"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                    item link
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link has-child"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">aria-controls=</span><span class="s">"Rk65C501"</span>
+                <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                item link
+            <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-side-nav__sublist"</span> <span class="na">id=</span><span class="s">"Rk65C501"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__subitem"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__sublink"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                        Link
+                    <span class="nt">&lt;/a&gt;</span>
+                <span class="nt">&lt;/li&gt;</span>
+                <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__subitem"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__sublink"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                        Link
+                    <span class="nt">&lt;/a&gt;</span>
+                <span class="nt">&lt;/li&gt;</span>
+                <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__subitem"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__sublink"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                        Link
+                    <span class="nt">&lt;/a&gt;</span>
+                <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link has-child"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">aria-controls=</span><span class="s">"mM3Zf660"</span>
+            <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+            item link
+        <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-side-nav__sublist"</span> <span class="na">id=</span><span class="s">"mM3Zf660"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__subitem"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__sublink"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                    Link
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__subitem"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__sublink"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                    Link
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__subitem"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__sublink"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                    Link
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link has-child"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">aria-controls=</span><span class="s">"8t8RN919"</span>
+        <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+        item link
+    <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-side-nav__sublist"</span> <span class="na">id=</span><span class="s">"8t8RN919"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__subitem"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__sublink"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                Link
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__subitem"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__sublink"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                Link
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__subitem"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__sublink"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                Link
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+        item link
+    <span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-side-nav__group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"fd-side-nav__title"</span><span class="nt">&gt;</span>Group Name<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-side-nav__list"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                item link
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                item link
+            <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                    item link
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                    item link
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                    item link
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/nav&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="side-navigation-with-icons">Side navigation with icons</h2>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="81450" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="81450" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<nav class="fd-side-nav">
+    <ul class="fd-side-nav__list">
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link" href="#">
+                <span class="fd-side-nav__icon sap-icon--home sap-icon--l" role="presentation"></span>
+                Link icon
+            </a>
+        </li>
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link" href="#">
+                <span class="fd-side-nav__icon sap-icon--home sap-icon--l" role="presentation"></span>
+                Link icon
+            </a>
+        </li>
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link" href="#">
+                <span class="fd-side-nav__icon sap-icon--home sap-icon--l" role="presentation"></span>
+                Link icon
+            </a>
+        </li>
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link" href="#">
+                <span class="fd-side-nav__icon sap-icon--home sap-icon--l" role="presentation"></span>
+                Link icon
+            </a>
+        </li>
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link" href="#">
+                <span class="fd-side-nav__icon sap-icon--home sap-icon--l" role="presentation"></span>
+                Link icon
+            </a>
+        </li>
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link" href="#">
+                <span class="fd-side-nav__icon sap-icon--home sap-icon--l" role="presentation"></span>
+                Link icon
+            </a>
+        </li>
+    </ul>
+</nav>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-side-nav"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-side-nav__list"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-side-nav__icon sap-icon--home sap-icon--l"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+                Link icon
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-side-nav__icon sap-icon--home sap-icon--l"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+                Link icon
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-side-nav__icon sap-icon--home sap-icon--l"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+                Link icon
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-side-nav__icon sap-icon--home sap-icon--l"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+                Link icon
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-side-nav__icon sap-icon--home sap-icon--l"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+                Link icon
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-side-nav__icon sap-icon--home sap-icon--l"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+                Link icon
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/nav&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="side-navigation-collapsed-with-icons">Side navigation collapsed with icons</h2>
+<p>The user can identify which level they are on based on the icon displayed as selected when the navigation is collapsed. Note that the suggested use is when there is only one level of navigation as the user can only see one level of navigation when collapsed.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="90250" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="90250" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<nav class="fd-side-nav fd-side-nav--icons">
+    <ul class="fd-side-nav__list">
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link" href="#">
+                <span class="fd-side-nav__icon sap-icon--home sap-icon--l" role="presentation"></span>
+            </a>
+        </li>
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link" href="#">
+                <span class="fd-side-nav__icon sap-icon--home sap-icon--l" role="presentation"></span>
+            </a>
+        </li>
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link" href="#">
+                <span class="fd-side-nav__icon sap-icon--home sap-icon--l" role="presentation"></span>
+            </a>
+        </li>
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link" href="#">
+                <span class="fd-side-nav__icon sap-icon--home sap-icon--l" role="presentation"></span>
+            </a>
+        </li>
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link" href="#">
+                <span class="fd-side-nav__icon sap-icon--home sap-icon--l" role="presentation"></span>
+            </a>
+        </li>
+        <li class="fd-side-nav__item">
+            <a class="fd-side-nav__link" href="#">
+                <span class="fd-side-nav__icon sap-icon--home sap-icon--l" role="presentation"></span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-side-nav fd-side-nav--icons"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-side-nav__list"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-side-nav__icon sap-icon--home sap-icon--l"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-side-nav__icon sap-icon--home sap-icon--l"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-side-nav__icon sap-icon--home sap-icon--l"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-side-nav__icon sap-icon--home sap-icon--l"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-side-nav__icon sap-icon--home sap-icon--l"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fd-side-nav__item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"fd-side-nav__link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-side-nav__icon sap-icon--home sap-icon--l"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/nav&gt;</span></code></pre></figure>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+</div>
+
+            </div>
+
+        </div>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/docs/fundamental//js/customscripts.js" }}"></script>
+        
+    </div>
+    
+</body>
+
+</html>

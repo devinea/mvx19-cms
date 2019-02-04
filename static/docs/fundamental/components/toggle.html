@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" toggle">
+<title>
+	
+	Toggle - SAP Fiori Fundamentals
+	
+
+</title>
+
+<!-- Google Tag Manager -->
+<script>
+	(function (w, d, s, l, i) {
+		w[l] = w[l] || []; w[l].push({
+			'gtm.start':
+				new Date().getTime(), event: 'gtm.js'
+		}); var f = d.getElementsByTagName(s)[0],
+			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+	})(window, document, 'script', 'dataLayer', 'GTM-M953JX6');
+</script>
+<!-- End Google Tag Manager -->
+
+<link rel="stylesheet" href="/docs/fundamental//css/syntax.css?1549295562819717000">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css?1549295562819717000" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/docs/fundamental//css/customstyles.css?1549295562819717000">
+<link rel="stylesheet" href="/docs/fundamental//css/fui-site.css?1549295562819717000">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="fundamental" href="/feed.xml">
+</head>
+
+<body>
+    
+    <div class="docs-wrapper">
+
+
+        
+
+        <!-- Page Content -->
+        <div class="docs-container">
+            <!-- Sidebar Column -->
+            
+
+            <div class="main-content" id="tg-sb-content">
+                <!-- Content Column -->
+                
+
+<div class="post-content">
+
+    <h1 class="docs-header-h1">Toggle</h1>
+
+  
+
+
+<p class="docs-status">
+  <span class="fd-badge fd-badge--success" style="cursor: help;" title="Safe to use, no major updates planned">
+    Stable
+  </span>
+  <span class="fd-label fd-has-font-weight-normal">
+    Available since 1.0.0
+  </span>
+  
+  
+</p>
+
+
+
+   
+
+    
+
+
+    
+
+  <p class="docs-intro">The toggle component is used to activate or deactivate an element. Uses a visual metaphor that is know to the user with visible differences between on and off state.</p>
+
+<p>It is recommended to always display the toggle with a label above it as well as the label of the selected state. For example, the label above would be Active, the toggle state would be “on” and the selected state label displayed to the right of the toggle would be “Yes”.</p>
+
+<p><br /></p>
+
+<h2 id="toggle-sizes">Toggle Sizes</h2>
+
+<p>The toggle can be set to 4 sizes: <code class="highlighter-rouge">--xs</code>, <code class="highlighter-rouge">--s</code>, normal and <code class="highlighter-rouge">--l</code>. When used with forms, it is recommended to use the small size so that form components will be consistent.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="29550" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="29550" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="fd-form__item fd-form__item--check">
+    <label class="fd-form__label" for="ImBw4551a">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="ImBw4551a" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+        Extra Small Toggle
+    </label>
+</div>
+
+<div class="fd-form__item fd-form__item--check">
+    <label class="fd-form__label" for="ImBw4551b">
+        <span class="fd-toggle fd-toggle--s fd-form__control">
+            <input type="checkbox" name="" value="" id="ImBw4551b" checked="" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+        Small Toggle
+    </label>
+</div>
+
+<div class="fd-form__item fd-form__item--check">
+    <label class="fd-form__label" for="P3D2k380h">
+        <span class="fd-toggle fd-form__control">
+            <input type="checkbox" name="" value="" id="P3D2k380h" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+        Default Toggle
+    </label>
+</div>
+
+<div class="fd-form__item fd-form__item--check">
+    <label class="fd-form__label" for="V2bRj442g">
+        <span class="fd-toggle fd-toggle--l fd-form__control">
+            <input type="checkbox" name="" value="" id="V2bRj442g" checked="" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+        Large Toggle
+    </label>
+</div>
+
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item fd-form__item--check"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">"ImBw4551a"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-toggle fd-toggle--xs fd-form__control"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"ImBw4551a"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-toggle__switch"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+        Extra Small Toggle
+    <span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item fd-form__item--check"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">"ImBw4551b"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-toggle fd-toggle--s fd-form__control"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"ImBw4551b"</span> <span class="na">checked</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-toggle__switch"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+        Small Toggle
+    <span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item fd-form__item--check"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">"P3D2k380h"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-toggle fd-form__control"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"P3D2k380h"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-toggle__switch"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+        Default Toggle
+    <span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item fd-form__item--check"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">"V2bRj442g"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-toggle fd-toggle--l fd-form__control"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"V2bRj442g"</span> <span class="na">checked</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-toggle__switch"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+        Large Toggle
+    <span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="disabled-state">Disabled state</h2>
+
+<p>The toggle can be set to the disable state and still indicate the state of the toggle. To do this, add the <code class="highlighter-rouge">disabled</code> parameter to the input element.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="14600" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="14600" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="fd-form__item fd-form__item--check">
+    <label class="fd-form__label" for="ImBw4551">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="ImBw4551c" disabled="" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+        Extra Small Toggle
+    </label>
+</div>
+
+<div class="fd-form__item fd-form__item--check">
+    <label class="fd-form__label" for="ImBw4551">
+        <span class="fd-toggle fd-toggle--s fd-form__control">
+            <input type="checkbox" name="" value="" id="ImBw4551c" disabled="" checked="" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+        Small Toggle
+    </label>
+</div>
+
+<div class="fd-form__item fd-form__item--check">
+    <label class="fd-form__label" for="P3D2k380d">
+        <span class="fd-toggle fd-form__control">
+            <input type="checkbox" name="" value="" id="P3D2k380d" disabled="" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+        Default Toggle
+    </label>
+</div>
+
+<div class="fd-form__item fd-form__item--check">
+    <label class="fd-form__label" for="V2bRj442f">
+        <span class="fd-toggle fd-toggle--l fd-form__control">
+            <input type="checkbox" name="" value="" id="V2bRj442f" disabled="" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+        Large Toggle
+    </label>
+</div>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item fd-form__item--check"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">"ImBw4551"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-toggle fd-toggle--xs fd-form__control"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"ImBw4551c"</span> <span class="na">disabled</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-toggle__switch"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+        Extra Small Toggle
+    <span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item fd-form__item--check"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">"ImBw4551"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-toggle fd-toggle--s fd-form__control"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"ImBw4551c"</span> <span class="na">disabled</span> <span class="na">checked</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-toggle__switch"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+        Small Toggle
+    <span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item fd-form__item--check"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">"P3D2k380d"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-toggle fd-form__control"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"P3D2k380d"</span> <span class="na">disabled</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-toggle__switch"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+        Default Toggle
+    <span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item fd-form__item--check"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">"V2bRj442f"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-toggle fd-toggle--l fd-form__control"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"V2bRj442f"</span> <span class="na">disabled</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-toggle__switch"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+        Large Toggle
+    <span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+</div>
+
+            </div>
+
+        </div>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/docs/fundamental//js/customscripts.js" }}"></script>
+        
+    </div>
+    
+</body>
+
+</html>

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" input group, input groups, input, groups">
+<title>
+	
+	Input Group - SAP Fiori Fundamentals
+	
+
+</title>
+
+<!-- Google Tag Manager -->
+<script>
+	(function (w, d, s, l, i) {
+		w[l] = w[l] || []; w[l].push({
+			'gtm.start':
+				new Date().getTime(), event: 'gtm.js'
+		}); var f = d.getElementsByTagName(s)[0],
+			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+	})(window, document, 'script', 'dataLayer', 'GTM-M953JX6');
+</script>
+<!-- End Google Tag Manager -->
+
+<link rel="stylesheet" href="/docs/fundamental//css/syntax.css?1549295562819717000">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css?1549295562819717000" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/docs/fundamental//css/customstyles.css?1549295562819717000">
+<link rel="stylesheet" href="/docs/fundamental//css/fui-site.css?1549295562819717000">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="fundamental" href="/feed.xml">
+</head>
+
+<body>
+    
+    <div class="docs-wrapper">
+
+
+        
+
+        <!-- Page Content -->
+        <div class="docs-container">
+            <!-- Sidebar Column -->
+            
+
+            <div class="main-content" id="tg-sb-content">
+                <!-- Content Column -->
+                
+
+<div class="post-content">
+
+    <h1 class="docs-header-h1">Input Group</h1>
+
+  
+
+
+<p class="docs-status">
+  <span class="fd-badge fd-badge--success" style="cursor: help;" title="Safe to use, no major updates planned">
+    Stable
+  </span>
+  <span class="fd-label fd-has-font-weight-normal">
+    Available since 1.0.0
+  </span>
+  
+  
+</p>
+
+
+
+   
+
+    
+
+
+    
+
+  <style type="text/css">
+.fd-form__group {
+    margin-bottom: 20px;
+}
+</style>
+
+<p class="docs-intro">The input group includes form inputs with add-ons that allow the user to better understand the information being entered.</p>
+
+<p><br /></p>
+
+<h2 id="sizes">Sizes</h2>
+<p>The Input Group supports <code class="highlighter-rouge">--compact</code> mode</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="98050" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="98050" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="fd-form__group">
+    <div class="fd-form__item">
+        <label class="fd-form__label" for="">Default Size </label>
+        <div class="fd-input-group fd-input-group--before">
+            <span class="fd-input-group__addon fd-input-group__addon--before">$</span>
+            <input class="" type="text" name="" value="1234568910 " />
+        </div>
+    </div>
+</div>
+
+<div class="fd-form__group">
+    <div class="fd-form__item">
+        <label class="fd-form__label" for="">Compact Size </label>
+        <div class="fd-input-group fd-input-group--before fd-input-group--compact">
+            <span class="fd-input-group__addon fd-input-group__addon--before">$</span>
+            <input class="fd-input fd-input--compact" type="text" name="" value="1234568910 " />
+        </div>
+    </div>
+</div>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">""</span><span class="nt">&gt;</span>Default Size <span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--before"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--before"</span><span class="nt">&gt;</span>$<span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">""</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">"1234568910 "</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">""</span><span class="nt">&gt;</span>Compact Size <span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--before fd-input-group--compact"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--before"</span><span class="nt">&gt;</span>$<span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"fd-input fd-input--compact"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">"1234568910 "</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h2 id="text-add-on">Text add-on</h2>
+
+<p>The Input Group with text add-on component is typically used to specify the type of the data being entered, such as currency or unit of measure. This add-on can be placed at the left or right of the input element.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="98650" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="98650" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="fd-form__group">
+    <div class="fd-form__item">
+        <label class="fd-form__label" for="">Left Aligned Text Add-on</label>
+        <div class="fd-input-group fd-input-group--before">
+            <span class="fd-input-group__addon fd-input-group__addon--before">$</span>
+            <input class="" type="text" name="" value="1234568910 " />
+        </div>
+    </div>
+</div>
+
+<div class="fd-form__group">
+    <div class="fd-form__item">
+        <label class="fd-form__label" for="">Right Aligned Text Addon</label>
+        <div class="fd-input-group fd-input-group--after">
+            <input class="" type="text" name="" value="1234568910 " />
+            <span class="fd-input-group__addon fd-input-group__addon--after">€</span>
+        </div>
+    </div>
+</div>
+
+<div class="fd-form__group">
+    <div class="fd-form__item">
+        <label class="fd-form__label" for="">Right Aligned Text Addon</label>
+        <div class="fd-input-group fd-input-group--after">
+            <input class="" type="text" name="" value="" placeholder="Field placeholder text" />
+            <span class="fd-input-group__addon fd-input-group__addon--after">km/h</span>
+        </div>
+    </div>
+</div>
+
+<div class="fd-form__group">
+    <div class="fd-form__item">
+        <label class="fd-form__label" for="">Character Counter Example</label>
+        <div class="fd-input-group fd-input-group--after">
+            <input class="" type="text" name="" value="This is a test" />
+            <span class="fd-input-group__addon fd-input-group__addon--after">50</span>
+        </div>
+    </div>
+</div>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">""</span><span class="nt">&gt;</span>Left Aligned Text Add-on<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--before"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--before"</span><span class="nt">&gt;</span>$<span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">""</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">"1234568910 "</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">""</span><span class="nt">&gt;</span>Right Aligned Text Addon<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">""</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">"1234568910 "</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--after"</span><span class="nt">&gt;</span>€<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">""</span><span class="nt">&gt;</span>Right Aligned Text Addon<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">""</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">""</span> <span class="na">placeholder=</span><span class="s">"Field placeholder text"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--after"</span><span class="nt">&gt;</span>km/h<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">""</span><span class="nt">&gt;</span>Character Counter Example<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">""</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">"This is a test"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--after"</span><span class="nt">&gt;</span>50<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="number-input">Number input</h2>
+
+<p>For an integer value input, a spinner can be added allowing the user to increase or decrease the value.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="56600" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="56600" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="fd-form__group">
+    <div class="fd-form__item">
+        <label class="fd-form__label" for="">Quantity Spinner</label>
+        <div class="fd-input-group fd-input-group--after">
+            <input class="" type="number" id="spinner-1" name="" value="100" />
+            <span class="fd-input-group__addon fd-input-group__addon--button fd-input-group__addon--after">
+                <button class="fd-input-group__button fd-input-group__button--step-up sap-icon--slim-arrow-up" aria-label="Step up" onclick="document.getElementById('spinner-1').stepUp();"></button>
+                <button class="fd-input-group__button fd-input-group__button--step-down sap-icon--slim-arrow-down" aria-label="Step down" onclick="document.getElementById('spinner-1').stepDown();"></button>
+            </span>
+        </div>
+    </div>
+</div>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">""</span><span class="nt">&gt;</span>Quantity Spinner<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">""</span> <span class="na">type=</span><span class="s">"number"</span> <span class="na">id=</span><span class="s">"spinner-1"</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">"100"</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--button fd-input-group__addon--after"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-input-group__button fd-input-group__button--step-up sap-icon--slim-arrow-up"</span> <span class="na">aria-label=</span><span class="s">"Step up"</span> <span class="na">onclick=</span><span class="s">"document.getElementById('spinner-1').stepUp();"</span><span class="nt">&gt;&lt;/button&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-input-group__button fd-input-group__button--step-down sap-icon--slim-arrow-down"</span> <span class="na">aria-label=</span><span class="s">"Step down"</span> <span class="na">onclick=</span><span class="s">"document.getElementById('spinner-1').stepDown();"</span><span class="nt">&gt;&lt;/button&gt;</span>
+            <span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="input-with-icons">Input with icons</h2>
+
+<p>The Input with add-on supports icons.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="87000" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="87000" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="fd-form__group">
+    <div class="fd-form__item">
+        <label class="fd-form__label" for="">Search input</label>
+        <div class="fd-input-group">
+            <input class="" type="search" id="search-1" name="" value="Search Term" placeholder="Enter Term.." />
+            <span class="fd-input-group__addon fd-input-group__addon--button">
+                <button class="fd-input-group__button fd-input-group__button--clear" aria-label="Clear" onclick="document.getElementById('search-1').value = '';"></button>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="fd-form__group">
+    <div class="fd-form__item">
+        <label class="fd-form__label" for="">Input with icon on the left</label>
+        <div class="fd-input-group fd-input-group--before">
+            <span class="fd-input-group__addon fd-input-group__addon--before">
+                <span class="sap-icon--globe" role="presentation"></span>
+            </span>
+            <input class="" type="text" name="" value="1000000" />
+        </div>
+    </div>
+</div>
+
+<div class="fd-form__group">
+    <div class="fd-form__item">
+        <label class="fd-form__label" for="">Input with icon on the right</label>
+        <div class="fd-input-group fd-input-group--after">
+            <input class="" type="text" name="" value="1000000" />
+            <span class="fd-input-group__addon fd-input-group__addon--after">
+                <span class="sap-icon--hide" role="presentation"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">""</span><span class="nt">&gt;</span>Search input<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">""</span> <span class="na">type=</span><span class="s">"search"</span> <span class="na">id=</span><span class="s">"search-1"</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">"Search Term"</span> <span class="na">placeholder=</span><span class="s">"Enter Term.."</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--button"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-input-group__button fd-input-group__button--clear"</span> <span class="na">aria-label=</span><span class="s">"Clear"</span> <span class="na">onclick=</span><span class="s">"document.getElementById('search-1').value = '';"</span><span class="nt">&gt;&lt;/button&gt;</span>
+            <span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">""</span><span class="nt">&gt;</span>Input with icon on the left<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--before"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--before"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sap-icon--globe"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">""</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">"1000000"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">""</span><span class="nt">&gt;</span>Input with icon on the right<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">""</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">"1000000"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--after"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sap-icon--hide"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="input-with-actions">Input with actions</h2>
+
+<p>The Input with add-on supports actions. Actions can be shown with a text label or icon.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="96900" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="96900" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="fd-form__group">
+    <div class="fd-form__item">
+        <label class="fd-form__label" for="">Input with action</label>
+        <div class="fd-input-group fd-input-group--after">
+            <input class="" type="text" name="" value="1000000" />
+            <span class="fd-input-group__addon fd-input-group__addon--button fd-input-group__addon--after">
+                <button class="fd-button--light">
+                    Button
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="fd-form__group">
+    <div class="fd-form__item">
+        <label class="fd-form__label" for="">Input with icon action</label>
+        <div class="fd-input-group fd-input-group--after">
+            <input class="" type="text" name="" value="1000000" />
+            <span class="fd-input-group__addon fd-input-group__addon--button fd-input-group__addon--after">
+                <button class="fd-button--icon fd-button--light sap-icon--navigation-down-arrow"></button>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="fd-form__group">
+    <div class="fd-form__item">
+        <label class="fd-form__label" for="">Input with text action</label>
+        <div class="fd-input-group fd-input-group--after">
+            <input class="" type="text" name="" value="1000000" />
+            <span class="fd-input-group__addon fd-input-group__addon--button fd-input-group__addon--after">
+                <button class="fd-button--light">
+                    Button
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="fd-form__group">
+    <div class="fd-form__item">
+        <label class="fd-form__label" for="">Input with icon text action</label>
+        <div class="fd-input-group fd-input-group--after">
+            <input class="" type="text" name="" value="1000000" />
+            <span class="fd-input-group__addon fd-input-group__addon--button fd-input-group__addon--after">
+                <button class="fd-button--icon fd-button--light sap-icon--navigation-down-arrow"></button>
+            </span>
+        </div>
+    </div>
+</div>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">""</span><span class="nt">&gt;</span>Input with action<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">""</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">"1000000"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--button fd-input-group__addon--after"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light"</span><span class="nt">&gt;</span>
+                    Button
+                <span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">""</span><span class="nt">&gt;</span>Input with icon action<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">""</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">"1000000"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--button fd-input-group__addon--after"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--icon fd-button--light sap-icon--navigation-down-arrow"</span><span class="nt">&gt;&lt;/button&gt;</span>
+            <span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">""</span><span class="nt">&gt;</span>Input with text action<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">""</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">"1000000"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--button fd-input-group__addon--after"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light"</span><span class="nt">&gt;</span>
+                    Button
+                <span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-form__item"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"fd-form__label"</span> <span class="na">for=</span><span class="s">""</span><span class="nt">&gt;</span>Input with icon text action<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">""</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">name=</span><span class="s">""</span> <span class="na">value=</span><span class="s">"1000000"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--button fd-input-group__addon--after"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--icon fd-button--light sap-icon--navigation-down-arrow"</span><span class="nt">&gt;&lt;/button&gt;</span>
+            <span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="textarea-with-input-group">Textarea with input group</h2>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="27200" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="27200" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="fd-input-group fd-input-group--after">
+    <textarea class=""></textarea>
+    <span class="fd-input-group__addon fd-input-group__addon--after fd-input-group__addon--textarea">
+        km/h
+    </span>
+</div>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">""</span> <span class="na">id=</span><span class="s">""</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--after fd-input-group__addon--textarea"</span><span class="nt">&gt;</span>
+        km/h
+    <span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+
+    <div class="tags">
+        
+    </div>
+
+</div>
+
+            </div>
+
+        </div>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/docs/fundamental//js/customscripts.js" }}"></script>
+        
+    </div>
+    
+</body>
+
+</html>
