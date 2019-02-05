@@ -48,49 +48,49 @@ export default class IndexPage extends React.Component {
         </section>
         <section className="section whatsnew">
           <div className="whatsnew-wrapper">
-          <div className="container">
-            <div className="content">
-              <div className="whatsnew-header">
-                <h1 className="whatsnew-title">what's new</h1>
-                <div className="whatsnew-options">
-                  <div className="selected">web</div>
-                  <div>Mobile</div>
-                  <div>CUX</div>
-                  <div>AR/VR</div>
+            <div className="container">
+              <div className="content">
+                <div className="whatsnew-header">
+                  <h1 className="whatsnew-title">what's new</h1>
+                  <div className="whatsnew-options">
+                    <div className="selected">web</div>
+                    <div>Mobile</div>
+                    <div>CUX</div>
+                    <div>AR/VR</div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="new-lhs">
-              <div className="new-lhs-title">Learn about the latest updates and announcements to the Fiori Design System.</div>
-              <div className="new-lhs-option selected">all</div>
-              <div className="new-lhs-option">designer</div>
-              <div className="new-lhs-option">developer</div>
-            </div>
-            <div className="new-rhs">
-              {posts
-                .map(({ node: post }) => (
-                  <Link to={post.fields.slug}>
-                    <div
-                      className="content whatsnew-items"
-                      id={post.img}
-                      key={post.id}
-                    >
-                      <div className="newitem-item-content">
-                        <Img className="newitem-item-thumbnail" sizes={post.frontmatter.featuredImage.childImageSharp.sizes} />
-                        <p>
+              <div className="new-lhs">
+                <div className="new-lhs-title">Learn about the latest updates and announcements to the Fiori Design System.</div>
+                <div className="new-lhs-option selected">all</div>
+                <div className="new-lhs-option">designer</div>
+                <div className="new-lhs-option">developer</div>
+              </div>
+              <div className="new-rhs">
+                {posts
+                  .map(({ node: post }) => (
+                    <Link to={post.fields.slug} key={post.id}>
+                      <div
+                        className="content whatsnew-items"
+                        id={post.img}
+                        key={post.id}
+                      >
+                        <div className="newitem-item-content">
+                          <Img className="newitem-item-thumbnail" sizes={post.frontmatter.featuredImage.childImageSharp.sizes} />
+                          <p>
                             <span className="newitem-title">{post.frontmatter.title}</span>
-                        </p>
-                        <div className="newitem-details">
-                          {post.frontmatter.description}
+                          </p>
+                          <div className="newitem-details">
+                            {post.frontmatter.description}
+                          </div>
+                          <span className="newitem-more">Read More</span>
+                          <div className="newitem-date">{post.frontmatter.date}</div>
                         </div>
-                        <Link className="newitem-more" to={post.fields.slug}>Read More</Link>
-                        <div className="newitem-date">{post.frontmatter.date}</div>
                       </div>
-                    </div>
-                  </Link>
-                ))}
+                    </Link>
+                  ))}
               </div>
-              </div>
+            </div>
           </div>
         </section>
       </Layout>

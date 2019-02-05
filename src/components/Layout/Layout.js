@@ -5,8 +5,6 @@ import Flex from '../Flex';
 import Footer from '../LayoutFooter';
 import Header from '../LayoutHeader';
 
-import { media } from '../theme';
-
 class Template extends Component {
   render() {
     const { children, location } = this.props;
