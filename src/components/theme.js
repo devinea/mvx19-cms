@@ -97,7 +97,7 @@ const sharedStyles = {
       marginTop: 30,
       fontSize: 17,
       lineHeight: 1.7,
-      //maxWidth: '42em',
+      color: colors.subtle,
 
       '&:first-of-type': {
         marginTop: 15
@@ -178,11 +178,16 @@ const sharedStyles = {
       marginTop: 20
     },
 
+    '& table' : {
+      color: colors.subtle,
+    },
+
     '& ol, & ul': {
       marginTop: 20,
       fontSize: 16,
       color: colors.text,
       paddingLeft: 20,
+      color: colors.subtle,
 
       '& p, & p:first-of-type': {
         fontSize: 16,
