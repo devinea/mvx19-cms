@@ -26,7 +26,7 @@ collections:
     - {label: "Tags", name: "tags", widget: "list"}
   - name: "designguideline"
     label: "DesignGuideline"
-    folder: "src/pages/design"
+    folder: "src/pages/designguideline"
     create: true
     slug: "{{slug}}"
     fields:
