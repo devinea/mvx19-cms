@@ -11,8 +11,8 @@ tags:
   - SAP Fiori
 leftnavorder:
   l1: '4'
-  l2: '1'
-  l3: '1'
-  l4: '1'
+  l2: '0'
+  l3: '0'
+  l4: '0'
 ---
 

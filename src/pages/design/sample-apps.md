@@ -1,23 +1,22 @@
 ---
 templateKey: design-guideline-post
-title: What's new
+title: Sample Apps
 date: 2019-01-11T00:15:32.894Z
 featuredImage: "/img/control-input-field.png"
 description: |-
-  What's new
+  Sample Apps
 tags:
-  - What's new
+  - Sample Apps
   - SAP Fiori
 iscontrol: false  
 leftnavorder:
-  l1: '7'
-  l2: '1'
-  l3: '1'
-  l4: '1'
+  l1: '5'
+  l2: '0'
+  l3: '0'
+  l4: '0'
 ---
 
 
 
 
-
-What's new
+Sample Apps

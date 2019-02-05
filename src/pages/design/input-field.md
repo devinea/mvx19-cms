@@ -1,22 +1,20 @@
 ---
 templateKey: design-guideline-post
-title: Sample Apps
+title: Input-Field
 date: 2019-01-11T00:15:32.894Z
 featuredImage: "/img/control-input-field.png"
 description: |-
-  Sample Apps
+  Input Field
 tags:
-  - Sample Apps
+  - Input-Field
+  - design Input-Field
   - SAP Fiori
-iscontrol: false  
+iscontrol: true  
 leftnavorder:
-  l1: '5'
-  l2: '1'
-  l3: '1'
-  l4: '1'
+  l1: '4'
+  l2: '2'
+  l3: '0'
+  l4: '0'
 ---
 
-
-
-
-Sample Apps
+Input-Field design guideline here

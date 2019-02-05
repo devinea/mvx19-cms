@@ -1,20 +1,17 @@
 ---
 templateKey: design-guideline-post
-title: Input-Field
+title: Resources
 date: 2019-01-11T00:15:32.894Z
 featuredImage: "/img/control-input-field.png"
 description: |-
-  Input Field
+  Resources
 tags:
-  - Input-Field
-  - design Input-Field
+  - Resources
   - SAP Fiori
-iscontrol: true  
+iscontrol: false  
 leftnavorder:
-  l1: '4'
-  l2: '3'
-  l3: '1'
-  l4: '1'
+  l1: '8'
+  l2: '0'
+  l3: '0'
+  l4: '0'
 ---
-
-Input-Field design guideline here

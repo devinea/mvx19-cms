@@ -24,12 +24,17 @@ const LeftNav = ({ data }) => (
       }}
     </Location>
     <Location>
-    {({ location }) => {
-      return <Link className="main-nav" to={ (location.pathname.startsWith('/develop') ? 'develop' : 'design') + '/controls'}>Controls</Link>
-    }}
+      {({ location }) => {
+        return <Link className="main-nav" to={ (location.pathname.startsWith('/develop') ? 'develop' : 'design') + '/controls'}>Controls</Link>
+      }}
     </Location>
     {data.allMarkdownRemark.edges.map(({ node: data }) => (
-      <Link className='control-menu' key={data.id} to={data.fields.slug}>
+
+      <Link className={( data.frontmatter.leftnavorder.l2 != 0 ) ? 'control-menu' : 'main-nav'}
+
+            key={( data.fields.slug == '/design/controls/' ) ? '' : data.id }
+            key={data.id}
+            to={data.fields.slug}>
         {data.frontmatter.title}
       </Link>
     ))}
