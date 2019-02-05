@@ -28,7 +28,7 @@ collections:
     label: "DesignGuideline"
     folder: "src/pages/designguideline"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "design-guideline-post"}
       - {label: "Title", name: "title", widget: "string"}
@@ -37,6 +37,15 @@ collections:
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "isControl", name: "iscontrol", widget: "boolean", default: true}
+      - label: "Left Nav Order"
+        name: "leftnavorder"
+        widget: "object"
+        fields:
+          - {label: "Level 1", name: "l1", widget: "number"}
+          - {label: "Level 2", name: "l2", widget: "number"}
+          - {label: "Level 3", name: "l3", widget: "number"}
+          - {label: "Level 4", name: "l4", widget: "number"}
   - name: "developerguideline"
     label: "DeveloperGuideline"
     folder: "src/pages/developerguideline"

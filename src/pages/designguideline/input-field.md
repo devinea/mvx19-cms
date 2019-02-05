@@ -9,5 +9,12 @@ tags:
   - Input-Field
   - design Input-Field
   - SAP Fiori
+iscontrol: true  
+leftnavorder:
+  l1: '4'
+  l2: '2'
+  l3: '0'
+  l4: '0'
 ---
+
 Input-Field design guideline here
