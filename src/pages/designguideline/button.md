@@ -1,8 +1,8 @@
 ---
 templateKey: design-guideline-post
-title: Button
+title: v1 Button
+featuredImage: /img/control-button.png
 date: 2019-01-11T00:15:32.894Z
-featuredImage: "/img/control-button.png"
 description: >-
   Buttons allow users to trigger an action – either by clicking on or tapping
   the button, or by pressing certain keys such as Enter or the space bar.   
