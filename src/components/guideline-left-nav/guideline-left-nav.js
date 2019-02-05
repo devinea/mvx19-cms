@@ -23,8 +23,6 @@ const LeftNav = ({ data }) => (
         );
       }}
     </Location>
-    <h2>Foundation</h2>
-    <h2>Layouts &amp; Floorplans</h2>
     <Location>
     {({ location }) => {
       return <Link className="main-nav" to={ (location.pathname.startsWith('/develop') ? 'develop' : 'design') + '/controls'}>Controls</Link>
@@ -35,9 +33,6 @@ const LeftNav = ({ data }) => (
         {data.frontmatter.title}
       </Link>
     ))}
-    <h2>Sample Apps</h2>
-    <h2>What's new</h2>
-    <h2>Resources</h2>
   </nav>
 );
 
@@ -49,7 +44,12 @@ export default props => (
     query={graphql`
       {
         allMarkdownRemark(
-          sort: { order: ASC, fields: [frontmatter___title] }
+          sort: { order: ASC, fields: [
+            frontmatter___leftnavorder___l1,
+              frontmatter___leftnavorder___l2,
+              frontmatter___leftnavorder___l3,
+              frontmatter___leftnavorder___l4,
+          ] }
           filter: {
             frontmatter: { templateKey: { eq: "design-guideline-post" } }
           }
@@ -63,6 +63,12 @@ export default props => (
               frontmatter {
                 title
                 templateKey
+                leftnavorder {
+                  l1
+                  l2
+                  l3
+                  l4
+                }
               }
             }
           }

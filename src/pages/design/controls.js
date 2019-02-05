@@ -47,7 +47,10 @@ export default props => (
     query={graphql`{
     allMarkdownRemark(
       sort: { order: ASC, fields: [frontmatter___title] },
-      filter: { frontmatter: { templateKey: { eq: "design-guideline-post" } }}
+      filter: { frontmatter: {
+        templateKey: { eq: "design-guideline-post" }
+        iscontrol: { eq: true }
+        }}
     ) {
       edges {
         node {
@@ -58,6 +61,7 @@ export default props => (
           frontmatter {
             title
             templateKey
+            iscontrol
              featuredImage {
               childImageSharp {
                 sizes {

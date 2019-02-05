@@ -10,6 +10,12 @@ tags:
   - Button
   - design Button
   - SAP Fiori
+iscontrol: true
+leftnavorder:
+  l1: '4'
+  l2: '2'
+  l3: '1'
+  l4: '1'
 ---
 
 # Intro
