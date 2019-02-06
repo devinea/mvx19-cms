@@ -1,7 +1,6 @@
 [build]
   publish = "public"
-  command = "npm ls && npm run cypress"
-  command = "npm run build"
+  command = "npm run build && npm ls && npm run cypress"
 [build.environment]
   YARN_VERSION = "1.9.4"
   YARN_FLAGS = "--no-ignore-optional"
