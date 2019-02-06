@@ -34,7 +34,8 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "design-guideline-post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Featured Image", name: "featuredImage", widget: "image", tagname: ''}
-      - {label: "Fun File", name: "fundamentalsFile", widget: "relation", collection: "fundamentals", searchFields: ["title", "body"], valueField: "title"}
+      #- {label: "Fun File", name: "fundamentalsFile", widget: "relation", collection: "fundamentals", searchFields: ["title", "body"], valueField: "title"}
+      - {label: "Fun File", name: "fundamentalsFile", widget: "fileSelect"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}

@@ -39,3 +39,6 @@ CMS.registerEditorComponent({
     //   );
     // }
   });
+import FileSystemControl from './FileSelectControl';
+
+CMS.registerWidget("fileSelect", FileSystemControl);
