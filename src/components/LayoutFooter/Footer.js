@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import Container from './../Container';
+import Flex from '../Flex';
 import ExternalFooterLink from './ExternalFooterLink';
 import FooterLink from './FooterLink';
 import FooterNav from './FooterNav';
@@ -17,6 +18,7 @@ import {
   sectionListTerms
 } from '../../../utils/sectionList';
 
+
 const Footer = () => (
   <footer
     css={{
@@ -25,18 +27,12 @@ const Footer = () => (
     }}
   >
     <Container>
-      <div
-        css={{
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap'
-        }}
-      >
-        <div
+      <Flex direction='row'>
+        <Flex
+          direction='row'
+          halign='space-between'
+          wrap='wrap'
           css={{
-            flexWrap: 'wrap',
-            display: 'flex',
-            justifyContent: 'space-between',
             width: '100%'
           }}
         >
@@ -96,26 +92,20 @@ const Footer = () => (
               );
             })}
           </FooterNav>
-        </div>
-      </div>
+        </Flex>
+      </Flex>
     </Container>
     <Container
       cssProps={{
         borderTop: '1px solid lightgray'
       }}
     >
-      <div
-        css={{
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap'
-        }}
-      >
-        <div
+      <Flex direction='row' wrap='wrap'>
+        <Flex
+          direction='row'
+          wrap='wrap'
+          halign='space-between'
           css={{
-            flexWrap: 'wrap',
-            display: 'flex',
-            justifyContent: 'space-between',
             width: '100%',
             height: '100%',
             padding: '20px 0px'
@@ -165,8 +155,8 @@ const Footer = () => (
               );
             })}
           </nav>
-        </div>
-      </div>
+        </Flex>
+      </Flex>
     </Container>
   </footer>
 );

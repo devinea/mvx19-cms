@@ -74,10 +74,10 @@ class Layout extends React.Component {
     const { children, location } = this.props;
 
     return (
-      <div
+      <Flex
+        direction='column'
+        halign='normal'
         css={{
-          display: 'flex',
-          flexDirection: 'column',
           minHeight: '100vh'
         }}
       >
@@ -102,7 +102,7 @@ class Layout extends React.Component {
           {children}
         </Flex>
         <Footer />
-      </div>
+      </Flex>
     );
   }
 }
