@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" colors">
+<title>
+	
+	Colors - SAP Fiori Fundamentals
+	
+
+</title>
+
+<!-- Google Tag Manager -->
+<script>
+	(function (w, d, s, l, i) {
+		w[l] = w[l] || []; w[l].push({
+			'gtm.start':
+				new Date().getTime(), event: 'gtm.js'
+		}); var f = d.getElementsByTagName(s)[0],
+			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+	})(window, document, 'script', 'dataLayer', 'GTM-M953JX6');
+</script>
+<!-- End Google Tag Manager -->
+
+<link rel="stylesheet" href="/docs/fundamental//css/syntax.css?1549295562819717000">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css?1549295562819717000" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/docs/fundamental//css/customstyles.css?1549295562819717000">
+<link rel="stylesheet" href="/docs/fundamental//css/fui-site.css?1549295562819717000">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="fundamental" href="/feed.xml">
+</head>
+
+<body>
+    
+    <div class="docs-wrapper">
+
+
+        
+
+        <!-- Page Content -->
+        <div class="docs-container">
+            <!-- Sidebar Column -->
+            
+
+            <div class="main-content" id="tg-sb-content">
+                <!-- Content Column -->
+                
+
+<div class="post-content">
+
+    <h1 class="docs-header-h1">Colors</h1>
+
+  
+
+
+<p class="docs-status">
+  <span class="fd-badge fd-badge--success" style="cursor: help;" title="Safe to use, no major updates planned">
+    Stable
+  </span>
+  <span class="fd-label fd-has-font-weight-normal">
+    Available since 1.0.0
+  </span>
+  
+    <span class="fd-label">
+      Last updated 1.4.2
+    </span>
+  
+  
+</p>
+
+
+
+   
+
+    
+
+
+    
+
+  <p class="docs-intro">
+Colors bring designs to life.  It is used in a meaningful way to express emotions and tone, and promotes a distinct and consistent look and feel throughout all application.
+</p>
+
+<p>Each color is available to developers with a SASS mixin, CSS variables and as a series of <a href="/guides/design-system-utilities.html#colors">CSS helpers</a>.</p>
+
+
+
+    <h2 class="docs-header-h2">Action</h2>
+    <p>The brand color used prominently in the application for interactive elements like buttons and links. An inverse value is included when the action color is used as a background.</p>
+    <div class="docs-colors_container">
+        <ul class="docs-colors_plaque">
+        
+            <li style="background-color: var(--fd-color-action-1); color: #ffffff; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                1
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(210, 91%, 43%)<br> #0A6ED1</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-action-1)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-action-2); color: #0; border: 1px solid #cfdbe7" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                2
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(210, 0%, 100%)<br> #FFFFFF</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-action-2)
+      </small>
+    </code>
+            </li>
+        
+        </ul>
+        <br style="clear:both">
+    </div>
+
+    <h2 class="docs-header-h2">Shell</h2>
+    <p>Special colors used for the application shellbar background and icons.</p>
+    <div class="docs-colors_container">
+        <ul class="docs-colors_plaque">
+        
+            <li style="background-color: var(--fd-color-shell-1); color: #ffffff; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                1
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(210, 28.4%, 29%)<br> #354A5F</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-shell-1)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-shell-2); color: #0; border: 1px solid #cfdbe7" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                2
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(210, 100%, 91%)<br> #D1E8FF</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-shell-2)
+      </small>
+    </code>
+            </li>
+        
+        </ul>
+        <br style="clear:both">
+    </div>
+
+    <h2 class="docs-header-h2">Text</h2>
+    <p>Several shades of text, as well as an inverse color, are included for varying degrees of emphasis.</p>
+    <div class="docs-colors_container">
+        <ul class="docs-colors_plaque">
+        
+            <li style="background-color: var(--fd-color-text-1); color: #ffffff; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                1
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(210, 7.5%, 21%)<br> #32363A</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-text-1)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-text-2); color: #ffffff; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                2
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(210, 5%, 33.5%)<br> #515559</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-text-2)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-text-3); color: #ffffff; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                3
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(210, 2.8%, 42.7%)<br> #6A6d70</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-text-3)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-text-4); color: #ffffff; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                4
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(210, 2.6%, 46.8%)<br> #74777A</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-text-4)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-text-5); color: #0; border: 1px solid #cfdbe7" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                5
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(210, 0%, 100%)<br> #FFFFFF</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-text-5)
+      </small>
+    </code>
+            </li>
+        
+        </ul>
+        <br style="clear:both">
+    </div>
+
+    <h2 class="docs-header-h2">Backgrounds</h2>
+    <p></p>
+    <div class="docs-colors_container">
+        <ul class="docs-colors_plaque">
+        
+            <li style="background-color: var(--fd-color-background-1); color: #0; border: 1px solid #cfdbe7" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                1
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(210, 9%, 93.5%)<br> #EDEFF0</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-background-1)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-background-2); color: #0; border: 1px solid #cfdbe7" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                2
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(210, 0%, 100%)<br> #FFFFFF</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-background-2)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-background-3); color: #; border: 1px solid #cfdbe7" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                3
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(145, 77%, 97%)<br> #F1FDF6</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-background-3)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-background-4); color: #; border: 1px solid #cfdbe7" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                4
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(30, 87.5%, 97%)<br> #FEF7F1</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-background-4)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-background-5); color: #; border: 1px solid #cfdbe7" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                5
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(0, 100%, 96%)<br> #FFEBEB</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-background-5)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-background-6); color: #; border: 1px solid #cfdbe7" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                6
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(210, 100%, 98%)<br> #F5FAFF</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-background-6)
+      </small>
+    </code>
+            </li>
+        
+        </ul>
+        <br style="clear:both">
+    </div>
+
+    <h2 class="docs-header-h2">Neutral</h2>
+    <p></p>
+    <div class="docs-colors_container">
+        <ul class="docs-colors_plaque">
+        
+            <li style="background-color: var(--fd-color-neutral-1); color: #0; border: 1px solid #cfdbe7" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                1
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(210, 3%, 98%)<br> #FAFAFA</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-neutral-1)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-neutral-2); color: #0; border: 1px solid #cfdbe7" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                2
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(210, 3%, 93.5%)<br> #EEEEEF</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-neutral-2)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-neutral-3); color: #0; border: 1px solid #cfdbe7" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                3
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(0, 0%, 85%)<br> #D9D9D9</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-neutral-3)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-neutral-4); color: #0; border: 1px solid #cfdbe7" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                4
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(212, 8%, 57%)<br> #89919A</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-neutral-4)
+      </small>
+    </code>
+            </li>
+        
+        </ul>
+        <br style="clear:both">
+    </div>
+
+    <h2 class="docs-header-h2">Status</h2>
+    <p></p>
+    <div class="docs-colors_container">
+        <ul class="docs-colors_plaque">
+        
+            <li style="background-color: var(--fd-color-status-1); color: #FFFFFF; border: 1px solid #107F3E" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                1
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(145, 78%, 28%)<br> #107F3E</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-status-1)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-status-2); color: #FFFFFF; border: 1px solid #E9730C" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                2
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(28, 90%, 48%)<br> #E9730C</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-status-2)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-status-3); color: #FFFFFF; border: 1px solid #EE0000" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                3
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(0, 100%, 37%)<br> #BB0000</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-status-3)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-status-4); color: #FFFFFF; border: 1px solid #6D7678" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                4
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(191, 5%, 45%)<br> #6D7678</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-status-4)
+      </small>
+    </code>
+            </li>
+        
+        </ul>
+        <br style="clear:both">
+    </div>
+
+    <h2 class="docs-header-h2">Accent</h2>
+    <p>These colors are optimized for two different uses. The first ten colors meet a contrast standard of 3:1 and are best used for differentiating between similar items, e.g., in a calendar, legend, or pills. The last six colors meet a contrast standard or 4.5:1 and best used when text is important, e.g., identifiers and avatars.</p>
+    <div class="docs-colors_container">
+        <ul class="docs-colors_plaque">
+        
+            <li style="background-color: var(--fd-color-accent-1); color: #; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                1
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(34, 82%, 49%)<br> #E38B16</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-accent-1)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-accent-2); color: #; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                2
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(0, 60%, 66%)<br> #DC7474</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-accent-2)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-accent-3); color: #; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                3
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(332, 75%, 49%)<br> #DB1F77</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-accent-3)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-accent-4); color: #; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                4
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(315, 54%, 49%)<br> #C0399F</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-accent-4)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-accent-5); color: #; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                5
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(238, 65%, 63%)<br> #6367DE</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-accent-5)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-accent-6); color: #; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                6
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(210, 64%, 60%)<br> #5899DA</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-accent-6)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-accent-7); color: #; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                7
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(186, 81%, 39%)<br> #13A4B4</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-accent-7)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-accent-8); color: #; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                8
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(75, 86%, 34%)<br> #7CA10C</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-accent-8)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-accent-9); color: #; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                9
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(269, 54%, 59%)<br> #955ECF</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-accent-9)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-accent-10); color: #; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                10
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(197, 15%, 50%)<br> #6C8893</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-accent-10)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-accent-11); color: #FFFFFF; border: 1px solid #ffffff; clear: left;" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                11
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(34, 82%, 45%)<br> #D17F15</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-accent-11)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-accent-12); color: #FFFFFF; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                12
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(0, 60%, 54%)<br> #D04343</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-accent-12)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-accent-13); color: #FFFFFF; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                13
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(210, 64%, 47%)<br> #2B78C5</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-accent-13)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-accent-14); color: #FFFFFF; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                14
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(186, 81%, 31%)<br> #0F828F</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-accent-14)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-accent-15); color: #FFFFFF; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                15
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsl(206, 15%, 46%)<br> #647887</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-accent-15)
+      </small>
+    </code>
+            </li>
+        
+        </ul>
+        <br style="clear:both">
+    </div>
+
+    <h2 class="docs-header-h2">State Action</h2>
+    <p></p>
+    <div class="docs-colors_container">
+        <ul class="docs-colors_plaque">
+        
+            <li style="background-color: var(--fd-color-action-hover); color: #FFFFFF; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                hover
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsla(210, 91%, 36%, 1)<br> #085CAF</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-action-hover)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-action-selected); color: #FFFFFF; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                selected
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsla(210, 98%, 33%, 1)<br> #0254A7</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-action-selected)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-action-disabled); color: #FFFFFF; border: 1px solid #ffffff" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                disabled
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsla(210, 91%, 43%, 0.4)<br> #0a6ed1</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-action-disabled)
+      </small>
+    </code>
+            </li>
+        
+        </ul>
+        <br style="clear:both">
+    </div>
+
+    <h2 class="docs-header-h2">State Background</h2>
+    <p></p>
+    <div class="docs-colors_container">
+        <ul class="docs-colors_plaque">
+        
+            <li style="background-color: var(--fd-color-background-hover); color: #; border: 1px solid #cfdbe7" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                hover
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsla(210, 3%, 98%, 1)<br> #FAFAFA</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-background-hover)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-background-selected); color: #; border: 1px solid #cfdbe7" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                selected
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsla(210, 91%, 43%, 0.07)<br> #0A6ED1</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-background-selected)
+      </small>
+    </code>
+            </li>
+        
+            <li style="background-color: var(--fd-color-background-selected-hover); color: #; border: 1px solid #cfdbe7" class="docs-colors_plaque_color">
+               <span class="docs-colors_plaque_color-name">
+                selected-hover
+               </span>
+
+              <span class="docs-colors_plaque_color-value"> hsla(210, 91%, 43%, 0.1)<br> #0A6ED1</span>
+  <code class="docs-colors_plaque_color-code">
+      <small>
+          var(--fd-color-background-selected-hover)
+      </small>
+    </code>
+            </li>
+        
+        </ul>
+        <br style="clear:both">
+    </div>
+
+
+
+
+    <div class="tags">
+        
+    </div>
+
+</div>
+
+            </div>
+
+        </div>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/docs/fundamental//js/customscripts.js" }}"></script>
+        
+    </div>
+    
+</body>
+
+</html>

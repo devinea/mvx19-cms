@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" multi input">
+<title>
+	
+	Multi Input - SAP Fiori Fundamentals
+	
+
+</title>
+
+<!-- Google Tag Manager -->
+<script>
+	(function (w, d, s, l, i) {
+		w[l] = w[l] || []; w[l].push({
+			'gtm.start':
+				new Date().getTime(), event: 'gtm.js'
+		}); var f = d.getElementsByTagName(s)[0],
+			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+	})(window, document, 'script', 'dataLayer', 'GTM-M953JX6');
+</script>
+<!-- End Google Tag Manager -->
+
+<link rel="stylesheet" href="/docs/fundamental//css/syntax.css?1549295562819717000">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css?1549295562819717000" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/docs/fundamental//css/customstyles.css?1549295562819717000">
+<link rel="stylesheet" href="/docs/fundamental//css/fui-site.css?1549295562819717000">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="fundamental" href="/feed.xml">
+</head>
+
+<body>
+    
+    <div class="docs-wrapper">
+
+
+        
+
+        <!-- Page Content -->
+        <div class="docs-container">
+            <!-- Sidebar Column -->
+            
+
+            <div class="main-content" id="tg-sb-content">
+                <!-- Content Column -->
+                
+
+<div class="post-content">
+
+    <h1 class="docs-header-h1">Multi Input</h1>
+
+  
+
+
+<p class="docs-status">
+  <span class="fd-badge fd-badge--warning" style="cursor: help;" title="WIP that may be used but be prepared for changes in the future">
+    Experimental
+  </span>
+  <span class="fd-label fd-has-font-weight-normal">
+    Available since 1.1.0
+  </span>
+  
+    <span class="fd-label">
+      Last updated 1.2.1
+    </span>
+  
+  
+</p>
+
+
+
+   
+
+    
+
+
+    
+
+  <h2 id="default-and-compact-sizes">Default and Compact sizes</h2>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="47000" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="47000" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="fd-multi-input">
+    <div class="fd-multi-input-field">
+        <div class="fd-popover">
+            <div class="fd-popover__control">
+                <div class="fd-combobox-control" aria-label="Image label" aria-controls="F4GcX348a" aria-expanded="false" aria-haspopup="true">
+                    <div class="fd-input-group fd-input-group--after">
+                        <input type="text" class="fd-input" placeholder="Select Fruit" />
+                        <span class="fd-input-group__addon fd-input-group__addon--after
+                        fd-input-group__addon--button">
+                            <button class=" fd-button--light sap-icon--navigation-down-arrow"></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="fd-popover__body fd-popover__body--no-arrow" aria-hidden="true" id="F4GcX348a">
+                <nav class="fd-menu">
+                <ul class="fd-menu__list">
+                    <li>
+                        <label for="a1" class="fd-menu__item">
+                            <input type="checkbox" class="fd-checkbox" id="a1" />
+                            Apple
+                        </label>
+                    </li>
+                    <li>
+                        <label for="b1" class="fd-menu__item">
+                            <input type="checkbox" class="fd-checkbox" id="b1" />
+                            Berry
+                        </label>
+                    </li>
+                    <li>
+                        <label for="c1" class="fd-menu__item">
+                            <input type="checkbox" class="fd-checkbox" id="c1" />
+                            Banana
+                        </label>
+                    </li>
+                </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="fd-multi-input-tags">
+        <span class="fd-token" role="button">Apple</span>
+        <span class="fd-token" role="button">Berry</span>
+        <span class="fd-token" role="button">Banana</span>
+    </div>
+</div>
+
+<br />
+
+<div class="fd-multi-input">
+    <div class="fd-multi-input-field">
+        <div class="fd-popover">
+            <div class="fd-popover__control">
+                <div class="fd-combobox-control" aria-label="Image label" aria-controls="F4GcX34a" aria-expanded="false" aria-haspopup="true">
+                    <div class="fd-input-group fd-input-group--after fd-input-group--compact">
+                        <input type="text" class="fd-input fd-input--compact" placeholder="Select Fruit" />
+                        <span class="fd-input-group__addon fd-input-group__addon--after
+                        fd-input-group__addon--button">
+                            <button class=" fd-button--light sap-icon--navigation-down-arrow"></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="fd-popover__body fd-popover__body--no-arrow" aria-hidden="true" id="F4GcX34a">
+                <nav class="fd-menu">
+                <ul class="fd-menu__list">
+                    <li>
+                        <label for="a2" class="fd-menu__item">
+                            <input type="checkbox" class="fd-checkbox" id="a2" />
+                            Apple
+                        </label>
+                    </li>
+                    <li>
+                        <label for="b2" class="fd-menu__item">
+                            <input type="checkbox" class="fd-checkbox" id="b2" />
+                            Berry
+                        </label>
+                    </li>
+                    <li>
+                        <label for="c2" class="fd-menu__item">
+                            <input type="checkbox" class="fd-checkbox" id="c2" />
+                            Banana
+                        </label>
+                    </li>
+                </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="fd-multi-input-tags">
+        <span class="fd-token" role="button">Apple</span>
+        <span class="fd-token" role="button">Berry</span>
+        <span class="fd-token" role="button">Banana</span>
+    </div>
+</div>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-multi-input"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-multi-input-field"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__control"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-combobox-control"</span> <span class="na">aria-label=</span><span class="s">"Image label"</span> <span class="na">aria-controls=</span><span class="s">"F4GcX348a"</span>
+                <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"fd-input"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">placeholder=</span><span class="s">"Select Fruit"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--after
+                        fd-input-group__addon--button"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">" fd-button--light sap-icon--navigation-down-arrow"</span><span class="nt">&gt;&lt;/button&gt;</span>
+                        <span class="nt">&lt;/span&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__body fd-popover__body--no-arrow"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"F4GcX348a"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-menu"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-menu__list"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;li&gt;</span>
+                        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"a1"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">class=</span><span class="s">"fd-checkbox"</span> <span class="na">id=</span><span class="s">"a1"</span><span class="nt">&gt;</span>
+                            Apple
+                        <span class="nt">&lt;/label&gt;</span>
+                    <span class="nt">&lt;/li&gt;</span>
+                    <span class="nt">&lt;li&gt;</span>
+                        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"b1"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">class=</span><span class="s">"fd-checkbox"</span> <span class="na">id=</span><span class="s">"b1"</span><span class="nt">&gt;</span>
+                            Berry
+                        <span class="nt">&lt;/label&gt;</span>
+                    <span class="nt">&lt;/li&gt;</span>
+                    <span class="nt">&lt;li&gt;</span>
+                        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"c1"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">class=</span><span class="s">"fd-checkbox"</span> <span class="na">id=</span><span class="s">"c1"</span><span class="nt">&gt;</span>
+                            Banana
+                        <span class="nt">&lt;/label&gt;</span>
+                    <span class="nt">&lt;/li&gt;</span>
+                <span class="nt">&lt;/ul&gt;</span>
+                <span class="nt">&lt;/nav&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-multi-input-tags"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-token"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Apple<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-token"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Berry<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-token"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Banana<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;br&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-multi-input"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-multi-input-field"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__control"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-combobox-control"</span> <span class="na">aria-label=</span><span class="s">"Image label"</span> <span class="na">aria-controls=</span><span class="s">"F4GcX34a"</span>
+                <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-input-group fd-input-group--after fd-input-group--compact"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"fd-input fd-input--compact"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">placeholder=</span><span class="s">"Select Fruit"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-input-group__addon fd-input-group__addon--after
+                        fd-input-group__addon--button"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">" fd-button--light sap-icon--navigation-down-arrow"</span><span class="nt">&gt;&lt;/button&gt;</span>
+                        <span class="nt">&lt;/span&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__body fd-popover__body--no-arrow"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"F4GcX34a"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-menu"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-menu__list"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;li&gt;</span>
+                        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"a2"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">class=</span><span class="s">"fd-checkbox"</span> <span class="na">id=</span><span class="s">"a2"</span><span class="nt">&gt;</span>
+                            Apple
+                        <span class="nt">&lt;/label&gt;</span>
+                    <span class="nt">&lt;/li&gt;</span>
+                    <span class="nt">&lt;li&gt;</span>
+                        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"b2"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">class=</span><span class="s">"fd-checkbox"</span> <span class="na">id=</span><span class="s">"b2"</span><span class="nt">&gt;</span>
+                            Berry
+                        <span class="nt">&lt;/label&gt;</span>
+                    <span class="nt">&lt;/li&gt;</span>
+                    <span class="nt">&lt;li&gt;</span>
+                        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"c2"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">class=</span><span class="s">"fd-checkbox"</span> <span class="na">id=</span><span class="s">"c2"</span><span class="nt">&gt;</span>
+                            Banana
+                        <span class="nt">&lt;/label&gt;</span>
+                    <span class="nt">&lt;/li&gt;</span>
+                <span class="nt">&lt;/ul&gt;</span>
+                <span class="nt">&lt;/nav&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-multi-input-tags"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-token"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Apple<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-token"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Berry<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-token"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Banana<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+</div>
+
+            </div>
+
+        </div>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/docs/fundamental//js/customscripts.js" }}"></script>
+        
+    </div>
+    
+</body>
+
+</html>

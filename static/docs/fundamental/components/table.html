@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" table">
+<title>
+	
+	Table - SAP Fiori Fundamentals
+	
+
+</title>
+
+<!-- Google Tag Manager -->
+<script>
+	(function (w, d, s, l, i) {
+		w[l] = w[l] || []; w[l].push({
+			'gtm.start':
+				new Date().getTime(), event: 'gtm.js'
+		}); var f = d.getElementsByTagName(s)[0],
+			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+	})(window, document, 'script', 'dataLayer', 'GTM-M953JX6');
+</script>
+<!-- End Google Tag Manager -->
+
+<link rel="stylesheet" href="/docs/fundamental//css/syntax.css?1549295562819717000">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css?1549295562819717000" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/docs/fundamental//css/customstyles.css?1549295562819717000">
+<link rel="stylesheet" href="/docs/fundamental//css/fui-site.css?1549295562819717000">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="fundamental" href="/feed.xml">
+</head>
+
+<body>
+    
+    <div class="docs-wrapper">
+
+
+        
+
+        <!-- Page Content -->
+        <div class="docs-container">
+            <!-- Sidebar Column -->
+            
+
+            <div class="main-content" id="tg-sb-content">
+                <!-- Content Column -->
+                
+
+<div class="post-content">
+
+    <h1 class="docs-header-h1">Table</h1>
+
+  
+
+
+<p class="docs-status">
+  <span class="fd-badge fd-badge--warning" style="cursor: help;" title="These are being actively reviewed to be refactored, safe to use but talk to us">
+    Under Review
+  </span>
+  <span class="fd-label fd-has-font-weight-normal">
+    Available since 1.0.0
+  </span>
+  
+    <span class="fd-label">
+      Last updated 1.2.0
+    </span>
+  
+  
+</p>
+
+
+
+   
+
+    
+
+
+    
+
+  <p class="docs-intro">A table is a set of tabular data. Line items can support data, images and actions.</p>
+
+<p><br /></p>
+
+<h2 id="default-table">Default Table</h2>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="26300" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="26300" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<table class="fd-table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Column Header</th>
+            <th>Column Header</th>
+            <th>Column Header</th>
+            <th>Column Header</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><span class=" fd-image--s fd-image--circle" aria-label="Image label" style="background-image: url(http://api.adorable.io/avatars/50/rodney.artichoke@hybris.com.png);">
+            </span></td>
+            <td><a href="#" class="fd-has-font-weight-semi">user.name@email.com</a></td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>01/26/17</td>
+        </tr>
+        <tr>
+            <td><span class=" fd-image--s fd-image--circle" aria-label="Image label" style="background-image: url(http://api.adorable.io/avatars/50/rodney.artichoke@hybris.com.png);">
+            </span></td>
+            <td><a href="#" class="fd-has-font-weight-semi">user.name@email.com</a></td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>01/26/17</td>
+        </tr>
+        <tr>
+            <td><span class=" fd-image--s fd-image--circle" aria-label="Image label" style="background-image: url(http://api.adorable.io/avatars/50/rodney.artichoke@hybris.com.png);">
+            </span></td>
+            <td><a href="#" class="fd-has-font-weight-semi">user.name@email.com</a></td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>01/26/17</td>
+        </tr>
+    </tbody>
+</table>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"fd-table"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column Header<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column Header<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column Header<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column Header<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;span</span> <span class="na">class=</span><span class="s">" fd-image--s fd-image--circle"</span> <span class="na">aria-label=</span><span class="s">"Image label"</span>
+            <span class="na">style=</span><span class="s">"background-image: url(http://api.adorable.io/avatars/50/rodney.artichoke@hybris.com.png);"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/span&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-has-font-weight-semi"</span><span class="nt">&gt;</span>user.name@email.com<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>First Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Last Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>01/26/17<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;span</span> <span class="na">class=</span><span class="s">" fd-image--s fd-image--circle"</span> <span class="na">aria-label=</span><span class="s">"Image label"</span>
+            <span class="na">style=</span><span class="s">"background-image: url(http://api.adorable.io/avatars/50/rodney.artichoke@hybris.com.png);"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/span&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-has-font-weight-semi"</span><span class="nt">&gt;</span>user.name@email.com<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>First Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Last Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>01/26/17<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;span</span> <span class="na">class=</span><span class="s">" fd-image--s fd-image--circle"</span> <span class="na">aria-label=</span><span class="s">"Image label"</span>
+            <span class="na">style=</span><span class="s">"background-image: url(http://api.adorable.io/avatars/50/rodney.artichoke@hybris.com.png);"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/span&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-has-font-weight-semi"</span><span class="nt">&gt;</span>user.name@email.com<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>First Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Last Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>01/26/17<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="table-with-no-borders">Table with no borders</h2>
+
+<p><code class="highlighter-rouge">fd-table--no-borders</code> can be applied to render a table with no borders</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="8300" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="8300" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<table class="fd-table fd-table--no-borders">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Column Header</th>
+            <th>Column Header</th>
+            <th>Column Header</th>
+            <th>Column Header</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><span class=" fd-image--s fd-image--circle" aria-label="Image label" style="background-image: url(http://api.adorable.io/avatars/50/rodney.artichoke@hybris.com.png);">
+            </span></td>
+            <td><a href="#" class="fd-has-font-weight-semi">user.name@email.com</a></td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>01/26/17</td>
+        </tr>
+        <tr>
+            <td><span class=" fd-image--s fd-image--circle" aria-label="Image label" style="background-image: url(http://api.adorable.io/avatars/50/rodney.artichoke@hybris.com.png);">
+            </span></td>
+            <td><a href="#" class="fd-has-font-weight-semi">user.name@email.com</a></td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>01/26/17</td>
+        </tr>
+        <tr>
+            <td><span class=" fd-image--s fd-image--circle" aria-label="Image label" style="background-image: url(http://api.adorable.io/avatars/50/rodney.artichoke@hybris.com.png);">
+            </span></td>
+            <td><a href="#" class="fd-has-font-weight-semi">user.name@email.com</a></td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>01/26/17</td>
+        </tr>
+    </tbody>
+</table>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"fd-table fd-table--no-borders"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column Header<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column Header<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column Header<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column Header<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;span</span> <span class="na">class=</span><span class="s">" fd-image--s fd-image--circle"</span> <span class="na">aria-label=</span><span class="s">"Image label"</span>
+            <span class="na">style=</span><span class="s">"background-image: url(http://api.adorable.io/avatars/50/rodney.artichoke@hybris.com.png);"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/span&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-has-font-weight-semi"</span><span class="nt">&gt;</span>user.name@email.com<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>First Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Last Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>01/26/17<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;span</span> <span class="na">class=</span><span class="s">" fd-image--s fd-image--circle"</span> <span class="na">aria-label=</span><span class="s">"Image label"</span>
+            <span class="na">style=</span><span class="s">"background-image: url(http://api.adorable.io/avatars/50/rodney.artichoke@hybris.com.png);"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/span&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-has-font-weight-semi"</span><span class="nt">&gt;</span>user.name@email.com<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>First Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Last Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>01/26/17<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;span</span> <span class="na">class=</span><span class="s">" fd-image--s fd-image--circle"</span> <span class="na">aria-label=</span><span class="s">"Image label"</span>
+            <span class="na">style=</span><span class="s">"background-image: url(http://api.adorable.io/avatars/50/rodney.artichoke@hybris.com.png);"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/span&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-has-font-weight-semi"</span><span class="nt">&gt;</span>user.name@email.com<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>First Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Last Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>01/26/17<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="table-with-no-stripes">Table with no stripes</h2>
+
+<p><code class="highlighter-rouge">fd-table--striped</code> can be applied to render a table with zebra stripes</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="48300" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="48300" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<table class="fd-table fd-table--striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Column Header</th>
+            <th>Column Header</th>
+            <th>Column Header</th>
+            <th>Column Header</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><span class=" fd-image--s fd-image--circle" aria-label="Image label" style="background-image: url(http://api.adorable.io/avatars/50/rodney.artichoke@hybris.com.png);">
+            </span></td>
+            <td><a href="#" class="fd-has-font-weight-semi">user.name@email.com</a></td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>01/26/17</td>
+        </tr>
+        <tr>
+            <td><span class=" fd-image--s fd-image--circle" aria-label="Image label" style="background-image: url(http://api.adorable.io/avatars/50/rodney.artichoke@hybris.com.png);">
+            </span></td>
+            <td><a href="#" class="fd-has-font-weight-semi">user.name@email.com</a></td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>01/26/17</td>
+        </tr>
+        <tr>
+            <td><span class=" fd-image--s fd-image--circle" aria-label="Image label" style="background-image: url(http://api.adorable.io/avatars/50/rodney.artichoke@hybris.com.png);">
+            </span></td>
+            <td><a href="#" class="fd-has-font-weight-semi">user.name@email.com</a></td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>01/26/17</td>
+        </tr>
+    </tbody>
+</table>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"fd-table fd-table--striped"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column Header<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column Header<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column Header<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column Header<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;span</span> <span class="na">class=</span><span class="s">" fd-image--s fd-image--circle"</span> <span class="na">aria-label=</span><span class="s">"Image label"</span>
+            <span class="na">style=</span><span class="s">"background-image: url(http://api.adorable.io/avatars/50/rodney.artichoke@hybris.com.png);"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/span&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-has-font-weight-semi"</span><span class="nt">&gt;</span>user.name@email.com<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>First Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Last Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>01/26/17<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;span</span> <span class="na">class=</span><span class="s">" fd-image--s fd-image--circle"</span> <span class="na">aria-label=</span><span class="s">"Image label"</span>
+            <span class="na">style=</span><span class="s">"background-image: url(http://api.adorable.io/avatars/50/rodney.artichoke@hybris.com.png);"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/span&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-has-font-weight-semi"</span><span class="nt">&gt;</span>user.name@email.com<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>First Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Last Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>01/26/17<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;span</span> <span class="na">class=</span><span class="s">" fd-image--s fd-image--circle"</span> <span class="na">aria-label=</span><span class="s">"Image label"</span>
+            <span class="na">style=</span><span class="s">"background-image: url(http://api.adorable.io/avatars/50/rodney.artichoke@hybris.com.png);"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/span&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-has-font-weight-semi"</span><span class="nt">&gt;</span>user.name@email.com<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>First Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Last Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>01/26/17<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="table-with-checkbox">Table with checkbox</h2>
+<p>The checkbox input can be used at the beginning of each row to allow for bulk actions.
+It is recommended to add the parameter <code class="highlighter-rouge">area-selected="true</code> to the row that is selected.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="35400" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="35400" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<table class="fd-table">
+    <thead>
+        <tr>
+            <th><input type="checkbox" /></th>
+            <th>Column Header</th>
+            <th>Column Header</th>
+            <th>Column Header</th>
+            <th>Column Header</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr aria-selected="true">
+            <td><input type="checkbox" checked="" /></td>
+            <td><a class="fd-has-font-weight-semi">user.name@email.com</a></td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>01/26/17</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" /></td>
+            <td><a class="fd-has-font-weight-semi">user.name@email.com</a></td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>01/26/17</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" /></td>
+            <td><a class="fd-has-font-weight-semi">user.name@email.com</a></td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>01/26/17</td>
+        </tr>
+    </tbody>
+</table>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"fd-table"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">&gt;&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column Header<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column Header<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column Header<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column Header<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="na">aria-selected=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">checked</span><span class="nt">&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;a</span> <span class="na">class=</span><span class="s">"fd-has-font-weight-semi"</span><span class="nt">&gt;</span>user.name@email.com<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>First Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Last Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>01/26/17<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;a</span> <span class="na">class=</span><span class="s">"fd-has-font-weight-semi"</span><span class="nt">&gt;</span>user.name@email.com<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>First Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Last Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>01/26/17<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;a</span> <span class="na">class=</span><span class="s">"fd-has-font-weight-semi"</span><span class="nt">&gt;</span>user.name@email.com<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>First Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Last Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>01/26/17<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="table-with-contextual-menu">Table with Contextual Menu</h2>
+<p>When more than three actions exist per row and/or space doesn’t allow for actions,
+a contextual menu can be substituted in order to display all actions in one menu.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="48250" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="48250" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<table class="fd-table">
+    <thead>
+        <tr>
+            <th>Column Header</th>
+            <th>Column Header</th>
+            <th>Column Header</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a class="fd-has-font-weight-semi">user.name@email.com</a></td>
+            <td>First Name</td>
+            <td>01/26/17</td>
+            <td>
+                <div class="fd-popover">
+                    <div class="fd-popover__control">
+                        <button class="fd-button--light sap-icon--overflow" aria-controls="pQqQR213a" aria-haspopup="true" aria-expanded="false" aria-label="More"></button>
+                    </div>
+                    <div class="fd-popover__body" aria-hidden="true" id="pQqQR213a">
+                        <nav class="fd-menu">
+                            <ul class="fd-menu__list">
+                                <li><a href="#" class="fd-menu__item">Edit</a></li>
+                                <li><a href="#" class="fd-menu__item">Lock</a></li>
+                                <li><a href="#" class="fd-menu__item">Duplicate</a></li>
+                                <li><a href="#" class="fd-menu__item">Delete</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><a class="fd-has-font-weight-semi">user.name@email.com</a></td>
+            <td>First Name</td>
+            <td>01/26/17</td>
+            <td>
+                <div class="fd-popover">
+                    <div class="fd-popover__control">
+                        <button class="fd-button--light sap-icon--overflow" aria-controls="lkjlkj23" aria-haspopup="true" aria-expanded="false" aria-label="More"></button>
+                    </div>
+                    <div class="fd-popover__body" aria-hidden="true" id="lkjlkj23">
+                        <nav class="fd-menu">
+                            <ul class="fd-menu__list">
+                                <li><a href="#" class="fd-menu__item">Edit</a></li>
+                                <li><a href="#" class="fd-menu__item">Lock</a></li>
+                                <li><a href="#" class="fd-menu__item">Duplicate</a></li>
+                                <li><a href="#" class="fd-menu__item">Delete</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><a class="fd-has-font-weight-semi">user.name@email.com</a></td>
+            <td>First Name</td>
+            <td>01/26/17</td>
+            <td>
+                <div class="fd-popover">
+                    <div class="fd-popover__control">
+                        <button class="fd-button--light sap-icon--overflow" aria-controls="uu4324" aria-haspopup="true" aria-expanded="false" aria-label="More"></button>
+                    </div>
+                    <div class="fd-popover__body" aria-hidden="true" id="uu4324">
+                        <nav class="fd-menu">
+                            <ul class="fd-menu__list">
+                                <li><a href="#" class="fd-menu__item">Edit</a></li>
+                                <li><a href="#" class="fd-menu__item">Lock</a></li>
+                                <li><a href="#" class="fd-menu__item">Duplicate</a></li>
+                                <li><a href="#" class="fd-menu__item">Delete</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"fd-table"</span> <span class="nt">&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column Header<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column Header<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Column Header<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;a</span> <span class="na">class=</span><span class="s">"fd-has-font-weight-semi"</span><span class="nt">&gt;</span>user.name@email.com<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>First Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>01/26/17<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__control"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light sap-icon--overflow"</span> <span class="na">aria-controls=</span><span class="s">"pQqQR213a"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-label=</span><span class="s">"More"</span><span class="nt">&gt;&lt;/button&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__body"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"pQqQR213a"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-menu"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-menu__list"</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Edit<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Lock<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Duplicate<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Delete<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                            <span class="nt">&lt;/ul&gt;</span>
+                        <span class="nt">&lt;/nav&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;a</span> <span class="na">class=</span><span class="s">"fd-has-font-weight-semi"</span><span class="nt">&gt;</span>user.name@email.com<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>First Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>01/26/17<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__control"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light sap-icon--overflow"</span> <span class="na">aria-controls=</span><span class="s">"lkjlkj23"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-label=</span><span class="s">"More"</span><span class="nt">&gt;&lt;/button&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__body"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"lkjlkj23"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-menu"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-menu__list"</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Edit<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Lock<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Duplicate<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Delete<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                            <span class="nt">&lt;/ul&gt;</span>
+                        <span class="nt">&lt;/nav&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;&lt;a</span> <span class="na">class=</span><span class="s">"fd-has-font-weight-semi"</span><span class="nt">&gt;</span>user.name@email.com<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>First Name<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>01/26/17<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__control"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"fd-button--light sap-icon--overflow"</span> <span class="na">aria-controls=</span><span class="s">"uu4324"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-label=</span><span class="s">"More"</span><span class="nt">&gt;&lt;/button&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__body"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"uu4324"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-menu"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-menu__list"</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Edit<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Lock<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Duplicate<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Delete<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                            <span class="nt">&lt;/ul&gt;</span>
+                        <span class="nt">&lt;/nav&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="table-with-sortable-column-headers">Table with Sortable Column Headers</h2>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="30750" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="30750" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<table class="fd-table">
+   <thead>
+      <tr>
+         <th class="fd-table__sort-column">Header Column</th>
+         <th class="fd-table__sort-column">Header Column</th>
+         <th class="fd-table__sort-column">Header Column</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td>Lorem ipsum dolor sit amet ipsum</td>
+         <td>Lorem ipsum dolor sit amet ipsum</td>
+         <td>Lorem ipsum dolor sit amet ipsum</td>
+      </tr>
+      <tr>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+      </tr>
+      <tr>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+      </tr>
+   </tbody>
+</table>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"fd-table"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;thead&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+         <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"fd-table__sort-column"</span><span class="nt">&gt;</span>Header Column<span class="nt">&lt;/th&gt;</span>
+         <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"fd-table__sort-column"</span><span class="nt">&gt;</span>Header Column<span class="nt">&lt;/th&gt;</span>
+         <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"fd-table__sort-column"</span><span class="nt">&gt;</span>Header Column<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+   <span class="nt">&lt;/thead&gt;</span>
+   <span class="nt">&lt;tbody&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+         <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+         <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+         <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+   <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="table-with-sortable-column-headers---ascending">Table with Sortable Column Headers - Ascending</h2>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="62400" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="62400" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<table class="fd-table">
+   <thead>
+      <tr>
+         <th class="fd-table__sort-column fd-table__sort-column--asc">Header Column</th>
+         <th class="fd-table__sort-column">Header Column</th>
+         <th class="fd-table__sort-column">Header Column</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td>Lorem ipsum dolor sit amet ipsum</td>
+         <td>Lorem ipsum dolor sit amet ipsum</td>
+         <td>Lorem ipsum dolor sit amet ipsum</td>
+      </tr>
+      <tr>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+      </tr>
+      <tr>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+      </tr>
+   </tbody>
+</table>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"fd-table"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;thead&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+         <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"fd-table__sort-column fd-table__sort-column--asc"</span><span class="nt">&gt;</span>Header Column<span class="nt">&lt;/th&gt;</span>
+         <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"fd-table__sort-column"</span><span class="nt">&gt;</span>Header Column<span class="nt">&lt;/th&gt;</span>
+         <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"fd-table__sort-column"</span><span class="nt">&gt;</span>Header Column<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+   <span class="nt">&lt;/thead&gt;</span>
+   <span class="nt">&lt;tbody&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+         <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+         <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+         <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+   <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="table-with-sortable-column-headers---descinding">Table with Sortable Column Headers - Descinding</h2>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="12100" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="12100" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<table class="fd-table">
+   <thead>
+      <tr>
+         <th class="fd-table__sort-column fd-table__sort-column--dsc">Header Column</th>
+         <th class="fd-table__sort-column">Header Column</th>
+         <th class="fd-table__sort-column">Header Column</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td>Lorem ipsum dolor sit amet ipsum</td>
+         <td>Lorem ipsum dolor sit amet ipsum</td>
+         <td>Lorem ipsum dolor sit amet ipsum</td>
+      </tr>
+      <tr>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+      </tr>
+      <tr>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+      </tr>
+   </tbody>
+</table>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"fd-table"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;thead&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+         <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"fd-table__sort-column fd-table__sort-column--dsc"</span><span class="nt">&gt;</span>Header Column<span class="nt">&lt;/th&gt;</span>
+         <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"fd-table__sort-column"</span><span class="nt">&gt;</span>Header Column<span class="nt">&lt;/th&gt;</span>
+         <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"fd-table__sort-column"</span><span class="nt">&gt;</span>Header Column<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+   <span class="nt">&lt;/thead&gt;</span>
+   <span class="nt">&lt;tbody&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+         <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+         <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+         <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+   <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="table-with-column-headers-with-context-menu">Table with Column Headers with context menu</h2>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="16750" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="16750" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<table class="fd-table">
+   <thead>
+      <tr>
+         <th class="fd-table__context-menu" aria-controls="col1" aria-haspopup="true">
+            <div class="fd-popover">
+               <div class="fd-popover__control">
+                  <span class="fd-table__context-menu-label">Header Column</span>
+               </div>
+               <div class="fd-popover__body" aria-hidden="true" id="col1">
+                  <nav class="fd-menu fd-menu--addon-before">
+                     <ul class="fd-menu__list">
+                        <li><a href="#" class="fd-menu__item">Ascending</a>
+                        </li>
+                        <li><a href="#" class="fd-menu__item">Decensing</a>
+                        </li>
+                        <hr />
+                        <li><a href="#" class="fd-menu__item">Fix Column</a>
+                        </li>
+                     </ul>
+                  </nav>
+               </div>
+            </div>
+         </th>
+         <th class="fd-table__context-menu" aria-controls="col2" aria-haspopup="true">
+            <div class="fd-popover">
+               <div class="fd-popover__control">
+                  <span class="fd-table__context-menu-label">Header Column</span>
+               </div>
+               <div class="fd-popover__body" aria-hidden="true" id="col2">
+                  <nav class="fd-menu fd-menu--addon-before">
+                     <ul class="fd-menu__list">
+                        <li><a href="#" class="fd-menu__item">Ascending</a>
+                        </li>
+                        <li><a href="#" class="fd-menu__item">Decensing</a>
+                        </li>
+                        <hr />
+                        <li><a href="#" class="fd-menu__item">Fix Column</a>
+                        </li>
+                     </ul>
+                  </nav>
+               </div>
+            </div>
+         </th>
+         <th class="fd-table__context-menu" aria-controls="col3" aria-haspopup="true">
+            <div class="fd-popover">
+               <div class="fd-popover__control">
+                  <span class="fd-table__context-menu-label">Header Column</span>
+               </div>
+               <div class="fd-popover__body" aria-hidden="true" id="col3">
+                  <nav class="fd-menu fd-menu--addon-before">
+                     <ul class="fd-menu__list">
+                        <li><a href="#" class="fd-menu__item">Ascending</a>
+                        </li>
+                        <li><a href="#" class="fd-menu__item">Decensing</a>
+                        </li>
+                        <hr />
+                        <li><a href="#" class="fd-menu__item">Fix Column</a>
+                        </li>
+                     </ul>
+                  </nav>
+               </div>
+            </div>
+         </th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td>Lorem ipsum dolor sit amet ipsum</td>
+         <td>Lorem ipsum dolor sit amet ipsum</td>
+         <td>Lorem ipsum dolor sit amet ipsum</td>
+      </tr>
+      <tr>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+      </tr>
+      <tr>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+          <td>Lorem ipsum dolor sit amet ipsum</td>
+      </tr>
+   </tbody>
+</table>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"fd-table"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;thead&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+         <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"fd-table__context-menu"</span> <span class="na">aria-controls=</span><span class="s">"col1"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover"</span><span class="nt">&gt;</span>
+               <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__control"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-table__context-menu-label"</span><span class="nt">&gt;</span>Header Column<span class="nt">&lt;/span&gt;</span>
+               <span class="nt">&lt;/div&gt;</span>
+               <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__body"</span>  <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"col1"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-menu fd-menu--addon-before"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-menu__list"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Ascending<span class="nt">&lt;/a&gt;</span>
+                        <span class="nt">&lt;/li&gt;</span>
+                        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Decensing<span class="nt">&lt;/a&gt;</span>
+                        <span class="nt">&lt;/li&gt;</span>
+                        <span class="nt">&lt;hr&gt;</span>
+                        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Fix Column<span class="nt">&lt;/a&gt;</span>
+                        <span class="nt">&lt;/li&gt;</span>
+                     <span class="nt">&lt;/ul&gt;</span>
+                  <span class="nt">&lt;/nav&gt;</span>
+               <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+         <span class="nt">&lt;/th&gt;</span>
+         <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"fd-table__context-menu"</span> <span class="na">aria-controls=</span><span class="s">"col2"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover"</span><span class="nt">&gt;</span>
+               <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__control"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-table__context-menu-label"</span><span class="nt">&gt;</span>Header Column<span class="nt">&lt;/span&gt;</span>
+               <span class="nt">&lt;/div&gt;</span>
+               <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__body"</span>  <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"col2"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-menu fd-menu--addon-before"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-menu__list"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Ascending<span class="nt">&lt;/a&gt;</span>
+                        <span class="nt">&lt;/li&gt;</span>
+                        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Decensing<span class="nt">&lt;/a&gt;</span>
+                        <span class="nt">&lt;/li&gt;</span>
+                        <span class="nt">&lt;hr&gt;</span>
+                        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Fix Column<span class="nt">&lt;/a&gt;</span>
+                        <span class="nt">&lt;/li&gt;</span>
+                     <span class="nt">&lt;/ul&gt;</span>
+                  <span class="nt">&lt;/nav&gt;</span>
+               <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+         <span class="nt">&lt;/th&gt;</span>
+         <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"fd-table__context-menu"</span> <span class="na">aria-controls=</span><span class="s">"col3"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover"</span><span class="nt">&gt;</span>
+               <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__control"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-table__context-menu-label"</span><span class="nt">&gt;</span>Header Column<span class="nt">&lt;/span&gt;</span>
+               <span class="nt">&lt;/div&gt;</span>
+               <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__body"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"col3"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-menu fd-menu--addon-before"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-menu__list"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Ascending<span class="nt">&lt;/a&gt;</span>
+                        <span class="nt">&lt;/li&gt;</span>
+                        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Decensing<span class="nt">&lt;/a&gt;</span>
+                        <span class="nt">&lt;/li&gt;</span>
+                        <span class="nt">&lt;hr&gt;</span>
+                        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Fix Column<span class="nt">&lt;/a&gt;</span>
+                        <span class="nt">&lt;/li&gt;</span>
+                     <span class="nt">&lt;/ul&gt;</span>
+                  <span class="nt">&lt;/nav&gt;</span>
+               <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+         <span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+   <span class="nt">&lt;/thead&gt;</span>
+   <span class="nt">&lt;tbody&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+         <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+         <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+         <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+   <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="table-with-fix-column-header-and-context-menu">Table with Fix Column Header and context menu</h2>
+
+<ul>
+  <li>A column can be fixed by applying the <code class="highlighter-rouge">fd-table_fixed_col</code> css class a desired number for column width (<code class="highlighter-rouge">width: 200px</code> inline style in the example below)</li>
+  <li>The <code class="highlighter-rouge">fd-table--fixed</code> wrapper need to be offset(<code class="highlighter-rouge">padding-left:200px</code>) by the same amount as defined for column width.</li>
+  <li><code class="highlighter-rouge">fd-table--fixed-wrapper</code> need to have a defined with as well to enable horizontal scrolling.</li>
+</ul>
+
+<blockquote>
+  <p>100% width on <code class="highlighter-rouge">fd-table--fixed-wrapper</code> will not render horizontal scrolling as the wrapper container will stretch to accommodate any overflow column width.</p>
+</blockquote>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="53600" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="53600" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<div class="fd-table--fixed-wrapper" style="width:800px;">
+   <div class="fd-table--fixed">
+      <table class="fd-table">
+         <thead>
+            <tr>
+               <th class="fd-table__context-menu fd-table__fixed-col" style="left:0; width:200px" aria-controls="col1.2" aria-haspopup="true">
+                  <div class="fd-popover">
+                     <div class="fd-popover__control">
+                        <span class="fd-table__context-menu-label">Header Column</span>
+                     </div>
+                     <div class="fd-popover__body" aria-hidden="true" id="col1.2">
+                        <nav class="fd-menu fd-menu--addon-before">
+                           <ul class="fd-menu__list">
+                              <li>
+                                 <div class="fd-menu__addon-before"></div>
+                                 <a href="#" class="fd-menu__item">Ascending</a>
+                              </li>
+                              <li>
+                                 <div class="fd-menu__addon-before"></div>
+                                 <a href="#" class="fd-menu__item">Decensing</a>
+                              </li>
+                              <hr />
+                              <li>
+                                 <div class="fd-menu__addon-before"><span class="sap-icon--accept"></span></div>
+                                 <a href="#" class="fd-menu__item">Fix Column</a>
+                              </li>
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </th>
+               <th class="fd-table__context-menu" aria-controls="col2.2" aria-haspopup="true">
+                  <div class="fd-popover">
+                     <div class="fd-popover__control">
+                        <span class="fd-table__context-menu-label">Header Column</span>
+                     </div>
+                     <div class="fd-popover__body" aria-hidden="true" id="col2.2">
+                        <nav class="fd-menu fd-menu--addon-before">
+                           <ul class="fd-menu__list">
+                              <li><a href="#" class="fd-menu__item">Ascending</a></li>
+                              <li><a href="#" class="fd-menu__item">Decensing</a></li>
+                              <hr />
+                              <li><a href="#" class="fd-menu__item">Fix Column</a></li>
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </th>
+               <th class="fd-table__context-menu" aria-controls="col3.2" aria-haspopup="true">
+                  <div class="fd-popover">
+                     <div class="fd-popover__control">
+                        <span class="fd-table__context-menu-label">Header Column</span>
+                     </div>
+                     <div class="fd-popover__body" aria-hidden="true" id="col3.2">
+                        <nav class="fd-menu fd-menu--addon-before">
+                           <ul class="fd-menu__list">
+                              <li><a href="#" class="fd-menu__item">Ascending</a></li>
+                              <li><a href="#" class="fd-menu__item">Decensing</a></li>
+                              <hr />
+                              <li><a href="#" class="fd-menu__item">Fix Column</a></li>
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </th>
+               <th class="fd-table__context-menu" aria-controls="col4.2" aria-haspopup="true">
+                  <div class="fd-popover">
+                     <div class="fd-popover__control">
+                        <span class="fd-table__context-menu-label">Header Column</span>
+                     </div>
+                     <div class="fd-popover__body" aria-hidden="true" id="col4.2">
+                        <nav class="fd-menu fd-menu--addon-before">
+                           <ul class="fd-menu__list">
+                              <li><a href="#" class="fd-menu__item">Ascending</a></li>
+                              <li><a href="#" class="fd-menu__item">Decensing</a></li>
+                              <hr />
+                              <li><a href="#" class="fd-menu__item">Fix Column</a></li>
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </th>
+               <th class="fd-table__context-menu" aria-controls="col5.2" aria-haspopup="true">
+                  <div class="fd-popover">
+                     <div class="fd-popover__control">
+                        <span class="fd-table__context-menu-label">Header Column</span>
+                     </div>
+                     <div class="fd-popover__body" aria-hidden="true" id="col5.2">
+                        <nav class="fd-menu fd-menu--addon-before">
+                           <ul class="fd-menu__list">
+                              <li><a href="#" class="fd-menu__item">Ascending</a></li>
+                              <li><a href="#" class="fd-menu__item">Decensing</a></li>
+                              <hr />
+                              <li><a href="#" class="fd-menu__item">Fix Column</a></li>
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </th>
+               <th class="fd-table__context-menu" aria-controls="col6.2" aria-haspopup="true">
+                  <div class="fd-popover">
+                     <div class="fd-popover__control">
+                        <span class="fd-table__context-menu-label">Header Column</span>
+                     </div>
+                     <div class="fd-popover__body" aria-hidden="true" id="col6.2">
+                        <nav class="fd-menu fd-menu--addon-before">
+                           <ul class="fd-menu__list">
+                              <li><a href="#" class="fd-menu__item">Ascending</a></li>
+                              <li><a href="#" class="fd-menu__item">Decensing</a></li>
+                              <hr />
+                              <li><a href="#" class="fd-menu__item">Fix Column</a></li>
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </th>
+               <th class="fd-table__context-menu" aria-controls="col7.2" aria-haspopup="true">
+                  <div class="fd-popover">
+                     <div class="fd-popover__control">
+                        <span class="fd-table__context-menu-label">Header Column</span>
+                     </div>
+                     <div class="fd-popover__body" aria-hidden="true" id="col7.2">
+                        <nav class="fd-menu fd-menu--addon-before">
+                           <ul class="fd-menu__list">
+                              <li><a href="#" class="fd-menu__item">Ascending</a></li>
+                              <li><a href="#" class="fd-menu__item">Decensing</a></li>
+                              <hr />
+                              <li><a href="#" class="fd-menu__item">Fix Column</a></li>
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </th>
+               <th class="fd-table__context-menu" aria-controls="col8.2" aria-haspopup="true">
+                  <div class="fd-popover">
+                     <div class="fd-popover__control">
+                        <span class="fd-table__context-menu-label">Header Column</span>
+                     </div>
+                     <div class="fd-popover__body" aria-hidden="true" id="col8.2">
+                        <nav class="fd-menu fd-menu--addon-before">
+                           <ul class="fd-menu__list">
+                              <li><a href="#" class="fd-menu__item">Ascending</a></li>
+                              <li><a href="#" class="fd-menu__item">Decensing</a></li>
+                              <hr />
+                              <li><a href="#" class="fd-menu__item">Fix Column</a></li>
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td class="fd-table__fixed-col" style="left:0; width:200px">Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+            </tr>
+            <tr>
+               <td class="fd-table__fixed-col" style="left:0; width:200px">Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+            </tr>
+            <tr>
+               <td class="fd-table__fixed-col" style="left:0; width:200px">Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+               <td>Lorem ipsum dolor sit amet ipsum</td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+</div>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-table--fixed-wrapper"</span> <span class="na">style=</span><span class="s">"width:800px;"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-table--fixed"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"fd-table"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;thead&gt;</span>
+            <span class="nt">&lt;tr&gt;</span>
+               <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"fd-table__context-menu fd-table__fixed-col"</span> <span class="na">style=</span><span class="s">"left:0; width:200px"</span> <span class="na">aria-controls=</span><span class="s">"col1.2"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__control"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-table__context-menu-label"</span><span class="nt">&gt;</span>Header Column<span class="nt">&lt;/span&gt;</span>
+                     <span class="nt">&lt;/div&gt;</span>
+                     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__body"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"col1.2"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-menu fd-menu--addon-before"</span><span class="nt">&gt;</span>
+                           <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-menu__list"</span><span class="nt">&gt;</span>
+                              <span class="nt">&lt;li&gt;</span>
+                                 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-menu__addon-before"</span><span class="nt">&gt;&lt;/div&gt;</span>
+                                 <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Ascending<span class="nt">&lt;/a&gt;</span>
+                              <span class="nt">&lt;/li&gt;</span>
+                              <span class="nt">&lt;li&gt;</span>
+                                 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-menu__addon-before"</span><span class="nt">&gt;&lt;/div&gt;</span>
+                                 <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Decensing<span class="nt">&lt;/a&gt;</span>
+                              <span class="nt">&lt;/li&gt;</span>
+                              <span class="nt">&lt;hr&gt;</span>
+                              <span class="nt">&lt;li&gt;</span>
+                                 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-menu__addon-before"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sap-icon--accept"</span><span class="nt">&gt;&lt;/span&gt;&lt;/div&gt;</span>
+                                 <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Fix Column<span class="nt">&lt;/a&gt;</span>
+                              <span class="nt">&lt;/li&gt;</span>
+                           <span class="nt">&lt;/ul&gt;</span>
+                        <span class="nt">&lt;/nav&gt;</span>
+                     <span class="nt">&lt;/div&gt;</span>
+                  <span class="nt">&lt;/div&gt;</span>
+               <span class="nt">&lt;/th&gt;</span>
+               <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"fd-table__context-menu"</span> <span class="na">aria-controls=</span><span class="s">"col2.2"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__control"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-table__context-menu-label"</span><span class="nt">&gt;</span>Header Column<span class="nt">&lt;/span&gt;</span>
+                     <span class="nt">&lt;/div&gt;</span>
+                     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__body"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"col2.2"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-menu fd-menu--addon-before"</span><span class="nt">&gt;</span>
+                           <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-menu__list"</span><span class="nt">&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Ascending<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Decensing<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                              <span class="nt">&lt;hr&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Fix Column<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                           <span class="nt">&lt;/ul&gt;</span>
+                        <span class="nt">&lt;/nav&gt;</span>
+                     <span class="nt">&lt;/div&gt;</span>
+                  <span class="nt">&lt;/div&gt;</span>
+               <span class="nt">&lt;/th&gt;</span>
+               <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"fd-table__context-menu"</span> <span class="na">aria-controls=</span><span class="s">"col3.2"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__control"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-table__context-menu-label"</span><span class="nt">&gt;</span>Header Column<span class="nt">&lt;/span&gt;</span>
+                     <span class="nt">&lt;/div&gt;</span>
+                     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__body"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"col3.2"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-menu fd-menu--addon-before"</span><span class="nt">&gt;</span>
+                           <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-menu__list"</span><span class="nt">&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Ascending<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Decensing<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                              <span class="nt">&lt;hr&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Fix Column<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                           <span class="nt">&lt;/ul&gt;</span>
+                        <span class="nt">&lt;/nav&gt;</span>
+                     <span class="nt">&lt;/div&gt;</span>
+                  <span class="nt">&lt;/div&gt;</span>
+               <span class="nt">&lt;/th&gt;</span>
+               <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"fd-table__context-menu"</span> <span class="na">aria-controls=</span><span class="s">"col4.2"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__control"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-table__context-menu-label"</span><span class="nt">&gt;</span>Header Column<span class="nt">&lt;/span&gt;</span>
+                     <span class="nt">&lt;/div&gt;</span>
+                     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__body"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"col4.2"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-menu fd-menu--addon-before"</span><span class="nt">&gt;</span>
+                           <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-menu__list"</span><span class="nt">&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Ascending<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Decensing<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                              <span class="nt">&lt;hr&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Fix Column<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                           <span class="nt">&lt;/ul&gt;</span>
+                        <span class="nt">&lt;/nav&gt;</span>
+                     <span class="nt">&lt;/div&gt;</span>
+                  <span class="nt">&lt;/div&gt;</span>
+               <span class="nt">&lt;/th&gt;</span>
+               <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"fd-table__context-menu"</span> <span class="na">aria-controls=</span><span class="s">"col5.2"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__control"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-table__context-menu-label"</span><span class="nt">&gt;</span>Header Column<span class="nt">&lt;/span&gt;</span>
+                     <span class="nt">&lt;/div&gt;</span>
+                     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__body"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"col5.2"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-menu fd-menu--addon-before"</span><span class="nt">&gt;</span>
+                           <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-menu__list"</span><span class="nt">&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Ascending<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Decensing<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                              <span class="nt">&lt;hr&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Fix Column<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                           <span class="nt">&lt;/ul&gt;</span>
+                        <span class="nt">&lt;/nav&gt;</span>
+                     <span class="nt">&lt;/div&gt;</span>
+                  <span class="nt">&lt;/div&gt;</span>
+               <span class="nt">&lt;/th&gt;</span>
+               <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"fd-table__context-menu"</span> <span class="na">aria-controls=</span><span class="s">"col6.2"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__control"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-table__context-menu-label"</span><span class="nt">&gt;</span>Header Column<span class="nt">&lt;/span&gt;</span>
+                     <span class="nt">&lt;/div&gt;</span>
+                     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__body"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"col6.2"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-menu fd-menu--addon-before"</span><span class="nt">&gt;</span>
+                           <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-menu__list"</span><span class="nt">&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Ascending<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Decensing<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                              <span class="nt">&lt;hr&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Fix Column<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                           <span class="nt">&lt;/ul&gt;</span>
+                        <span class="nt">&lt;/nav&gt;</span>
+                     <span class="nt">&lt;/div&gt;</span>
+                  <span class="nt">&lt;/div&gt;</span>
+               <span class="nt">&lt;/th&gt;</span>
+               <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"fd-table__context-menu"</span> <span class="na">aria-controls=</span><span class="s">"col7.2"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__control"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-table__context-menu-label"</span><span class="nt">&gt;</span>Header Column<span class="nt">&lt;/span&gt;</span>
+                     <span class="nt">&lt;/div&gt;</span>
+                     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__body"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"col7.2"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-menu fd-menu--addon-before"</span><span class="nt">&gt;</span>
+                           <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-menu__list"</span><span class="nt">&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Ascending<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Decensing<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                              <span class="nt">&lt;hr&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Fix Column<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                           <span class="nt">&lt;/ul&gt;</span>
+                        <span class="nt">&lt;/nav&gt;</span>
+                     <span class="nt">&lt;/div&gt;</span>
+                  <span class="nt">&lt;/div&gt;</span>
+               <span class="nt">&lt;/th&gt;</span>
+               <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"fd-table__context-menu"</span> <span class="na">aria-controls=</span><span class="s">"col8.2"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__control"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-table__context-menu-label"</span><span class="nt">&gt;</span>Header Column<span class="nt">&lt;/span&gt;</span>
+                     <span class="nt">&lt;/div&gt;</span>
+                     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-popover__body"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"col8.2"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"fd-menu fd-menu--addon-before"</span><span class="nt">&gt;</span>
+                           <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"fd-menu__list"</span><span class="nt">&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Ascending<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Decensing<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                              <span class="nt">&lt;hr&gt;</span>
+                              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"fd-menu__item"</span><span class="nt">&gt;</span>Fix Column<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                           <span class="nt">&lt;/ul&gt;</span>
+                        <span class="nt">&lt;/nav&gt;</span>
+                     <span class="nt">&lt;/div&gt;</span>
+                  <span class="nt">&lt;/div&gt;</span>
+               <span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;/tr&gt;</span>
+         <span class="nt">&lt;/thead&gt;</span>
+         <span class="nt">&lt;tbody&gt;</span>
+            <span class="nt">&lt;tr&gt;</span>
+               <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"fd-table__fixed-col"</span> <span class="na">style=</span><span class="s">"left:0; width:200px"</span><span class="nt">&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;/tr&gt;</span>
+            <span class="nt">&lt;tr&gt;</span>
+               <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"fd-table__fixed-col"</span> <span class="na">style=</span><span class="s">"left:0; width:200px"</span><span class="nt">&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;/tr&gt;</span>
+            <span class="nt">&lt;tr&gt;</span>
+               <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"fd-table__fixed-col"</span> <span class="na">style=</span><span class="s">"left:0; width:200px"</span><span class="nt">&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;td&gt;</span>Lorem ipsum dolor sit amet ipsum<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;/tr&gt;</span>
+         <span class="nt">&lt;/tbody&gt;</span>
+      <span class="nt">&lt;/table&gt;</span>
+   <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+</div>
+
+            </div>
+
+        </div>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/docs/fundamental//js/customscripts.js" }}"></script>
+        
+    </div>
+    
+</body>
+
+</html>

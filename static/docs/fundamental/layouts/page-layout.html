@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" page layout">
+<title>
+	
+	Page - SAP Fiori Fundamentals
+	
+
+</title>
+
+<!-- Google Tag Manager -->
+<script>
+	(function (w, d, s, l, i) {
+		w[l] = w[l] || []; w[l].push({
+			'gtm.start':
+				new Date().getTime(), event: 'gtm.js'
+		}); var f = d.getElementsByTagName(s)[0],
+			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+	})(window, document, 'script', 'dataLayer', 'GTM-M953JX6');
+</script>
+<!-- End Google Tag Manager -->
+
+<link rel="stylesheet" href="/docs/fundamental//css/syntax.css?1549295562819717000">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css?1549295562819717000" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/docs/fundamental//css/customstyles.css?1549295562819717000">
+<link rel="stylesheet" href="/docs/fundamental//css/fui-site.css?1549295562819717000">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="fundamental" href="/feed.xml">
+</head>
+
+<body>
+    
+    <div class="docs-wrapper">
+
+
+        
+
+        <!-- Page Content -->
+        <div class="docs-container">
+            <!-- Sidebar Column -->
+            
+
+            <div class="main-content" id="tg-sb-content">
+                <!-- Content Column -->
+                
+
+<div class="post-content">
+
+    <h1 class="docs-header-h1">Page</h1>
+
+  
+
+
+<p class="docs-status">
+  <span class="fd-badge fd-badge--success" style="cursor: help;" title="Safe to use, no major updates planned">
+    Stable
+  </span>
+  <span class="fd-label fd-has-font-weight-normal">
+    Available since 1.0.0
+  </span>
+  
+  
+</p>
+
+
+
+   
+
+    
+
+
+    
+
+  <p class="docs-intro">Page layout containers are used to construct the view states of the application. The <code class="highlighter-rouge">page</code> layer includes the header and content containers.</p>
+
+<p>The <code class="highlighter-rouge">.fd-page</code> container is the workhorse of the application where page content updates occur based on navigation selections.</p>
+
+<p>Like the app-level, these are dumb containers only concerned with placement with no effect on their contents.</p>
+
+<p><br /></p>
+
+<h2 id="container-hierarchy">Container hierarchy</h2>
+<p>The elements used to construct a page are:</p>
+<ul>
+  <li><code class="highlighter-rouge">.fd-page</code>: The page-level wrapper
+    <ul>
+      <li><code class="highlighter-rouge">.fd-page__header</code>: The page-level header holds the page title, breadcrumb and main actions</li>
+      <li><code class="highlighter-rouge">.fd-page__content</code>: Holds the page content</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="basic-page">Basic page</h2>
+<p>The <code class="highlighter-rouge">.fd-page__header</code> container most often will include the <code class="highlighter-rouge">.fd-breadcrumb</code> and <code class="highlighter-rouge">.fd-action-bar</code> components. The header does include side padding.</p>
+
+<p>The <code class="highlighter-rouge">.fd-page__content</code> container should have one or more <code class="highlighter-rouge">.fd-section</code> containers. The content container does not include padding — allows for full-bleed content — so child sections are necessary.</p>
+
+<div class="fd-tile docs-component docs-component__page">
+    <label class="fd-form__label docs-component__bg-toggle" for="4150" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="4150" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<article class="fd-page">
+    <header class="fd-page__header fd-has-background-color-background-2">
+        fd-page_header
+    </header>
+    <div class="fd-page__content fd-has-background-color-neutral-2">
+        fd-page_content
+    </div>
+</article>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;article</span> <span class="na">class=</span><span class="s">"fd-page"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"fd-page__header fd-has-background-color-background-2"</span><span class="nt">&gt;</span>
+        fd-page_header
+    <span class="nt">&lt;/header&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fd-page__content fd-has-background-color-neutral-2"</span><span class="nt">&gt;</span>
+        fd-page_content
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/article&gt;</span></code></pre></figure>
+
+<style media="screen">
+    .fd-page__content{
+        height: 300px;
+    }
+</style>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+</div>
+
+            </div>
+
+        </div>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/docs/fundamental//js/customscripts.js" }}"></script>
+        
+    </div>
+    
+</body>
+
+</html>

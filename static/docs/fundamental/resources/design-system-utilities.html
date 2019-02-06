@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The following guide covers all the major utility features of the Fiori Fundamentals (FDUI) design system toolkit. We recommend that you utilize these functio...">
+<meta name="keywords" content=" design system cheat sheet">
+<title>
+	
+	Design System Utilities - SAP Fiori Fundamentals
+	
+
+</title>
+
+<!-- Google Tag Manager -->
+<script>
+	(function (w, d, s, l, i) {
+		w[l] = w[l] || []; w[l].push({
+			'gtm.start':
+				new Date().getTime(), event: 'gtm.js'
+		}); var f = d.getElementsByTagName(s)[0],
+			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+	})(window, document, 'script', 'dataLayer', 'GTM-M953JX6');
+</script>
+<!-- End Google Tag Manager -->
+
+<link rel="stylesheet" href="/docs/fundamental//css/syntax.css?1549295562819717000">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css?1549295562819717000" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/docs/fundamental//css/customstyles.css?1549295562819717000">
+<link rel="stylesheet" href="/docs/fundamental//css/fui-site.css?1549295562819717000">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="fundamental" href="/feed.xml">
+</head>
+
+<body>
+    
+    <div class="docs-wrapper">
+
+
+        
+
+        <!-- Page Content -->
+        <div class="docs-container">
+            <!-- Sidebar Column -->
+            
+
+            <div class="main-content" id="tg-sb-content">
+                <!-- Content Column -->
+                
+
+<div class="post-content">
+
+    <h1 class="docs-header-h1">Design System Utilities</h1>
+
+  
+
+
+
+
+   
+    <p class="docs-component-intro">The following guide covers all the major utility features of the Fiori Fundamentals (FDUI) design system toolkit. We recommend that you utilize these functions, mixins and helper classes to maintain consistency throughout your application. Using the toolkit features will ensure that you application will remain compatible and easy to upgrade with the future versions of FDUI, transition between themes and customization.</p>
+   
+
+    
+
+
+    
+
+  <h2 class="docs-header-h2" id="text-utilities">Text Utilities</h2>
+
+<p>Use the text utilities to set the text style and the justification.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="4900" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="4900" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<p class="fd-has-font-weight-bold">This text is bold</p>
+<p class="fd-has-font-style-italic">This text is italic</p>
+<p class="fd-has-text-align-center">This text is centered</p>
+<p class="fd-has-text-align-right">This text is right aligned</p>
+<p class="fd-has-text-transform-none">text with no transformation</p>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-font-weight-bold"</span><span class="nt">&gt;</span>This text is bold<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-font-style-italic"</span><span class="nt">&gt;</span>This text is italic<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-text-align-center"</span><span class="nt">&gt;</span>This text is centered<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-text-align-right"</span><span class="nt">&gt;</span>This text is right aligned<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-text-transform-none"</span><span class="nt">&gt;</span>text with no transformation<span class="nt">&lt;/p&gt;</span></code></pre></figure>
+
+<h2 class="docs-header-h2" id="floats">Floats</h2>
+
+<p>The float helper classes are used to control the element floats in the HTML element.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="1250" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="1250" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<p class="fd-has-float-left">This text is floating on left</p>
+<p class="fd-has-float-right">This text is floating on right</p>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-float-left"</span><span class="nt">&gt;</span>This text is floating on left<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-float-right"</span><span class="nt">&gt;</span>This text is floating on right<span class="nt">&lt;/p&gt;</span></code></pre></figure>
+
+<h2 class="docs-header-h2" id="type-sizes">Type Sizes</h2>
+
+<p>Use these CSS classes to control the text size. Used mainly for content text, all standard components have the right text size by default.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="3500" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="3500" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<p class="fd-has-type">This is the default body type size</p>
+<p class="fd-has-type-minus-1">This is text type size -1</p>
+<p class="fd-has-type-0">This is text type size 0 (same as default)</p>
+<p class="fd-has-type-1">This is text type size 1</p>
+<p class="fd-has-type-2">This is text type size 2</p>
+<p class="fd-has-type-3">This is text type size 3</p>
+<p class="fd-has-type-4">This is text type size 4</p>
+<p class="fd-has-type-5">This is text type size 5</p>
+<p class="fd-has-type-6">This is text type size 5</p>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-type"</span><span class="nt">&gt;</span>This is the default body type size<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-type-minus-1"</span><span class="nt">&gt;</span>This is text type size -1<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-type-0"</span><span class="nt">&gt;</span>This is text type size 0 (same as default)<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-type-1"</span><span class="nt">&gt;</span>This is text type size 1<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-type-2"</span><span class="nt">&gt;</span>This is text type size 2<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-type-3"</span><span class="nt">&gt;</span>This is text type size 3<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-type-4"</span><span class="nt">&gt;</span>This is text type size 4<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-type-5"</span><span class="nt">&gt;</span>This is text type size 5<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-type-6"</span><span class="nt">&gt;</span>This is text type size 5<span class="nt">&lt;/p&gt;</span></code></pre></figure>
+
+<h2 class="docs-header-h2" id="type-face">Type Face</h2>
+
+<p><code class="highlighter-rouge">fd-has-font-family-body</code> renders Open-Sans font.
+<code class="highlighter-rouge">fd-has-font-family-header</code> renders Roboto font.</p>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="21900" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="21900" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<p class="fd-has-font-family-body">This is body text</p>
+<p class="fd-has-font-family-header">This is header text</p>
+<p class="fd-has-font-family-code">This is code text</p>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-font-family-body"</span><span class="nt">&gt;</span>This is body text<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-font-family-header"</span><span class="nt">&gt;</span>This is header text<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-font-family-code"</span><span class="nt">&gt;</span>This is code text<span class="nt">&lt;/p&gt;</span></code></pre></figure>
+
+<h2 class="docs-header-h2" id="type-weights">Type Weights</h2>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="40150" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="40150" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<p class="fd-has-font-weight-light">This is font with weight light</p>
+<p class="fd-has-font-weight-normal">This is font with weight regular</p>
+<p class="fd-has-font-weight-bold">This is font with weight bold</p>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-font-weight-light"</span><span class="nt">&gt;</span>This is font with weight light<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-font-weight-normal"</span><span class="nt">&gt;</span>This is font with weight regular<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-font-weight-bold"</span><span class="nt">&gt;</span>This is font with weight bold<span class="nt">&lt;/p&gt;</span></code></pre></figure>
+
+<h2 class="docs-header-h2" id="colors">Colors</h2>
+
+<p>All colors on the <a href="/foundation/colors.html">color pallete</a>. Can be accessed via SCSS function and respective CSS classes.</p>
+
+<h3 class="docs-header-h3" id="color-function">Color Function</h3>
+
+<p>Colors can be accessed via color function <a href="how-to-use-scss.html#core-functions-and-mixins"><code class="highlighter-rouge">fd-color({group}, {shade})</code></a></p>
+
+<h3 class="docs-header-h3" id="color-helper-classes">Color Helper classes</h3>
+
+<p>Helper classes are available as a foreground color class <code class="highlighter-rouge">fd-has-color-{group}-{shade}</code> or as a background color <code class="highlighter-rouge">fd-has-background-color-{group}-{shade}</code>.
+A foreground color class applies the color property to the element for example <code class="highlighter-rouge">.fd-has-color-primary</code> results in <code class="highlighter-rouge">color: ##006fbb !important</code></p>
+
+<table class="docs-table">
+  <thead>
+    <tr>
+      <th>Class structure</th>
+      <th>{group}-{shade} options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Foreground Class: <br /> <code class="highlighter-rouge">.fd-has-color-{group}-{shade}</code> <br /><br /> Background Class:<br /><code class="highlighter-rouge">.fd-has-background-color-{group}-{shade}</code></td>
+      <td><code class="highlighter-rouge">action</code> - <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">2</code> <br /> <code class="highlighter-rouge">shell</code> - <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">2</code> <br /> <code class="highlighter-rouge">text</code> - <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">2</code>, <code class="highlighter-rouge">3</code>, <code class="highlighter-rouge">4</code> <br /> <code class="highlighter-rouge">background</code> - <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">2</code> <br /> <code class="highlighter-rouge">neutral</code> - <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">2</code>, <code class="highlighter-rouge">3</code>, <code class="highlighter-rouge">4</code>  <br /> <code class="highlighter-rouge">status</code> - <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">2</code>, <code class="highlighter-rouge">3</code>, <code class="highlighter-rouge">4</code> <br /> <code class="highlighter-rouge">accent</code> - <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">2</code>, <code class="highlighter-rouge">3</code>, <code class="highlighter-rouge">4</code>, <code class="highlighter-rouge">5</code>, <code class="highlighter-rouge">6</code>, <code class="highlighter-rouge">7</code>, <code class="highlighter-rouge">8</code>, <code class="highlighter-rouge">9</code>, <code class="highlighter-rouge">10</code>, <code class="highlighter-rouge">11</code>, <code class="highlighter-rouge">12</code>, <code class="highlighter-rouge">13</code>, <code class="highlighter-rouge">14</code>, <code class="highlighter-rouge">15</code>, <code class="highlighter-rouge">16</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Please check the <a href="colors.html" target="_blank">colors page</a> to see full color pallet.</p>
+
+<p>Some examples of color helper classes.</p>
+
+<div class="fd-tile docs-component docs-component__color-examples">
+    <label class="fd-form__label docs-component__bg-toggle" for="85450" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="85450" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+
+<h3>Action Color Group</h3>
+<p class="fd-has-color-action-1">.fd-has-color-action-1</p>
+<p class="fd-has-color-action-2 fd-has-background-color-action-1">.fd-has-color-action-2</p>
+
+<h3>Shell Color Group</h3>
+<p class="fd-has-background-color-shell-1 fd-has-color-text-5">.fd-has-background-color-shell-1</p>
+<p class="fd-has-background-color-shell-1 fd-has-color-shell-2">.fd-has-color-shell-2</p>
+
+<h3>Text Color Group</h3>
+<p class="fd-has-color-text-1">.fd-has-color-text-1</p>
+<p class="fd-has-color-text-2">.fd-has-color-text-2</p>
+<p class="fd-has-color-text-3">.fd-has-color-text-3</p>
+
+<h3>Background Color Group</h3>
+<p class="fd-has-background-color-background-1 fd-has-color-text-1">.fd-has-color-background-1</p>
+<p class="fd-has-background-color-background-2 fd-has-color-text-1">.fd-has-color-background-2</p>
+
+<h3>Neutral Color Group</h3>
+<p class="fd-has-background-color-neutral-1 fd-has-color-text-1">.fd-has-background-color-netural-1</p>
+<p class="fd-has-background-color-neutral-2 fd-has-color-text-1">.fd-has-background-color-netural-2</p>
+<p class="fd-has-background-color-neutral-3 fd-has-color-text-1">.fd-has-background-color-netural-3</p>
+<p class="fd-has-background-color-neutral-4 fd-has-color-text-1">.fd-has-background-color-netural-4</p>
+
+<h3>Status Color Group</h3>
+<p class="fd-has-background-color-status-1 fd-has-color-text-5">.fd-has-background-color-status-1</p>
+<p class="fd-has-background-color-status-2 fd-has-color-text-5">.fd-has-background-color-status-2</p>
+<p class="fd-has-background-color-status-3 fd-has-color-text-5">.fd-has-background-color-status-3</p>
+<p class="fd-has-background-color-status-4 fd-has-color-text-5">.fd-has-background-color-status-4</p>
+
+<h3>Accent Color Group</h3>
+<p class="fd-has-background-color-accent-1 fd-has-color-text-5">.fd-has-background-color-accent-1</p>
+<p class="fd-has-background-color-accent-2 fd-has-color-text-5">.fd-has-background-color-accent-2</p>
+<p class="fd-has-background-color-accent-3 fd-has-color-text-5">.fd-has-background-color-accent-3</p>
+<p class="fd-has-background-color-accent-4 fd-has-color-text-5">.fd-has-background-color-accent-4</p>
+<p class="fd-has-background-color-accent-5 fd-has-color-text-5">.fd-has-background-color-accent-5</p>
+<p class="fd-has-background-color-accent-6 fd-has-color-text-5">.fd-has-background-color-accent-6</p>
+<p class="fd-has-background-color-accent-7 fd-has-color-text-5">.fd-has-background-color-accent-7</p>
+<p class="fd-has-background-color-accent-8 fd-has-color-text-5">.fd-has-background-color-accent-8</p>
+<p class="fd-has-background-color-accent-9 fd-has-color-text-5">.fd-has-background-color-accent-9</p>
+<p class="fd-has-background-color-accent-10 fd-has-color-text-5">.fd-has-background-color-accent-10</p>
+<p class="fd-has-background-color-accent-11 fd-has-color-text-5">.fd-has-background-color-accent-11</p>
+<p class="fd-has-background-color-accent-12 fd-has-color-text-5">.fd-has-background-color-accent-12</p>
+<p class="fd-has-background-color-accent-13 fd-has-color-text-5">.fd-has-background-color-accent-13</p>
+<p class="fd-has-background-color-accent-14 fd-has-color-text-5">.fd-has-background-color-accent-14</p>
+<p class="fd-has-background-color-accent-15 fd-has-color-text-5">.fd-has-background-color-accent-15</p>
+<p class="fd-has-background-color-accent-16 fd-has-color-text-5">.fd-has-background-color-accent-16</p>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h3&gt;</span>Action Color Group<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-color-action-1"</span><span class="nt">&gt;</span>.fd-has-color-action-1<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-color-action-2 fd-has-background-color-action-1"</span><span class="nt">&gt;</span>.fd-has-color-action-2<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;h3&gt;</span>Shell Color Group<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-shell-1 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-shell-1<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-shell-1 fd-has-color-shell-2"</span><span class="nt">&gt;</span>.fd-has-color-shell-2<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;h3&gt;</span>Text Color Group<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-color-text-1"</span><span class="nt">&gt;</span>.fd-has-color-text-1<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-color-text-2"</span><span class="nt">&gt;</span>.fd-has-color-text-2<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-color-text-3"</span><span class="nt">&gt;</span>.fd-has-color-text-3<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;h3&gt;</span>Background Color Group<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-background-1 fd-has-color-text-1"</span><span class="nt">&gt;</span>.fd-has-color-background-1<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-background-2 fd-has-color-text-1"</span><span class="nt">&gt;</span>.fd-has-color-background-2<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;h3&gt;</span>Neutral Color Group<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-neutral-1 fd-has-color-text-1"</span><span class="nt">&gt;</span>.fd-has-background-color-netural-1<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-neutral-2 fd-has-color-text-1"</span><span class="nt">&gt;</span>.fd-has-background-color-netural-2<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-neutral-3 fd-has-color-text-1"</span><span class="nt">&gt;</span>.fd-has-background-color-netural-3<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-neutral-4 fd-has-color-text-1"</span><span class="nt">&gt;</span>.fd-has-background-color-netural-4<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;h3&gt;</span>Status Color Group<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-status-1 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-status-1<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-status-2 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-status-2<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-status-3 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-status-3<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-status-4 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-status-4<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;h3&gt;</span>Accent Color Group<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-accent-1 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-accent-1<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-accent-2 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-accent-2<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-accent-3 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-accent-3<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-accent-4 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-accent-4<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-accent-5 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-accent-5<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-accent-6 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-accent-6<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-accent-7 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-accent-7<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-accent-8 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-accent-8<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-accent-9 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-accent-9<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-accent-10 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-accent-10<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-accent-11 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-accent-11<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-accent-12 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-accent-12<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-accent-13 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-accent-13<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-accent-14 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-accent-14<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-accent-15 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-accent-15<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fd-has-background-color-accent-16 fd-has-color-text-5"</span><span class="nt">&gt;</span>.fd-has-background-color-accent-16<span class="nt">&lt;/p&gt;</span></code></pre></figure>
+
+<h2 class="docs-header-h2" id="margin-and-padding">Margin and Padding</h2>
+
+<p>Margin and/or padding can be applied on all sides to an element with the following helper classes. These helper classes are structured as <code class="highlighter-rouge">.fd-has-margin-{size}</code> and <code class="highlighter-rouge">.fd-has-padding-{size}</code>. The following table list all the available options for <code class="highlighter-rouge">{size}</code> and it’s rendered value.</p>
+
+<table class="docs-table">
+  <thead>
+    <tr>
+      <th>{size} options</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">none</code></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">tiny</code></td>
+      <td>8px</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">small</code></td>
+      <td>16px</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">medium</code></td>
+      <td>32px</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">large</code></td>
+      <td>48px</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Similar to adding margin or padding on all sides of an element, you can use the <code class="highlighter-rouge">{side}</code> option to selectively add to a single side. The helper classes for a specific side is structured as <code class="highlighter-rouge">.fd-has-margin-{side}-{size}</code> and <code class="highlighter-rouge">.fd-has-padding-{side}-{size}</code>. For example to add margin to the bottom on an element you could use a helper class <code class="highlighter-rouge">.fd-has-margin-bottom-tiny</code>. To remove margin from the left size of an element you can use the class <code class="highlighter-rouge">.fd-has-margin-left-none</code>. The following table lists all the available options for <code class="highlighter-rouge">{side}</code> an <code class="highlighter-rouge">{size}</code> options</p>
+
+<table class="docs-table">
+  <thead>
+    <tr>
+      <th>Class structure</th>
+      <th>{side} options</th>
+      <th>{size} options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">.fd-has-margin-{side}-{size}</code></td>
+      <td><code class="highlighter-rouge">top</code>, <code class="highlighter-rouge">right</code>, <code class="highlighter-rouge">bottom</code>, <code class="highlighter-rouge">left</code></td>
+      <td><code class="highlighter-rouge">none</code>, <code class="highlighter-rouge">tiny</code>, <code class="highlighter-rouge">small</code>, <code class="highlighter-rouge">medium</code>, <code class="highlighter-rouge">large</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">.fd-has-padding-{side}-{size}</code></td>
+      <td><code class="highlighter-rouge">top</code>, <code class="highlighter-rouge">right</code>, <code class="highlighter-rouge">bottom</code>, <code class="highlighter-rouge">left</code></td>
+      <td><code class="highlighter-rouge">none</code>, <code class="highlighter-rouge">tiny</code>, <code class="highlighter-rouge">small</code>, <code class="highlighter-rouge">medium</code>, <code class="highlighter-rouge">large</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<style>
+.{
+  outline: solid 1px lightgray;
+  display: flex;
+  font-family: monospace;
+  margin: 16px;
+}
+</style>
+
+<div class="fd-tile docs-component docs-component__margin-padding-helpers">
+    <label class="fd-form__label docs-component__bg-toggle" for="82950" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="82950" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<h3> Margin helper classes </h3>
+<span class="fd-has-margin-none"> .fd-has-margin-none //margin: 0 </span>
+<span class="fd-has-margin-tiny"> .fd-has-margin-tiny //margin: 8px</span>
+<span class="fd-has-margin-small"> .fd-has-margin-small //margin: 16px</span>
+<span class="fd-has-margin-medium"> .fd-has-margin-medium //margin: 32px</span>
+<span class="fd-has-margin-large"> .fd-has-margin-large//margin: 48px</span>
+
+<hr />
+
+<h3> Removing margin by side using helper classes</h3>
+<span class="fd-has-margin-medium fd-has-margin-top-none">.fd-has-margin-top-none</span>
+<span class="fd-has-margin-medium fd-has-margin-right-none">.fd-has-margin-right-none</span>
+<span class="fd-has-margin-medium fd-has-margin-bottom-none">.fd-has-margin-bottom-none</span>
+<span class="fd-has-margin-medium fd-has-margin-left-none">.fd-has-margin-left-none</span>
+
+<hr />
+
+<h3> Padding helper classes</h3>
+<span class="fd-has-padding-none">.fd-has-padding-none</span>
+<span class="fd-has-padding-tiny">.fd-has-padding-tiny</span>
+<span class="fd-has-padding-small">.fd-has-padding-small</span>
+<span class="fd-has-padding-medium">.fd-has-padding-medium</span>
+<span class="fd-has-padding-large">.fd-has-padding-large</span>
+
+<hr />
+
+<h3> Removing padding by side using helper classes</h3>
+<span class="fd-has-padding-medium fd-has-padding-top-none">.fd-has-padding-top-none</span>
+<span class="fd-has-padding-medium fd-has-padding-right-none">.fd-has-padding-right-none</span>
+<span class="fd-has-padding-medium fd-has-padding-bottom-none">.fd-has-padding-bottom-none</span>
+<span class="fd-has-padding-medium fd-has-padding-left-none">.fd-has-padding-left-none</span>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h3&gt;</span> Margin helper classes <span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-margin-none"</span><span class="nt">&gt;</span> .fd-has-margin-none //margin: 0 <span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-margin-tiny"</span><span class="nt">&gt;</span> .fd-has-margin-tiny //margin: 8px<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-margin-small"</span><span class="nt">&gt;</span> .fd-has-margin-small //margin: 16px<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-margin-medium"</span><span class="nt">&gt;</span> .fd-has-margin-medium //margin: 32px<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-margin-large"</span><span class="nt">&gt;</span> .fd-has-margin-large//margin: 48px<span class="nt">&lt;/span&gt;</span>
+
+<span class="nt">&lt;hr&gt;</span>
+
+<span class="nt">&lt;h3&gt;</span> Removing margin by side using helper classes<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-margin-medium fd-has-margin-top-none"</span><span class="nt">&gt;</span>.fd-has-margin-top-none<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-margin-medium fd-has-margin-right-none"</span><span class="nt">&gt;</span>.fd-has-margin-right-none<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-margin-medium fd-has-margin-bottom-none"</span><span class="nt">&gt;</span>.fd-has-margin-bottom-none<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-margin-medium fd-has-margin-left-none"</span><span class="nt">&gt;</span>.fd-has-margin-left-none<span class="nt">&lt;/span&gt;</span>
+
+<span class="nt">&lt;hr&gt;</span>
+
+<span class="nt">&lt;h3&gt;</span> Padding helper classes<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-padding-none"</span><span class="nt">&gt;</span>.fd-has-padding-none<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-padding-tiny"</span><span class="nt">&gt;</span>.fd-has-padding-tiny<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-padding-small"</span><span class="nt">&gt;</span>.fd-has-padding-small<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-padding-medium"</span><span class="nt">&gt;</span>.fd-has-padding-medium<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-padding-large"</span><span class="nt">&gt;</span>.fd-has-padding-large<span class="nt">&lt;/span&gt;</span>
+
+<span class="nt">&lt;hr&gt;</span>
+
+<span class="nt">&lt;h3&gt;</span> Removing padding by side using helper classes<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-padding-medium fd-has-padding-top-none"</span><span class="nt">&gt;</span>.fd-has-padding-top-none<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-padding-medium fd-has-padding-right-none"</span><span class="nt">&gt;</span>.fd-has-padding-right-none<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-padding-medium fd-has-padding-bottom-none"</span><span class="nt">&gt;</span>.fd-has-padding-bottom-none<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-padding-medium fd-has-padding-left-none"</span><span class="nt">&gt;</span>.fd-has-padding-left-none<span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
+<h2 class="docs-header-h2" id="other-utilities">Other Utilities</h2>
+
+<h3 class="docs-header-h3" id="clearfix">Clearfix</h3>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="13800" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="13800" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<span class="fd-has-clearfix">This element clear all</span>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-clearfix"</span><span class="nt">&gt;</span>This element clear all<span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
+<h3 class="docs-header-h3" id="display-flex">Display Flex</h3>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="81950" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="81950" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<span class="fd-has-display-flex">This element is display flex</span>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-display-flex"</span><span class="nt">&gt;</span>This element is display flex<span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
+<h3 class="docs-header-h3" id="display-block">Display Block</h3>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="17150" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="17150" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<span class="fd-has-display-block">This element is display block</span>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-display-block"</span><span class="nt">&gt;</span>This element is display block<span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
+<h3 class="docs-header-h3" id="align-items-center">Align items center</h3>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="37300" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="37300" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<span class="fd-has-align-items-center">This element is align items center</span>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-align-items-center"</span><span class="nt">&gt;</span>This element is align items center<span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
+<h3 class="docs-header-h3" id="flex-grow">Flex grow</h3>
+
+<div class="fd-tile docs-component docs-component__">
+    <label class="fd-form__label docs-component__bg-toggle" for="71450" title="Change Background">
+        <span class="fd-toggle fd-toggle--xs fd-form__control">
+            <input type="checkbox" name="" value="" id="71450" class="toggle-bg" />
+            <span class="fd-toggle__switch" role="presentation"></span>
+        </span>
+
+    </label>
+    <div class="fd-tile__content">
+		
+<span class="fd-has-flex-grow-1">This element is flex grow</span>
+
+	</div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fd-has-flex-grow-1"</span><span class="nt">&gt;</span>This element is flex grow<span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+</div>
+
+            </div>
+
+        </div>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/docs/fundamental//js/customscripts.js" }}"></script>
+        
+    </div>
+    
+</body>
+
+</html>
