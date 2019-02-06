@@ -16,8 +16,8 @@ class Layout extends React.Component {
       menuToggle: false,
       hasScroll: false
     };
-    this.mql = null;
-    this.onMatchMQ = mql => this._onMatchMQ(mql);
+    this.mediaQueryListener = null;
+    this.onMatchMQ = mediaQueryListener => this._onMatchMQ(mediaQueryListener);
     this.toggleMenu = toggle => this._toggleMenu(toggle);
   }
 
@@ -26,15 +26,15 @@ class Layout extends React.Component {
 
     if (!window.matchMedia) return;
     const large = media.getSize('large');
-    this.mql = window.matchMedia(`(max-width: ${large.min}px)`);
-    this.mql.addListener(this.onMatchMQ);
-    this.onMatchMQ(this.mql);
+    this.mediaQueryListener = window.matchMedia(`(max-width: ${large.min}px)`);
+    this.mediaQueryListener.addListener(this.onMatchMQ);
+    this.onMatchMQ();
   };
 
   componentWillUnmount = () => {
     window.removeEventListener('scroll', this._handleOnScroll);
 
-    this.mql && this.mql.removeListener(this.onMatchMQ);
+    this.mediaQueryListener && this.mediaQueryListener.removeListener(this.onMatchMQ);
   };
 
   componentDidUpdate = prevprops => {
@@ -47,7 +47,7 @@ class Layout extends React.Component {
     }
   };
 
-  _onMatchMQ(mql) {
+  _onMatchMQ() {
     this.toggleMenu(false);
   }
 
