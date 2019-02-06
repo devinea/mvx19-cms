@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { LearningPostTemplate } from '../../templates/learning-post/learning-post'
 
-const ProductPagePreview = ({ entry, getAsset }) => {
+const LearningPagePreview = ({ entry, getAsset }) => {
   const entryBlurbs = entry.getIn(['data', 'intro', 'blurbs'])
   const blurbs = entryBlurbs ? entryBlurbs.toJS() : []
 
@@ -46,11 +46,11 @@ const ProductPagePreview = ({ entry, getAsset }) => {
   )
 }
 
-ProductPagePreview.propTypes = {
+LearningPagePreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
   getAsset: PropTypes.func,
 }
 
-export default ProductPagePreview
+export default LearningPagePreview
