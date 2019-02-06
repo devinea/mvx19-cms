@@ -9,6 +9,7 @@ tags:
   - Resources
   - SAP Fiori
 iscontrol: false  
+version: '1.01'
 leftnavorder:
   l1: '8'
   l2: '0'

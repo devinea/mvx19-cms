@@ -9,6 +9,7 @@ tags:
   - Sample Apps
   - SAP Fiori
 iscontrol: false  
+version: '1.01'
 leftnavorder:
   l1: '5'
   l2: '0'
