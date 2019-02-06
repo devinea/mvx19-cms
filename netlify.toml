@@ -4,3 +4,8 @@
 [build.environment]
   YARN_VERSION = "1.9.4"
   YARN_FLAGS = "--no-ignore-optional"
+# COMMENT: This a rule for Single Page Applications https://www.netlify.com/docs/redirects/#structured-configuration
+[[redirects]]
+  from = "/docs/fundamental-ngx/*"
+  to = "/docs/fundamental-ngx/"
+  status = 200
