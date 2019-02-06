@@ -50,7 +50,7 @@
         "serve": "gatsby serve",
         "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "cypress": "cypress install && cypress verify"
+        "cypress": "CI=1 cypress install && cypress verify"
     },
     "devDependencies": {
         "babel-eslint": "^10.0.1",
