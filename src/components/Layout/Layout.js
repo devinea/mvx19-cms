@@ -38,14 +38,12 @@ class Layout extends React.Component {
   };
 
   componentDidUpdate = prevprops => {
-    if (this.props.location !== prevprops.location) {
-      if (
-        this.props.location.state &&
-        this.props.location.state.fromHamburger
-      ) {
-        document.body.style.overflow = 'auto';
-        this.toggleMenu(false);
-      }
+    if (
+      this.props.location !== prevprops.location &&
+      (this.props.location.state && this.props.location.state.fromHamburger)
+    ) {
+      document.body.style.overflow = 'auto';
+      this.toggleMenu(false);
     }
   };
 

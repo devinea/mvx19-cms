@@ -61,7 +61,7 @@ class Header extends React.Component {
                 }}
                 to='/'
               >
-                <img src={logoSvg} alt='' width='63' height='32' />
+                <img src={logoSvg} alt='SAP' width='63' height='32' />
                 <span
                   css={{
                     color: 'inherit',
