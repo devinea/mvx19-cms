@@ -1,14 +1,36 @@
 import CMS from 'netlify-cms'
-
+import React from 'react'
 import AboutPagePreview from './preview-templates/AboutPagePreview'
 import BlogPostPreview from './preview-templates/BlogPostPreview'
 import LearningPagePreview from './preview-templates/LearningPagePreview'
 import DeveloperGuidelinePagePreview from './preview-templates/DeveloperGuidelinePagePreview'
-import DesignGuidelinePagePreview from './preview-templates/DesignGuidelinePagePreview'
+import ProductPagePreview from './preview-templates/DesignGuidelinePagePreview'
+import { renderToString } from 'react-dom/server'
+import { renderStylesToString } from 'emotion-server'
+
+class CSSInjector extends React.Component {
+  render() {
+    return (
+      <div
+        ref={ref => {
+          if (ref && !this.css) {
+            this.css = renderStylesToString(renderToString(this.props.children))
+            ref.ownerDocument.head.insertAdjacentHTML('afterbegin', this.css)
+          }
+        }}>
+        {React.Children.only(this.props.children)}
+      </div>
+    )
+  }
+}
 
 CMS.registerPreviewTemplate('about', AboutPagePreview)
 CMS.registerPreviewTemplate('learning', LearningPagePreview)
-CMS.registerPreviewTemplate('designguideline', DesignGuidelinePagePreview)
+CMS.registerPreviewTemplate('designguideline', props => (
+  <CSSInjector>
+    <ProductPagePreview {...props} />
+  </CSSInjector>
+))
 CMS.registerPreviewTemplate('developerguideline', DeveloperGuidelinePagePreview)
 CMS.registerPreviewTemplate('blog', BlogPostPreview)
 CMS.registerEditorComponent({
