@@ -4,35 +4,53 @@ import AboutPagePreview from './preview-templates/AboutPagePreview'
 import BlogPostPreview from './preview-templates/BlogPostPreview'
 import LearningPagePreview from './preview-templates/LearningPagePreview'
 import DeveloperGuidelinePagePreview from './preview-templates/DeveloperGuidelinePagePreview'
-import ProductPagePreview from './preview-templates/DesignGuidelinePagePreview'
-import { renderToString } from 'react-dom/server'
-import { renderStylesToString } from 'emotion-server'
+import DesignGuidelinePagePreview from './preview-templates/DesignGuidelinePagePreview'
+import createCache from '@emotion/cache'
+import { CacheProvider } from '@emotion/core'
 
+// We need this for injecting the inline css into preview section of admin
 class CSSInjector extends React.Component {
+  constructor() {
+    super()
+    const iframe = document.getElementsByTagName('iframe')[0]
+    const iframeHead = iframe.contentDocument.head
+    this.cache = createCache({ container: iframeHead })
+  }
+
   render() {
     return (
-      <div
-        ref={ref => {
-          if (ref && !this.css) {
-            this.css = renderStylesToString(renderToString(this.props.children))
-            ref.ownerDocument.head.insertAdjacentHTML('afterbegin', this.css)
-          }
-        }}>
-        {React.Children.only(this.props.children)}
-      </div>
+      <CacheProvider value={this.cache}>
+        {this.props.children}
+      </CacheProvider>
     )
   }
 }
 
-CMS.registerPreviewTemplate('about', AboutPagePreview)
-CMS.registerPreviewTemplate('learning', LearningPagePreview)
-CMS.registerPreviewTemplate('designguideline', props => (
+CMS.registerPreviewTemplate('about', props => (
   <CSSInjector>
-    <ProductPagePreview {...props} />
+    <AboutPagePreview {...props} />
   </CSSInjector>
 ))
-CMS.registerPreviewTemplate('developerguideline', DeveloperGuidelinePagePreview)
-CMS.registerPreviewTemplate('blog', BlogPostPreview)
+CMS.registerPreviewTemplate('learning', props => (
+  <CSSInjector>
+    <LearningPagePreview {...props} />
+  </CSSInjector>
+))
+CMS.registerPreviewTemplate('designguideline', props => (
+  <CSSInjector>
+    <DesignGuidelinePagePreview {...props} />
+  </CSSInjector>
+))
+CMS.registerPreviewTemplate('developerguideline', props => (
+  <CSSInjector>
+    <DeveloperGuidelinePagePreview {...props} />
+  </CSSInjector>
+))
+CMS.registerPreviewTemplate('blog', props => (
+  <CSSInjector>
+    <BlogPostPreview {...props} />
+  </CSSInjector>
+))
 CMS.registerEditorComponent({
     // Internal id of the component
     id: "vimeo",

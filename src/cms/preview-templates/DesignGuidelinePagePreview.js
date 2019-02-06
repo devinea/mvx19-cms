@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { DesignGuidelinePostTemplate } from '../../templates/design-guideline-post/design-guideline-post'
 
-const ProductPagePreview = ({ entry, getAsset, widgetFor }) => {
+const DesignGuidelinePagePreview = ({ entry, getAsset, widgetFor }) => {
   const entryBlurbs = entry.getIn(['data', 'intro', 'blurbs'])
   const blurbs = entryBlurbs ? entryBlurbs.toJS() : []
 
@@ -47,11 +47,11 @@ const ProductPagePreview = ({ entry, getAsset, widgetFor }) => {
   )
 }
 
-ProductPagePreview.propTypes = {
+DesignGuidelinePagePreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
   getAsset: PropTypes.func,
 }
 
-export default ProductPagePreview
+export default DesignGuidelinePagePreview
