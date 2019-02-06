@@ -1,14 +1,25 @@
 const colors = {
   lighter: '#373940',
-  white: '#ffffff',
-  black: '#000000',
   gray: '#d8d8d8',
   text: '#515151',
   subtle: '#6d6d6d',
   subtleOnDark: '#999',
   divider: '#ececec',
-  note: '#ffe564'
+  note: '#ffe564',
+
+  white:    '#FFFFFF',
+  grey_100: '#ECECEC',
+  grey_200: '#EDEFF0',
+  grey_300: '#D8D8D8',
+  grey_400: '#999999',
+  grey_500: '#6D6D6D',
+  grey_600: '#656565',
+  grey_700: '#515151',
+  grey_800: '#373940',
+  black:    '#000000',
 };
+
+
 
 const SIZES = {
   small: { min: 0, max: 599 },

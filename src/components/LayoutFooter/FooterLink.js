@@ -6,10 +6,12 @@ import { colors } from '../theme';
 const FooterLink = ({ children, target, to }) => (
   <Link
     css={{
-      lineHeight: 2,
-      color: colors.black,
+      lineHeight: '20px',
+      color: colors.grey_700,
+      marginTop: 10,
+      fontSize: 14,
       ':hover': {
-        color: colors.lighter
+        color: colors.grey_800
       }
     }}
     to={to}

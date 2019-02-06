@@ -71,7 +71,7 @@ class Header extends React.Component {
                     lineHeight: '20px'
                   }}
                 >
-                  SAP Fiori
+                  Fiori
                 </span>
               </Link>
             </div>
