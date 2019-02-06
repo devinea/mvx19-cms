@@ -2,8 +2,8 @@ const colors = {
   lighter: '#373940',
   white: '#ffffff',
   black: '#000000',
-  gray: '#f5f5f5',
-  text: '#1a1a1a',
+  gray: '#d8d8d8',
+  text: '#515151',
   subtle: '#6d6d6d',
   subtleOnDark: '#999',
   divider: '#ececec',
@@ -11,12 +11,10 @@ const colors = {
 };
 
 const SIZES = {
-  xsmall: { min: 0, max: 599 },
-  small: { min: 600, max: 779 },
-  medium: { min: 780, max: 979 },
-  large: { min: 980, max: 1279 },
-  xlarge: { min: 1280, max: 1339 },
-  xxlarge: { min: 1340, max: Infinity },
+  small: { min: 0, max: 599 },
+  medium: { min: 600, max: 1023 },
+  large: { min: 1024, max: 1439 },
+  xlarge: { min: 1440, max: Infinity },
 };
 
 const media = {
@@ -34,6 +32,10 @@ const media = {
           }px)`;
       }
     }
+  },
+
+  getSize(key) {
+    return SIZES[key];
   },
 
   greaterThan(key) {
@@ -97,7 +99,6 @@ const sharedStyles = {
       marginTop: 30,
       fontSize: 17,
       lineHeight: 1.7,
-      //maxWidth: '42em',
 
       '&:first-of-type': {
         marginTop: 15

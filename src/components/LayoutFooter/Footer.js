@@ -36,7 +36,7 @@ const Footer = () => (
           css={{
             flexWrap: 'wrap',
             display: 'flex',
-            justifyContent: 'space-around',
+            justifyContent: 'space-between',
             width: '100%'
           }}
         >
@@ -117,6 +117,7 @@ const Footer = () => (
             display: 'flex',
             justifyContent: 'space-between',
             width: '100%',
+            height: '100%',
             padding: '20px 0px'
           }}
         >
