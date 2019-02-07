@@ -1,6 +1,5 @@
 import React from 'react'
 import Layout from '../../components/Layout'
-import GuidelineHeader from '../../components/guideline-header/guideline-header'
 import GuidelineLeftNav from '../../components/guideline-left-nav/guideline-left-nav';
 import './controls.scss'
 import { graphql, Link, StaticQuery } from "gatsby";
@@ -12,7 +11,6 @@ class DesignControlsIndexPage extends React.Component {
     const { location } = this.props;
     return (
       <Layout location={location}>
-        <GuidelineHeader />
         <Flex
           direction='row'
           shrink='0'
