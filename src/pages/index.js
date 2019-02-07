@@ -32,15 +32,17 @@ export default class IndexPage extends React.Component {
         <section className={`${this.state.searchToggle === 'on' ? 'search-results' : 'trending'}`}>
           <div className="content">
             <div className="header">Explore, Design and Develop with the Design System for the Enterprise</div>
-            <div className="search"><Search name="search" searchToggle = {this.handler}/></div>
+            <div className="search"><Search name="search" searchToggle={this.handler} /></div>
 
             <div className="trending-suggestions">
               <div className="trending-title">Trending</div>
-              <div className="item">Fiori Toolkit v1.1</div>
-              <div className="item">Fiori Fundamentals</div>
-              <div className="item">Sample Apps</div>
-              <div className="item">Getting Started with Fiori</div>
-              <div className="item">72 TypeFace</div>
+              {['Fiori Toolkit v1.1',
+                'Fiori Fundamentals',
+                'Sample Apps',
+                'Getting Started with Fiori',
+                '72 TypeFace'].map((o) => {
+                  return <div>{o}</div>
+                })}
             </div>
           </div>
           <div className="trending-footer"></div>
