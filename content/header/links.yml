@@ -1,0 +1,24 @@
+- title: Get Started
+  items:
+    - id: getstarted
+    - url: /getstarted
+- title: Fiori for Web
+  items:
+    - id: design
+    - url: /design/guidelines
+- title: Fiori for iOS
+  items:
+    - id: ios
+    - url: /develop/guidelines#ios
+- title: Fiori for Android
+  items:
+    - id: android
+    - url: /develop/guidelines#android
+- title: Fiori for CUX
+  items:
+    - id: cux
+    - url: /develop/guidelines#cux
+- title: Contribute
+  items:
+    - id: contribute
+    - url: /contribute

@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import Container from './../Container';
+import Flex from '../Flex';
 import ExternalFooterLink from './ExternalFooterLink';
 import FooterLink from './FooterLink';
 import FooterNav from './FooterNav';
 import FooterTitle from './FooterTitle';
 
-import logoSvg from './../../img/logo.svg';
-import { colors } from '../theme';
+import logoSvg from './../../img/logo1.svg';
+import { media, colors } from '../theme';
 import {
   sectionListCommunity,
   sectionListContact,
@@ -17,26 +18,25 @@ import {
   sectionListTerms
 } from '../../../utils/sectionList';
 
+
 const Footer = () => (
   <footer
     css={{
-      backgroundColor: colors.gray,
+      backgroundColor: colors.grey_200,
       color: colors.white
     }}
   >
-    <Container>
-      <div
-        css={{
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap'
-        }}
-      >
-        <div
+    <Container
+      cssProps={{
+        padding: '0 50px'
+      }}
+    >
+      <Flex direction='row'>
+        <Flex
+          direction='row'
+          halign='space-between'
+          wrap='wrap'
           css={{
-            flexWrap: 'wrap',
-            display: 'flex',
-            justifyContent: 'space-around',
             width: '100%'
           }}
         >
@@ -96,27 +96,30 @@ const Footer = () => (
               );
             })}
           </FooterNav>
-        </div>
-      </div>
+        </Flex>
+      </Flex>
     </Container>
     <Container
       cssProps={{
-        borderTop: '1px solid lightgray'
+        padding: '0 50px'
       }}
     >
-      <div
+      <Flex
+        direction='row'
+        wrap='wrap'
         css={{
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap'
+          borderTopColor: colors.grey_300,
+          borderTopWidth: 1,
+          borderTopStyle: 'solid'
         }}
       >
-        <div
+        <Flex
+          direction='row'
+          wrap='wrap'
+          halign='space-between'
           css={{
-            flexWrap: 'wrap',
-            display: 'flex',
-            justifyContent: 'space-between',
             width: '100%',
+            height: '100%',
             padding: '20px 0px'
           }}
         >
@@ -131,11 +134,10 @@ const Footer = () => (
           >
             <span
               css={{
-                color: colors.lighter,
-                marginLeft: 10,
+                color: colors.grey_600,
                 fontWeight: 400,
                 paddingRight: 10,
-                fontSize: 20,
+                fontSize: 14,
                 lineHeight: '20px'
               }}
             >
@@ -150,7 +152,11 @@ const Footer = () => (
               alignItems: 'stretch',
               overflowX: 'auto',
               overflowY: 'hidden',
-              height: '100%'
+              height: '100%',
+              paddingTop: 6,
+              [media.size('small')]: {
+                flexDirection: 'column'
+              }
             }}
           >
             {sectionListTerms.map(section => {
@@ -164,8 +170,8 @@ const Footer = () => (
               );
             })}
           </nav>
-        </div>
-      </div>
+        </Flex>
+      </Flex>
     </Container>
   </footer>
 );
