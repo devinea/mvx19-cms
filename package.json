@@ -52,8 +52,10 @@
         "develop": "npm run clean && gatsby develop",
         "serve": "gatsby serve",
         "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "cypress": "CI=1 cypress install && cypress verify"
+        "cypress": "CI=1 cypress install && cypress verify",
+        "test": "start-test serve 9000 cy:run",
+        "deploy": "CI=1 cypress install && npm run build && npm test",
+        "cy:run": "cypress run"
     },
     "devDependencies": {
         "babel-eslint": "^10.0.1",
@@ -68,6 +70,7 @@
         "node-cmd": "^3.0.0",
         "prettier": "^1.16.1",
         "prettier-eslint": "^8.8.2",
-        "rimraf": "^2.6.3"
+        "rimraf": "^2.6.3",
+        "start-server-and-test": "^1.7.11"
     }
 }
