@@ -2,7 +2,6 @@ import React from 'react'
 import Layout from '../../components/Layout'
 import GuidelineHeader from '../../components/guideline-header/guideline-header'
 import GuidelineLeftNav from '../../components/guideline-left-nav/guideline-left-nav';
-import './controls.scss'
 import { graphql, Link, StaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import Flex from '../../components/Flex';
@@ -69,7 +68,7 @@ export default props => (
     allMarkdownRemark(
       sort: { order: ASC, fields: [frontmatter___title] },
       filter: { frontmatter: {
-        templateKey: { eq: 'design-guideline-post' }
+        templateKey: { eq: "design-guideline-post" }
         iscontrol: { eq: true }
         }}
     ) {

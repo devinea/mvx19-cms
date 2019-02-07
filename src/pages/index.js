@@ -32,7 +32,6 @@ export default class IndexPage extends React.Component {
         <section className={`${this.state.searchToggle === 'on' ? 'search-results' : 'trending'}`}>
           <div className="content">
             <div className="header">Explore, Design and Develop with the Design System for the Enterprise</div>
-            {/*<div className="trending-search"><input name="search"></input></div>*/}
             <div className="search"><Search name="search" searchToggle = {this.handler}/></div>
 
             <div className="trending-suggestions">
