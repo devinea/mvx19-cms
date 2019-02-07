@@ -9,3 +9,8 @@
   from = "/docs/fundamental-ngx/*"
   to = "/docs/fundamental-ngx/"
   status = 200
+[[redirects]]
+  from = "/docs/fundamental-react/*"
+  to = "/docs/fundamental-react/"
+  status = 200
+
