@@ -1,22 +1,44 @@
 import React from 'react'
-import './guideline-header.scss'
+import { css } from '@emotion/core'
 
 /**
  * Generates the guideline header used to swich between Fiori web / mobile / CUX etc
  */
-const GuidelineHeader = class extends React.Component {
 
+const guidelineHeaderOptions = [
+    'Fiori for Web',
+    'Fiori for Mobile',
+    'Fiori for CUX',
+    'Fiori for AR & VR'
+];
+const GuidelineHeader = class extends React.Component {
     render() {
         return (
-            <nav className="guideline-header">
-                <div className="options">
-                    <div className="option selected">Fiori for Web</div>
-                    <div className="option">Fiori for Mobile</div>
-                    <div className="option">Fiori for CUX</div>
-                    <div className="option">Fiori for AR &amp; VR</div>
+            <nav css={{
+                height: '70px',
+                backgroundColor: '#eaeaea',
+                width: '100%',
+                lineHeight: '70px'
+            }}>
+                <div css={{ float: 'right' }}>
+                    {
+                        guidelineHeaderOptions.map((o, idx) => {
+                        const selected = idx === 0 ? '800' : '400'
+                        return <div key={o}
+                            css={css`
+                                float: left;
+                                font-size: 16px;
+                                color: #515151;
+                                width: 175px;
+                                cursor: pointer;
+                                font-weight: ${selected};
+                        `}>{o}</div>
+                    })
+                    }
                 </div>
             </nav>
-    )}
+        )
+    }
 }
 
 export default GuidelineHeader
