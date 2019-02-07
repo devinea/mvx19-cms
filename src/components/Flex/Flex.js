@@ -1,4 +1,4 @@
-import { createElement } from 'glamor/react';
+import { css, jsx } from '@emotion/core'
 
 const Flex = ({
   basis = 'auto',
@@ -12,7 +12,7 @@ const Flex = ({
   valign = 'flex-start',
   ...rest
 }) =>
-  createElement(
+  jsx(
     type,
     {
       css: {

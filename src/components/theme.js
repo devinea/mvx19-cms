@@ -96,7 +96,7 @@ const sharedStyles = {
 
     '& a:not(.anchor):not(.gatsby-resp-image-link)': linkStyle,
 
-    '& > p:first-child': {
+    '& > p:first-of-type': {
       fontSize: 18,
       fontWeight: 300,
       color: colors.subtle,
@@ -116,7 +116,7 @@ const sharedStyles = {
         marginTop: 15
       },
 
-      '&:first-child': {
+      '&:first-of-type': {
         marginTop: 0
       }
     },
@@ -143,7 +143,7 @@ const sharedStyles = {
       borderBottom: `1px solid ${colors.divider}`,
       marginTop: 40,
 
-      ':first-child': {
+      ':first-of-type': {
         marginTop: 0
       }
     },
@@ -159,7 +159,7 @@ const sharedStyles = {
       paddingTop: 40,
       lineHeight: 1.2,
 
-      ':first-child': {
+      ':first-of-type': {
         borderTop: 0,
         marginTop: 0,
         paddingTop: 0
