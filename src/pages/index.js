@@ -40,8 +40,8 @@ export default class IndexPage extends React.Component {
                 'Fiori Fundamentals',
                 'Sample Apps',
                 'Getting Started with Fiori',
-                '72 TypeFace'].map((o) => {
-                  return <div>{o}</div>
+                '72 TypeFace'].map((o, idx) => {
+                  return <div key={idx}>{o}</div>
                 })}
             </div>
           </div>
