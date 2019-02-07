@@ -3,9 +3,10 @@ import Layout from '../../components/Layout'
 import GuidelineHeader from '../../components/guideline-header/guideline-header'
 import GuidelineLeftNav from '../../components/guideline-left-nav/guideline-left-nav';
 import './controls.scss'
-import { graphql, Link, StaticQuery } from "gatsby";
+import { graphql, Link, StaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-import Flex from "../../components/Flex";
+import Flex from '../../components/Flex';
+import { css } from '@emotion/core'
 
 class DesignControlsIndexPage extends React.Component {
   render() {
@@ -23,18 +24,38 @@ class DesignControlsIndexPage extends React.Component {
             width: '100%',
           }}
         >
-        <GuidelineLeftNav />
-        <section className="section design-controls" >
-          <h2>Controls</h2>
-          {this.props.data.allMarkdownRemark.edges
-            .map(({ node: data }) => (
-              <Link className="control-menu" key={data.id} to={data.fields.slug} >
-                <Img className="control-img" imgStyle={{ 'objectFit': 'contain' }}
-                     sizes={data.frontmatter.featuredImage.childImageSharp.sizes}/>
-                <div className="control-title">{data.frontmatter.title}</div>
+          <GuidelineLeftNav />
+          <section css={
+            css`
+            float: left;
+            width: 100%;
+            `
+          } >
+            <h2>Controls</h2>
+            {this.props.data.allMarkdownRemark.edges
+              .map(({ node: data }) => (
+                <Link css={css`
+              float: left;
+              width: 50%;
+              height: 200px;
+              background-position: center center;
+              background-repeat: no-repeat;
+              border: 1px black solid;
+              transform: translateZ(0);
+              `} key={data.id} to={data.fields.slug} >
+                  <Img css={css`max-height: 90%;`} imgStyle={{ 'objectFit': 'contain' }}
+                    sizes={data.frontmatter.featuredImage.childImageSharp.sizes} />
+                  <div css={
+                    css`
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    position: fixed;
+                    `
+                  }>{data.frontmatter.title}</div>
                 </Link>
-            ))}
-        </section>
+              ))}
+          </section>
         </Flex>
       </Layout>
     )
@@ -48,7 +69,7 @@ export default props => (
     allMarkdownRemark(
       sort: { order: ASC, fields: [frontmatter___title] },
       filter: { frontmatter: {
-        templateKey: { eq: "design-guideline-post" }
+        templateKey: { eq: 'design-guideline-post' }
         iscontrol: { eq: true }
         }}
     ) {
@@ -74,6 +95,6 @@ export default props => (
       }
     }
   }`}
-    render={(data) => <DesignControlsIndexPage data={data} {...props} /> }
+    render={(data) => <DesignControlsIndexPage data={data} {...props} />}
   />
 )
