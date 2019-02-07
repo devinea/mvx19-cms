@@ -52,7 +52,7 @@
         "develop": "npm run clean && gatsby develop",
         "serve": "gatsby serve",
         "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
-        "cypress": "CI=1 cypress install && cypress verify",
+        "cypress": "CI=1 cypress install --force && cypress verify",
         "test": "start-test serve 9000 cy:run",
         "deploy": "CI=1 cypress install && npm run build && npm test",
         "cy:run": "cypress run"
