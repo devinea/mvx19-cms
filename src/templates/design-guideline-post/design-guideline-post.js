@@ -10,7 +10,6 @@ import Layout from '../../components/Layout';
 import { sharedStyles } from '../../components/theme';
 
 import Content, { HTMLContent } from '../../components/Content';
-import GuidelineHeader from '../../components/guideline-header/guideline-header';
 import GuidelineLeftNav from '../../components/guideline-left-nav/guideline-left-nav';
 
 export const DesignGuidelinePostTemplate = ({
@@ -67,7 +66,6 @@ const DesignGuidelinePost = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <GuidelineHeader />
       <Flex
         direction='row'
         shrink='0'
