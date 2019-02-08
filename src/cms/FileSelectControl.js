@@ -5,7 +5,6 @@ import { Map, List, fromJS } from 'immutable';
 import { find } from 'lodash';
 import Select from 'react-select';
 import { colors } from 'netlify-cms-ui-default';
-import { graphql, StaticQuery } from "gatsby";
 
 const styles = {
   control: styles => ({
@@ -128,8 +127,8 @@ export default class FileSelectControl extends React.Component {
     if( currentUser && (!this.state || !this.state.ajaxResponse) ){
       currentUser.jwt().then(accessToken => {
         const Http = new XMLHttpRequest();
-        //const url= 'https://api.github.com/repositories/162210062/contents/static/fun';
-        const url= '/.netlify/git/github/contents/static/fun';
+        //const url= 'https://api.github.com/repositories/162210062/contents/static/docs/fundamental/components';
+        const url= '/.netlify/git/github/contents/static/docs/fundamental/components';
         Http.open("GET", url);
         console.log(accessToken);
         Http.setRequestHeader('Authorization', `Bearer ${accessToken}`);
