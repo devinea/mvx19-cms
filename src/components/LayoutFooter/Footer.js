@@ -9,7 +9,6 @@ import FooterLink from './FooterLink';
 
 import logoSvg from './../../img/logo1.svg';
 import { media, colors } from '../theme';
-import { sectionListFooterLinks } from '../../../utils/sectionList';
 
 const Footer = props => (
   <footer
@@ -118,13 +117,13 @@ const Footer = props => (
               }
             }}
           >
-            {sectionListFooterLinks.map(section => {
+            {props.data.site.siteMetadata.footer.links.map(link => {
               return (
                 <ExternalFooterLink
-                  href={section.items[1].url}
-                  key={section.title}
+                  href={link.url}
+                  key={link.id}
                 >
-                  {section.title}
+                  {link.title}
                 </ExternalFooterLink>
               );
             })}
@@ -143,6 +142,13 @@ export default () => (
           siteMetadata {
             contact {
               email
+            }
+            footer {
+              links {
+                id
+                title
+                url
+              }
             }
           }
         }
