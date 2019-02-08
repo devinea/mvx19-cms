@@ -6,7 +6,7 @@ const ExternalFooterLink = ({ children, href, target, rel }) => (
   <a
     css={{
       lineHeight: '20px',
-      color: colors.grey_400,
+      color: colors.grey_450,
       fontSize: 12,
       whiteSpace: 'nowrap',
       ':not(:last-child)': {
