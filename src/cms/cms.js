@@ -1,16 +1,56 @@
 import CMS from 'netlify-cms'
-
+import React from 'react'
 import AboutPagePreview from './preview-templates/AboutPagePreview'
 import BlogPostPreview from './preview-templates/BlogPostPreview'
 import LearningPagePreview from './preview-templates/LearningPagePreview'
 import DeveloperGuidelinePagePreview from './preview-templates/DeveloperGuidelinePagePreview'
 import DesignGuidelinePagePreview from './preview-templates/DesignGuidelinePagePreview'
+import createCache from '@emotion/cache'
+import { CacheProvider } from '@emotion/core'
 
-CMS.registerPreviewTemplate('about', AboutPagePreview)
-CMS.registerPreviewTemplate('learning', LearningPagePreview)
-CMS.registerPreviewTemplate('designguideline', DesignGuidelinePagePreview)
-CMS.registerPreviewTemplate('developerguideline', DeveloperGuidelinePagePreview)
-CMS.registerPreviewTemplate('blog', BlogPostPreview)
+// We need this for injecting the inline css into preview section of admin
+class CSSInjector extends React.Component {
+  constructor() {
+    super()
+    const iframe = document.getElementsByTagName('iframe')[0]
+    const iframeHead = iframe.contentDocument.head
+    this.cache = createCache({ container: iframeHead })
+  }
+
+  render() {
+    return (
+      <CacheProvider value={this.cache}>
+        {this.props.children}
+      </CacheProvider>
+    )
+  }
+}
+
+CMS.registerPreviewTemplate('about', props => (
+  <CSSInjector>
+    <AboutPagePreview {...props} />
+  </CSSInjector>
+))
+CMS.registerPreviewTemplate('learning', props => (
+  <CSSInjector>
+    <LearningPagePreview {...props} />
+  </CSSInjector>
+))
+CMS.registerPreviewTemplate('designguideline', props => (
+  <CSSInjector>
+    <DesignGuidelinePagePreview {...props} />
+  </CSSInjector>
+))
+CMS.registerPreviewTemplate('developerguideline', props => (
+  <CSSInjector>
+    <DeveloperGuidelinePagePreview {...props} />
+  </CSSInjector>
+))
+CMS.registerPreviewTemplate('blog', props => (
+  <CSSInjector>
+    <BlogPostPreview {...props} />
+  </CSSInjector>
+))
 CMS.registerEditorComponent({
     // Internal id of the component
     id: "vimeo",
