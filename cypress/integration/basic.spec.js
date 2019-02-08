@@ -5,7 +5,7 @@ describe('Basic Testing', function() {
     })
 
     it('Check the app is Fiori Plaform', function() {
-        cy.title().should('eq', 'SAP Fiori - SAP Fiori')
+        cy.title().should('eq', 'FAILING TESTS')
     })
     
   })
