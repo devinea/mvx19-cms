@@ -10,3 +10,8 @@ yarn-error.log
 
 ## IDE-files
 .idea
+
+
+#test
+cypress/videos/*
+cypress/screenshots/*
