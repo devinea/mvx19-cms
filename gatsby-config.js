@@ -2,6 +2,9 @@ module.exports = {
   siteMetadata: {
     title: 'SAP Fiori',
     description: 'The home of SAP Fiori Guidelines and Community',
+    contact: {
+      email: 'fioriexperience@sap.com'
+    }
   },
   plugins: [
     'gatsby-plugin-react-helmet',

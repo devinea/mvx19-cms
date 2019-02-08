@@ -1,114 +1,73 @@
 import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 import { Link } from 'gatsby';
 
 import Container from './../Container';
 import Flex from '../Flex';
 import ExternalFooterLink from './ExternalFooterLink';
 import FooterLink from './FooterLink';
-import FooterNav from './FooterNav';
-import FooterTitle from './FooterTitle';
 
 import logoSvg from './../../img/logo1.svg';
 import { media, colors } from '../theme';
-import {
-  sectionListCommunity,
-  sectionListContact,
-  sectionListContribute,
-  sectionListFioriService,
-  sectionListTerms
-} from '../../../utils/sectionList';
+import { sectionListFooterLinks } from '../../../utils/sectionList';
 
-
-const Footer = () => (
+const Footer = props => (
   <footer
     css={{
-      backgroundColor: colors.grey_200,
-      color: colors.white
+      margin: '0 auto',
+      [media.greaterThan('large')]: {
+        minWidth: media.getSize('large').width
+      },
+      [media.greaterThan('xlarge')]: {
+        minWidth: media.getSize('xlarge').width
+      }
     }}
   >
     <Container
       cssProps={{
-        padding: '0 50px'
+        padding: 0
       }}
     >
       <Flex direction='row'>
         <Flex
           direction='row'
-          halign='space-between'
           wrap='wrap'
+          halign='space-between'
           css={{
-            width: '100%'
+            width: '100%',
+            marginBottom: 16
           }}
         >
-          <FooterNav>
-            <FooterTitle>Contribute</FooterTitle>
-            {sectionListContribute.map(section => {
-              const defaultItem = section.items[0];
-              return (
-                <FooterLink
-                  to={`/docs/${defaultItem.id}.html`}
-                  key={section.title}
-                >
-                  {section.title}
-                </FooterLink>
-              );
-            })}
-          </FooterNav>
-          <FooterNav>
-            <FooterTitle>Contact</FooterTitle>
-            {sectionListContact.map(section => {
-              const defaultItem = section.items[0];
-              return (
-                <FooterLink
-                  to={`/docs/${defaultItem.id}.html`}
-                  key={section.title}
-                >
-                  {section.title}
-                </FooterLink>
-              );
-            })}
-          </FooterNav>
-          <FooterNav>
-            <FooterTitle>Fiori Service</FooterTitle>
-            {sectionListFioriService.map(section => {
-              const defaultItem = section.items[0];
-              return (
-                <FooterLink
-                  to={`/docs/${defaultItem.id}.html`}
-                  key={section.title}
-                >
-                  {section.title}
-                </FooterLink>
-              );
-            })}
-          </FooterNav>
-          <FooterNav>
-            <FooterTitle>Community</FooterTitle>
-            {sectionListCommunity.map(section => {
-              const defaultItem = section.items[0];
-              return (
-                <FooterLink
-                  to={`/docs/${defaultItem.id}.html`}
-                  key={section.title}
-                >
-                  {section.title}
-                </FooterLink>
-              );
-            })}
-          </FooterNav>
+          <div css={{ color: colors.grey_900, fontSize: 12 }}>
+            Have questions or ideas? <a css={{
+              lineHeight: '20px',
+              color: colors.grey_900,
+              fontWeight: 700,
+              fontSize: 12,
+              ':hover': {
+                color: colors.grey_600
+              }
+            }} href={`mailto:${props.data.site.siteMetadata.contact.email}`}>Email</a> us
+            or <FooterLink to={`/contribute`}>Contribute</FooterLink> to make Fiori better.
+          </div>
+          <div>
+            <span css={{ color: colors.grey_900, fontSize: 12 }}>
+              © Copyright SAP {new Date().getFullYear()}
+            </span>
+          </div>
         </Flex>
       </Flex>
     </Container>
     <Container
       cssProps={{
-        padding: '0 50px'
+        padding: 0
       }}
     >
       <Flex
         direction='row'
         wrap='wrap'
         css={{
-          borderTopColor: colors.grey_300,
+          borderTopColor: colors.grey_250,
           borderTopWidth: 1,
           borderTopStyle: 'solid'
         }}
@@ -143,7 +102,7 @@ const Footer = () => (
             >
               THE BEST RUN
             </span>
-            <img src={logoSvg} alt='' width='63' height='32' />
+            <img src={logoSvg} alt='' width='32' height='16' />
           </Link>
           <nav
             css={{
@@ -159,7 +118,7 @@ const Footer = () => (
               }
             }}
           >
-            {sectionListTerms.map(section => {
+            {sectionListFooterLinks.map(section => {
               return (
                 <ExternalFooterLink
                   href={section.items[1].url}
@@ -176,4 +135,19 @@ const Footer = () => (
   </footer>
 );
 
-export default Footer;
+export default () => (
+  <StaticQuery
+    query={graphql`
+      query {
+        site {
+          siteMetadata {
+            contact {
+              email
+            }
+          }
+        }
+      }
+    `}
+    render={data => <Footer data={data} />}
+  />
+);

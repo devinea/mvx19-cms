@@ -1,0 +1,16 @@
+- title: Privacy
+  items:
+    - id: privacy
+    - url: http://www.sap.com
+- title: Legal Disclosure
+  items:
+    - id: legal
+    - url: http://www.sap.com
+- title: Copyright and Trademarks
+  items:
+    - id: copyright
+    - url: http://www.sap.com
+- title: Terms of Use
+  items:
+    - id: terms
+    - url: http://www.sap.com
