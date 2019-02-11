@@ -9,15 +9,15 @@
 - title: Fiori for iOS
   items:
     - id: ios
-    - url: /develop/guidelines#ios
+    - url: /design/guidelines#ios
 - title: Fiori for Android
   items:
     - id: android
-    - url: /develop/guidelines#android
+    - url: /design/guidelines#android
 - title: Fiori for CUX
   items:
     - id: cux
-    - url: /develop/guidelines#cux
+    - url: /design/guidelines#cux
 - title: Contribute
   items:
     - id: contribute

@@ -1,9 +1,7 @@
 import CMS from 'netlify-cms'
 import React from 'react'
-import AboutPagePreview from './preview-templates/AboutPagePreview'
 import BlogPostPreview from './preview-templates/BlogPostPreview'
 import LearningPagePreview from './preview-templates/LearningPagePreview'
-import DeveloperGuidelinePagePreview from './preview-templates/DeveloperGuidelinePagePreview'
 import DesignGuidelinePagePreview from './preview-templates/DesignGuidelinePagePreview'
 import createCache from '@emotion/cache'
 import { CacheProvider } from '@emotion/core'
@@ -80,5 +78,4 @@ CMS.registerEditorComponent({
     //   );
     // }
   });
-
 CMS.registerWidget("fileSelect", FileSystemControl);
