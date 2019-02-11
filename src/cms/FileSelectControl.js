@@ -83,15 +83,7 @@ export default class FileSelectControl extends React.Component {
     setActiveStyle: PropTypes.func.isRequired,
     setInactiveStyle: PropTypes.func.isRequired,
     field: ImmutablePropTypes.contains({
-      options: ImmutablePropTypes.listOf(
-        PropTypes.oneOfType([
-          PropTypes.string,
-          ImmutablePropTypes.contains({
-            label: PropTypes.string.isRequired,
-            value: PropTypes.string.isRequired,
-          }),
-        ]),
-      ).isRequired,
+      url: PropTypes.string.isRequired,
     }),
   };
 
@@ -123,12 +115,14 @@ export default class FileSelectControl extends React.Component {
 
   componentDidMount() {
     //https://github.com/netlify/netlify-identity-widget/issues/144#issuecomment-396868911
+
+    const {field} = this.props;
     const currentUser = netlifyIdentity.currentUser();
     if( currentUser && (!this.state || !this.state.ajaxResponse) ){
       currentUser.jwt().then(accessToken => {
         const Http = new XMLHttpRequest();
         //const url= 'https://api.github.com/repositories/162210062/contents/static/docs/fundamental/components';
-        const url= '/.netlify/git/github/contents/static/docs/fundamental/components';
+        const url = field.get('url');
         Http.open("GET", url);
         console.log(accessToken);
         Http.setRequestHeader('Authorization', `Bearer ${accessToken}`);
@@ -138,7 +132,14 @@ export default class FileSelectControl extends React.Component {
           console.log(Http.responseURL);
           console.log(Http.responseText);
           this.setState(()=>{
-            return { ajaxResponse: JSON.parse(Http.responseText).map((elem)=>elem.path) };
+            return { ajaxResponse: JSON.parse(Http.responseText).map((elem) => {
+              let path = elem.path;
+              const prefix = 'static/';
+              if(path.startsWith(prefix)){
+                path = path.slice(prefix.length);
+              }
+              return path;
+              })};
           });
         };
       });
@@ -154,7 +155,7 @@ export default class FileSelectControl extends React.Component {
 
     const { field, value, forID, classNameWrapper, setActiveStyle, setInactiveStyle, data } = this.props;
     const data2 = data || response || ["data not found"];
-    const fieldOptions = ["a", 'b', 'c', ...data2];
+    const fieldOptions = [...data2];
 
 
     const isMultiple = field.get('multiple', false);
