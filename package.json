@@ -30,6 +30,8 @@
         "lodash-webpack-plugin": "^0.11.4",
         "netlify-cms": "^2.4.1",
         "netlify-cms-ui-default": "^2.0.0",
+        "netlify-cms-lib-auth":"^2.0.0",
+        "netlify-cms-lib-util":"^2.0.4",
         "node-sass": "^4.11.0",
         "normalize.css": "^8.0.1",
         "parcel-bundler": "^1.9.4",
