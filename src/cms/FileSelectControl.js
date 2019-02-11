@@ -110,12 +110,13 @@ export default class FileSelectControl extends React.Component {
     if(currentUser && (!this.state || !this.state.ajaxResponse)){
       currentUser.jwt().then( accessToken => {
         const { field } = this.props;
-        const url = `${window.localStorage.getItem("netlifySiteURL")}${field.get('url')}`;
+        const url = window.localStorage.getItem("netlifySiteURL") + field.get('url');
         const Http = new XMLHttpRequest();
         Http.open("GET", url);
         Http.setRequestHeader('Authorization', `Bearer ${accessToken}`);
-        Http.setRequestHeader('Accept', 'application/vnd.github.v3+json'); //optional but encouraged
+        Http.setRequestHeader('Accept', 'application/vnd.github.v3+json'); // optional but encouraged
         Http.send();
+
         // TODO: maybe find a way to retrieve only the info we need from github...
         Http.onload=()=>{
           this.setState(()=>{
@@ -143,8 +144,7 @@ export default class FileSelectControl extends React.Component {
     }
 
     const { field, value, forID, classNameWrapper, setActiveStyle, setInactiveStyle } = this.props;
-    const data = response || ["data not found"];
-    const fieldOptions = [...data];
+    const fieldOptions = response;
 
 
     const isMultiple = field.get('multiple', false);
