@@ -24,6 +24,7 @@ collections:
     - {label: "Description", name: "description", widget: "text"}
     - {label: "Body", name: "body", widget: "markdown"}
     - {label: "Tags", name: "tags", widget: "list"}
+
   - name: "designguideline"
     label: "DesignGuideline"
     folder: "src/pages/designguideline"
@@ -37,6 +38,9 @@ collections:
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Fundamentals Docs Path", name: "fundamentalsFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental/components", required: false}
+      - {label: "Angular Docs Path", name: "angularFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental-ngx", required: false}
+      - {label: "React Docs Path", name: "reactFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental-react", required: false}
       - {label: "isControl", name: "iscontrol", widget: "boolean", default: true}
       - {label: "Version No.", name: "version", widget: "select", options: ["1.01", "1.02", "1.03","1.04", "1.05"]}
       - label: "Left Nav Order"
@@ -47,6 +51,7 @@ collections:
           - {label: "Level 2", name: "l2", widget: "number"}
           - {label: "Level 3", name: "l3", widget: "number"}
           - {label: "Level 4", name: "l4", widget: "number"}
+
   - name: "developerguideline"
     label: "DeveloperGuideline"
     folder: "src/pages/developerguideline"
@@ -60,7 +65,7 @@ collections:
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
- 
+
   - name: "learning"
     label: "Learning"
     folder: "src/pages/learning"
