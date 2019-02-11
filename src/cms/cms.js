@@ -7,6 +7,7 @@ import DeveloperGuidelinePagePreview from './preview-templates/DeveloperGuidelin
 import DesignGuidelinePagePreview from './preview-templates/DesignGuidelinePagePreview'
 import createCache from '@emotion/cache'
 import { CacheProvider } from '@emotion/core'
+import FileSystemControl from './FileSelectControl';
 
 // We need this for injecting the inline css into preview section of admin
 class CSSInjector extends React.Component {
@@ -79,7 +80,5 @@ CMS.registerEditorComponent({
     //   );
     // }
   });
-
-import FileSystemControl from './FileSelectControl';
 
 CMS.registerWidget("fileSelect", FileSystemControl);

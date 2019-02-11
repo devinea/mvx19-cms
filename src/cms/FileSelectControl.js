@@ -60,20 +60,11 @@ function convertToOption(raw) {
   return Map.isMap(raw) ? raw.toJS() : raw;
 }
 
-// export const query = graphql`
-//     query{
-//         allFile( filter: { sourceInstanceName: { eq: "Fundamentals" } } ){
-//             edges {
-//                 node {
-//                     id
-//                     name
-//                     sourceInstanceName
-//                     absolutePath
-//                 }
-//             }
-//         }
-//     }`;
-
+/**
+ * this component is a copy of the netlify-cms select-widget
+ * with changes in componentDidMount() and render() to be able to show
+ * a file overview from a url set in the config.yml
+ */
 export default class FileSelectControl extends React.Component {
   static propTypes = {
     onChange: PropTypes.func.isRequired,
@@ -115,48 +106,45 @@ export default class FileSelectControl extends React.Component {
 
   componentDidMount() {
     //https://github.com/netlify/netlify-identity-widget/issues/144#issuecomment-396868911
-
-    const {field} = this.props;
     const currentUser = netlifyIdentity.currentUser();
-    if( currentUser && (!this.state || !this.state.ajaxResponse) ){
-      currentUser.jwt().then(accessToken => {
+    if(currentUser && (!this.state || !this.state.ajaxResponse)){
+      currentUser.jwt().then( accessToken => {
+        const { field } = this.props;
+        const url = `${window.localStorage.getItem("netlifySiteURL")}${field.get('url')}`;
         const Http = new XMLHttpRequest();
-        //const url= 'https://api.github.com/repositories/162210062/contents/static/docs/fundamental/components';
-        const url = window.localStorage.getItem("netlifySiteURL") + field.get('url');
         Http.open("GET", url);
-        console.log(accessToken);
         Http.setRequestHeader('Authorization', `Bearer ${accessToken}`);
         Http.setRequestHeader('Accept', 'application/vnd.github.v3+json'); //optional but encouraged
         Http.send();
         // TODO: maybe find a way to retrieve only the info we need from github...
         Http.onload=()=>{
-          console.log(Http.responseURL);
-          console.log(Http.responseText);
           this.setState(()=>{
-            return { ajaxResponse: JSON.parse(Http.responseText).filter((elem) => elem.path.endsWith('.html')).map((elem) => {
+            return { ajaxResponse: JSON.parse(Http.responseText)
+                .filter((elem) => elem.path.endsWith('.html'))
+                .map((elem) => {
               let path = elem.path;
               const prefix = 'static/';
               if(path.startsWith(prefix)){
                 path = path.slice(prefix.length);
               }
               return path;
-              })};
+              })
+            };
           });
         };
       });
     }
   }
 
-  // the only thing we want to change here
   render() {
     let response = null;
-    if(this.state && this.state.ajaxResponse){
+    if(this.state && this.state.ajaxResponse) {
       response = this.state.ajaxResponse;
     }
 
-    const { field, value, forID, classNameWrapper, setActiveStyle, setInactiveStyle, data } = this.props;
-    const data2 = data || response || ["data not found"];
-    const fieldOptions = [...data2];
+    const { field, value, forID, classNameWrapper, setActiveStyle, setInactiveStyle } = this.props;
+    const data = response || ["data not found"];
+    const fieldOptions = [...data];
 
 
     const isMultiple = field.get('multiple', false);
@@ -190,26 +178,3 @@ export default class FileSelectControl extends React.Component {
     );
   }
 }
-
-// export default (props) => (
-//   <StaticQuery query={graphql`
-//     query FundamentalsQuery {
-//         allFile( filter: { sourceInstanceName: { eq: "Fundamentals" } } ){
-//              edges {
-//                  node {
-//                      id
-//                      name
-//                      sourceInstanceName
-//                      absolutePath
-//                  }
-//              }
-//         }
-//     }`
-//   }
-//                render={(data) => (
-//                  <FileSelectControl
-//                    data={data}
-//                    {...props}
-//                  />
-//                )}/>
-// );
