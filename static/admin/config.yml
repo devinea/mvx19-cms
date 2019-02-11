@@ -27,7 +27,7 @@ collections:
 
   - name: "fioriwebguideline"
     label: "Fiori Web"
-    folder: "content/pages/fiori/web"
+    folder: "src/pages/designguideline"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
