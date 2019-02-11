@@ -28,7 +28,7 @@
         "gatsby-transformer-sharp": "^2.1.9",
         "lodash": "^4.17.5",
         "lodash-webpack-plugin": "^0.11.4",
-        "netlify-cms": "^2.3.1",
+        "netlify-cms": "^2.4.1",
         "node-sass": "^4.11.0",
         "normalize.css": "^8.0.1",
         "parcel-bundler": "^1.9.4",
@@ -58,6 +58,7 @@
         "cy:run": "cypress run"
     },
     "devDependencies": {
+        "@babel/core": "^7.0.0-0",
         "babel-eslint": "^10.0.1",
         "cypress": "^3.1.5",
         "eslint": "^5.12.1",
