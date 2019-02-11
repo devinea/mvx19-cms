@@ -122,17 +122,18 @@ export default class FileSelectControl extends React.Component {
       currentUser.jwt().then(accessToken => {
         const Http = new XMLHttpRequest();
         //const url= 'https://api.github.com/repositories/162210062/contents/static/docs/fundamental/components';
-        const url = field.get('url');
+        const url = window.localStorage.getItem("netlifySiteURL") + field.get('url');
         Http.open("GET", url);
         console.log(accessToken);
         Http.setRequestHeader('Authorization', `Bearer ${accessToken}`);
         Http.setRequestHeader('Accept', 'application/vnd.github.v3+json'); //optional but encouraged
         Http.send();
+        // TODO: maybe find a way to retrieve only the info we need from github...
         Http.onload=()=>{
           console.log(Http.responseURL);
           console.log(Http.responseText);
           this.setState(()=>{
-            return { ajaxResponse: JSON.parse(Http.responseText).map((elem) => {
+            return { ajaxResponse: JSON.parse(Http.responseText).filter((elem) => elem.path.endsWith('.html')).map((elem) => {
               let path = elem.path;
               const prefix = 'static/';
               if(path.startsWith(prefix)){
