@@ -1,5 +1,5 @@
 ---
-templateKey: design-guideline-post
+templateKey: ios-guideline-post
 title: Foundation
 date: 2019-01-11T00:15:32.894Z
 featuredImage: "/img/control-button.png"
