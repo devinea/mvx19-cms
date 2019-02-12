@@ -58,7 +58,6 @@
         "cy:run": "cypress run"
     },
     "devDependencies": {
-        "@babel/core": "^7.0.0-0",
         "babel-eslint": "^10.0.1",
         "cypress": "^3.1.5",
         "eslint": "^5.12.1",
