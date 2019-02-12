@@ -26,25 +26,16 @@
         "gatsby-source-filesystem": "^2.0.12",
         "gatsby-transformer-remark": "^2.1.15",
         "gatsby-transformer-sharp": "^2.1.9",
-        "graphql":"^0.13.0",
-        "immutable":"^3.8.2",
         "lodash": "^4.17.5",
         "lodash-webpack-plugin": "^0.11.4",
         "netlify-cms": "^2.4.1",
-        "netlify-cms-ui-default": "^2.0.0",
-        "netlify-cms-lib-auth":"^2.0.0",
-        "netlify-cms-lib-util":"^2.0.4",
-        "moment":">=2.16.0",
         "node-sass": "^4.11.0",
         "normalize.css": "^8.0.1",
         "parcel-bundler": "^1.9.4",
         "prop-types": "^15.6.0",
-        "redux": "^2.0.0 || ^3.0.0",
         "react": "^16.2.0",
         "react-dom": "^16.4.1",
-        "react-emotion":"^9.2.6",
         "react-helmet": "^5.2.0",
-        "react-immutable-proptypes":"^2.1.0",
         "uuid": "^3.2.1"
     },
     "keywords": [
@@ -80,7 +71,6 @@
         "prettier": "^1.16.1",
         "prettier-eslint": "^8.8.2",
         "rimraf": "^2.6.3",
-        "start-server-and-test": "^1.7.11",
-        "webpack":">=4.4.0"
+        "start-server-and-test": "^1.7.11"
     }
 }

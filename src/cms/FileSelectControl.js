@@ -4,7 +4,58 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import { Map, List, fromJS } from 'immutable';
 import { find } from 'lodash';
 import Select from 'react-select';
-import { colors } from 'netlify-cms-ui-default';
+// import { colors } from 'netlify-cms-ui-default';
+/**
+ * Theme Colors
+ */
+const colorsRaw = {
+  white: '#fff',
+  grayLight: '#eff0f4',
+  gray: '#798291',
+  grayDark: '#313d3e',
+  blue: '#3a69c7',
+  blueLight: '#e8f5fe',
+  green: '#005614',
+  greenLight: '#caef6f',
+  brown: '#754e00',
+  yellow: '#ffee9c',
+  red: '#ff003b',
+  redLight: '#fcefea',
+  purple: '#70399f',
+  purpleLight: '#f6d8ff',
+  teal: '#17a2b8',
+  tealLight: '#ddf5f9',
+};
+
+const colors = {
+  statusDraftText: colorsRaw.purple,
+  statusDraftBackground: colorsRaw.purpleLight,
+  statusReviewText: colorsRaw.Brown,
+  statusReviewBackground: colorsRaw.yellow,
+  statusReadyText: colorsRaw.green,
+  statusReadyBackground: colorsRaw.greenLight,
+  text: colorsRaw.gray,
+  textLight: colorsRaw.white,
+  textLead: colorsRaw.grayDark,
+  background: colorsRaw.grayLight,
+  foreground: colorsRaw.white,
+  active: colorsRaw.blue,
+  activeBackground: colorsRaw.blueLight,
+  inactive: colorsRaw.gray,
+  button: colorsRaw.gray,
+  buttonText: colorsRaw.white,
+  inputBackground: colorsRaw.white,
+  infoText: colorsRaw.blue,
+  infoBackground: colorsRaw.blueLight,
+  successText: colorsRaw.green,
+  successBackground: colorsRaw.greenLight,
+  warnText: colorsRaw.brown,
+  warnBackground: colorsRaw.yellow,
+  errorText: colorsRaw.red,
+  errorBackground: colorsRaw.redLight,
+  textFieldBorder: '#dfdfe3',
+  controlLabel: '#7a8291',
+};
 
 const styles = {
   control: styles => ({
