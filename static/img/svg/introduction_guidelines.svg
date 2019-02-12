@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="118px" height="79px" viewBox="0 0 118 79" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
+    <title>Group 14</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="55 0 110 28.6184343 55 55 0 28.6184343"></polygon>
+        <filter x="-6.4%" y="-9.1%" width="112.7%" height="125.5%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.12536798 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Get-Started" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Get-Started---Desktop-984" transform="translate(-266.000000, -480.000000)" fill-rule="nonzero">
+            <g id="Group-6" transform="translate(232.000000, 430.000000)">
+                <g id="Group-14" transform="translate(38.000000, 52.000000)">
+                    <g id="Group-4-Copy" transform="translate(0.000000, 22.000000)">
+                        <polygon id="Rectangle-Copy-2" fill="#1E4452" points="55 0 110 28.6184343 55 55 0 28.6184343"></polygon>
+                        <polygon id="Rectangle-Copy" fill="#297794" points="17.7118644 28.3250843 55 9.16666667 65.315124 13.2672858 27.7826681 32.7708333"></polygon>
+                        <polygon id="Rectangle-Copy-7" fill="#297794" points="28.8983051 33.8250843 66.1864407 14.6666667 76.5015647 18.7672858 38.9691088 38.2708333"></polygon>
+                        <polygon id="Rectangle-Copy-9" fill="#297794" points="40.0847458 39.3250843 57.2865149 30.513684 60.5932203 31.96875 44.1263761 40.9422911"></polygon>
+                        <polygon id="Rectangle-Copy-8" fill="#297794" points="52.2033898 47.5750843 89.4915254 28.4166667 99.8066494 32.5172858 62.2741935 52.0208333"></polygon>
+                    </g>
+                    <g id="Group-4-Copy-2">
+                        <g id="Rectangle-Copy-2">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                            <use fill="#297794" xlink:href="#path-1"></use>
+                        </g>
+                        <polygon id="Rectangle-Copy" fill="#5DCCF5" points="17.7118644 28.3250843 55 9.16666667 65.315124 13.2672858 27.7826681 32.7708333"></polygon>
+                        <polygon id="Rectangle-Copy-7" fill="#5DCCF5" points="28.8983051 33.8250843 66.1864407 14.6666667 76.5015647 18.7672858 38.9691088 38.2708333"></polygon>
+                        <polygon id="Rectangle-Copy-9" fill="#297794" points="40.0847458 39.3250843 57.2865149 30.513684 60.5932203 31.96875 44.1263761 40.9422911"></polygon>
+                        <polygon id="Rectangle-Copy-8" fill="#5DCCF5" points="52.2033898 47.5750843 89.4915254 28.4166667 99.8066494 32.5172858 62.2741935 52.0208333"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

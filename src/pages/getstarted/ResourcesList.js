@@ -1,0 +1,124 @@
+import React from 'react';
+import { graphql, StaticQuery } from 'gatsby';
+
+import { colors, media } from '../../components/theme';
+import Flex from '../../components/Flex';
+import Card from '../../components/Card';
+
+const ResourcesList = props => (
+  <div
+    css={{
+      width: '100%',
+      backgroundColor: colors.blue_400,
+      paddingBottom: 100,
+      marginBottom: 50
+    }}
+  >
+    <Flex
+      direction='column'
+      css={{
+        margin: '0 auto',
+        [media.greaterThan('large')]: {
+          minWidth: media.getSize('large').width,
+          maxWidth: media.getSize('large').width
+        },
+        [media.greaterThan('xlarge')]: {
+          minWidth: media.getSize('xlarge').width,
+          maxWidth: media.getSize('xlarge').width
+        }
+      }}
+    >
+      <section
+        css={{
+          paddingTop: 50,
+          width: '100%',
+          [media.greaterThan('large')]: {
+            padding: '0 71px'
+          },
+          [media.greaterThan('xlarge')]: {
+            padding: '0 84px'
+          }
+        }}
+      >
+        <h1
+          css={{
+            width: '100%',
+            fontSize: 35,
+            fontWeight: 700,
+            color: colors.grey_150,
+            marginBottom: 0,
+            marginTop: 88
+          }}
+        >
+          resources
+        </h1>
+
+        {props.data.allGetstartedJson.edges[0].node.data.map(
+          (category, idx) => (
+            <div
+              key={idx}
+              css={{
+                marginBottom: 60
+              }}
+            >
+              <div
+                css={{
+                  fontSize: 35,
+                  fontWeight: 300,
+                  color: colors.grey_150,
+                  padding: '33px 0 46px 0'
+                }}
+              >{category.title}</div>
+              {category.data.map((entry, idx) => (
+                <Card
+                  cssProps={{
+                    marginRight: 0,
+                    marginBottom: 24,
+                    ':nth-of-type(2n)': {
+                      marginRight: 24
+                    }
+                  }}
+                  key={idx}
+                  data={entry}
+                />
+              ))}
+            </div>
+          )
+        )}
+      </section>
+    </Flex>
+  </div>
+);
+
+export default () => (
+  <StaticQuery
+    query={graphql`
+      query {
+        allGetstartedJson(filter: { name: { eq: "resources" } }) {
+          edges {
+            node {
+              name
+              data {
+                type
+                title
+                data {
+                  title
+                  image {
+                    src
+                    width
+                    height
+                  }
+                  description
+                  action
+                  url
+                  read
+                }
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={data => <ResourcesList data={data} />}
+  />
+);
