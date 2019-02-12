@@ -161,7 +161,7 @@ export default class FileSelectControl extends React.Component {
     if(currentUser && (!this.state || !this.state.ajaxResponse)){
       currentUser.jwt().then( accessToken => {
         const { field } = this.props;
-        const url = window.localStorage.getItem("netlifySiteURL") + field.get('url');
+        const url = (window.localStorage.getItem("netlifySiteURL") ) ? window.localStorage.getItem("netlifySiteURL") + field.get('url'): field.get('url');
         const Http = new XMLHttpRequest();
         Http.open("GET", url);
         Http.setRequestHeader('Authorization', `Bearer ${accessToken}`);
