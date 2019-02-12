@@ -12,7 +12,7 @@ import { sharedStyles } from '../../components/theme';
 import Content, { HTMLContent } from '../../components/Content';
 import GuidelineLeftNav from '../../components/guideline-left-nav/guideline-left-nav';
 
-export const DeveloperGuidelinePostTemplate = ({
+export const DesignGuidelinePostTemplate = ({
   content,
   contentComponent,
   description,
@@ -29,6 +29,7 @@ export const DeveloperGuidelinePostTemplate = ({
       }}
     >
       {helmet || ''}
+
       <div css={[sharedStyles.markdown]}>
         <h1>{title}</h1>
         <p>{description}</p>
@@ -38,7 +39,7 @@ export const DeveloperGuidelinePostTemplate = ({
         {tags && tags.length ? (
           <div style={{ marginTop: `4rem` }}>
             <h4>Tags</h4>
-            <ul className='taglist'>
+            <ul>
               {tags.map(tag => (
                 <li key={tag + `tag`}>
                   <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
@@ -52,7 +53,7 @@ export const DeveloperGuidelinePostTemplate = ({
   );
 };
 
-DeveloperGuidelinePostTemplate.propTypes = {
+DesignGuidelinePostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
@@ -60,7 +61,7 @@ DeveloperGuidelinePostTemplate.propTypes = {
   helmet: PropTypes.object
 };
 
-const DeveloperGuidelinePost = ({ data, location }) => {
+const AndroidGuidelinePost = ({ data, location }) => {
   const { markdownRemark: post } = data;
 
   return (
@@ -72,7 +73,8 @@ const DeveloperGuidelinePost = ({ data, location }) => {
         overflow='auto'
         valign='stretch'
         css={{
-          width: '100%'
+          width: '100%',
+          height: '100%'
         }}
       >
         <GuidelineLeftNav />
@@ -83,7 +85,7 @@ const DeveloperGuidelinePost = ({ data, location }) => {
             paddingBottom: 20
           }}
         >
-          <DeveloperGuidelinePostTemplate
+          <DesignGuidelinePostTemplate
             content={post.html}
             contentComponent={HTMLContent}
             description={post.frontmatter.description}
@@ -105,7 +107,7 @@ const DeveloperGuidelinePost = ({ data, location }) => {
   );
 };
 
-DeveloperGuidelinePost.propTypes = {
+AndroidGuidelinePost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object
   }),
@@ -114,10 +116,10 @@ DeveloperGuidelinePost.propTypes = {
   })
 };
 
-export default DeveloperGuidelinePost;
+export default AndroidGuidelinePost;
 
 export const pageQuery = graphql`
-  query DeveloperGuidelinePostByID($id: String!) {
+  query AndroidGuidelinePostByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html

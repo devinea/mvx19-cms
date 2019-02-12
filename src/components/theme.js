@@ -10,22 +10,25 @@ const colors = {
   white:    '#FFFFFF',
   grey_100: '#ECECEC',
   grey_200: '#EDEFF0',
+  grey_250: '#D3D3D3',
   grey_300: '#D8D8D8',
   grey_400: '#999999',
+  grey_450: '#9B9B9B',
   grey_500: '#6D6D6D',
   grey_600: '#656565',
   grey_700: '#515151',
   grey_800: '#373940',
+  grey_900: '#383838',
   black:    '#000000',
 };
 
 
 
 const SIZES = {
-  small: { min: 0, max: 599 },
-  medium: { min: 600, max: 1023 },
-  large: { min: 1024, max: 1439 },
-  xlarge: { min: 1440, max: Infinity },
+  small: { min: 0, max: 599, width: 304 },
+  medium: { min: 600, max: 1023, width: 528 },
+  large: { min: 1024, max: 1279, width: 828 },
+  xlarge: { min: 1280, max: Infinity, width: 984 },
 };
 
 const media = {
