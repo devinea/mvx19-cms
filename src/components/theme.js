@@ -9,17 +9,25 @@ const colors = {
 
   white:    '#FFFFFF',
   grey_100: '#ECECEC',
+  grey_150: '#E5E5E5',
   grey_200: '#EDEFF0',
   grey_250: '#D3D3D3',
   grey_300: '#D8D8D8',
+  grey_350: '#A1A1A1',
   grey_400: '#999999',
   grey_450: '#9B9B9B',
   grey_500: '#6D6D6D',
+  grey_550: '#838383',
   grey_600: '#656565',
+  grey_650: '#5C5C5C',
   grey_700: '#515151',
+  grey_750: '#4F4F4F',
   grey_800: '#373940',
   grey_900: '#383838',
   black:    '#000000',
+
+  blue_400: '#354A5F',
+  blue_500: '#2B3845'
 };
 
 

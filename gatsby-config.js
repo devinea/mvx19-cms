@@ -37,6 +37,13 @@ module.exports = {
       options: {}
     },
     'gatsby-plugin-sass',
+    'gatsby-transformer-json',
+    {
+      resolve: `gatsby-transformer-json`,
+      options: {
+        typeName: ({ node, object, isArray }) => object.name
+      }
+    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -50,6 +57,13 @@ module.exports = {
       options: {
         path: `${__dirname}/src/pages`,
         name: 'pages'
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/data`,
+        name: 'data'
       }
     },
     {

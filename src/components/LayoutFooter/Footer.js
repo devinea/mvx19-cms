@@ -111,7 +111,6 @@ const Footer = props => (
               overflowX: 'auto',
               overflowY: 'hidden',
               height: '100%',
-              paddingTop: 6,
               [media.size('small')]: {
                 flexDirection: 'column'
               }

@@ -1,0 +1,252 @@
+[
+  {
+    "name": "begin",
+    "data": [
+      {
+        "type": "begin",
+        "title": "before you begin",
+        "data": [
+          {
+            "title": "Introduction to the Guidelines",
+            "image": {
+              "src": "/img/svg/introduction_guidelines.svg",
+              "width": "118",
+              "height": "79"
+            },
+            "description": "Your brief introduction to everything you need to know about working with the guidelines.",
+            "url": "http://www.sap.com",
+            "read": "5 min read"
+          },
+          {
+            "title": "Design Principles",
+            "image": {
+              "src": "/img/svg/design_principles.svg",
+              "width": "93",
+              "height": "109"
+            },
+            "description": "Learn about the five core principles that make up the design philosophy of SAP Fiori.",
+            "url": "http://www.sap.com",
+            "read": "5 min read"
+          },
+          {
+            "title": "Foundation",
+            "image": {
+              "src": "/img/svg/foundation.svg",
+              "width": "118",
+              "height": "97"
+            },
+            "description": "Create a harmonious experience for users by understanding core concepts around Color, Type, Grid and Spacing.",
+            "url": "http://www.sap.com",
+            "read": "5 min read"
+          },
+          {
+            "title": "Design-led development",
+            "image": {
+              "src": "/img/svg/design-led-development.svg",
+              "width": "113",
+              "height": "86"
+            },
+            "description": "Understand the SAP Fiori design-led development process, key milestones and activities.",
+            "url": "http://www.sap.com",
+            "read": "5 min read"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "resources",
+    "data": [
+      {
+        "type": "tools",
+        "title": "tools",
+        "data": [
+          {
+            "title": "Fiori Toolkit for Sketch",
+            "image": {
+              "src": "/img/card/fiori_toolkit.png",
+              "width": "331",
+              "height": "199"
+            },
+            "description": "Download the latest Fiori Toolkit for Sketch to rapidly design Fiori experiences.",
+            "action": "download",
+            "url": "http://www.sap.com"
+          },
+          {
+            "title": "72 Typeface",
+            "image": {
+              "src": "/img/card/72_typeface.png",
+              "width": "331",
+              "height": "199"
+            },
+            "description": "Download the 72 Font for use in your mockups.",
+            "action": "download",
+            "url": "http://www.sap.com"
+          },
+          {
+            "title": "Icon Library",
+            "image": {
+              "src": "/img/card/icon_library.png",
+              "width": "331",
+              "height": "201"
+            },
+            "description": "Find and use icons from the latest Icon Library.",
+            "action": "download",
+            "url": "http://www.sap.com"
+          },
+          {
+            "title": "Icon Font",
+            "image": {
+              "src": "/img/card/icon_font.png",
+              "width": "395",
+              "height": "238"
+            },
+            "description": "Download the latest version of the icon font for use in your mockups.",
+            "action": "download",
+            "url": "http://www.sap.com"
+          }
+        ]
+      },
+      {
+        "type": "fiori_fundamentals",
+        "title": "fiori fundamentals",
+        "data": [
+          {
+            "title": "Getting started with Fundamentals",
+            "image": {
+              "src": "/img/card/fundamental_started.png",
+              "width": "395",
+              "height": "238"
+            },
+            "description": "Learn how to build Fiori apps in any web-based technology.",
+            "action": "read more",
+            "url": "http://www.sap.com"
+          },
+          {
+            "title": "Fiori Fundamentals Github Repo",
+            "image": {
+              "src": "/img/card/fundamental_github.png",
+              "width": "395",
+              "height": "238"
+            },
+            "description": "Get the latest Fiori 3.0 component library and SASS toolkit.",
+            "action": "read more",
+            "url": "http://www.sap.com"
+          }
+        ]
+      },
+      {
+        "type": "angular",
+        "title": "angular",
+        "data": [
+          {
+            "title": "Getting started with Angular",
+            "image": {
+              "src": "/img/card/angular_started.png",
+              "width": "395",
+              "height": "238"
+            },
+            "description": "Learn how to build Fiori apps using Angular.",
+            "action": "read more",
+            "url": "http://www.sap.com"
+          },
+          {
+            "title": "Angular Github Repo",
+            "image": {
+              "src": "/img/card/angular_github.png",
+              "width": "395",
+              "height": "238"
+            },
+            "description": "Get the latest Angular components implementation of Fiori Fundamentals.",
+            "action": "read more",
+            "url": "http://www.sap.com"
+          }
+        ]
+      },
+      {
+        "type": "react",
+        "title": "react",
+        "data": [
+          {
+            "title": "Getting started with React",
+            "image": {
+              "src": "/img/card/react_started.png",
+              "width": "395",
+              "height": "238"
+            },
+            "description": "Learn how to build Fiori apps using React.",
+            "action": "read more",
+            "url": "http://www.sap.com"
+          },
+          {
+            "title": "React Github Repo",
+            "image": {
+              "src": "/img/card/react_github.png",
+              "width": "395",
+              "height": "238"
+            },
+            "description": "Get the latest React components implementation of Fiori Fundamentals.",
+            "action": "read more",
+            "url": "http://www.sap.com"
+          }
+        ]
+      },
+      {
+        "type": "ios",
+        "title": "Fiori for iOS",
+        "data": [
+          {
+            "title": "Fiori for iOS Mentor",
+            "image": {
+              "src": "/img/card/ios_mentor.png",
+              "width": "395",
+              "height": "238"
+            },
+            "description": "Learn and customize Fiori for iOS controls and transfer to your Xcode project.",
+            "action": "read more",
+            "url": "http://www.sap.com"
+          },
+          {
+            "title": "SAP Cloud Platform SDK for iOS",
+            "image": {
+              "src": "/img/card/ios_sdk.png",
+              "width": "395",
+              "height": "238"
+            },
+            "description": "Use the SAP Cloud Platform SDK for iOS to develop native apps with Swift.",
+            "action": "read more",
+            "url": "http://www.sap.com"
+          }
+        ]
+      },
+      {
+        "type": "android",
+        "title": "Fiori for Andoid",
+        "data": [
+          {
+            "title": "Fiori for Android Mentor",
+            "image": {
+              "src": "/img/card/android_mentor.png",
+              "width": "395",
+              "height": "238"
+            },
+            "description": "Learn and customize Fiori for Android controls.",
+            "action": "read more",
+            "url": "http://www.sap.com"
+          },
+          {
+            "title": "SAP Cloud Platform SDK for Android",
+            "image": {
+              "src": "/img/card/android_sdk.png",
+              "width": "395",
+              "height": "238"
+            },
+            "description": "Use the SAP Cloud Platform SDK for Android to develop native Android apps.",
+            "action": "read more",
+            "url": "http://www.sap.com"
+          }
+        ]
+      }
+    ]
+  }
+]
