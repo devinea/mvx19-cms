@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import HamburgerButton from './../Hamburger/Button';
+import SearchButton from './../SearchNew/Button';
+import SearchInput from './../SearchNew/Input';
 import Container from './../Container';
 import HeaderLink from './HeaderLink';
 import { sectionListHeaderLinks } from '../../../utils/sectionList';
-import { colors, media } from '../theme';
+import { colors, header, media } from '../theme';
 
 import logoSvg from './../../img/logo.svg';
 
@@ -35,17 +37,24 @@ class Header extends React.Component {
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'space-between',
-              height: 60
+              height: header.height,
+              position: 'relative'
             }}
           >
             <div
               css={{
-                display: 'flex',
+                display: 'block',
                 flexDirection: 'row',
                 alignItems: 'stretch',
                 overflowX: 'auto',
                 overflowY: 'hidden',
-                height: '100%'
+                height: '100%',
+                position: 'relative',
+                left: 0,
+                transition: 'left 0.3s',
+                ...(this.props.searchButtonActive && {
+                  left: '-300px'
+                })
               }}
             >
               <HamburgerButton
@@ -75,32 +84,61 @@ class Header extends React.Component {
                 </span>
               </Link>
             </div>
-            <nav
+            <div
               css={{
-                display: 'flex',
+                display: 'block',
                 flexDirection: 'row',
                 alignItems: 'stretch',
                 overflowX: 'auto',
                 overflowY: 'hidden',
                 height: '100%',
-                [media.lessThan('large')]: {
-                  display: 'none'
-                }
+                opacity: 1,
+                transition: 'opacity 0.3s',
+                ...(this.props.searchOn && {
+                  opacity: 0
+                })
               }}
             >
-              {sectionListHeaderLinks.map(section => {
-                const defaultItem = section.items;
-                return (
-                  <HeaderLink
-                    isActive={location.pathname.includes(defaultItem[0].id) || location.hash.includes(defaultItem[0].id)}
-                    title={section.title}
-                    to={defaultItem[1].url}
-                    key={defaultItem[0].id}
-                  />
-                );
-              })}
-            </nav>
+              <nav
+                css={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  alignItems: 'stretch',
+                  overflowX: 'auto',
+                  overflowY: 'hidden',
+                  height: '100%',
+                  opacity: 1,
+                  [media.lessThan('large')]: {
+                    display: 'none'
+                  },
+                  transition: 'opacity 0.5s',
+                  ...(this.props.searchButtonActive && {
+                    opacity: 0
+                  })
+                }}
+              >
+                {sectionListHeaderLinks.map(section => {
+                  const defaultItem = section.items;
+                  return (
+                    <HeaderLink
+                      isActive={location.pathname.includes(defaultItem[0].id) || location.hash.includes(defaultItem[0].id)}
+                      title={section.title}
+                      to={defaultItem[1].url}
+                      key={defaultItem[0].id}
+                    />
+                  );
+                })}
+                <SearchButton
+                  onPress={this.props.onSearchButton}
+                  active={this.props.searchButtonActive}
+                />
+              </nav>
+            </div>
           </div>
+          <SearchInput
+            active={this.props.searchButtonActive}
+            onClose={this.props.onSearchButton}
+          />
         </Container>
       </header>
     );
