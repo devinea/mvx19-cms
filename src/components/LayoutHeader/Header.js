@@ -43,7 +43,7 @@ class Header extends React.Component {
           >
             <div
               css={{
-                display: 'block',
+                display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'stretch',
                 overflowX: 'auto',
@@ -53,7 +53,7 @@ class Header extends React.Component {
                 left: 0,
                 transition: 'left 0.3s',
                 ...(this.props.searchButtonActive && {
-                  left: '-150px'
+                  left: '-180px'
                 })
               }}
             >
@@ -108,15 +108,26 @@ class Header extends React.Component {
                   overflowY: 'hidden',
                   height: '100%',
                   opacity: 1,
-                  [media.lessThan('large')]: {
-                    display: 'none'
-                  },
+
                   transition: 'opacity 0.5s',
                   ...(this.props.searchButtonActive && {
                     opacity: 0
                   })
                 }}
               >
+                <div
+                  css={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'stretch',
+                    overflowX: 'auto',
+                    overflowY: 'hidden',
+                    height: '100%',
+                    [media.lessThan('large')]: {
+                      display: 'none'
+                    }
+                  }}
+                >
                 {sectionListHeaderLinks.map(section => {
                   const defaultItem = section.items;
                   return (
@@ -128,6 +139,7 @@ class Header extends React.Component {
                     />
                   );
                 })}
+                </div>
                 <SearchButton
                   onPress={this.props.onSearchButton}
                   active={this.props.searchButtonActive}

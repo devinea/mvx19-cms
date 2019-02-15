@@ -57,6 +57,12 @@ class SearchInput extends Component {
             margin: '0 auto',
             textAlign: 'right',
             position: 'relative',
+            [media.lessThan('medium')]: {
+              maxWidth: media.getSize('small').width
+            },
+            [media.greaterThan('medium')]: {
+              maxWidth: media.getSize('medium').width
+            },
             [media.greaterThan('large')]: {
               maxWidth: media.getSize('large').width
             },
