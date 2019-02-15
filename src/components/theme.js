@@ -19,6 +19,7 @@ const colors = {
   grey_500: '#6D6D6D',
   grey_550: '#838383',
   grey_600: '#656565',
+  grey_625: '#696969',
   grey_650: '#5C5C5C',
   grey_700: '#515151',
   grey_750: '#4F4F4F',
@@ -30,7 +31,9 @@ const colors = {
   blue_500: '#2B3845'
 };
 
-
+const header = {
+  height: 64
+}
 
 const SIZES = {
   small: { min: 0, max: 599, width: 304 },
@@ -276,4 +279,4 @@ const sharedStyles = {
   }
 };
 
-export { colors, media, sharedStyles };
+export { colors, header, media, sharedStyles };

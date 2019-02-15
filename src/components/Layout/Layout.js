@@ -6,7 +6,7 @@ import Footer from '../LayoutFooter';
 import Header from '../LayoutHeader';
 import HamburgerMenu from './../Hamburger/Menu';
 
-import { media } from '../theme';
+import { header, media } from '../theme';
 
 class Layout extends React.Component {
   constructor(props) {
@@ -14,11 +14,13 @@ class Layout extends React.Component {
 
     this.state = {
       menuToggle: false,
+      searchToggle: false,
       hasScroll: false
     };
     this.mediaQueryListener = null;
     this.onMatchMQ = mediaQueryListener => this._onMatchMQ(mediaQueryListener);
     this.toggleMenu = toggle => this._toggleMenu(toggle);
+    this.toggleSearch = toggle => this._toggleSearch(toggle);
   }
 
   componentDidMount = () => {
@@ -68,6 +70,10 @@ class Layout extends React.Component {
     });
   }
 
+  _toggleSearch(toggle) {
+    this.setState({ searchToggle: toggle });
+  }
+
   render() {
     const { children, location } = this.props;
 
@@ -84,6 +90,8 @@ class Layout extends React.Component {
           location={location}
           onHamburgerButton={this.toggleMenu}
           hamburgerButtonActive={this.state.menuToggle}
+          onSearchButton={this.toggleSearch}
+          searchButtonActive={this.state.searchToggle}
           hasScroll={this.state.hasScroll}
         />
         <HamburgerMenu active={this.state.menuToggle} />
@@ -94,7 +102,7 @@ class Layout extends React.Component {
           overflow='auto'
           valign='stretch'
           css={{
-            marginTop: 60
+            marginTop: header.height
           }}
         >
           {children}
