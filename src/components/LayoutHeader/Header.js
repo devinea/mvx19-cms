@@ -53,7 +53,7 @@ class Header extends React.Component {
                 left: 0,
                 transition: 'left 0.3s',
                 ...(this.props.searchButtonActive && {
-                  left: '-300px'
+                  left: '-150px'
                 })
               }}
             >

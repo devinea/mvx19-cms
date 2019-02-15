@@ -21,6 +21,7 @@ class SearchButton extends Component {
           height: header.height,
           float: 'right',
           overflow: 'hidden',
+          backgroundColor: 'transparent',
           transition: 'width 0.3s',
           '-webkit-backface-visibility': 'hidden'
         }}
@@ -36,6 +37,7 @@ class SearchButton extends Component {
             fontFamily: 'SAP-icons',
             fontSize: 18,
             color: colors.grey_625,
+            backgroundColor: 'transparent',
             '::before': {
               content: 'attr(data-sap-ui-icon-content)'
             }

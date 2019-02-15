@@ -44,7 +44,7 @@ class SearchInput extends Component {
           width: 'calc(100% - 40px)',
           top: 0,
           zIndex: -1,
-          transition: 'opacity 0.5s',
+          transition: 'opacity 0.3s',
           opacity: 0,
           ...(this.props.active && {
             zIndex: 10,
@@ -79,7 +79,7 @@ class SearchInput extends Component {
               height: 40,
               marginTop: 12,
               marginRight: 30,
-              transition: 'width 1s',
+              transition: 'width 0.6s',
               outline: 'none',
               color: colors.grey_625,
               backgroundImage: 'url(' + searchIcon + ')',
@@ -87,7 +87,6 @@ class SearchInput extends Component {
               backgroundPosition: '15px 50%',
               backgroundSize: '16px 16px',
               ...(this.props.active && {
-                //width: '100%'
                 width: 'calc(100% - 30px)'
               })
             }}
