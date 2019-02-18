@@ -18,6 +18,14 @@ const ResourcesList = props => (
       direction='column'
       css={{
         margin: '0 auto',
+        [media.greaterThan('small')]: {
+          minWidth: media.getSize('small').width,
+          maxWidth: media.getSize('small').width
+        },
+        [media.greaterThan('medium')]: {
+          minWidth: media.getSize('medium').width,
+          maxWidth: media.getSize('medium').width
+        },
         [media.greaterThan('large')]: {
           minWidth: media.getSize('large').width,
           maxWidth: media.getSize('large').width
@@ -32,6 +40,12 @@ const ResourcesList = props => (
         css={{
           paddingTop: 50,
           width: '100%',
+          [media.greaterThan('small')]: {
+            padding: '0 64px'
+          },
+          [media.greaterThan('medium')]: {
+            padding: '0 68px'
+          },
           [media.greaterThan('large')]: {
             padding: '0 71px'
           },

@@ -10,29 +10,30 @@ class SearchInput extends Component {
 
     this.searchInput = React.createRef();
     this.state = {
-      value: '',
-      isFocused: false
+      value: ''
     };
     this.handleChange = e => this._handleChange(e);
-
-    this.focusSearchInput = this._focusSearchInput.bind(this);
   }
 
-  componentDidUpdate = (nextProps, nextState) => {
-    this.focusSearchInput();
+  componentDidUpdate = prevprops => {
+    if (this.props.active !== prevprops.active) {
+      if (this.props.active) {
+        this.searchInput.current.focus();
+      } else {
+        this.searchInput.current.blur();
+      }
+      this.setState({ value: '' });
+    }
   };
 
   _handleChange = e => {
     this.setState({ value: e.target.value });
   };
 
-  _focusSearchInput = () => {
-    this.searchInput.current.focus();
-  };
-
-  _setActiveState = event => {
+  _onCloseSearch = event => {
     this.props.onClose(!this.props.active);
   };
+
 
   render() {
     return (
@@ -113,7 +114,7 @@ class SearchInput extends Component {
               cursor: 'pointer',
               display: 'inline-block'
             }}
-            onClick={this._setActiveState}
+            onClick={this._onCloseSearch}
           />
         </div>
       </div>

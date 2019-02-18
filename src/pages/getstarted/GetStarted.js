@@ -17,6 +17,10 @@ class GetStarted extends React.Component {
           direction='column'
           css={{
             margin: '0 auto',
+            [media.greaterThan('medium')]: {
+              minWidth: media.getSize('medium').width,
+              maxWidth: media.getSize('medium').width
+            },
             [media.greaterThan('large')]: {
               minWidth: media.getSize('large').width,
               maxWidth: media.getSize('large').width
