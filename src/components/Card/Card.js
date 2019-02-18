@@ -9,6 +9,12 @@ const Card = props => (
       width: '100%',
       display: 'inline-block',
       verticalAlign: 'top',
+      [media.greaterThan('small')]: {
+        maxWidth: 304
+      },
+      [media.greaterThan('medium')]: {
+        maxWidth: 392
+      },
       [media.greaterThan('large')]: {
         maxWidth: 331
       },
@@ -23,7 +29,7 @@ const Card = props => (
         backgroundColor: colors.gray_300,
         backgroundImage: `url( ${props.data.image.src} )`,
         backgroundRepeat: 'no-repeat',
-        backgroundPosition: '50% 50%',
+        backgroundPosition: 'left',
         backgroundAttachment: 'local',
         backgroundSize: 'cover',
         borderTopLeftRadius: 10,

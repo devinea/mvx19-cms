@@ -9,6 +9,9 @@ const DescriptionList = props => (
     css={{
       paddingTop: 50,
       width: '100%',
+      [media.greaterThan('medium')]: {
+        padding: '0 68px 80px'
+      },
       [media.greaterThan('large')]: {
         padding: '0 71px 80px'
       },
