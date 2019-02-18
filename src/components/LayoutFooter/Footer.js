@@ -44,7 +44,7 @@ const Footer = props => (
               fontWeight: 700,
               fontSize: 12,
               ':hover': {
-                color: colors.gray_500
+                color: colors.blue_600
               }
             }} href={`mailto:${props.data.site.siteMetadata.contact.email}`}>Email</a> us
             or <FooterLink to={`/contribute`}>Contribute</FooterLink> to make Fiori better.

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Link } from 'gatsby';
-import { colors } from '../theme';
+import { colors, media } from '../theme';
 
 class HeaderLink extends React.Component {
   constructor(props) {
@@ -32,29 +32,37 @@ class HeaderLink extends React.Component {
           alignItems: 'center',
           color: colors.gray_500,
           transition: 'color 0.2s ease-out',
-          paddingLeft: 15,
-          paddingRight: 15,
-          fontWeight: 300,
+          [media.greaterThan('large')]: {
+            marginRight: 50
+          },
+          [media.greaterThan('xlarge')]: {
+            marginRight: 70
+          },
+          fontWeight: 500,
           fontSize: 14,
           textDecoration: 'none',
           ':focus': {
             outline: 0,
-            color: colors.gray_500
+            color: colors.blue_600
+          },
+          ':hover': {
+            color: colors.blue_600
           },
           ...(this.props.isActive && {
-            fontWeight: 500
+            color: colors.blue_600
           })
         }}
         to={this.props.to}
       >
         {this.props.title}
-        {(this.props.isActive || this.state.hover) && (
+        {this.props.isActive && (
           <span
             css={{
               position: 'absolute',
               bottom: 2,
               height: 2,
-              background: colors.gray_600,
+              background: colors.blue_600,
+              color: colors.blue_600,
               left: 0,
               right: 0,
               zIndex: 1
