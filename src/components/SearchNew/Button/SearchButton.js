@@ -36,7 +36,7 @@ class SearchButton extends Component {
             cursor: 'pointer',
             fontFamily: 'SAP-icons',
             fontSize: 18,
-            color: colors.grey_625,
+            color: colors.gray_500,
             backgroundColor: 'transparent',
             '::before': {
               content: 'attr(data-sap-ui-icon-content)'

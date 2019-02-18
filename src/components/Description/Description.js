@@ -37,7 +37,7 @@ const Description = props => (
           fontWeight: 700,
           lineHeight: '27px',
           paddingBottom: 12,
-          color: colors.grey_650
+          color: colors.gray_600
         }}
       >
         {props.title}
@@ -48,7 +48,7 @@ const Description = props => (
           fontWeight: 300,
           lineHeight: '22px',
           paddingBottom: 20,
-          color: colors.grey_350
+          color: colors.gray_300
         }}
       >
         {props.description}
@@ -58,7 +58,7 @@ const Description = props => (
           fontSize: 14,
           fontWeight: 300,
           lineHeight: '16px',
-          color: colors.grey_350
+          color: colors.gray_300
         }}
       >
         {props.read}

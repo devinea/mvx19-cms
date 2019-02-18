@@ -6,14 +6,14 @@ const ExternalFooterLink = ({ children, href, target, rel }) => (
   <a
     css={{
       lineHeight: '20px',
-      color: colors.grey_450,
+      color: colors.gray_300,
       fontSize: 12,
       whiteSpace: 'nowrap',
       ':not(:last-child)': {
           paddingRight: 30,
       },
       ':hover': {
-        color: colors.lighter
+        color: colors.gray_700
       },
       [media.size('small')]: {
         marginTop: 10

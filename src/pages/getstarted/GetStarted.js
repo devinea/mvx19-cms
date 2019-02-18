@@ -33,7 +33,7 @@ class GetStarted extends React.Component {
               width: '100%',
               fontSize: 46,
               fontWeight: 700,
-              color: colors.grey_750,
+              color: colors.gray_600,
               marginTop: 100,
               marginBottom: 105
             }}

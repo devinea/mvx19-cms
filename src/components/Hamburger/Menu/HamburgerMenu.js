@@ -41,7 +41,7 @@ class HamburgerMenu extends React.Component {
                 key={defaultItem[0].id}
                 css={{
                   padding: 20,
-                  borderTopColor: colors.gray,
+                  borderTopColor: colors.gray_200,
                   borderTopStyle: 'solid',
                   borderTopWidth: 1
                 }}

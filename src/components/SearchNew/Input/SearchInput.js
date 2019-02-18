@@ -79,7 +79,7 @@ class SearchInput extends Component {
             css={{
               width: 0,
               border: 'none',
-              backgroundColor: colors.grey_200,
+              backgroundColor: colors.gray_100,
               borderRadius: 20,
               padding: '5px 20px 5px 40px',
               height: 40,
@@ -87,7 +87,7 @@ class SearchInput extends Component {
               marginRight: 30,
               transition: 'width 0.6s',
               outline: 'none',
-              color: colors.grey_625,
+              color: colors.gray_500,
               backgroundImage: 'url(' + searchIcon + ')',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: '15px 50%',

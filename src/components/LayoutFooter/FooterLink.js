@@ -7,11 +7,11 @@ const FooterLink = ({ children, target, to }) => (
   <Link
     css={{
       lineHeight: '20px',
-      color: colors.grey_900,
+      color: colors.gray_700,
       fontWeight: 700,
       fontSize: 12,
       ':hover': {
-        color: colors.grey_600
+        color: colors.gray_500
       }
     }}
     to={to}
