@@ -1,34 +1,21 @@
 const colors = {
-  lighter: '#373940',
-  gray: '#d8d8d8',
-  text: '#515151',
-  subtle: '#6d6d6d',
-  subtleOnDark: '#999',
-  divider: '#ececec',
-  note: '#ffe564',
+  white: '#FFFFFF',
+  black: '#000000',
 
-  white:    '#FFFFFF',
-  grey_100: '#ECECEC',
-  grey_150: '#E5E5E5',
-  grey_200: '#EDEFF0',
-  grey_250: '#D3D3D3',
-  grey_300: '#D8D8D8',
-  grey_350: '#A1A1A1',
-  grey_400: '#999999',
-  grey_450: '#9B9B9B',
-  grey_500: '#6D6D6D',
-  grey_550: '#838383',
-  grey_600: '#656565',
-  grey_625: '#696969',
-  grey_650: '#5C5C5C',
-  grey_700: '#515151',
-  grey_750: '#4F4F4F',
-  grey_800: '#373940',
-  grey_900: '#383838',
-  black:    '#000000',
+  blue_300: '#0A6ED1',
+  blue_600: '#427CAC',
+  blue_800: '#354A5F',
+  blue_900: '#2B3845',
 
-  blue_400: '#354A5F',
-  blue_500: '#2B3845'
+  gray_100: '#EEEEEF',
+  gray_200: '#E1E4E9',
+  gray_300: '#B7BAC2',
+  gray_400: '#A7ABB4',
+  gray_500: '#6F7275',
+  gray_600: '#515559',
+  gray_700: '#32363A',
+
+  yellow_500: '#ffe564'
 };
 
 const header = {
@@ -87,11 +74,11 @@ const media = {
 const linkStyle = {
   backgroundColor: colors.white,
   borderBottom: `1px solid ${colors.black}`,
-  color: colors.text,
+  color: colors.gray_600,
 
   ':hover': {
     backgroundColor: colors.white,
-    borderBottomColor: colors.text
+    borderBottomColor: colors.gray_600
   }
 };
 
@@ -113,7 +100,7 @@ const sharedStyles = {
     '& > p:first-of-type': {
       fontSize: 18,
       fontWeight: 300,
-      color: colors.subtle,
+      color: colors.gray_500,
 
       '& a, & strong': {
         fontWeight: 400
@@ -124,7 +111,7 @@ const sharedStyles = {
       marginTop: 30,
       fontSize: 17,
       lineHeight: 1.7,
-      color: colors.subtle,
+      color: colors.gray_500,
 
       '&:first-of-type': {
         marginTop: 15
@@ -140,8 +127,8 @@ const sharedStyles = {
     },
 
     '& p > code, & li > code': {
-      background: colors.note,
-      color: colors.text
+      background: colors.yellow_500,
+      color: colors.gray_600
     },
 
     '& p > code, & li > code, & p > a > code, & li > a > code': {
@@ -154,7 +141,7 @@ const sharedStyles = {
       height: 1,
       marginBottom: -1,
       border: 'none',
-      borderBottom: `1px solid ${colors.divider}`,
+      borderBottom: `1px solid ${colors.gray_200}`,
       marginTop: 40,
 
       ':first-of-type': {
@@ -168,7 +155,7 @@ const sharedStyles = {
     },
 
     '& h2': {
-      borderTop: `1px solid ${colors.divider}`,
+      borderTop: `1px solid ${colors.gray_200}`,
       marginTop: 44,
       paddingTop: 40,
       lineHeight: 1.2,
@@ -195,7 +182,7 @@ const sharedStyles = {
 
     '& h4': {
       fontSize: 20,
-      color: colors.subtle,
+      color: colors.gray_500,
       lineHeight: 1.3,
       marginTop: 50,
       fontWeight: 400
@@ -206,15 +193,15 @@ const sharedStyles = {
     },
 
     '& table': {
-      color: colors.subtle,
+      color: colors.gray_500,
     },
 
     '& ol, & ul': {
       marginTop: 20,
       fontSize: 16,
-      color: colors.text,
+      color: colors.gray_600,
       paddingLeft: 20,
-      color: colors.subtle,
+      color: colors.gray_500,
 
       '& p, & p:first-of-type': {
         fontSize: 16,
@@ -249,8 +236,8 @@ const sharedStyles = {
     },
 
     '& blockquote': {
-      backgroundColor: '#ffe564',
-      borderLeftColor: colors.note,
+      backgroundColor: colors.yellow_500,
+      borderLeftColor: colors.yellow_500,
       borderLeftWidth: 9,
       borderLeftStyle: 'solid',
       padding: '20px 45px 20px 26px',

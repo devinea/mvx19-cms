@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { media } from '../../theme';
+import { media, colors } from '../../theme';
 
 class HamburgerButton extends Component {
   constructor(props) {
@@ -40,7 +40,7 @@ class HamburgerButton extends Component {
             height: 2,
             width: 18,
             top: 30,
-            backgroundColor: '#212121',
+            backgroundColor: colors.gray_700,
             ...(this.props.active && {
               transitionDuration: '0.3s',
               background: 'transparent'
@@ -50,7 +50,7 @@ class HamburgerButton extends Component {
               position: 'absolute',
               width: 18,
               height: 2,
-              backgroundColor: '#212121',
+              backgroundColor: colors.gray_700,
               content: `''`,
               top: -6,
               ...(this.props.active && {
@@ -63,7 +63,7 @@ class HamburgerButton extends Component {
               position: 'absolute',
               width: 18,
               height: 2,
-              backgroundColor: '#212121',
+              backgroundColor: colors.gray_700,
               content: `''`,
               top: 6,
               ...(this.props.active && {

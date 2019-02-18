@@ -20,7 +20,7 @@ const Card = props => (
   >
     <div
       css={{
-        backgroundColor: colors.grey_350,
+        backgroundColor: colors.gray_300,
         backgroundImage: `url( ${props.data.image.src} )`,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '50% 50%',
@@ -34,7 +34,7 @@ const Card = props => (
     />
     <div
       css={{
-        backgroundColor: colors.blue_500,
+        backgroundColor: colors.blue_900,
         borderBottomLeftRadius: 10,
         borderBottomRightRadius: 10,
         height: 238,
@@ -91,7 +91,7 @@ const Card = props => (
           width: '100%',
           position: 'absolute',
           bottom: 0,
-          color: colors.grey_550
+          color: colors.gray_400
         }}
       >
         <Link
@@ -106,7 +106,7 @@ const Card = props => (
               fontSize: 14,
             },
             ':hover': {
-              color: colors.grey_600
+              color: colors.gray_500
             }
           }}
           to={props.data.url}

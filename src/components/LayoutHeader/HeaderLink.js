@@ -30,7 +30,7 @@ class HeaderLink extends React.Component {
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
-          color: colors.grey_625,
+          color: colors.gray_500,
           transition: 'color 0.2s ease-out',
           paddingLeft: 15,
           paddingRight: 15,
@@ -39,7 +39,7 @@ class HeaderLink extends React.Component {
           textDecoration: 'none',
           ':focus': {
             outline: 0,
-            color: colors.grey_625
+            color: colors.gray_500
           },
           ...(this.props.isActive && {
             fontWeight: 500
@@ -54,7 +54,7 @@ class HeaderLink extends React.Component {
               position: 'absolute',
               bottom: 2,
               height: 2,
-              background: colors.text,
+              background: colors.gray_600,
               left: 0,
               right: 0,
               zIndex: 1

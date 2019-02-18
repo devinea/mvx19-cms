@@ -22,7 +22,7 @@ const DescriptionList = props => (
         width: '100%',
         fontSize: 35,
         fontWeight: 700,
-        color: colors.grey_750,
+        color: colors.gray_600,
         marginBottom: 50
       }}
     >

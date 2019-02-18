@@ -37,20 +37,20 @@ const Footer = props => (
             marginBottom: 16
           }}
         >
-          <div css={{ color: colors.grey_900, fontSize: 12 }}>
+          <div css={{ color: colors.gray_700, fontSize: 12 }}>
             Have questions or ideas? <a css={{
               lineHeight: '20px',
-              color: colors.grey_900,
+              color: colors.gray_700,
               fontWeight: 700,
               fontSize: 12,
               ':hover': {
-                color: colors.grey_600
+                color: colors.gray_500
               }
             }} href={`mailto:${props.data.site.siteMetadata.contact.email}`}>Email</a> us
             or <FooterLink to={`/contribute`}>Contribute</FooterLink> to make Fiori better.
           </div>
           <div>
-            <span css={{ color: colors.grey_900, fontSize: 12 }}>
+            <span css={{ color: colors.gray_700, fontSize: 12 }}>
               © Copyright SAP {new Date().getFullYear()}
             </span>
           </div>
@@ -66,7 +66,7 @@ const Footer = props => (
         direction='row'
         wrap='wrap'
         css={{
-          borderTopColor: colors.grey_250,
+          borderTopColor: colors.gray_200,
           borderTopWidth: 1,
           borderTopStyle: 'solid'
         }}
@@ -92,7 +92,7 @@ const Footer = props => (
           >
             <span
               css={{
-                color: colors.grey_600,
+                color: colors.gray_500,
                 fontWeight: 400,
                 paddingRight: 10,
                 fontSize: 14,

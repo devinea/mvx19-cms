@@ -9,7 +9,7 @@ const ResourcesList = props => (
   <div
     css={{
       width: '100%',
-      backgroundColor: colors.blue_400,
+      backgroundColor: colors.blue_800,
       paddingBottom: 100,
       marginBottom: 50
     }}
@@ -45,7 +45,7 @@ const ResourcesList = props => (
             width: '100%',
             fontSize: 35,
             fontWeight: 700,
-            color: colors.grey_150,
+            color: colors.gray_100,
             marginBottom: 0,
             marginTop: 88
           }}
@@ -65,7 +65,7 @@ const ResourcesList = props => (
                 css={{
                   fontSize: 35,
                   fontWeight: 300,
-                  color: colors.grey_150,
+                  color: colors.gray_100,
                   padding: '33px 0 46px 0'
                 }}
               >{category.title}</div>

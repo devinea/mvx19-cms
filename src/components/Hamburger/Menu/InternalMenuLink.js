@@ -7,11 +7,11 @@ const InternalMenuLink = ({ children, target, to }) => (
   <Link
     css={{
       lineHeight: 2,
-      color: colors.text,
+      color: colors.gray_600,
       fontSize: 18,
       fontWeight: 'normal',
       ':hover': {
-        color: colors.lighter
+        color: colors.gray_700
       }
     }}
     to={to}
