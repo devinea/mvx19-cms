@@ -11,7 +11,7 @@ const FooterLink = ({ children, target, to }) => (
       fontWeight: 700,
       fontSize: 12,
       ':hover': {
-        color: colors.gray_500
+        color: colors.blue_600
       }
     }}
     to={to}

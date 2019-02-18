@@ -13,7 +13,7 @@ const ExternalFooterLink = ({ children, href, target, rel }) => (
           paddingRight: 30,
       },
       ':hover': {
-        color: colors.gray_700
+        color: colors.blue_600
       },
       [media.size('small')]: {
         marginTop: 10
