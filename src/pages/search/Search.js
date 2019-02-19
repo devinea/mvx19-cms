@@ -141,7 +141,7 @@ class Search extends React.Component {
   }
 }
 
-export default () => (
+const searchQuery = props => (
   <StaticQuery
     query={graphql`
       query {
@@ -150,6 +150,8 @@ export default () => (
         }
       }
     `}
-    render={data => <Search data={data} location={location} />}
+    render={data => <Search data={data} location={props.location} />}
   />
 );
+
+export default searchQuery;
