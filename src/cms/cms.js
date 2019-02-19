@@ -79,3 +79,25 @@ CMS.registerEditorComponent({
     // }
   });
 CMS.registerWidget("fileSelect", FileSystemControl);
+
+CMS.registerEditorComponent({
+  // Internal id of the component
+  id: "template",
+  // Visible label
+  label: "Template",
+  // Pattern to identify a block as being an instance of this component
+  pattern: /^vimeo (\S+)$/,
+  // Function to extract data elements from the regexp match
+  // Function to create a text block from an instance of this component
+  toBlock: function(obj) {
+  //return "`vimeo: https://vimeo.com/" +obj.id+ "`";
+  return  'Heading1';
+  }
+  // Preview output for this component. Can either be a string or a React component
+  // (component gives better render performance)
+  // toPreview: function(obj) {
+  //   return (
+  //     '<img src="http://img.vimeo.com/vi/' + obj.id + '/maxresdefault.jpg" alt="Vimeo Video"/>'
+  //   );
+  // }
+});

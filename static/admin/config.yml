@@ -76,7 +76,7 @@ collections:
       - {label: "Featured Image", name: "featuredImage", widget: "image", tagname: ''}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Body", name: "body", widget: "markdown", default: "testing"}
       - {label: "Tags", name: "tags", widget: "list"}
       - {label: "Fundamentals Docs Path", name: "fundamentalsFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental/components", required: false}
       - {label: "Angular Docs Path", name: "angularFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental-ngx", required: false}
