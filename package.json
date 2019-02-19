@@ -24,17 +24,18 @@
         "gatsby-remark-relative-images": "^0.2.0",
         "gatsby-remark-responsive-iframe": "^2.0.8",
         "gatsby-source-filesystem": "^2.0.12",
+        "gatsby-transformer-json": "^2.1.8",
         "gatsby-transformer-remark": "^2.1.15",
         "gatsby-transformer-sharp": "^2.1.9",
         "lodash": "^4.17.5",
         "lodash-webpack-plugin": "^0.11.4",
-        "netlify-cms": "^2.4.1",
+        "netlify-cms": "^2.4.2",
         "node-sass": "^4.11.0",
         "normalize.css": "^8.0.1",
         "parcel-bundler": "^1.9.4",
         "prop-types": "^15.6.0",
-        "react": "^16.2.0",
-        "react-dom": "^16.4.1",
+        "react": "^16.8.2",
+        "react-dom": "^16.8.2",
         "react-dropdown": "^1.6.4",
         "react-helmet": "^5.2.0",
         "uuid": "^3.2.1"
@@ -56,7 +57,8 @@
         "cypress": "CI=1 cypress install --force && cypress verify",
         "test": "start-test serve 9000 cy:run",
         "deploy": "npm run cypress && npm run build && npm test",
-        "cy:run": "cypress run"
+        "cy:run": "cypress run",
+        "unit": "jest"
     },
     "devDependencies": {
         "babel-eslint": "^10.0.1",
@@ -72,6 +74,12 @@
         "prettier": "^1.16.1",
         "prettier-eslint": "^8.8.2",
         "rimraf": "^2.6.3",
-        "start-server-and-test": "^1.7.11"
+        "start-server-and-test": "^1.7.11",
+        "babel-jest": "^24.0.0",
+        "babel-preset-gatsby": "^0.1.6",
+        "identity-obj-proxy": "^3.0.0",
+        "jest": "^24.0.0",
+        "jest-dom": "^3.0.0",
+        "react-testing-library": "^5.4.4"
     }
 }
