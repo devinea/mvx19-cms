@@ -14,11 +14,21 @@ const Footer = props => (
   <footer
     css={{
       margin: '0 auto',
+      [media.greaterThan('small')]: {
+        minWidth: media.getSize('small').width,
+        maxWidth: media.getSize('small').width
+      },
+      [media.greaterThan('medium')]: {
+        minWidth: media.getSize('medium').width,
+        maxWidth: media.getSize('medium').width
+      },
       [media.greaterThan('large')]: {
-        minWidth: media.getSize('large').width
+        minWidth: media.getSize('large').width,
+        maxWidth: media.getSize('large').width
       },
       [media.greaterThan('xlarge')]: {
-        minWidth: media.getSize('xlarge').width
+        minWidth: media.getSize('xlarge').width,
+        maxWidth: media.getSize('xlarge').width
       }
     }}
   >
@@ -37,17 +47,33 @@ const Footer = props => (
             marginBottom: 16
           }}
         >
-          <div css={{ color: colors.gray_700, fontSize: 12 }}>
-            Have questions or ideas? <a css={{
-              lineHeight: '20px',
+          <div
+            css={{
               color: colors.gray_700,
-              fontWeight: 700,
               fontSize: 12,
-              ':hover': {
-                color: colors.blue_600
+              [media.size('small')]: {
+                flexDirection: 'column',
+                maxWidth: 144
               }
-            }} href={`mailto:${props.data.site.siteMetadata.contact.email}`}>Email</a> us
-            or <FooterLink to={`/contribute`}>Contribute</FooterLink> to make Fiori better.
+            }}
+          >
+            Have questions or ideas?{' '}
+            <a
+              css={{
+                lineHeight: '20px',
+                color: colors.gray_700,
+                fontWeight: 700,
+                fontSize: 12,
+                ':hover': {
+                  color: colors.blue_600
+                }
+              }}
+              href={`mailto:${props.data.site.siteMetadata.contact.email}`}
+            >
+              Email
+            </a>{' '}
+            us or <FooterLink to={`/contribute`}>Contribute</FooterLink> to make
+            Fiori better.
           </div>
           <div>
             <span css={{ color: colors.gray_700, fontSize: 12 }}>
@@ -85,6 +111,7 @@ const Footer = props => (
             css={{
               display: 'flex',
               marginRight: 10,
+              marginBottom: 10,
               height: '100%',
               alignItems: 'center'
             }}
@@ -111,17 +138,19 @@ const Footer = props => (
               overflowX: 'auto',
               overflowY: 'hidden',
               height: '100%',
+              [media.size('small') && media.size('medium')]: {
+                width: '100%',
+                justifyContent: 'space-between'
+              },
               [media.size('small')]: {
-                flexDirection: 'column'
+                flexDirection: 'column',
+                maxWidth: 144
               }
             }}
           >
             {props.data.site.siteMetadata.footer.links.map(link => {
               return (
-                <ExternalFooterLink
-                  href={link.url}
-                  key={link.id}
-                >
+                <ExternalFooterLink href={link.url} key={link.id} css={{}}>
                   {link.title}
                 </ExternalFooterLink>
               );
