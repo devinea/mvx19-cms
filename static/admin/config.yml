@@ -15,7 +15,7 @@ collections:
     label: "Fiori Web"
     folder: "src/pages/designguideline"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{fields.version}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "design-guideline-post"}
       - {label: "Title", name: "title", widget: "string"}
@@ -37,11 +37,39 @@ collections:
           - {label: "Level 2", name: "l2", widget: "number", default: 1}
           - {label: "Level 3", name: "l3", widget: "number", default: 0}
           - {label: "Level 4", name: "l4", widget: "number", default: 0}
+  - name: "webleftnav"
+    label: "Fiori Web left Navigation"
+    folder: "src/pages/left/nav"
+    create: true
+    slug: "{{field.version}}-{{field.title}}"
+    identifier_field: version
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "web-left-nav"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Version No.", name: "version", widget: "select", options: ["1.01", "1.02", "1.03","1.04", "1.05"]}
+      - label: 'Menu Item'
+        name: 'menuitemtop'
+        widget: 'relation'
+        collection: 'fioriwebguideline'
+        displayFields:
+          - "slug"
+          - "title"
+        searchFields:
+          - "slug"
+          - "title"
+        valueField: 'slug'
+      - label: 'Left Menu'
+        name: 'leftmenu'
+        widget: 'list'
+        field:
+          - {label: 'String', name: 'string', widget: 'string'}
+
+
   - name: "fioriiosguideline"
     label: "Fiori IOS"
     folder: "src/pages/guideline_ios"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{fields.version}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "design-guideline-post"}
       - {label: "Title", name: "title", widget: "string"}
@@ -67,7 +95,7 @@ collections:
     label: "Fiori Android"
     folder: "src/pages/guideline_android"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{fields.version}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "design-guideline-post"}
       - {label: "Title", name: "title", widget: "string"}
