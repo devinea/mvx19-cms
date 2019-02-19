@@ -23,7 +23,7 @@ class SearchButton extends Component {
           overflow: 'hidden',
           backgroundColor: 'transparent',
           transition: 'width 0.3s',
-          '-webkit-backface-visibility': 'hidden'
+          webkitBackfaceVisibility: 'hidden'
         }}
       >
         <button
