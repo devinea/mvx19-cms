@@ -36,7 +36,6 @@ exports.createPages = ({ actions, graphql }) => {
     posts.forEach(edge => {
       const id = edge.node.id
       const version = edge.node.frontmatter.version;
-      console.log( `${JSON.stringify(edge.node)}`);
       if (edge.node.frontmatter.templateKey.includes('-guideline-post')){
         createPage({
           path: `/designguideline/${String(edge.node.frontmatter.version)}/${String(edge.node.frontmatter.title)}`,
@@ -99,7 +98,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === `MarkdownRemark`) {
     if (node.frontmatter.templateKey.includes('-guideline-post')){
       const value = `/designguideline/${String(node.frontmatter.version)}/${String(node.frontmatter.title)}`;
-      console.log( `${value}`);
       createNodeField({
         name: `slug`,
         node,
@@ -107,7 +105,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       })
     } else {
       const value = createFilePath({ node, getNode })
-      console.log( `${value}`);
     createNodeField({
       name: `slug`,
       node,

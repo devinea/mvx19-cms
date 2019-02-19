@@ -80,57 +80,16 @@ const LeftNav = ({ data }) => (
         );
       }}
     </Location>
-    {data.allMarkdownRemark.edges.map(({ node: data }) => (
+    {data.edges.map(({ node: data }) => (
 
       <Link css={(data.frontmatter.leftnavorder.l2 != 0) ? controlMenu : mainNav}
 
-        key={(data.fields.slug == '/designguideline/controls/') ? '' : data.id}
-        to={(data.fields.slug == '/designguideline/controls/') ? '/design/controls/' : data.fields.slug}>
+        key={(data.fields.slug === '/designguideline/controls/') ? '' : data.id}
+        to={(data.fields.slug === '/designguideline/controls/') ? '/design/controls/' : data.fields.slug}>
         {data.frontmatter.title}
       </Link>
     ))}
   </nav>
 );
 
-/**
- * Generates the guideline LHS navigation.
- */
-export default props => (
-  <StaticQuery
-    query={graphql`
-      {
-        allMarkdownRemark(
-          sort: { order: ASC, fields: [
-            frontmatter___leftnavorder___l1,
-              frontmatter___leftnavorder___l2,
-              frontmatter___leftnavorder___l3,
-              frontmatter___leftnavorder___l4,
-          ] }
-          filter: {
-            frontmatter: { templateKey: { eq: "design-guideline-post" } }
-          }
-        ) {
-          edges {
-            node {
-              id
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                templateKey
-                leftnavorder {
-                  l1
-                  l2
-                  l3
-                  l4
-                }
-              }
-            }
-          }
-        }
-      }
-    `}
-    render={data => <LeftNav data={data} {...props} />}
-  />
-);
+export default LeftNav;
