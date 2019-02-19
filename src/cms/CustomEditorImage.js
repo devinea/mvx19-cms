@@ -5,9 +5,9 @@ let getAlignment = (align) => {
     case "center":
       return 'display: block; margin-left: auto; margin-right: auto; center;'; // TODO find a better way to match the center regex
     case "right":
-      return 'float: right;';
+      return 'display: block; margin-left: auto; right;';
     default:
-      return "float: left;";
+      return "left;";
   }
 };
 
