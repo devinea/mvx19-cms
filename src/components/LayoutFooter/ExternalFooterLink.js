@@ -5,7 +5,7 @@ import { media, colors } from '../theme';
 const ExternalFooterLink = ({ children, href, target, rel }) => (
   <a
     css={{
-      lineHeight: '20px',
+      lineHeight: '22px',
       color: colors.gray_300,
       fontSize: 12,
       whiteSpace: 'nowrap',
@@ -16,7 +16,9 @@ const ExternalFooterLink = ({ children, href, target, rel }) => (
         color: colors.blue_600
       },
       [media.size('small')]: {
-        marginTop: 10
+        ':not(:first-child)': {
+          marginTop: 5
+        },
       }
     }}
     href={href}

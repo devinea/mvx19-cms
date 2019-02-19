@@ -20,9 +20,10 @@ class Header extends React.Component {
         css={{
           backgroundColor: colors.white,
           ...(this.props.hasScroll && {
-            boxShadow: '0 1px 6px 0 rgba(32, 33, 36, 0.28)'
+            boxShadow: '0 1px 6px 0 rgba(198, 198, 198, 0.30)'
           }),
           color: colors.black,
+          transition: 'box-shadow 0.5s',
           position: 'fixed',
           zIndex: 1,
           width: '100%',
@@ -149,7 +150,9 @@ class Header extends React.Component {
           </div>
           <SearchInput
             active={this.props.searchButtonActive}
+            onEnter={this.props.onSearch}
             onClose={this.props.onSearchButton}
+            value={this.props.searchValue}
           />
         </Container>
       </header>
