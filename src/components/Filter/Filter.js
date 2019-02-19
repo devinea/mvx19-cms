@@ -47,7 +47,7 @@ import { navigate } from '@reach/router';
 
       this.setState({value: event.value});
       const version = event.value;
-      this.props.navigation.navigate("/design/guidelines",
+      navigate("/design/guidelines",
         {
           state: { version :"1.02" },
           replace: true

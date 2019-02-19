@@ -45,40 +45,40 @@ const DesignGuidelineIndexPage = ({ data }) => {
     );
             };
   
-  export const pageQuery = graphql`
-   query($version : String) {
-    allMarkdownRemark(
-      sort: { order: ASC, fields: [
-        frontmatter___leftnavorder___l1,
-          frontmatter___leftnavorder___l2,
-          frontmatter___leftnavorder___l3,
-          frontmatter___leftnavorder___l4,
-      ] }
-      filter: {
-        frontmatter: { templateKey: { eq: "design-guideline-post" },version: {eq:$version} }
-      }
-    ) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            templateKey
-            leftnavorder {
-              l1
-              l2
-              l3
-              l4
-            }
-          }
-        }
-      }
-    }
-  }
-  `;
+  // export const pageQuery = graphql`
+  //  query($version : String) {
+  //   allMarkdownRemark(
+  //     sort: { order: ASC, fields: [
+  //       frontmatter___leftnavorder___l1,
+  //         frontmatter___leftnavorder___l2,
+  //         frontmatter___leftnavorder___l3,
+  //         frontmatter___leftnavorder___l4,
+  //     ] }
+  //     filter: {
+  //       frontmatter: { templateKey: { eq: "design-guideline-post" },version: {eq:$version} }
+  //     }
+  //   ) {
+  //     edges {
+  //       node {
+  //         id
+  //         fields {
+  //           slug
+  //         }
+  //         frontmatter {
+  //           title
+  //           templateKey
+  //           leftnavorder {
+  //             l1
+  //             l2
+  //             l3
+  //             l4
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+  // `;
 
 /**
  * Generates the guideline LHS navigation.
