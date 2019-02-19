@@ -119,7 +119,7 @@ DesignGuidelinePost.propTypes = {
 export default DesignGuidelinePost;
 
 export const pageQuery = graphql`
-  query DesignGuidelinePostByID($id: String!) {
+  query DesignGuidelinePostByID($id: String!, $version: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
@@ -138,7 +138,7 @@ export const pageQuery = graphql`
               frontmatter___leftnavorder___l4,
           ] }
           filter: {
-            frontmatter: { templateKey: { eq: "design-guideline-post" }, version: { eq: "1.01" } }
+            frontmatter: { templateKey: { eq: "design-guideline-post" }, version: { eq: $version } }
           }
         ) {
           edges {
