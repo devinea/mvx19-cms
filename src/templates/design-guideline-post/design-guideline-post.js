@@ -9,6 +9,7 @@ import Layout from '../../components/Layout';
 
 import { sharedStyles } from '../../components/theme';
 
+import Filter from '../../components/Filter/Filter.js';
 import Content, { HTMLContent } from '../../components/Content';
 import GuidelineLeftNav from '../../components/guideline-left-nav/guideline-left-nav';
 
@@ -85,6 +86,7 @@ const DesignGuidelinePost = ({ data, location }) => {
             paddingBottom: 20
           }}
         >
+         <Filter/>
           <DesignGuidelinePostTemplate
             content={post.html}
             contentComponent={HTMLContent}
