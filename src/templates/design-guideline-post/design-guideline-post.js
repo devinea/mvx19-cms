@@ -4,6 +4,7 @@ import { kebabCase } from 'lodash';
 import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
 
+import Filter from '../../components/Filter/Filter.js';
 import Flex from '../../components/Flex';
 import Layout from '../../components/Layout';
 
@@ -85,6 +86,7 @@ const DesignGuidelinePost = ({ data, location }) => {
             paddingBottom: 20
           }}
         >
+          <Filter location={location} />
           <DesignGuidelinePostTemplate
             content={post.html}
             contentComponent={HTMLContent}
@@ -160,4 +162,5 @@ export const pageQuery = graphql`
             }
           }
         }
-    }`;
+      }
+`;
