@@ -5,9 +5,9 @@ let getAlignment = (align) => {
     case "center":
       return 'display: block; margin-left: auto; margin-right: auto; center;'; // TODO find a better way to match the center regex
     case "right":
-      return 'display: block; margin-left: auto; right;';
-    default:
-      return "left;";
+      return 'float: right;';
+    default: //case "left"
+      return "float: left;";
   }
 };
 
@@ -23,7 +23,7 @@ const customImage = {
     },
   toBlock: ({ alt, image, title, align }) => {
     const alignStyle = getAlignment(align);
-    return `src='${image || ''}' alt='${alt || ''}' title='${title || ''}' style='${alignStyle}'`;
+    return `<img src='${image || ''}' alt='${alt || ''}' title='${title || ''}' style='${alignStyle}'/>`;
   },
   // eslint-disable-next-line react/display-name
   toPreview: ({ alt, image, title, align }, getAsset) => {
