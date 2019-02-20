@@ -87,6 +87,10 @@ class Layout extends React.Component {
 
   _toggleSearch(toggle) {
     this.setState({ searchToggle: toggle });
+    // if hamburger menu is open then close it
+    if (toggle && this.state.menuToggle) {
+      this.toggleMenu(false);
+    }
   }
 
   _onSearch(options) {
