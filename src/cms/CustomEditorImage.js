@@ -23,13 +23,13 @@ const customImage = {
     },
   toBlock: ({ alt, image, title, align }) => {
     const alignStyle = getAlignment(align);
-    return `<img src='${image || ''}' alt='${alt || ''}' title='${title || ''}' style='${alignStyle}'/>`;
+    return `src='${image || ''}' alt='${alt || ''}' title='${title || ''}' style='${alignStyle}'`;
   },
   // eslint-disable-next-line react/display-name
-  toPreview: ({ alt, image, title, align }, getAsset) => (
-    <img src={getAsset(image) || ''} alt={alt || ''} title={title || ''} style={getAlignment(align)}/>
-  ),
-  pattern: /^<img src='(.*?)'( alt='(.*?)')?( title='(.*?)')? style='.*?(right|center|left);'\/>$/, //  /^!\[(.*)\]\((.*?)(\s"(.*)")?\)$/,
+  toPreview: ({ alt, image, title, align }, getAsset) => {
+    return `<img src='${getAsset(image) || ''}' alt='${alt || ''}' title='${title || ''}' style='${getAlignment(align)}'/>`;
+  },
+  pattern: /^src='(.*?)'( alt='(.*?)')?( title='(.*?)')? style='.*?(right|center|left);'$/, //  /^!\[(.*)\]\((.*?)(\s"(.*)")?\)$/,
   fields: [
     {
       label: 'Image',
