@@ -41,29 +41,40 @@ collections:
     label: "Fiori Web left Navigation"
     folder: "src/pages/left/nav"
     create: true
-    slug: "{{field.version}}-{{field.title}}"
+    slug: "{{slug}}"
     identifier_field: version
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "web-left-nav"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Version No.", name: "version", widget: "select", options: ["1.01", "1.02", "1.03","1.04", "1.05"]}
-      - label: 'Menu Item'
-        name: 'menuitemtop'
-        widget: 'relation'
-        collection: 'fioriwebguideline'
-        displayFields:
-          - "slug"
-          - "title"
-        searchFields:
-          - "slug"
-          - "title"
-        valueField: 'slug'
       - label: 'Left Menu'
         name: 'leftmenu'
-        widget: 'list'
-        field:
-          - {label: 'String', name: 'string', widget: 'string'}
-
+        widget: 'object'
+        fields:
+          - label: 'Menu'
+            name: 'menu'
+            widget: 'list'
+            fields:
+              - label: 'Sub Item'
+                name: 'subItem'
+                widget: 'relation'
+                collection: 'fioriwebguideline'
+                searchFields: ['title', 'slug']
+                valueField: 'title'
+              - label: 'SubMenu'
+                name: 'submenu'
+                widget: 'object'
+                fields:
+                  - label: 'items'
+                    name: 'items'
+                    widget: 'list'
+                    fields:
+                      - label: 'Related Post'
+                        name: 'subItem'
+                        widget: 'relation'
+                        collection: 'fioriwebguideline'
+                        searchFields: ['title', 'slug']
+                        valueField: 'title'
 
   - name: "fioriiosguideline"
     label: "Fiori IOS"
