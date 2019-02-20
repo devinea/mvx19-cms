@@ -8,7 +8,9 @@ exports.createPages = ({ actions, graphql }) => {
 
   return graphql(`
     {
-      allMarkdownRemark(limit: 1000) {
+      allMarkdownRemark(limit: 1000, 
+      filter: { frontmatter: { templateKey: { ne: "web-left-nav" } } }
+      ) {
         edges {
           node {
             id
