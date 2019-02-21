@@ -81,11 +81,11 @@ const Card = props => (
           },
           fontWeight: 300,
           width: '100%',
-          '-webkit-line-clamp': '2',
+          webkitLineClamp: '2',
           textOverflow: 'ellipsis',
           overflow: 'hidden',
           display: '-webkit-box',
-          '-webkit-box-orient': 'vertical',
+          webkitBoxOrient: 'vertical',
           wordWrap: 'break-word'
         }}
       >

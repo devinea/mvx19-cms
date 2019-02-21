@@ -1,4 +1,6 @@
 import React from 'react';
+import queryString from 'query-string';
+import { navigate } from 'gatsby';
 
 import SEO from '../SEO';
 import Flex from '../Flex';
@@ -15,12 +17,14 @@ class Layout extends React.Component {
     this.state = {
       menuToggle: false,
       searchToggle: false,
+      searchValue: '',
       hasScroll: false
     };
     this.mediaQueryListener = null;
     this.onMatchMQ = mediaQueryListener => this._onMatchMQ(mediaQueryListener);
     this.toggleMenu = toggle => this._toggleMenu(toggle);
     this.toggleSearch = toggle => this._toggleSearch(toggle);
+    this.onSearch = toggle => this._onSearch(toggle);
   }
 
   componentDidMount = () => {
@@ -31,12 +35,23 @@ class Layout extends React.Component {
     this.mediaQueryListener = window.matchMedia(`(max-width: ${large.min}px)`);
     this.mediaQueryListener.addListener(this.onMatchMQ);
     this.onMatchMQ();
+
+
+    const values = queryString.parse(this.props.location.search);
+    if (values.q) {
+      this.toggleSearch(true);
+      this.setState({ searchValue: values.q });
+    } else {
+      this.toggleSearch(false);
+      this.setState({ searchValue: '' });
+    }
   };
 
   componentWillUnmount = () => {
     window.removeEventListener('scroll', this._handleOnScroll);
 
-    this.mediaQueryListener && this.mediaQueryListener.removeListener(this.onMatchMQ);
+    this.mediaQueryListener &&
+      this.mediaQueryListener.removeListener(this.onMatchMQ);
   };
 
   componentDidUpdate = prevprops => {
@@ -72,10 +87,20 @@ class Layout extends React.Component {
 
   _toggleSearch(toggle) {
     this.setState({ searchToggle: toggle });
+    // if hamburger menu is open then close it
+    if (toggle && this.state.menuToggle) {
+      this.toggleMenu(false);
+    }
+  }
+
+  _onSearch(options) {
+    navigate('/search?q=' + options, {
+      replace: true
+    });
   }
 
   render() {
-    const { children, location } = this.props;
+    const { children, location, search } = this.props;
 
     return (
       <Flex
@@ -91,7 +116,9 @@ class Layout extends React.Component {
           onHamburgerButton={this.toggleMenu}
           hamburgerButtonActive={this.state.menuToggle}
           onSearchButton={this.toggleSearch}
+          onSearch={this.onSearch}
           searchButtonActive={this.state.searchToggle}
+          searchValue={this.state.searchValue}
           hasScroll={this.state.hasScroll}
         />
         <HamburgerMenu active={this.state.menuToggle} />

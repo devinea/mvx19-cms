@@ -22,7 +22,7 @@ class SearchInput extends Component {
       } else {
         this.searchInput.current.blur();
       }
-      this.setState({ value: '' });
+      this.setState({ value: this.props.value });
     }
   };
 
@@ -34,6 +34,11 @@ class SearchInput extends Component {
     this.props.onClose(!this.props.active);
   };
 
+  _onKeyPress = event => {
+    if (event.key === 'Enter') {
+      this.props.onEnter(this.state.value);
+    }
+  }
 
   render() {
     return (
@@ -74,11 +79,12 @@ class SearchInput extends Component {
         >
           <input
             onChange={this.handleChange}
+            onKeyPress={this._onKeyPress}
             value={this.state.value}
             autoFocus={true}
             ref={this.searchInput}
             css={{
-              width: 0,
+              //width: 0,
               border: 'none',
               backgroundColor: colors.gray_100,
               borderRadius: 20,
@@ -93,6 +99,9 @@ class SearchInput extends Component {
               backgroundRepeat: 'no-repeat',
               backgroundPosition: '15px 50%',
               backgroundSize: '16px 16px',
+              ...(!this.props.active && {
+                width: 0
+              }),
               ...(this.props.active && {
                 width: 'calc(100% - 30px)'
               })
