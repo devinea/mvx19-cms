@@ -118,8 +118,7 @@ class Header extends React.Component {
                   display: 'flex',
                   flexDirection: 'row',
                   alignItems: 'stretch',
-                  overflowX: 'auto',
-                  overflowY: 'hidden',
+                  overflow: 'hidden',
                   height: '100%',
                   opacity: 1,
                 }}
@@ -129,8 +128,7 @@ class Header extends React.Component {
                     display: 'flex',
                     flexDirection: 'row',
                     alignItems: 'stretch',
-                    overflowX: 'auto',
-                    overflowY: 'hidden',
+                    overflow: 'hidden',
                     height: '100%',
                     [media.lessThan('large')]: {
                       display: 'none'
@@ -150,6 +148,13 @@ class Header extends React.Component {
                 })}
                 </div>
                 <SearchButton
+                  cssProps={{
+                    overflow: 'hidden',
+                    transition: 'right 0.5s',
+                    ...(this.props.hamburgerButtonActive && {
+                      right: '-50px'
+                    })
+                  }}
                   onPress={this.props.onSearchButton}
                   active={this.props.searchButtonActive}
                 />
