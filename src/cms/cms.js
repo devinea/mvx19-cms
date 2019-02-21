@@ -51,31 +51,58 @@ CMS.registerPreviewTemplate('blog', props => (
   </CSSInjector>
 ))
 CMS.registerEditorComponent({
-    // Internal id of the component
-    id: "vimeo",
-    // Visible label
-    label: "Vimeo",
-    // Fields the user need to fill out when adding an instance of the component
-    fields: [{name: 'id', label: 'Vimeo Video ID', widget: 'string'}],
-    // Pattern to identify a block as being an instance of this component
-    pattern: /^vimeo (\S+)$/,
-    // Function to extract data elements from the regexp match
-    fromBlock: function(match) {
-      return {
-        id: match[1]
-      };
-    },
-    // Function to create a text block from an instance of this component
-    toBlock: function(obj) {
+  // Internal id of the component
+  id: "vimeo",
+  // Visible label
+  label: "Vimeo",
+  // Fields the user need to fill out when adding an instance of the component
+  fields: [{ name: 'id', label: 'Vimeo Video ID', widget: 'string' }],
+  // Pattern to identify a block as being an instance of this component
+  pattern: /^vimeo (\S+)$/,
+  // Function to extract data elements from the regexp match
+  fromBlock: function (match) {
+    return {
+      id: match[1]
+    };
+  },
+  // Function to create a text block from an instance of this component
+  toBlock: function (obj) {
     //return "`vimeo: https://vimeo.com/" +obj.id+ "`";
-    return  '<iframe width="640" height="360" src="https://player.vimeo.com/video/' +obj.id+ '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
-    }
-    // Preview output for this component. Can either be a string or a React component
-    // (component gives better render performance)
-    // toPreview: function(obj) {
-    //   return (
-    //     '<img src="http://img.vimeo.com/vi/' + obj.id + '/maxresdefault.jpg" alt="Vimeo Video"/>'
-    //   );
-    // }
-  });
+    return '<iframe width="640" height="360" src="https://player.vimeo.com/video/' + obj.id + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+  }
+  // Preview output for this component. Can either be a string or a React component
+  // (component gives better render performance)
+  // toPreview: function(obj) {
+  //   return (
+  //     '<img src="http://img.vimeo.com/vi/' + obj.id + '/maxresdefault.jpg" alt="Vimeo Video"/>'
+  //   );
+  // }
+});
 CMS.registerWidget("fileSelect", FileSystemControl);
+
+CMS.registerEditorComponent({
+  id: "table",
+  label: "Table",
+  fields: [
+    { name: 'c1h', label: 'First column header', widget: 'string' },
+    { name: 'c1t', label: 'First column text', widget: 'string' },
+    { name: 'c2h', label: 'Second column header', widget: 'string' },
+    { name: 'c2t', label: 'Second column text', widget: 'string' },
+    { name: 'fullWidth', label: 'Expanded', widget: 'boolean' }
+  ],
+  pattern: /^table (\S+)$/,
+  fromBlock: function () {
+    return {};
+  },
+  toBlock: function (obj) {
+    const fullWidth = obj.fullWidth ? 'full-width' : '';
+    return `
+<div class="two-columns-table ${fullWidth}">
+
+| ${obj.c1h} | ${obj.c2h} |
+|---|---|
+| ${obj.c1t} | ${obj.c2t} |
+
+</div>`;
+  }
+});

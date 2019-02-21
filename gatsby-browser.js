@@ -8,6 +8,7 @@ require('normalize.css');
 require('./src/css/72.css');
 require('./src/css/SAP-icons.css');
 require('./src/css/reset.css');
+require('./src/styles/global.css');
 
 // Expose React and ReactDOM as globals for console playground
 window.React = React;
