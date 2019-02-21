@@ -37,14 +37,19 @@ class Layout extends React.Component {
     this.onMatchMQ();
 
 
-    const values = queryString.parse(this.props.location.search);
-    if (values.q) {
-      this.toggleSearch(true);
-      this.setState({ searchValue: values.q });
-    } else {
-      this.toggleSearch(false);
-      this.setState({ searchValue: '' });
+
+
+    if (this.props.search && this.props.search.display) {
+      const values = queryString.parse(this.props.location.search);
+      if (values.q) {
+        this.toggleSearch(true);
+        this.setState({ searchValue: values.q });
+      } else {
+        this.toggleSearch(false);
+        this.setState({ searchValue: '' });
+      }
     }
+
   };
 
   componentWillUnmount = () => {
