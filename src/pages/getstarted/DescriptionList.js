@@ -23,8 +23,8 @@ const DescriptionList = props => (
     <h1
       css={{
         width: '100%',
-        fontSize: 35,
-        fontWeight: 700,
+        fontSize: 36,
+        fontWeight: 'normal',
         color: colors.gray_600,
         marginBottom: 50
       }}
