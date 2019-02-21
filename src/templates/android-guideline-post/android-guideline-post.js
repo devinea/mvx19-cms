@@ -10,7 +10,7 @@ import Layout from '../../components/Layout';
 import { sharedStyles } from '../../components/theme';
 
 import Content, { HTMLContent } from '../../components/Content';
-import GuidelineLeftNav from '../../components/guideline-left-nav/guideline-left-nav';
+import LeftNav from '../../components/LeftNav';
 
 export const DesignGuidelinePostTemplate = ({
   content,
@@ -77,7 +77,7 @@ const AndroidGuidelinePost = ({ data, location }) => {
           height: '100%'
         }}
       >
-        <GuidelineLeftNav />
+        <LeftNav title="Fiori For Web"/>
         <div
           css={{
             width: '100%',

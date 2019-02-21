@@ -3,8 +3,7 @@ import React from 'react';
 import Flex from '../../components/Flex';
 import Layout from '../../components/Layout';
 
-import GuidelineLeftNav from '../../components/guideline-left-nav/guideline-left-nav';
-
+import LeftNav from '../../components/LeftNav';
 import designImg from './../../img/design.png';
 
 export default class DesignGuidelineIndexPage extends React.Component {
@@ -22,7 +21,7 @@ export default class DesignGuidelineIndexPage extends React.Component {
             width: '100%',
           }}
         >
-          <GuidelineLeftNav />
+          <LeftNav title="Fiori For Web"/>
           <div
             css={{
               width: '100%'
