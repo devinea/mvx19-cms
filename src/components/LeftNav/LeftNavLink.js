@@ -8,8 +8,6 @@ import { relative } from 'upath';
 class LeftNavLink extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props.section.frontmatter);
-        
     }
 
     render() {
@@ -20,12 +18,6 @@ class LeftNavLink extends React.Component {
                     clear: 'both',
                     width: '100%'
                 }}
-                onClick={() => {
-                    if (!this.props.section.frontmatter.hasChildren) {
-                        this.props.handler(this.props.sectionIndex)
-                    }
-                }
-                }
                 key={(this.props.section.fields.slug == '/designguideline/controls/') ? '' : this.props.section.id}
                 to={(this.props.section.fields.slug == '/designguideline/controls/') ? '/design/controls/' : this.props.section.fields.slug}>
                 <nav
@@ -67,11 +59,10 @@ class LeftNavLink extends React.Component {
                             whiteSpace: 'nowrap',
                             ...(this.props.section.frontmatter.leftnavorder.l2 > 0 && {
                                 paddingLeft: 15,
-                                fontSize: 16,
+                                fontSize: 14,
                                 height: 0,
                                 opacity: 0,
-                                transition: 'height 0.3s ease-in-out',
-                                fontFamily: '"72-Light"'
+                                transition: 'height 0.3s ease-in-out'
                             }),
                             ...(this.props.section.frontmatter.isHidden == false && {
                                 height: 45,

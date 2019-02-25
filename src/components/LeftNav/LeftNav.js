@@ -11,14 +11,13 @@ class LeftNav extends React.Component {
   
   constructor(props) {
     super(props);
-    console.log('calling constructor!:', this.state);
-    this.state = {
-      navOpen: true,
-      sectionOn: 0,
-      sectionHover: false
-    };
+    let sectionOn = 0;
     for (let i = 0; i < this.props.data.allMarkdownRemark.edges.length; i++) {
       const item = this.props.data.allMarkdownRemark.edges[i];
+      // Check if this item is currently selected.
+      if (item.node.fields.slug === decodeURIComponent(this.props.pathname)) {
+        sectionOn = i;
+      }
       if (item.node.frontmatter.leftnavorder.l2 > 0) {
         item.node.frontmatter.isHidden = false;
         if (this.props.data.allMarkdownRemark.edges[i -1].node.frontmatter.leftnavorder.l2 == 0) {
@@ -26,8 +25,12 @@ class LeftNav extends React.Component {
         }
       }
     }
+    
+    this.state = {
+      navOpen: true,
+      sectionOn: sectionOn
+    };
     this.toggleNav = toggle => this._toggleNav(toggle);
-    this.selectSection = section => this._selectSection(section);
     this.expandSection = sectionIndex => this._expandSection(sectionIndex);
     this.mouseEnter = element => this._mouseEnter(element);
     this.mouseLeave = () => this._mouseLeave();
@@ -36,11 +39,6 @@ class LeftNav extends React.Component {
 
   _toggleNav() {
     this.setState({ navOpen: !this.state.navOpen });
-  }
-
-  _selectSection(section) {
-    console.log('setting section state!!!');
-    this.setState({ sectionOn: section });
   }
 
   _expandSection(sectionIndex) {
@@ -90,12 +88,12 @@ class LeftNav extends React.Component {
           position: 'relative',
           backgroundColor: colors.white,
           display: 'flex',
-          width: 150,
+          width: 0,
           transition: 'width 0.3s ease-in-out',
           ...(this.state.navOpen && {
             width: 260,
           }),
-          // position: 'fixed',
+          position: 'fixed',
           flexDirection: 'row',
           alignItems: 'top',
           justifyContent: 'space-between',
@@ -165,7 +163,6 @@ class LeftNav extends React.Component {
                 section={data} 
                 sectionIndex={i} 
                 sectionOn={self.state.sectionOn} 
-                handler={self.selectSection}
                 expander={self.expandSection} 
                 mouseEnter={self.mouseEnter} 
                 mouseLeave={self.mouseLeave}/>
@@ -237,7 +234,7 @@ export default props => (
         }
       }
     `}
-    render={data => <LeftNav data={data} {...props} />}
+    render={data => <LeftNav data={data} {...props} {...location} />}
   />
 );
 
