@@ -6,8 +6,39 @@ import { colors, media } from '../../components/theme';
 
 import DescriptionList from './DescriptionList';
 import ResourcesList from './ResourcesList';
+import ResourcesCarousel from './ResourcesCarousel';
 
 class GetStarted extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      mediumSize: false
+    };
+
+    this.mediaQueryListener = null;
+    this.onMatchMQ = mediaQueryListener => this._onMatchMQ(mediaQueryListener);
+    this.isSmallSize = toggle => this._isSmallSize(toggle);
+  }
+
+  componentDidMount = () => {
+    if (!window.matchMedia) return;
+    const medium = media.getSize('medium');
+    this.mediaQueryListener = window.matchMedia(`(max-width: ${medium.max}px)`);
+    this.mediaQueryListener.addListener(this.onMatchMQ);
+
+    this.setState({ mediumSize: this.mediaQueryListener.matches });
+  };
+
+  componentWillUnmount = () => {
+    this.mediaQueryListener &&
+      this.mediaQueryListener.removeListener(this.onMatchMQ);
+  };
+
+  _onMatchMQ(mql) {
+    this.setState({ mediumSize: mql.matches });
+  }
+
   render() {
     const { location } = this.props;
 
@@ -46,7 +77,7 @@ class GetStarted extends React.Component {
           </h1>
           <DescriptionList />
         </Flex>
-        <ResourcesList />
+        {this.state.mediumSize || this.state.smallSize ? <ResourcesCarousel /> : <ResourcesList />}
       </Layout>
     );
   }

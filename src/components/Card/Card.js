@@ -13,7 +13,7 @@ const Card = props => (
         maxWidth: 304
       },
       [media.greaterThan('medium')]: {
-        maxWidth: 392
+        maxWidth: 324
       },
       [media.greaterThan('large')]: {
         maxWidth: 331

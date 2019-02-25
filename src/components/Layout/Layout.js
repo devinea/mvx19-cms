@@ -37,8 +37,6 @@ class Layout extends React.Component {
     this.onMatchMQ();
 
 
-
-
     if (this.props.search && this.props.search.display) {
       const values = queryString.parse(this.props.location.search);
       if (values.q) {

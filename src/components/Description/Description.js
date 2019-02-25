@@ -9,12 +9,18 @@ const Description = props => (
     css={{
       width: '100%',
       paddingBottom: 30,
-      paddingTop: 35
+      paddingTop: 20,
+      borderTopColor: colors.gray_200,
+      borderTopStyle: 'solid',
+      borderTopWidth: 1
     }}
   >
     <div
       css={{
         textAlign: 'right',
+        [media.greaterThan('medium')]: {
+          minWidth: 120
+        },
         [media.greaterThan('large')]: {
           minWidth: 118
         },
@@ -28,7 +34,15 @@ const Description = props => (
     <Flex
       direction='column'
       css={{
-        paddingLeft: 50
+        [media.greaterThan('medium')]: {
+          paddingLeft: 16
+        },
+        [media.greaterThan('large')]: {
+          paddingLeft: 24
+        },
+        [media.greaterThan('xlarge')]: {
+          paddingLeft: 24
+        }
       }}
     >
       <div

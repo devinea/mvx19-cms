@@ -1,11 +1,15 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 
+import Carousel from 'nuka-carousel';
+
 import { colors, media } from '../../components/theme';
 import Flex from '../../components/Flex';
 import Card from '../../components/Card';
 
-class ResourcesList extends React.Component {
+
+
+class ResourcesCarousel extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -29,8 +33,10 @@ class ResourcesList extends React.Component {
               maxWidth: media.getSize('small').width
             },
             [media.greaterThan('medium')]: {
-              minWidth: media.getSize('medium').width,
-              maxWidth: media.getSize('medium').width
+              // minWidth: media.getSize('medium').width,
+              // maxWidth: media.getSize('medium').width
+              minWidth: '100%',
+              maxWidth: '100%'
             },
             [media.greaterThan('large')]: {
               minWidth: media.getSize('large').width,
@@ -50,7 +56,7 @@ class ResourcesList extends React.Component {
                 padding: '0 64px'
               },
               [media.greaterThan('medium')]: {
-                padding: '0 68px'
+                padding: 0
               },
               [media.greaterThan('large')]: {
                 padding: '0 71px'
@@ -67,7 +73,12 @@ class ResourcesList extends React.Component {
                 fontWeight: 700,
                 color: colors.gray_100,
                 marginBottom: 0,
-                marginTop: 88
+                marginTop: 88,
+                [media.greaterThan('medium')]: {
+                  minWidth: media.getSize('medium').width,
+                  maxWidth: media.getSize('medium').width,
+                  margin: '88px auto 0 auto'
+                }
               }}
             >
               resources
@@ -75,6 +86,7 @@ class ResourcesList extends React.Component {
 
             {this.props.data.allGetstartedJson.edges[0].node.data.map(
               (category, idx) => (
+
                 <div
                   key={idx}
                   css={{
@@ -86,25 +98,47 @@ class ResourcesList extends React.Component {
                       fontSize: 35,
                       fontWeight: 300,
                       color: colors.gray_100,
-                      padding: '33px 0 46px 0'
+                      padding: '33px 0 46px 0',
+                      [media.greaterThan('medium')]: {
+                        minWidth: media.getSize('medium').width,
+                        maxWidth: media.getSize('medium').width,
+                        margin: '0 auto'
+                      }
                     }}
                   >
                     {category.title}
                   </div>
 
+                  <Carousel
+                    initialSlideHeight='476px'
+                    initialSlideWidth='364px'
+                    slideWidth='364px'
+                    cellSpacing={20}
+                    renderCenterLeftControls={null}
+                    renderCenterRightControls={null}
+                  >
                   {category.data.map((entry, idx) => (
-                    <Card
-                      cssProps={{
-                        marginRight: 0,
-                        marginBottom: 24,
-                        ':nth-of-type(2n)': {
-                          marginRight: 24
-                        }
+
+                    <div
+                      css={{
+                        paddingLeft: 20,
+                        paddingRight: 20
                       }}
-                      key={idx}
-                      data={entry}
-                    />
+                    >
+                      <Card
+                        cssProps={{
+                          marginRight: 0,
+                          marginBottom: 24,
+                          ':nth-of-type(2n)': {
+                            marginRight: 24
+                          }
+                        }}
+                        key={idx}
+                        data={entry}
+                      />
+                    </div>
                   ))}
+                  </Carousel>
                 </div>
               )
             )}
@@ -144,6 +178,6 @@ export default () => (
         }
       }
     `}
-    render={data => <ResourcesList data={data} />}
+    render={data => <ResourcesCarousel data={data} />}
   />
 );
