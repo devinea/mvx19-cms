@@ -80,8 +80,8 @@ const DesignGuidelinePost = ({ data, location }) => {
         <LeftNav title="Fiori For Web"/>
         <div
           css={{
-            width: '100%',
-            paddingLeft: 20,
+            width: '984px',
+            margin: '0 auto',
             paddingBottom: 20
           }}
         >

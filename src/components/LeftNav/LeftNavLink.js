@@ -106,8 +106,8 @@ class LeftNavLink extends React.Component {
                                 }
                             }}
                             data-sap-ui-icon-content=''
-                            onClick={() => {
-                                this.props.expander(this.props.sectionIndex)
+                            onClick={(e) => {
+                                this.props.expander(e, this.props.sectionIndex)
                             }}
                         ></div>
                     )}

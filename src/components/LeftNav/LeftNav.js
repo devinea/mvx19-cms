@@ -7,10 +7,17 @@ import LeftNavLink from './LeftNavLink';
 import crossIcon from './../../img/cross.svg';
 import expandIcon from './../../img/expand.png';
 
+let state = {
+  navOpen: true,
+  sectionOn: 0,
+  opened: []
+};
+
 class LeftNav extends React.Component {
   
   constructor(props) {
     super(props);
+    this.state = state;
     let sectionOn = 0;
     for (let i = 0; i < this.props.data.allMarkdownRemark.edges.length; i++) {
       const item = this.props.data.allMarkdownRemark.edges[i];
@@ -19,19 +26,19 @@ class LeftNav extends React.Component {
         sectionOn = i;
       }
       if (item.node.frontmatter.leftnavorder.l2 > 0) {
-        item.node.frontmatter.isHidden = false;
+        if (!this.state.opened.includes(i)) {
+          item.node.frontmatter.isHidden = true;
+        }
         if (this.props.data.allMarkdownRemark.edges[i -1].node.frontmatter.leftnavorder.l2 == 0) {
           this.props.data.allMarkdownRemark.edges[i -1].node.frontmatter.hasChildren = true;
         }
       }
     }
     
-    this.state = {
-      navOpen: true,
-      sectionOn: sectionOn
-    };
+    this.state.sectionOn = sectionOn;
+
     this.toggleNav = toggle => this._toggleNav(toggle);
-    this.expandSection = sectionIndex => this._expandSection(sectionIndex);
+    this.expandSection = (event, sectionIndex) => this._expandSection(event, sectionIndex);
     this.mouseEnter = element => this._mouseEnter(element);
     this.mouseLeave = () => this._mouseLeave();
     this.isOverElement = false;
@@ -41,15 +48,24 @@ class LeftNav extends React.Component {
     this.setState({ navOpen: !this.state.navOpen });
   }
 
-  _expandSection(sectionIndex) {
+  componentWillUnmount() {
+    // Remember state for the next mount
+    state = this.state;
+  }
+
+  _expandSection(event, sectionIndex) {
     for (let i = sectionIndex + 1; i < i < this.props.data.allMarkdownRemark.edges.length; i++) {
       if (this.props.data.allMarkdownRemark.edges[i].node.frontmatter.leftnavorder.l2 > 0) {
         this.props.data.allMarkdownRemark.edges[i].node.frontmatter.isHidden = false;
+        this.state.opened.push(i);
       } else {
         break;
       }
     }
-    console.log('expanding!!');
+    // console.log(event);
+    // // event.preventDefault();
+    // // event.stopPropagation();
+    // console.log('expanding!');
   }
 
   _mouseEnter(element) {
