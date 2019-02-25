@@ -33,22 +33,22 @@ const Description = props => (
     >
       <div
         css={{
-          fontSize: 24,
-          fontWeight: 700,
-          lineHeight: '27px',
+          fontSize: 28,
+          fontWeight: 300,
+          lineHeight: '31px',
           paddingBottom: 12,
-          color: colors.gray_600
+          color: colors.gray_700
         }}
       >
         {props.title}
       </div>
       <div
         css={{
-          fontSize: 18,
-          fontWeight: 300,
-          lineHeight: '22px',
+          fontSize: 16,
+          fontWeight: 'normal',
+          lineHeight: '24px',
           paddingBottom: 20,
-          color: colors.gray_300
+          color: colors.gray_500
         }}
       >
         {props.description}
@@ -58,7 +58,7 @@ const Description = props => (
           fontSize: 14,
           fontWeight: 300,
           lineHeight: '16px',
-          color: colors.gray_300
+          color: colors.gray_500
         }}
       >
         {props.read}
