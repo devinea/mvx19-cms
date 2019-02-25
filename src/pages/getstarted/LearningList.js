@@ -1,14 +1,7 @@
 import React from 'react';
 import { Link, graphql, StaticQuery } from 'gatsby';
-
 import { colors, media } from '../../components/theme';
-import Description from '../../components/Description';
-
 import Flex from '../../components/Flex';
-
-import Img from 'gatsby-image';
-
-import './LearningList.scss'
 
 class LearningList extends React.Component {
     render() {
@@ -45,7 +38,13 @@ class LearningList extends React.Component {
           <div>
           {posts.map(({ node: post }) => (
             <Link to={post.fields.slug} key={post.id}>
-                <div className="learning-items">
+                <div
+                css={{
+                  ':hover': {
+                    boxShadow: '1px 1px 10px 1px rgba(0, 0, 0, 0.30)'
+                  }
+                }}
+                >
                 <Flex
                   css={{
                     width: '100%',
@@ -64,7 +63,7 @@ class LearningList extends React.Component {
                       }
                     }}
                   >
-                    <Img fluid={post.frontmatter.featuredImage.childImageSharp.fluid} />
+                    <img src={post.frontmatter.featuredImage.publicURL} />
                   </div>
                   <Flex
                   direction='column'
@@ -137,11 +136,7 @@ class LearningList extends React.Component {
                 date(formatString: "MMMM DD, YYYY")
                 featuredImage {
                   id
-                  childImageSharp {
-                    fluid {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
+                  publicURL
                 }
               }
             }

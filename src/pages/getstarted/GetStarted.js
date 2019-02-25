@@ -46,7 +46,6 @@ class GetStarted extends React.Component {
           >
             Get started with Fiori.
           </h1>
-          {/*<DescriptionList />*/}
           <LearningList />
         </Flex>
         <ResourcesList />
