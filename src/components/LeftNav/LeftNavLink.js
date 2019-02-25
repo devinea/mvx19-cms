@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from "react-dom";
-import arrowIcon from './../../img/blue-arrow.png';
+import arrowIcon from './../../img/arrow.svg';
 import { Link } from 'gatsby';
 import { colors, media } from '../theme';
 import { relative } from 'upath';
@@ -8,6 +8,7 @@ import { relative } from 'upath';
 class LeftNavLink extends React.Component {
     constructor(props) {
         super(props);
+        this.expanded = false;
     }
 
     render() {
@@ -62,7 +63,7 @@ class LeftNavLink extends React.Component {
                                 fontSize: 14,
                                 height: 0,
                                 opacity: 0,
-                                transition: 'height 0.3s ease-in-out'
+                                transition: 'height 0.3s ease-in-out, opacity 0.3s ease-in-out'
                             }),
                             ...(this.props.section.frontmatter.isHidden == false && {
                                 height: 45,
@@ -101,12 +102,19 @@ class LeftNavLink extends React.Component {
                                 fontSize: 14,
                                 color: colors.gray_500,
                                 backgroundColor: 'transparent',
-                                '::before': {
-                                    content: 'attr(data-sap-ui-icon-content)'
-                                }
+                                ...(!this.expanded && {
+                                    '::before': {
+                                        content: '""'
+                                    }
+                                }),
+                                ...(this.expanded && {
+                                    '::before': {
+                                        content: '""'
+                                    }
+                                })                                
                             }}
-                            data-sap-ui-icon-content=''
                             onClick={(e) => {
+                                this.expanded = !this.expanded;
                                 this.props.expander(e, this.props.sectionIndex)
                             }}
                         ></div>

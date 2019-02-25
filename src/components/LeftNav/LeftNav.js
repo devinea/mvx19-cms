@@ -1,24 +1,24 @@
 import React from 'react';
-import { Link, StaticQuery, graphql } from 'gatsby';
-import { Location } from '@reach/router';
-import { css } from '@emotion/core'
+import { StaticQuery, graphql } from 'gatsby';
 import { colors, header, media } from '../theme';
 import LeftNavLink from './LeftNavLink';
 import crossIcon from './../../img/cross.svg';
-import expandIcon from './../../img/expand.png';
 
 let state = {
   navOpen: true,
-  sectionOn: 0,
+  sectionOn: -1,
   opened: []
 };
 
+let updating = false;
+
 class LeftNav extends React.Component {
+
   
   constructor(props) {
     super(props);
     this.state = state;
-    let sectionOn = 0;
+    let sectionOn = -1;
     for (let i = 0; i < this.props.data.allMarkdownRemark.edges.length; i++) {
       const item = this.props.data.allMarkdownRemark.edges[i];
       // Check if this item is currently selected.
@@ -46,6 +46,9 @@ class LeftNav extends React.Component {
 
   _toggleNav() {
     this.setState({ navOpen: !this.state.navOpen });
+    if (this.props.navOpener) {
+      this.props.navOpener(!this.state.navOpen);
+    }
   }
 
   componentWillUnmount() {
@@ -56,16 +59,14 @@ class LeftNav extends React.Component {
   _expandSection(event, sectionIndex) {
     for (let i = sectionIndex + 1; i < i < this.props.data.allMarkdownRemark.edges.length; i++) {
       if (this.props.data.allMarkdownRemark.edges[i].node.frontmatter.leftnavorder.l2 > 0) {
-        this.props.data.allMarkdownRemark.edges[i].node.frontmatter.isHidden = false;
+        this.props.data.allMarkdownRemark.edges[i].node.frontmatter.isHidden = !this.props.data.allMarkdownRemark.edges[i].node.frontmatter.isHidden;
         this.state.opened.push(i);
       } else {
         break;
       }
     }
-    // console.log(event);
-    // // event.preventDefault();
-    // // event.stopPropagation();
-    // console.log('expanding!');
+    event.preventDefault();
+    this.setState({updating: !this.state.updating})
   }
 
   _mouseEnter(element) {
@@ -175,6 +176,7 @@ class LeftNav extends React.Component {
             </div>          
             {this.props.data.allMarkdownRemark.edges.map(({ node: data }, i) => (
               <LeftNavLink 
+                updating={updating}
                 key={(data.fields.slug == '/designguideline/controls/') ? '' : data.id} 
                 section={data} 
                 sectionIndex={i} 
@@ -197,13 +199,20 @@ class LeftNav extends React.Component {
             top: 29,
             left: 40,
             cursor: 'pointer',
-            backgroundImage: 'url(' + expandIcon + ')',
-            backgroundPosition: 'center center',
-            backgroundRepeat: 'no-repeat',
+            fontFamily: 'SAP-icons',
+            fontSize: 18,
+            lineHeight: '28px',
+            textAlign: 'center',
+            color: colors.gray_500,
+            backgroundColor: 'transparent',
+            '::before': {
+                content: 'attr(data-sap-ui-icon-content)'
+            },
             ...(!this.state.navOpen && {
               opacity: 1
             })
           }}
+          data-sap-ui-icon-content=''
           onClick={this.toggleNav}
         />
       </nav>

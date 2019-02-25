@@ -61,9 +61,19 @@ DesignGuidelinePostTemplate.propTypes = {
   helmet: PropTypes.object
 };
 
+
 const DesignGuidelinePost = ({ data, location }) => {
   const { markdownRemark: post } = data;
+  let navOpen = true;
 
+  const navOpener = function(navOpen) {  
+    if (navOpen) {
+      document.getElementById('design-guideline-div').style.width = '828px';
+    } else {
+      document.getElementById('design-guideline-div').style.width = '984px';
+    }
+  }
+  
   return (
     <Layout location={location}>
       <Flex
@@ -77,12 +87,13 @@ const DesignGuidelinePost = ({ data, location }) => {
           height: '100%'
         }}
       >
-        <LeftNav title="Fiori For Web"/>
-        <div
+        <LeftNav title="Fiori For Web" navOpener={navOpener}/>
+        <div id="design-guideline-div"
           css={{
-            width: '984px',
+            width: 828,
             margin: '0 auto',
-            paddingBottom: 20
+            paddingBottom: 20,
+            transition: 'width 0.3s ease-in-out'
           }}
         >
           <DesignGuidelinePostTemplate
