@@ -9,6 +9,9 @@ const DescriptionList = props => (
     css={{
       paddingTop: 50,
       width: '100%',
+      [media.greaterThan('medium')]: {
+        padding: '0 68px 80px'
+      },
       [media.greaterThan('large')]: {
         padding: '0 71px 80px'
       },
@@ -20,8 +23,8 @@ const DescriptionList = props => (
     <h1
       css={{
         width: '100%',
-        fontSize: 35,
-        fontWeight: 700,
+        fontSize: 36,
+        fontWeight: 'normal',
         color: colors.gray_600,
         marginBottom: 50
       }}

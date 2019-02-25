@@ -10,29 +10,35 @@ class SearchInput extends Component {
 
     this.searchInput = React.createRef();
     this.state = {
-      value: '',
-      isFocused: false
+      value: ''
     };
     this.handleChange = e => this._handleChange(e);
-
-    this.focusSearchInput = this._focusSearchInput.bind(this);
   }
 
-  componentDidUpdate = (nextProps, nextState) => {
-    this.focusSearchInput();
+  componentDidUpdate = prevprops => {
+    if (this.props.active !== prevprops.active) {
+      if (this.props.active) {
+        this.searchInput.current.focus();
+      } else {
+        this.searchInput.current.blur();
+      }
+      this.setState({ value: this.props.value });
+    }
   };
 
   _handleChange = e => {
     this.setState({ value: e.target.value });
   };
 
-  _focusSearchInput = () => {
-    this.searchInput.current.focus();
-  };
-
-  _setActiveState = event => {
+  _onCloseSearch = event => {
     this.props.onClose(!this.props.active);
   };
+
+  _onKeyPress = event => {
+    if (event.key === 'Enter') {
+      this.props.onEnter(this.state.value);
+    }
+  }
 
   render() {
     return (
@@ -73,11 +79,11 @@ class SearchInput extends Component {
         >
           <input
             onChange={this.handleChange}
+            onKeyPress={this._onKeyPress}
             value={this.state.value}
             autoFocus={true}
             ref={this.searchInput}
             css={{
-              width: 0,
               border: 'none',
               backgroundColor: colors.gray_100,
               borderRadius: 20,
@@ -92,6 +98,9 @@ class SearchInput extends Component {
               backgroundRepeat: 'no-repeat',
               backgroundPosition: '15px 50%',
               backgroundSize: '16px 16px',
+              ...(!this.props.active && {
+                width: 0
+              }),
               ...(this.props.active && {
                 width: 'calc(100% - 30px)'
               })
@@ -113,7 +122,7 @@ class SearchInput extends Component {
               cursor: 'pointer',
               display: 'inline-block'
             }}
-            onClick={this._setActiveState}
+            onClick={this._onCloseSearch}
           />
         </div>
       </div>
