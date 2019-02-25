@@ -11,9 +11,9 @@ let getAlignment = (align) => {
   }
 };
 
-const customImage = {
-  label: 'CustomImage',
-  id: 'customImage',
+const alignableImage = {
+  label: 'alignableImage',
+  id: 'alignableImage',
   fromBlock: match =>
     match && {
       image: match[1],
@@ -58,4 +58,4 @@ const customImage = {
   ],
 };
 
-export default customImage;
+export default alignableImage;

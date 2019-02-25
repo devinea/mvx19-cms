@@ -6,7 +6,7 @@ import DesignGuidelinePagePreview from './preview-templates/DesignGuidelinePageP
 import createCache from '@emotion/cache'
 import { CacheProvider } from '@emotion/core'
 import FileSystemControl from './FileSelectControl';
-import customImage from './CustomEditorImage';
+import alignableImage from './AlignableEditorImage';
 
 // We need this for injecting the inline css into preview section of admin
 class CSSInjector extends React.Component {
@@ -81,7 +81,7 @@ CMS.registerEditorComponent({
 });
 
 CMS.registerWidget("fileSelect", FileSystemControl);
-CMS.registerEditorComponent(customImage);
+CMS.registerEditorComponent(alignableImage);
 
 CMS.registerEditorComponent({
   id: "table",
