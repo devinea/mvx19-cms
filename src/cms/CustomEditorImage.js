@@ -3,11 +3,11 @@ import React from 'react';
 let getAlignment = (align) => {
   switch (align) {
     case "center":
-      return 'display: block; margin-left: auto; margin-right: auto; center;'; // TODO find a better way to match the center regex
+      return 'display: block; margin-left: auto; margin-right: auto; /**center**/';
     case "right":
-      return 'float: right;';
+      return 'float: right; /**right**/';
     default: //case "left"
-      return "float: left;";
+      return "float: left; /**left**/";
   }
 };
 
@@ -23,13 +23,14 @@ const customImage = {
     },
   toBlock: ({ alt, image, title, align }) => {
     const alignStyle = getAlignment(align);
-    return `<img src='${image || ''}' alt='${alt || ''}' title='${title || ''}' style='${alignStyle}'/>`;
+    return `<img src='${image || ''}'${alt ? ` alt='${alt}'` : ''}${title? ` title='${title}'` : ''} style='${alignStyle}'/>`;
   },
   // eslint-disable-next-line react/display-name
   toPreview: ({ alt, image, title, align }, getAsset) => {
     return `<img src='${getAsset(image) || ''}' alt='${alt || ''}' title='${title || ''}' style='${getAlignment(align)}'/>`;
   },
-  pattern: /^src='(.*?)'( alt='(.*?)')?( title='(.*?)')? style='.*?(right|center|left);'$/, //  /^!\[(.*)\]\((.*?)(\s"(.*)")?\)$/,
+  pattern: /^<img src='(.*?)'( alt='(.*?)')?( title='(.*?)')? style='.*?(right|center|left)\*\*\/'\/>$/,
+  // test with <img src='/img/apple-touch-icon.png' alt='alt title' title='fancy Title' style='float: left; /**left**/'/>
   fields: [
     {
       label: 'Image',
