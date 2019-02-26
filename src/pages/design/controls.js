@@ -21,7 +21,7 @@ class DesignControlsIndexPage extends React.Component {
             width: '100%',
           }}
         >
-          <GuidelineLeftNav />
+         
           <section css={
             css`
             float: left;

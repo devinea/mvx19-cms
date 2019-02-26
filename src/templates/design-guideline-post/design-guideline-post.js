@@ -4,6 +4,7 @@ import { kebabCase } from 'lodash';
 import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
 
+import Filter from '../../components/Filter/Filter.js';
 import Flex from '../../components/Flex';
 import Layout from '../../components/Layout';
 
@@ -77,7 +78,7 @@ const DesignGuidelinePost = ({ data, location }) => {
           height: '100%'
         }}
       >
-        <GuidelineLeftNav />
+        <GuidelineLeftNav data={data.leftNav} />
         <div
           css={{
             width: '100%',
@@ -85,6 +86,7 @@ const DesignGuidelinePost = ({ data, location }) => {
             paddingBottom: 20
           }}
         >
+          <Filter location={location} />
           <DesignGuidelinePostTemplate
             content={post.html}
             contentComponent={HTMLContent}
@@ -119,7 +121,7 @@ DesignGuidelinePost.propTypes = {
 export default DesignGuidelinePost;
 
 export const pageQuery = graphql`
-  query DesignGuidelinePostByID($id: String!) {
+  query DesignGuidelinePostByID($id: String!, $version: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
@@ -129,6 +131,36 @@ export const pageQuery = graphql`
         description
         tags
       }
-    }
-  }
+    },
+    leftNav: allMarkdownRemark(
+          sort: { order: ASC, fields: [
+            frontmatter___leftnavorder___l1,
+              frontmatter___leftnavorder___l2,
+              frontmatter___leftnavorder___l3,
+              frontmatter___leftnavorder___l4,
+          ] }
+          filter: {
+            frontmatter: { templateKey: { eq: "design-guideline-post" }, version: { eq: $version } }
+          }
+        ) {
+          edges {
+            node {
+              id
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+                templateKey
+                leftnavorder {
+                  l1
+                  l2
+                  l3
+                  l4
+                }
+              }
+            }
+          }
+        }
+      }
 `;
