@@ -21,6 +21,10 @@ const Card = props => (
       [media.greaterThan('xlarge')]: {
         maxWidth: 396
       },
+      borderRadius: 8,
+      ':hover': {
+        boxShadow: '0 0 22px 0 rgba(0, 0, 0, 0.70)'
+      },
       ...props.cssProps
     }}
   >
@@ -32,8 +36,8 @@ const Card = props => (
         backgroundPosition: 'left',
         backgroundAttachment: 'local',
         backgroundSize: 'cover',
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
+        borderTopLeftRadius: 8,
+        borderTopRightRadius: 8,
         height: 238,
         width: '100%'
       }}
@@ -41,8 +45,8 @@ const Card = props => (
     <div
       css={{
         backgroundColor: colors.blue_900,
-        borderBottomLeftRadius: 10,
-        borderBottomRightRadius: 10,
+        borderBottomLeftRadius: 8,
+        borderBottomRightRadius: 8,
         height: 238,
         width: '100%',
         position: 'relative'
