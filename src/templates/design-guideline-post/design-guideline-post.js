@@ -17,6 +17,7 @@ export const DesignGuidelinePostTemplate = ({
   content,
   contentComponent,
   description,
+  tableOfContents,
   tags,
   title,
   helmet
@@ -35,6 +36,7 @@ export const DesignGuidelinePostTemplate = ({
         <h1>{title}</h1>
         <p>{description}</p>
 
+        {tableOfContents ? <PostContent content={"<h1 id='ToC'>Table Of Contents</h1>"+tableOfContents || ''}/> : null}
         <PostContent content={content} />
 
         {tags && tags.length ? (
@@ -67,14 +69,14 @@ const DesignGuidelinePost = ({ data, location }) => {
   const { markdownRemark: post } = data;
   let navOpen = true;
 
-  const navOpener = function(navOpen) {  
+  const navOpener = function(navOpen) {
     if (navOpen) {
       document.getElementById('design-guideline-div').style.width = '828px';
     } else {
       document.getElementById('design-guideline-div').style.width = '984px';
     }
   }
-  
+
   return (
     <Layout location={location}>
       <Flex
@@ -111,6 +113,7 @@ const DesignGuidelinePost = ({ data, location }) => {
                 />
               </Helmet>
             }
+            tableOfContents={post.tableOfContents}
             tags={post.frontmatter.tags}
             title={post.frontmatter.title}
           />
@@ -136,6 +139,9 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       html
+      tableOfContents(
+            maxDepth: 1
+        )
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
