@@ -17,12 +17,13 @@ class LeftNav extends React.Component {
   
   constructor(props) {
     super(props);
+
     this.state = state;
     let sectionOn = -1;
     for (let i = 0; i < this.props.data.allMarkdownRemark.edges.length; i++) {
       const item = this.props.data.allMarkdownRemark.edges[i];
       // Check if this item is currently selected.
-      if (item.node.fields.slug === decodeURIComponent(this.props.pathname)) {
+      if (typeof window !== 'undefined' && window.location && item.node.fields.slug === decodeURIComponent(window.location.pathname)) {
         sectionOn = i;
       }
       if (item.node.frontmatter.leftnavorder.l2 > 0) {
@@ -103,6 +104,7 @@ class LeftNav extends React.Component {
 
   render() {
     const self = this;
+
     return (
       <nav
         css={{
@@ -265,6 +267,6 @@ export default props => (
         }
       }
     `}
-    render={data => <LeftNav data={data} {...props} {...location} />}
+    render={data => <LeftNav data={data} {...props} />}
   />
 );
