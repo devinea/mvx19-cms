@@ -21,7 +21,7 @@ class DesignControlsIndexPage extends React.Component {
             width: '100%',
           }}
         >
-          <LeftNav title="Fiori For Web"/>
+         
           <section css={
             css`
             float: left;

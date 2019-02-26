@@ -38,13 +38,12 @@ exports.createPages = ({ actions, graphql }) => {
     posts.forEach(edge => {
       const id = edge.node.id
       const version = edge.node.frontmatter.version;
-      console.log( `${JSON.stringify(edge.node)}`);
       if (edge.node.frontmatter.templateKey.includes('-guideline-post')){
         createPage({
           path: `/designguideline/${String(edge.node.frontmatter.version)}/${String(edge.node.frontmatter.title)}`,
           tags: edge.node.frontmatter.tags,
           component: path.resolve(
-            `src/templates/${String(edge.node.frontmatter.templateKey)}/${String(edge.node.frontmatter.templateKey)}.js`
+            `src/templates/design-guideline-post/design-guideline-post.js`
           ),
           // additional data can be passed via context
           context: {
@@ -101,7 +100,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === `MarkdownRemark`) {
     if (node.frontmatter.templateKey.includes('-guideline-post')){
       const value = `/designguideline/${String(node.frontmatter.version)}/${String(node.frontmatter.title)}`;
-      console.log( `${value}`);
       createNodeField({
         name: `slug`,
         node,
@@ -109,7 +107,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       })
     } else {
       const value = createFilePath({ node, getNode })
-      console.log( `${value}`);
     createNodeField({
       name: `slug`,
       node,
