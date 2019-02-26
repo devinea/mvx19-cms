@@ -8,7 +8,6 @@ import { relative } from 'upath';
 class LeftNavLink extends React.Component {
     constructor(props) {
         super(props);
-        this.expanded = false;
     }
 
     render() {
@@ -102,19 +101,18 @@ class LeftNavLink extends React.Component {
                                 fontSize: 14,
                                 color: colors.gray_500,
                                 backgroundColor: 'transparent',
-                                ...(!this.expanded && {
+                                ...(!this.props.section.frontmatter.expanded && {
                                     '::before': {
                                         content: '""'
                                     }
                                 }),
-                                ...(this.expanded && {
+                                ...(this.props.section.frontmatter.expanded && {
                                     '::before': {
                                         content: '""'
                                     }
                                 })                                
                             }}
                             onClick={(e) => {
-                                this.expanded = !this.expanded;
                                 this.props.expander(e, this.props.sectionIndex)
                             }}
                         ></div>

@@ -10,7 +10,7 @@ import Layout from '../../components/Layout';
 import { sharedStyles } from '../../components/theme';
 
 import Content, { HTMLContent } from '../../components/Content';
-import GuidelineLeftNav from '../../components/guideline-left-nav/guideline-left-nav';
+import LeftNav from '../../components/LeftNav';
 
 export const DesignGuidelinePostTemplate = ({
   content,
@@ -63,6 +63,15 @@ DesignGuidelinePostTemplate.propTypes = {
 
 const IosGuidelinePost = ({ data, location }) => {
   const { markdownRemark: post } = data;
+  let navOpen = true;
+
+  const navOpener = function(navOpen) {  
+    if (navOpen) {
+      document.getElementById('ios-guideline-div').style.width = '828px';
+    } else {
+      document.getElementById('ios-guideline-div').style.width = '984px';
+    }
+  }
 
   return (
     <Layout location={location}>
@@ -77,12 +86,13 @@ const IosGuidelinePost = ({ data, location }) => {
           height: '100%'
         }}
       >
-        <GuidelineLeftNav />
-        <div
+        <LeftNav title="Fiori For Web" navOpener={navOpener}/>
+        <div id="ios-guideline-div"
           css={{
-            width: '100%',
-            paddingLeft: 20,
-            paddingBottom: 20
+            width: 828,
+            margin: '0 auto',
+            paddingBottom: 20,
+            transition: 'width 0.3s ease-in-out'
           }}
         >
           <DesignGuidelinePostTemplate

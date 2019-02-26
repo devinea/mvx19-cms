@@ -31,6 +31,9 @@ class LeftNav extends React.Component {
         }
         if (this.props.data.allMarkdownRemark.edges[i -1].node.frontmatter.leftnavorder.l2 == 0) {
           this.props.data.allMarkdownRemark.edges[i -1].node.frontmatter.hasChildren = true;
+          if (!item.node.frontmatter.isHidden) {
+            this.props.data.allMarkdownRemark.edges[i -1].node.frontmatter.expanded = true;
+          }
         }
       }
     }
@@ -57,6 +60,7 @@ class LeftNav extends React.Component {
   }
 
   _expandSection(event, sectionIndex) {
+    this.props.data.allMarkdownRemark.edges[sectionIndex].node.frontmatter.expanded = !this.props.data.allMarkdownRemark.edges[sectionIndex].node.frontmatter.expanded;
     for (let i = sectionIndex + 1; i < i < this.props.data.allMarkdownRemark.edges.length; i++) {
       if (this.props.data.allMarkdownRemark.edges[i].node.frontmatter.leftnavorder.l2 > 0) {
         this.props.data.allMarkdownRemark.edges[i].node.frontmatter.isHidden = !this.props.data.allMarkdownRemark.edges[i].node.frontmatter.isHidden;
@@ -205,11 +209,13 @@ class LeftNav extends React.Component {
             textAlign: 'center',
             color: colors.gray_500,
             backgroundColor: 'transparent',
+            pointerEvents: 'none',
             '::before': {
                 content: 'attr(data-sap-ui-icon-content)'
             },
             ...(!this.state.navOpen && {
-              opacity: 1
+              opacity: 1,
+              pointerEvents: 'all'
             })
           }}
           data-sap-ui-icon-content=''
