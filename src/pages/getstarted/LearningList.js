@@ -93,16 +93,6 @@ class LearningList extends React.Component {
                     >
                       {post.frontmatter.description}
                     </div>
-                    <div
-                      css={{
-                        fontSize: 14,
-                        fontWeight: 300,
-                        lineHeight: '16px',
-                        color: colors.gray_300
-                      }}
-                    >
-                      5 min read
-                    </div>
                   </Flex>
                 </Flex>
                 </div>
