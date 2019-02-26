@@ -57,11 +57,11 @@ class LeftNav extends React.Component {
       this.props.navOpener(!this.state.navOpen);
     }
   }
-  
+
   _expandSection(event, sectionIndex) {
     this.props.data.edges[sectionIndex].node.frontmatter.expanded = !this.props.data.edges[sectionIndex].node.frontmatter.expanded;
     for (let i = sectionIndex + 1; i < i < this.props.data.edges.length; i++) {
-      if (this.props.data.edges[i].node.frontmatter.leftnavorder.l2 > 0) {
+      if (this.props.data.edges[i] && this.props.data.edges[i].node.frontmatter.leftnavorder.l2 > 0) {
         this.props.data.edges[i].node.frontmatter.isHidden = !this.props.data.edges[i].node.frontmatter.isHidden;
         if (!this.props.data.edges[i].node.frontmatter.isHidden) {
           this.state.opened.push(this.props.data.edges[i].node.fields.slug);
