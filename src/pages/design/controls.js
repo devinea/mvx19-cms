@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../../components/Layout'
-import GuidelineLeftNav from '../../components/guideline-left-nav/guideline-left-nav';
+import LeftNav from '../../components/LeftNav';
 import { graphql, Link, StaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import Flex from '../../components/Flex';

@@ -11,7 +11,7 @@ import Layout from '../../components/Layout';
 import { sharedStyles } from '../../components/theme';
 
 import Content, { HTMLContent } from '../../components/Content';
-import GuidelineLeftNav from '../../components/guideline-left-nav/guideline-left-nav';
+import LeftNav from '../../components/LeftNav';
 
 export const DesignGuidelinePostTemplate = ({
   content,
@@ -62,9 +62,19 @@ DesignGuidelinePostTemplate.propTypes = {
   helmet: PropTypes.object
 };
 
+
 const DesignGuidelinePost = ({ data, location }) => {
   const { markdownRemark: post } = data;
+  let navOpen = true;
 
+  const navOpener = function(navOpen) {  
+    if (navOpen) {
+      document.getElementById('design-guideline-div').style.width = '828px';
+    } else {
+      document.getElementById('design-guideline-div').style.width = '984px';
+    }
+  }
+  
   return (
     <Layout location={location}>
       <Flex
@@ -78,12 +88,13 @@ const DesignGuidelinePost = ({ data, location }) => {
           height: '100%'
         }}
       >
-        <GuidelineLeftNav data={data.leftNav} />
-        <div
+        <LeftNav title="Fiori For Web" navOpener={navOpener} data={data.leftNav}/>
+        <div id="design-guideline-div"
           css={{
-            width: '100%',
-            paddingLeft: 20,
-            paddingBottom: 20
+            width: 828,
+            margin: '0 auto',
+            paddingBottom: 20,
+            transition: 'width 0.3s ease-in-out'
           }}
         >
           <Filter location={location} />
