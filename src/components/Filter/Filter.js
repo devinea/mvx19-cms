@@ -3,7 +3,6 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import {StaticQuery, graphql } from 'gatsby';
 import { navigate } from 'gatsby';
-import { Location } from '@reach/router';
 const _ = require('lodash')
 
 
