@@ -31,6 +31,7 @@ const alignableImage = {
   },
   pattern: /^<img src='(.*?)'( alt='(.*?)')?( title='(.*?)')? style='.*?(right|center|left)\*\*\/'\/>$/,
   // test with <img src='/img/apple-touch-icon.png' alt='alt title' title='fancy Title' style='float: left; /**left**/'/>
+  
   fields: [
     {
       label: 'Image',
