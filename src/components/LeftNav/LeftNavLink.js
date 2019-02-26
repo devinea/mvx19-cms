@@ -17,8 +17,8 @@ class LeftNavLink extends React.Component {
                     clear: 'both',
                     width: '100%'
                 }}
-                key={(this.props.section.fields.slug == '/designguideline/controls/') ? '' : this.props.section.id}
-                to={(this.props.section.fields.slug == '/designguideline/controls/') ? '/design/controls/' : this.props.section.fields.slug}>
+                key={(this.props.section.fields.slug === '/designguideline/controls/') ? '' : this.props.section.id}
+                to={(this.props.section.fields.slug === '/designguideline/controls/') ? '/design/controls/' : this.props.section.fields.slug}>
                 <nav
                     css={{
                         width: '100%',

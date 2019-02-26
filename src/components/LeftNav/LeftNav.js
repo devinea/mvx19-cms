@@ -13,27 +13,30 @@ let state = {
 let updating = false;
 
 class LeftNav extends React.Component {
-
   
   constructor(props) {
     super(props);
 
     this.state = state;
     let sectionOn = -1;
-    for (let i = 0; i < this.props.data.allMarkdownRemark.edges.length; i++) {
-      const item = this.props.data.allMarkdownRemark.edges[i];
+    for (let i = 0; i < this.props.data.edges.length; i++) {
+      const item = this.props.data.edges[i];
       // Check if this item is currently selected.
       if (typeof window !== 'undefined' && window.location && item.node.fields.slug === decodeURIComponent(window.location.pathname)) {
         sectionOn = i;
       }
       if (item.node.frontmatter.leftnavorder.l2 > 0) {
-        if (!this.state.opened.includes(i)) {
+        if (!this.state.opened.includes(item.node.fields.slug)) {
           item.node.frontmatter.isHidden = true;
+        } else {
+          item.node.frontmatter.isHidden = false;
         }
-        if (this.props.data.allMarkdownRemark.edges[i -1].node.frontmatter.leftnavorder.l2 == 0) {
-          this.props.data.allMarkdownRemark.edges[i -1].node.frontmatter.hasChildren = true;
+        if (this.props.data.edges[i -1].node.frontmatter.leftnavorder.l2 == 0) {
+          this.props.data.edges[i -1].node.frontmatter.hasChildren = true;
           if (!item.node.frontmatter.isHidden) {
-            this.props.data.allMarkdownRemark.edges[i -1].node.frontmatter.expanded = true;
+            this.props.data.edges[i -1].node.frontmatter.expanded = true;
+          } else {
+            this.props.data.edges[i -1].node.frontmatter.expanded = false;
           }
         }
       }
@@ -54,22 +57,22 @@ class LeftNav extends React.Component {
       this.props.navOpener(!this.state.navOpen);
     }
   }
-
-  componentWillUnmount() {
-    // Remember state for the next mount
-    state = this.state;
-  }
-
+  
   _expandSection(event, sectionIndex) {
-    this.props.data.allMarkdownRemark.edges[sectionIndex].node.frontmatter.expanded = !this.props.data.allMarkdownRemark.edges[sectionIndex].node.frontmatter.expanded;
-    for (let i = sectionIndex + 1; i < i < this.props.data.allMarkdownRemark.edges.length; i++) {
-      if (this.props.data.allMarkdownRemark.edges[i].node.frontmatter.leftnavorder.l2 > 0) {
-        this.props.data.allMarkdownRemark.edges[i].node.frontmatter.isHidden = !this.props.data.allMarkdownRemark.edges[i].node.frontmatter.isHidden;
-        this.state.opened.push(i);
+    this.props.data.edges[sectionIndex].node.frontmatter.expanded = !this.props.data.edges[sectionIndex].node.frontmatter.expanded;
+    for (let i = sectionIndex + 1; i < i < this.props.data.edges.length; i++) {
+      if (this.props.data.edges[i].node.frontmatter.leftnavorder.l2 > 0) {
+        this.props.data.edges[i].node.frontmatter.isHidden = !this.props.data.edges[i].node.frontmatter.isHidden;
+        if (!this.props.data.edges[i].node.frontmatter.isHidden) {
+          this.state.opened.push(this.props.data.edges[i].node.fields.slug);
+        } else {
+          this.state.opened = this.state.opened.filter(item => item !== this.props.data.edges[i].node.fields.slug);
+        }
       } else {
         break;
       }
     }
+    state = this.state;
     event.preventDefault();
     this.setState({updating: !this.state.updating})
   }
@@ -180,10 +183,10 @@ class LeftNav extends React.Component {
                 pointerEvents: 'none'
               }}>
             </div>          
-            {this.props.data.allMarkdownRemark.edges.map(({ node: data }, i) => (
+            {this.props.data.edges.map(({ node: data }, i) => (
               <LeftNavLink 
                 updating={updating}
-                key={(data.fields.slug == '/designguideline/controls/') ? '' : data.id} 
+                key={(data.fields.slug === '/designguideline/controls/') ? '' : data.id} 
                 section={data} 
                 sectionIndex={i} 
                 sectionOn={self.state.sectionOn} 
@@ -228,45 +231,4 @@ class LeftNav extends React.Component {
   }
 }
 
-/**
- * Generates the guideline LHS navigation.
- */
-export default props => (
-  <StaticQuery
-    query={graphql`
-      {
-        allMarkdownRemark(
-          sort: { order: ASC, fields: [
-            frontmatter___leftnavorder___l1,
-              frontmatter___leftnavorder___l2,
-              frontmatter___leftnavorder___l3,
-              frontmatter___leftnavorder___l4,
-          ] }
-          filter: {
-            frontmatter: { templateKey: { eq: "design-guideline-post" } }
-          }
-        ) {
-          edges {
-            node {
-              id
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                templateKey
-                leftnavorder {
-                  l1
-                  l2
-                  l3
-                  l4
-                }
-              }
-            }
-          }
-        }
-      }
-    `}
-    render={data => <LeftNav data={data} {...props} />}
-  />
-);
+export default LeftNav;
