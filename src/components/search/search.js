@@ -101,6 +101,7 @@ class Search extends Component {
               return (
                 <Link to={`/${page.path}`}>
                   <div className='search-result' key={uuid()}>
+                    <img className='thumbnail' src={page.featuredImage.substr(15)} />
                     <div className='title'>{page.title}</div>
                     <div className='description'>{page.description}</div>
                     <div className='search-section'>{page.templateKeyName}</div>

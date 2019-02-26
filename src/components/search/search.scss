@@ -50,15 +50,23 @@
 
 
             min-height: 200px;
-            padding-left: 200px;
+            /*padding-left: 200px;*/
             padding-right: 100px;
 
+            .thumbnail {
+                width: 100px;
+                height: 100px;
+                left: 10px;
+                background-size: 125px;
+                float:left
+            }
             .title {
                 font-family: '72-Bold';
                 font-size: 24px;
                 color: #C9C9C9;
                 line-height: initial;
-                padding-top: 20px;
+                /*padding-top: 20px;*/
+                padding-left: 20px;
             }
             .description {
                 font-family: '72-Light';
