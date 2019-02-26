@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import arrowIcon from './../../img/arrow.svg';
 import { Link } from 'gatsby';
-import { colors, media } from '../theme';
-import { relative } from 'upath';
+import { colors } from '../theme';
 
 class LeftNavLink extends React.Component {
     constructor(props) {
@@ -54,7 +53,7 @@ class LeftNavLink extends React.Component {
                             position: 'relative',
                             fontSize: 16,
                             height: 45,
-                            color: '#4A4A4A',
+                            color: colors.gray_500,
                             lineHeight: '45px',
                             whiteSpace: 'nowrap',
                             ...(this.props.section.frontmatter.leftnavorder.l2 > 0 && {
@@ -88,7 +87,6 @@ class LeftNavLink extends React.Component {
                     {this.props.section.frontmatter.hasChildren && (
                         <div
                             css={{
-                                color: '#323232',
                                 position: 'absolute',
                                 outline: 0,
                                 content: '""',

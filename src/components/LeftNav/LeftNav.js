@@ -1,6 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import { colors, header, media } from '../theme';
+import { colors } from '../theme';
 import LeftNavLink from './LeftNavLink';
 import crossIcon from './../../img/cross.svg';
 
@@ -170,7 +170,7 @@ class LeftNav extends React.Component {
                 position: 'absolute',
                 left: 0,
                 opacity: 0,
-                backgroundColor: '#f5f6f8',
+                backgroundColor: colors.gray_100,
                 height: 45,
                 width: '100%',
                 cursor: 'pointer',
@@ -268,5 +268,3 @@ export default props => (
     render={data => <LeftNav data={data} {...props} {...location} />}
   />
 );
-
-// export default LeftNav;
