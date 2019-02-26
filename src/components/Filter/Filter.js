@@ -3,6 +3,8 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import {StaticQuery, graphql } from 'gatsby';
 import { navigate } from 'gatsby';
+import { Location } from '@reach/router';
+const _ = require('lodash')
 
 
 //versions for the designs
@@ -20,7 +22,7 @@ class Filter extends Component {
         versions = versions.concat(edge.node.frontmatter.version)
       }
     })
-    // Eliminate duplicate versions
+    // Eliminate duplicate versions 
     versions = _.uniq(versions)
     this.state = {value:versions[0]};
     this.curVersion = this.state.value;
@@ -44,7 +46,6 @@ class Filter extends Component {
   }
 
   _onVersionSelect= event => {
-    const { location } = this.props;
     this.setState({value: event.value});
     const version = event.value;
     const target = location.pathname.replace(this.curVersion, version);
@@ -75,7 +76,7 @@ export default props => (
   }
 }
     `}
-    render={data => <Filter data={data} location={location} {...props} />}
+    render={data => <Filter data={data} location={props.location} {...props} />}
   />
 );
 

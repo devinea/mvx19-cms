@@ -41,7 +41,7 @@ exports.createPages = ({ actions, graphql }) => {
           path: `/designguideline/${String(edge.node.frontmatter.version)}/${String(edge.node.frontmatter.title)}`,
           tags: edge.node.frontmatter.tags,
           component: path.resolve(
-            `src/templates/${String(edge.node.frontmatter.templateKey)}/${String(edge.node.frontmatter.templateKey)}.js`
+            `src/templates/design-guideline-post/design-guideline-post.js`
           ),
           // additional data can be passed via context
           context: {
