@@ -153,9 +153,18 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
+        tableOfContents: {
+          maxDepth:3,
+        },
         plugins: [
           'gatsby-remark-embed-video',
-          'gatsby-remark-responsive-iframe'
+          'gatsby-remark-responsive-iframe',
+          {
+            resolve: 'gatsby-remark-autolink-headers',
+            options: {
+              offsetY: `100`,
+            },
+          },
         ]
       }
     },
