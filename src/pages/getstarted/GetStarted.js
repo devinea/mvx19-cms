@@ -1,11 +1,9 @@
 import React from 'react';
-
 import Layout from '../../components/Layout';
 import Flex from '../../components/Flex';
 import { colors, media } from '../../components/theme';
-
-import DescriptionList from './DescriptionList';
 import ResourcesList from './ResourcesList';
+import LearningList from './LearningList';
 
 class GetStarted extends React.Component {
   render() {
@@ -44,7 +42,7 @@ class GetStarted extends React.Component {
           >
             Get started with Fiori.
           </h1>
-          <DescriptionList />
+          <LearningList />
         </Flex>
         <ResourcesList />
       </Layout>
