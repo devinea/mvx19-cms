@@ -136,7 +136,6 @@ export default () => (
                   description
                   action
                   url
-                  read
                 }
               }
             }

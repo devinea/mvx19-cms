@@ -1,0 +1,7 @@
+.two-columns-table {
+    overflow-x: auto;
+}
+
+.two-columns-table.full-width>table {
+    width: 100%
+}
