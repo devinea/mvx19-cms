@@ -27,8 +27,8 @@ class LearningList extends React.Component {
         <h1
         css={{
         width: '100%',
-        fontSize: 35,
-        fontWeight: 700,
+        fontSize: 36,
+        fontWeight: 'normal',
         color: colors.gray_600,
         marginBottom: 50
       }}
@@ -73,22 +73,22 @@ class LearningList extends React.Component {
                   >
                     <div
                       css={{
-                        fontSize: 24,
-                        fontWeight: 700,
-                        lineHeight: '27px',
+                        fontSize: 28,
+                        fontWeight: 300,
+                        lineHeight: '31px',
                         paddingBottom: 12,
-                        color: colors.gray_600
+                        color: colors.gray_700
                       }}
                     >
                       {post.frontmatter.title}
                     </div>
                     <div
                       css={{
-                        fontSize: 18,
-                        fontWeight: 300,
-                        lineHeight: '22px',
+                        fontSize: 16,
+                        fontWeight: 'normal',
+                        lineHeight: '24px',
                         paddingBottom: 20,
-                        color: colors.gray_300
+                        color: colors.gray_500
                       }}
                     >
                       {post.frontmatter.description}

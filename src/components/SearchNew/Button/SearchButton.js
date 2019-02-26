@@ -15,15 +15,17 @@ class SearchButton extends Component {
     return (
       <div
         css={{
-          position: 'relative',
+          position: 'absolute',
           width: 0,
           minWidth: 24,
           height: header.height,
           float: 'right',
+          right: 0,
           overflow: 'hidden',
           backgroundColor: 'transparent',
           transition: 'width 0.3s',
-          webkitBackfaceVisibility: 'hidden'
+          webkitBackfaceVisibility: 'hidden',
+          ...this.props.cssProps
         }}
       >
         <button
@@ -33,6 +35,7 @@ class SearchButton extends Component {
             border: 0,
             width: 24,
             height: '100%',
+            overflow: 'hidden',
             cursor: 'pointer',
             fontFamily: 'SAP-icons',
             fontSize: 18,

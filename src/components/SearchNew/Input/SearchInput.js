@@ -84,7 +84,6 @@ class SearchInput extends Component {
             autoFocus={true}
             ref={this.searchInput}
             css={{
-              //width: 0,
               border: 'none',
               backgroundColor: colors.gray_100,
               borderRadius: 20,

@@ -12,6 +12,15 @@ import { colors, header, media } from '../theme';
 import logoSvg from './../../img/logo.svg';
 
 class Header extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isSearchPage: false
+    };
+  }
+
   render() {
     const { location } = this.props;
 
@@ -52,7 +61,9 @@ class Header extends React.Component {
                 height: '100%',
                 position: 'relative',
                 left: 0,
-                transition: 'left 0.3s',
+                ...(!this.state.isSearcPage && {
+                  transition: 'left 0.3s'
+                }),
                 ...(this.props.searchButtonActive && {
                   left: '-180px'
                 })
@@ -94,8 +105,10 @@ class Header extends React.Component {
                 overflowY: 'hidden',
                 height: '100%',
                 opacity: 1,
-                transition: 'opacity 0.3s',
-                ...(this.props.searchOn && {
+                ...(!this.state.isSearcPage && {
+                  transition: 'left 0.3s'
+                }),
+                ...(this.props.searchButtonActive && {
                   opacity: 0
                 })
               }}
@@ -105,15 +118,9 @@ class Header extends React.Component {
                   display: 'flex',
                   flexDirection: 'row',
                   alignItems: 'stretch',
-                  overflowX: 'auto',
-                  overflowY: 'hidden',
+                  overflow: 'hidden',
                   height: '100%',
                   opacity: 1,
-
-                  transition: 'opacity 0.5s',
-                  ...(this.props.searchButtonActive && {
-                    opacity: 0
-                  })
                 }}
               >
                 <div
@@ -121,8 +128,7 @@ class Header extends React.Component {
                     display: 'flex',
                     flexDirection: 'row',
                     alignItems: 'stretch',
-                    overflowX: 'auto',
-                    overflowY: 'hidden',
+                    overflow: 'hidden',
                     height: '100%',
                     [media.lessThan('large')]: {
                       display: 'none'
@@ -142,6 +148,13 @@ class Header extends React.Component {
                 })}
                 </div>
                 <SearchButton
+                  cssProps={{
+                    overflow: 'hidden',
+                    transition: 'right 0.5s',
+                    ...(this.props.hamburgerButtonActive && {
+                      right: '-50px'
+                    })
+                  }}
                   onPress={this.props.onSearchButton}
                   active={this.props.searchButtonActive}
                 />
