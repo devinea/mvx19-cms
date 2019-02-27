@@ -4,18 +4,20 @@ import { kebabCase } from 'lodash';
 import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
 
+import Filter from '../../components/Filter/Filter.js';
 import Flex from '../../components/Flex';
 import Layout from '../../components/Layout';
 
 import { sharedStyles } from '../../components/theme';
 
 import Content, { HTMLContent } from '../../components/Content';
-import GuidelineLeftNav from '../../components/guideline-left-nav/guideline-left-nav';
+import LeftNav from '../../components/LeftNav';
 
 export const DesignGuidelinePostTemplate = ({
   content,
   contentComponent,
   description,
+  tableOfContents,
   tags,
   title,
   helmet
@@ -34,6 +36,7 @@ export const DesignGuidelinePostTemplate = ({
         <h1>{title}</h1>
         <p>{description}</p>
 
+        {tableOfContents ? <PostContent content={"<h1 id='ToC'>Table Of Contents</h1>"+tableOfContents || ''}/> : null}
         <PostContent content={content} />
 
         {tags && tags.length ? (
@@ -61,8 +64,18 @@ DesignGuidelinePostTemplate.propTypes = {
   helmet: PropTypes.object
 };
 
+
 const DesignGuidelinePost = ({ data, location }) => {
   const { markdownRemark: post } = data;
+  let navOpen = true;
+
+  const navOpener = function(navOpen) {
+    if (navOpen) {
+      document.getElementById('design-guideline-div').style.width = '828px';
+    } else {
+      document.getElementById('design-guideline-div').style.width = '984px';
+    }
+  }
 
   return (
     <Layout location={location}>
@@ -77,14 +90,16 @@ const DesignGuidelinePost = ({ data, location }) => {
           height: '100%'
         }}
       >
-        <GuidelineLeftNav />
-        <div
+        <LeftNav title="Fiori For Web" navOpener={navOpener} data={data.leftNav}/>
+        <div id="design-guideline-div"
           css={{
-            width: '100%',
-            paddingLeft: 20,
-            paddingBottom: 20
+            width: 828,
+            margin: '0 auto',
+            paddingBottom: 20,
+            transition: 'width 0.3s ease-in-out'
           }}
         >
+          <Filter location={location} />
           <DesignGuidelinePostTemplate
             content={post.html}
             contentComponent={HTMLContent}
@@ -98,6 +113,7 @@ const DesignGuidelinePost = ({ data, location }) => {
                 />
               </Helmet>
             }
+            tableOfContents={post.tableOfContents}
             tags={post.frontmatter.tags}
             title={post.frontmatter.title}
           />
@@ -119,16 +135,49 @@ DesignGuidelinePost.propTypes = {
 export default DesignGuidelinePost;
 
 export const pageQuery = graphql`
-  query DesignGuidelinePostByID($id: String!) {
+  query DesignGuidelinePostByID($id: String!, $version: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
+      tableOfContents(
+            maxDepth: 1
+        )
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
         description
         tags
       }
-    }
-  }
+    },
+    leftNav: allMarkdownRemark(
+          sort: { order: ASC, fields: [
+            frontmatter___leftnavorder___l1,
+              frontmatter___leftnavorder___l2,
+              frontmatter___leftnavorder___l3,
+              frontmatter___leftnavorder___l4,
+          ] }
+          filter: {
+            frontmatter: { templateKey: { eq: "design-guideline-post" }, version: { eq: $version } }
+          }
+        ) {
+          edges {
+            node {
+              id
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+                templateKey
+                leftnavorder {
+                  l1
+                  l2
+                  l3
+                  l4
+                }
+              }
+            }
+          }
+        }
+      }
 `;

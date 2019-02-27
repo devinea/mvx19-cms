@@ -76,34 +76,6 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-relative-images',
-            options: {
-              name: 'uploads'
-            }
-          },
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 2048
-            }
-          },
-          {
-            resolve: 'gatsby-remark-copy-linked-files',
-            options: {
-              destinationDir: 'static'
-            }
-          }
-        ]
-      }
-    },
-    {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
         // Fields to index
@@ -153,13 +125,53 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
+        tableOfContents: {
+          maxDepth: 3,
+        },
         plugins: [
+          {
+            resolve: 'gatsby-remark-relative-images',
+            options: {
+              name: 'uploads'
+            }
+          },
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 2048
+            }
+          },
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              destinationDir: 'static'
+            }
+          },
           'gatsby-remark-embed-video',
-          'gatsby-remark-responsive-iframe'
+          'gatsby-remark-responsive-iframe',
+          {
+            resolve: 'gatsby-remark-autolink-headers',
+            options: {
+              offsetY: `100`,
+            },
+          },
         ]
       }
     },
-    'gatsby-plugin-purgecss', // must be after other CSS plugins
+    {
+      resolve: `gatsby-plugin-purgecss`, // must be after other CSS plugins
+      options: {
+        // printRejected: true, // Print removed selectors and processed file names
+        // develop: true, // Enable while using `gatsby develop`
+        // tailwind: true, // Enable tailwindcss support
+        // whitelist: ['whitelist'], // Don't remove this selector
+        ignore: ['react-dropdown/style.css'], // Ignore files/folders
+        // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
+      }
+    },
     'gatsby-plugin-netlify' // make sure to keep it last in the array
   ]
 };
