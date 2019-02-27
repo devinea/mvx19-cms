@@ -1,16 +1,11 @@
 import React from 'react';
-
 import Flex from '../../components/Flex';
 import Layout from '../../components/Layout';
-
 import LeftNav from '../../components/LeftNav';
 import designImg from './../../img/design.png';
-import { graphql } from "gatsby";
-
+import { Link, graphql } from 'gatsby';
 import ResourcesList from '../../components/ResourceList/ResourcesList';
-
 import Tabs from '../../components/Tabs';
-
 import { css } from '@emotion/core';
 
 
@@ -93,8 +88,11 @@ export default class GuidelineIosIndexPage extends React.Component {
               padding: 0 76px 22px 76px;
               `}>{"what's new"}</h1>
               {posts.map((post) => {
+                console.log('***', post);
+
                 return (
-                  <div key={post.node.id} css={css`
+                  <Link to={post.node.fields.slug} key={post.node.id}>
+                    <div css={css`
                   height: 180px;
                   width: 984px;
                   padding: 15px 76px;
@@ -103,14 +101,14 @@ export default class GuidelineIosIndexPage extends React.Component {
                     box-shadow: 0 0 10px 0 #E1E4E9;
                     cursor: pointer;
                   }`}>
-                    <h2 css={css`
+                      <h2 css={css`
                     font-family: 72-Light;
                     font-size: 28px;
                     font-weight: 300;
                     height: 31px;
                     letter-spacing: 0;
                     margin-bottom: 15px;`}>{post.node.frontmatter.title}</h2>
-                    <p css={css`
+                      <p css={css`
                     color: #6A6D70;
                     font-family: 72-Regular;
                     font-size: 16px;
@@ -118,7 +116,7 @@ export default class GuidelineIosIndexPage extends React.Component {
                     height: 48px;
                     line-height: 24px;
                     `}>{post.node.frontmatter.description}</p>
-                    <div css={css`
+                      <div css={css`
                     color: #6A6D70;
                     font-family: 72-Light;
                     font-size: 14px;
@@ -127,13 +125,14 @@ export default class GuidelineIosIndexPage extends React.Component {
                     letter-spacing: 0.04px;
                     padding: 20px 0;
                     `}>{post.node.frontmatter.date}</div>
-                  </div>
+                    </div>
+                  </Link>
                 )
               })}
             </div>
           </div>
         </Flex>
-        <ResourcesList resource="ios"/>
+        <ResourcesList resource="ios" />
       </Layout>
     );
   }
