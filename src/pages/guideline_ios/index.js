@@ -91,7 +91,7 @@ export default class GuidelineIosIndexPage extends React.Component {
               letter-spacing: 0.11px;
               line-height: 43px;
               padding: 0 76px 22px 76px;
-              `}>what's new</h1>
+              `}>{"what's new"}</h1>
               {posts.map((post) => {
                 return (
                   <div key={post.node.id} css={css`
