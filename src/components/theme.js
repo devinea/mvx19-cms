@@ -3,7 +3,10 @@ const colors = {
   black: '#000000',
 
   blue_300: '#0A6ED1',
+  blue_500: '#67B2F0',
   blue_600: '#427CAC',
+
+
   blue_800: '#354A5F',
   blue_900: '#2B3845',
 
@@ -23,10 +26,10 @@ const header = {
 }
 
 const SIZES = {
-  small: { min: 0, max: 599, width: 304 },
-  medium: { min: 600, max: 1023, width: 528 },
-  large: { min: 1024, max: 1279, width: 828 },
-  xlarge: { min: 1280, max: Infinity, width: 984 },
+  small: { min: 0, max: 599, width: 304, column: 64, gutter: 16 },
+  medium: { min: 600, max: 1023, width: 528, column: 52, gutter: 16 },
+  large: { min: 1024, max: 1279, width: 828, column: 47, gutter: 24 },
+  xlarge: { min: 1280, max: Infinity, width: 984, column: 60, gutter: 24 },
 };
 
 const media = {
