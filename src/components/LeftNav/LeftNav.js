@@ -51,6 +51,12 @@ class LeftNav extends React.Component {
     this.isOverElement = false;
   }
 
+  componentWillMount = () => {
+    if(this.props.open === "false") {
+      this._toggleNav();
+    }
+  }
+
   _toggleNav() {
     this.setState({ navOpen: !this.state.navOpen });
     if (this.props.navOpener) {

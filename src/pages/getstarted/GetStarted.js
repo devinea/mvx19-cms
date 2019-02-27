@@ -2,8 +2,8 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import Flex from '../../components/Flex';
 import { colors, media } from '../../components/theme';
-import ResourcesList from './ResourcesList';
-import LearningList from './LearningList';
+import ResourcesList from '../../components/ResourceList/ResourcesList';
+import LearningList from '../../components/LearningList/LearningList';
 
 class GetStarted extends React.Component {
   render() {
