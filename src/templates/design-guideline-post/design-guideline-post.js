@@ -65,7 +65,7 @@ DesignGuidelinePostTemplate.propTypes = {
 };
 
 
-const DesignGuidelinePost = ({ data, location }) => {
+const DesignGuidelinePost = ({ data, location, pageContext }) => {
   const { markdownRemark: post } = data;
   let navOpen = true;
 
@@ -99,7 +99,7 @@ const DesignGuidelinePost = ({ data, location }) => {
             transition: 'width 0.3s ease-in-out'
           }}
         >
-          <Filter location={location} />
+          <Filter location={location} pageContext= {pageContext} />
           <DesignGuidelinePostTemplate
             content={post.html}
             contentComponent={HTMLContent}
