@@ -2,12 +2,20 @@ import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 
 import Carousel from 'nuka-carousel';
+import PagingDots from '../../components/Carousel/PagingDots';
 
 import { colors, media } from '../../components/theme';
 import Flex from '../../components/Flex';
 import Card from '../../components/Card';
 
-
+const defaultButtonStyles = disabled => ({
+  border: 0,
+  background: 'rgba(0,0,0,0.4)',
+  color: 'white',
+  padding: 10,
+  opacity: disabled ? 0.3 : 1,
+  cursor: disabled ? 'not-allowed' : 'pointer'
+});
 
 class ResourcesCarousel extends React.Component {
   constructor(props) {
@@ -29,22 +37,16 @@ class ResourcesCarousel extends React.Component {
           css={{
             margin: '0 auto',
             [media.greaterThan('small')]: {
-              minWidth: media.getSize('small').width,
-              maxWidth: media.getSize('small').width
+              // minWidth: media.getSize('small').width,
+              // maxWidth: media.getSize('small').width
+              minWidth: '100%',
+              maxWidth: '100%'
             },
             [media.greaterThan('medium')]: {
               // minWidth: media.getSize('medium').width,
               // maxWidth: media.getSize('medium').width
               minWidth: '100%',
               maxWidth: '100%'
-            },
-            [media.greaterThan('large')]: {
-              minWidth: media.getSize('large').width,
-              maxWidth: media.getSize('large').width
-            },
-            [media.greaterThan('xlarge')]: {
-              minWidth: media.getSize('xlarge').width,
-              maxWidth: media.getSize('xlarge').width
             }
           }}
         >
@@ -53,16 +55,10 @@ class ResourcesCarousel extends React.Component {
               paddingTop: 50,
               width: '100%',
               [media.greaterThan('small')]: {
-                padding: '0 64px'
+                padding: '0'
               },
               [media.greaterThan('medium')]: {
                 padding: 0
-              },
-              [media.greaterThan('large')]: {
-                padding: '0 71px'
-              },
-              [media.greaterThan('xlarge')]: {
-                padding: '0 84px'
               }
             }}
           >
@@ -74,6 +70,11 @@ class ResourcesCarousel extends React.Component {
                 color: colors.gray_100,
                 marginBottom: 0,
                 marginTop: 88,
+                [media.greaterThan('small')]: {
+                  minWidth: media.getSize('small').width,
+                  maxWidth: media.getSize('small').width,
+                  margin: '88px auto 0 auto'
+                },
                 [media.greaterThan('medium')]: {
                   minWidth: media.getSize('medium').width,
                   maxWidth: media.getSize('medium').width,
@@ -86,7 +87,6 @@ class ResourcesCarousel extends React.Component {
 
             {this.props.data.allGetstartedJson.edges[0].node.data.map(
               (category, idx) => (
-
                 <div
                   key={idx}
                   css={{
@@ -99,6 +99,11 @@ class ResourcesCarousel extends React.Component {
                       fontWeight: 300,
                       color: colors.gray_100,
                       padding: '33px 0 46px 0',
+                      [media.greaterThan('small')]: {
+                        minWidth: media.getSize('small').width,
+                        maxWidth: media.getSize('small').width,
+                        margin: '0 auto'
+                      },
                       [media.greaterThan('medium')]: {
                         minWidth: media.getSize('medium').width,
                         maxWidth: media.getSize('medium').width,
@@ -110,34 +115,38 @@ class ResourcesCarousel extends React.Component {
                   </div>
 
                   <Carousel
-                    initialSlideHeight='476px'
-                    initialSlideWidth='364px'
+                    initialSlideHeight={476}
+                    initialSlideWidth={364}
                     slideWidth='364px'
                     cellSpacing={20}
+                    swiping={true}
                     renderCenterLeftControls={null}
                     renderCenterRightControls={null}
+                    renderBottomCenterControls={props => (
+                      <PagingDots {...props} />
+                    )}
                   >
-                  {category.data.map((entry, idx) => (
-
-                    <div
-                      css={{
-                        paddingLeft: 20,
-                        paddingRight: 20
-                      }}
-                    >
-                      <Card
-                        cssProps={{
-                          marginRight: 0,
-                          marginBottom: 24,
-                          ':nth-of-type(2n)': {
-                            marginRight: 24
-                          }
-                        }}
+                    {category.data.map((entry, idx) => (
+                      <div
                         key={idx}
-                        data={entry}
-                      />
-                    </div>
-                  ))}
+                        css={{
+                          paddingLeft: 20,
+                          paddingRight: 20
+                        }}
+                      >
+                        <Card
+                          cssProps={{
+                            marginRight: 0,
+                            marginBottom: 24,
+                            ':nth-of-type(2n)': {
+                              marginRight: 24
+                            }
+                          }}
+                          key={idx}
+                          data={entry}
+                        />
+                      </div>
+                    ))}
                   </Carousel>
                 </div>
               )
@@ -170,7 +179,6 @@ export default () => (
                   description
                   action
                   url
-                  read
                 }
               }
             }
