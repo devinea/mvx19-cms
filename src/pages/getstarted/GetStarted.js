@@ -1,11 +1,45 @@
 import React from 'react';
+
 import Layout from '../../components/Layout';
 import Flex from '../../components/Flex';
+
 import { colors, media } from '../../components/theme';
 import ResourcesList from '../../components/ResourceList/ResourcesList';
 import LearningList from '../../components/LearningList/LearningList';
+import ResourcesCarousel from './ResourcesCarousel';
 
 class GetStarted extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      mediumSize: false
+    };
+
+    this.mediaQueryListener = null;
+    this.onMatchMQ = mediaQueryListener => this._onMatchMQ(mediaQueryListener);
+    this.isSmallSize = toggle => this._isSmallSize(toggle);
+  }
+
+  componentDidMount = () => {
+    if (!window.matchMedia) return;
+    const medium = media.getSize('medium');
+    this.mediaQueryListener = window.matchMedia(`(max-width: ${medium.max}px)`);
+    this.mediaQueryListener.addListener(this.onMatchMQ);
+
+    this.setState({ mediumSize: this.mediaQueryListener.matches });
+  };
+
+  componentWillUnmount = () => {
+    this.mediaQueryListener &&
+      this.mediaQueryListener.removeListener(this.onMatchMQ);
+  };
+
+  _onMatchMQ(mql) {
+    this.setState({ mediumSize: mql.matches });
+  }
+
+
   render() {
     const { location } = this.props;
 
@@ -15,6 +49,10 @@ class GetStarted extends React.Component {
           direction='column'
           css={{
             margin: '0 auto',
+            [media.greaterThan('small')]: {
+              minWidth: media.getSize('small').width,
+              maxWidth: media.getSize('small').width
+            },
             [media.greaterThan('medium')]: {
               minWidth: media.getSize('medium').width,
               maxWidth: media.getSize('medium').width
@@ -37,14 +75,20 @@ class GetStarted extends React.Component {
               fontWeight: 700,
               color: colors.gray_600,
               marginTop: 100,
-              marginBottom: 105
+              marginBottom: 105,
+              [media.lessThan('medium')]: {
+                fontSize: 26,
+                lineHeight: '43px',
+                marginTop: 60,
+                marginBottom: 60
+              }
             }}
           >
             Get started with Fiori.
           </h1>
           <LearningList />
         </Flex>
-        <ResourcesList />
+        {this.state.mediumSize ? <ResourcesCarousel /> : <ResourcesList />}
       </Layout>
     );
   }

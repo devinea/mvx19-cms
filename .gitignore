@@ -10,7 +10,7 @@ yarn-error.log
 
 ## IDE-files
 .idea
-
+.vscode
 
 #test
 cypress/videos/*

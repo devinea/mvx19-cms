@@ -16,7 +16,7 @@ const ExternalFooterLink = ({ children, href, target, rel }) => (
         color: colors.blue_600
       },
       [media.size('small')]: {
-        ':not(:first-child)': {
+        ':not(:first-of-type)': {
           marginTop: 5
         },
       }
