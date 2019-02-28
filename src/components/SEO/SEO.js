@@ -32,33 +32,14 @@ const SEO = props => (
           meta={[{ name: 'description', content: `${description}` }]}
           titleTemplate={`%s - ${title}`}
           link={[
-            {
-              rel: "apple-touch-icon",
-              sizes: "180x180",
-              href: '/img/apple-touch-icon.png'
-            },
-            {
-              rel: 'icon',
-              type: 'image/vnd.microsoft.icon',
-              href: '/img/favicon.ico'
-            },
-            {
-              rel:"icon",
-              type:"image/png",
-              href:"/img/favicon-16x16.png",
-              sizes:"16x16"
-            },
-            {
-              rel:"icon",
-              type:"image/png",
-              href:"/img/favicon-32x32.png",
-              sizes:"32x32"
-            },
-            {
-              rel: "mask-icon",
-              href: `/img/safari-pinned-tab.svg`
-            }
-          ]}
+          { href:​ "/img/icons/touch-icon-60x60.png", rel: ​"apple-touch-icon", sizes=​"60x60" },
+          { href:​ "/img/icons/touch-icon-120x120.png", rel: ​"apple-touch-icon", sizes=​"120x120" },
+          { href:​ "/img/icons/touch-icon-180x180.png", rel: ​"apple-touch-icon", sizes=​"180x180" },
+          { href:​ "/img/icons/touch-icon-1024x1024.png", rel: ​"apple-touch-icon", sizes=​"1024x1024" },
+          { href: '/img/icons/favicon.ico', rel: 'icon', type: 'image/vnd.microsoft.icon'},
+          { rel: 'shortcut icon', type: 'image/vnd.microsoft.icon', href: '/img/icons/favicon.ico' },
+          { rel: "mask-icon", href: `/img/icons/safari-pinned-tab.svg` }
+            ]}
           meta={[
             { property: 'og:title', content: `${title}` },
             { property: 'og:type', content: 'website' },
