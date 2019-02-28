@@ -10,6 +10,39 @@ class ResourcesList extends React.Component {
     super(props);
   }
 
+  resourcesRenderer = (category, idx) => {
+    return (
+      <div
+        key={idx}
+        css={{
+          marginBottom: 60
+        }}
+      >
+        <div
+          css={{
+            fontSize: 35,
+            fontWeight: 300,
+            color: colors.gray_100,
+            padding: '33px 0 46px 0'
+          }}
+        >{category.title}</div>
+        {category.data.map((entry, idx) => (
+          <Card
+            cssProps={{
+              marginRight: 0,
+              marginBottom: 24,
+              ':nth-of-type(2n)': {
+                marginRight: 24
+              }
+            }}
+            key={idx}
+            data={entry}
+          />
+        ))}
+      </div>
+    )
+  }
+
   render() {
     return (
       <div
@@ -73,49 +106,30 @@ class ResourcesList extends React.Component {
               resources
             </h1>
 
-            {this.props.data.allGetstartedJson.edges[0].node.data.map(
-              (category, idx) => (
-                <div
-                  key={idx}
-                  css={{
-                    marginBottom: 60
-                  }}
-                >
-                  <div
-                    css={{
-                      fontSize: 35,
-                      fontWeight: 300,
-                      color: colors.gray_100,
-                      padding: '33px 0 46px 0'
-                    }}
-                  >
-                    {category.title}
-                  </div>
-
-                  {category.data.map((entry, idx) => (
-                    <Card
-                      cssProps={{
-                        marginRight: 0,
-                        marginBottom: 24,
-                        ':nth-of-type(2n)': {
-                          marginRight: 24
-                        }
-                      }}
-                      key={idx}
-                      data={entry}
-                    />
-                  ))}
-                </div>
-              )
-            )}
+            {
+              this.props.resource ?
+                this.props.data.allGetstartedJson.edges[0].node.data.map(
+                  (category, idx) => {
+                    if (this.props.resource === category.type) {
+                      return this.resourcesRenderer(category, idx)
+                    }
+                  }
+                )
+                :
+                this.props.data.allGetstartedJson.edges[0].node.data.map(
+                  (category, idx) => {
+                    return this.resourcesRenderer(category, idx)
+                  }
+                )
+            }
           </section>
         </Flex>
       </div>
-    );
+    )
   }
-}
+};
 
-export default () => (
+export default (props) => (
   <StaticQuery
     query={graphql`
       query {
@@ -143,6 +157,6 @@ export default () => (
         }
       }
     `}
-    render={data => <ResourcesList data={data} />}
+    render={data => <ResourcesList data={data} {...props} />}
   />
 );

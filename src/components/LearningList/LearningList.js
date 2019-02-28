@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, graphql, StaticQuery } from 'gatsby';
-import { colors, media } from '../../components/theme';
-import Flex from '../../components/Flex';
+import { colors, media } from '../theme';
+import Flex from '../Flex';
 
 class LearningList extends React.Component {
   render() {

@@ -8,8 +8,14 @@ description: >-
 tags:
   - Foundation
   - SAP Fiori
-iscontrol: false  
+iscontrol: false
 version: '1.01'
+tabs:
+  - All
+  - Controls
+  - Views
+  - Patterns
+  - Floorplans
 leftnavorder:
   l1: '2'
   l2: '0'

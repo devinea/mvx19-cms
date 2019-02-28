@@ -9,7 +9,7 @@
 - title: Fiori for iOS
   items:
     - id: ios
-    - url: /design/guidelines#ios
+    - url: /guideline_ios
 - title: Fiori for Android
   items:
     - id: android
