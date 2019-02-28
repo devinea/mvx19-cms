@@ -8,8 +8,6 @@ import ResourcesList from '../../components/ResourceList/ResourcesList';
 import Tabs from '../../components/Tabs';
 import { css } from '@emotion/core';
 
-
-
 export default class GuidelineIosIndexPage extends React.Component {
   render() {
     const { data, location } = this.props;

@@ -1,9 +1,9 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 
-import { colors, media } from '../theme';
-import Flex from '../Flex';
-import Card from '../Card';
+import { colors, media } from '../../components/theme';
+import Flex from '../../components/Flex';
+import Card from '../../components/Card';
 
 class ResourcesList extends React.Component {
   constructor(props) {
@@ -42,6 +42,7 @@ class ResourcesList extends React.Component {
       </div>
     )
   }
+
   render() {
     return (
       <div
@@ -103,7 +104,8 @@ class ResourcesList extends React.Component {
               }}
             >
               resources
-        </h1>
+            </h1>
+
             {
               this.props.resource ?
                 this.props.data.allGetstartedJson.edges[0].node.data.map(

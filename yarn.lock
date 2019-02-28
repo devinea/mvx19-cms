@@ -1082,6 +1082,11 @@
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@types/configstore/-/configstore-2.1.1.tgz#cd1e8553633ad3185c3f2f239ecff5d2643e92b6"
 
+"@types/d3-timer@^1.0.8":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@types/d3-timer/-/d3-timer-1.0.9.tgz#aed1bde0cf18920d33f5d44839d73de393633fd3"
+  integrity sha512-WvfJ3LFxBbWjqRGz9n7GJt08RrTHPJDVsIwwoCMROlqF+iDacYiAFjf9oqnq0mXpb2juA2N/qjKP+MKdal3YNQ==
+
 "@types/debug@^0.0.29":
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/debug/-/debug-0.0.29.tgz#a1e514adfbd92f03a224ba54d693111dbf1f3754"
@@ -3710,6 +3715,16 @@ cypress@^3.1.5:
     tmp "0.0.31"
     url "0.11.0"
     yauzl "2.8.0"
+
+d3-ease@^1.0.3:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/d3-ease/-/d3-ease-1.0.5.tgz#8ce59276d81241b1b72042d6af2d40e76d936ffb"
+  integrity sha512-Ct1O//ly5y5lFM9YTdu+ygq7LleSgSE4oj7vUt9tPLHUi8VCV7QoizGpdWRWAwCO9LdYzIrQDg97+hGVdsSGPQ==
+
+d3-timer@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/d3-timer/-/d3-timer-1.0.9.tgz#f7bb8c0d597d792ff7131e1c24a36dd471a471ba"
+  integrity sha512-rT34J5HnQUHhcLvhSB9GjCkN0Ddd5Y8nCwDBG2u6wQEeYxT/Lf51fTFFkldeib/sE/J0clIe0pnCfs6g/lRbyg==
 
 d@1:
   version "1.0.0"
@@ -8360,6 +8375,14 @@ jwt-decode@^2.1.0, jwt-decode@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/jwt-decode/-/jwt-decode-2.2.0.tgz#7d86bd56679f58ce6a84704a657dd392bba81a79"
 
+kapellmeister@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/kapellmeister/-/kapellmeister-2.0.0.tgz#926b88462788cef76da8c270f36249350e244613"
+  integrity sha512-KrJ7GpzqIkHHj+plAeXogbsZwhT+AHL58KNer34HUCS+eXScIDFw+gWGS6ZjDPPILQYVT4LQ0QhYAuBCTRbvgw==
+  dependencies:
+    "@types/d3-timer" "^1.0.8"
+    d3-timer "^1.0.9"
+
 kebab-case@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/kebab-case/-/kebab-case-1.0.0.tgz#3f9e4990adcad0c686c0e701f7645868f75f91eb"
@@ -9932,6 +9955,16 @@ nth-check@^1.0.1, nth-check@^1.0.2, nth-check@~1.0.1:
   resolved "https://registry.yarnpkg.com/nth-check/-/nth-check-1.0.2.tgz#b2bd295c37e3dd58a3bf0700376663ba4d9cf05c"
   dependencies:
     boolbase "~1.0.0"
+
+nuka-carousel@^4.4.8:
+  version "4.4.8"
+  resolved "https://registry.yarnpkg.com/nuka-carousel/-/nuka-carousel-4.4.8.tgz#c851a11c5084f17182f38602640190653cc4cc65"
+  integrity sha512-1QcHVumb5yakSCI6Mh0YSBhwBEOMLQXFSWHfgiC1KL5sAoyb61lQtzfm+nnEGEuhA3rckHemMkKhDXFIJ4/oxg==
+  dependencies:
+    d3-ease "^1.0.3"
+    exenv "^1.2.0"
+    prop-types "^15.6.0"
+    react-move "^5.0.0"
 
 null-loader@^0.1.1:
   version "0.1.1"
@@ -11872,6 +11905,16 @@ react-modal@^3.1.5:
     prop-types "^15.5.10"
     react-lifecycles-compat "^3.0.0"
     warning "^3.0.0"
+
+react-move@^5.0.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/react-move/-/react-move-5.2.0.tgz#d9c7f70d6feb256dc850aa0eab5d1f238576c231"
+  integrity sha512-iWHIqEgfmVzFTBMpGqKvUhQcC7A7afaej6amUkrUu8ZTqwdccsrUW0bme4iZuW1Yp5yNBqus6Gq4cFbHxMWIyg==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    kapellmeister "^2.0.0"
+    prop-types "^15.7.2"
+    react-lifecycles-compat "^3.0.4"
 
 react-onclickoutside@^6.5.0:
   version "6.7.1"
