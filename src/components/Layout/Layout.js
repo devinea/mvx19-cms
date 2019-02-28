@@ -81,9 +81,11 @@ class Layout extends React.Component {
     this.setState({ menuToggle: toggle }, () => {
       if (!this.state.menuToggle) {
         document.body.style.overflow = 'auto';
+        document.body.style.position = 'inherit';
       } else {
         window.scrollTo(0, 0);
         document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
       }
     });
   }

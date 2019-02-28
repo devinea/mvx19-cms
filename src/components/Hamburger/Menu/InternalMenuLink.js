@@ -10,6 +10,10 @@ const InternalMenuLink = ({ children, target, to }) => (
       color: colors.gray_600,
       fontSize: 18,
       fontWeight: 'normal',
+      width: '100%',
+      height: '100%',
+      display: 'inline-block',
+      padding: 20,
       ':hover': {
         color: colors.gray_700
       }
