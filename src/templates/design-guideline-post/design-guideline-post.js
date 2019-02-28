@@ -6,7 +6,6 @@ import { graphql, Link } from 'gatsby';
 
 import Filter from '../../components/Filter/Filter.js';
 import Flex from '../../components/Flex';
-import Layout from '../../components/Layout';
 
 import { sharedStyles } from '../../components/theme';
 
@@ -78,7 +77,6 @@ const DesignGuidelinePost = ({ data, location, pageContext }) => {
   }
 
   return (
-    <Layout location={location}>
       <Flex
         direction='row'
         shrink='0'
@@ -119,7 +117,6 @@ const DesignGuidelinePost = ({ data, location, pageContext }) => {
           />
         </div>
       </Flex>
-    </Layout>
   );
 };
 

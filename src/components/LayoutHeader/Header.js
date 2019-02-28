@@ -21,6 +21,10 @@ class Header extends React.Component {
     };
   }
 
+  componentDidMount() {
+    console.log('mounting header!!!!!!');
+  }
+
   render() {
     const { location } = this.props;
 

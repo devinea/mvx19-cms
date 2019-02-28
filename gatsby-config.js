@@ -76,6 +76,12 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
+      resolve: 'gatsby-plugin-layout',
+      options: {
+          component: require.resolve('./src/components/Layout/index.js')
+      }
+    },    
+    {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
         // Fields to index

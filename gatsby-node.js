@@ -93,6 +93,16 @@ exports.createPages = ({ actions, graphql }) => {
   })
 }
 
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage } = actions;
+
+  if(page.path.match(/designguideline/)) {
+    page.context.layout = 'special'
+    createPage(page)
+  }
+}
+
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
   fmImagesToRelative(node) // convert image paths for gatsby images

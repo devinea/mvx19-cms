@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Flex from '../../components/Flex';
-import Layout from '../../components/Layout';
 
 import LeftNav from '../../components/LeftNav';
 import designImg from './../../img/design.png';
@@ -12,7 +11,6 @@ export default class DesignGuidelineIndexPage extends React.Component {
     const { data, location } = this.props;
 
     return (
-      <Layout location={location}>
         <Flex
           direction='row'
           shrink='0'
@@ -41,7 +39,6 @@ export default class DesignGuidelineIndexPage extends React.Component {
             />
           </div>
         </Flex>
-      </Layout>
     );
   }
 }

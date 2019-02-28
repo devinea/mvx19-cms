@@ -1,8 +1,9 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
-import { colors } from '../theme';
+import { colors, media } from '../theme';
 import LeftNavLink from './LeftNavLink';
 import crossIcon from './../../img/cross.svg';
+import selectArrowIcon from './../../img/select-arrow.svg';
+
 
 let state = {
   navOpen: true,
@@ -48,14 +49,47 @@ class LeftNav extends React.Component {
     this.expandSection = (event, sectionIndex) => this._expandSection(event, sectionIndex);
     this.mouseEnter = element => this._mouseEnter(element);
     this.mouseLeave = () => this._mouseLeave();
+    this.closeToggle = () => this._closeToggle();
     this.isOverElement = false;
   }
 
+  componentDidMount() {
+    console.log('mounting!!!');
+    // let self = this;
+    // self.state.navOpen = false;
+    // self.setState({ navOpen: false});
+    return;
+
+    setTimeout(function() {
+      if (self.state.navOpen) {
+        console.log('closing');
+        // self.state.navOpen = false;
+        self.setState({ navOpen: false});
+      }
+    });
+
+    // let self = this;
+    // setTimeout(function() {
+    //   self.state.navOpen = false;
+    //   self.setState({ navOpen: false});
+    //   console.log('should close!');
+    // }, 3000);
+    // // this.setState({ navOpen: !this.state.navOpen });
+  }
+
   _toggleNav() {
+    console.log('toggling');
     this.setState({ navOpen: !this.state.navOpen });
     if (this.props.navOpener) {
       this.props.navOpener(!this.state.navOpen);
     }
+  }
+
+  _closeToggle() {
+    console.log('closing!!!!');
+    let self = this;
+    self.setState({ navOpen: false});
+    self.state.navOpen = false;
   }
 
   _expandSection(event, sectionIndex) {
@@ -115,10 +149,16 @@ class LeftNav extends React.Component {
           backgroundColor: colors.white,
           display: 'flex',
           width: 0,
+          zIndex: 100,
           transition: 'width 0.3s ease-in-out',
           ...(this.state.navOpen && {
             width: 260,
           }),
+          [media.lessThan('large')]: {
+            width: '100%',
+            height: 'auto',
+            backgroundColor: colors.gray_100
+          },
           position: 'fixed',
           flexDirection: 'row',
           alignItems: 'top',
@@ -133,18 +173,27 @@ class LeftNav extends React.Component {
             overflow: 'hidden',
             fontSize: 20,
             width: '100%',
-            opacity: 0,
-            ...(this.state.navOpen && {
-              opacity: 1,
-            })
+            [media.greaterThan('large')]: {
+              opacity: 0,
+              ...(this.state.navOpen && {
+                opacity: 1,
+              })
+            }
           }}>
           <div
             css={{
               overflow: 'hidden',
               lineHeight: '90px',
               height: 90,
-              width: '100%',
               paddingLeft: 40,
+              [media.lessThan('large')]: {
+                lineHeight: '45px',
+                height: 45,
+                paddingLeft: 20,
+                color: colors.gray_700
+              },
+              width: '100%',
+              
               float: 'left'
             }}>
             {this.props.title}
@@ -159,15 +208,61 @@ class LeftNav extends React.Component {
               right: 12,
               fontSize: 12,
               top: 39,
-              cursor: 'pointer'
+              cursor: 'pointer',
+              [media.lessThan('large')]: {
+                display: 'none'
+              }              
             }}
             onClick={this.toggleNav}
           />
+          <div css={{
+            position: 'absolute',
+            right: 45,
+            top: 0,
+            height: 45,
+            lineHeight: '45px',
+            display: 'none',
+            fontFamily: '72',
+            fontWeight: 'bold',
+            color: colors.gray_700,
+            fontSize: 16,
+            cursor: 'pointer',
+            [media.lessThan('large')]: {
+              display: 'block',
+              ...(this.state.navOpen && {
+                color: 'transparent'
+              })
+            },
+            '::after': {
+              position: 'absolute',
+              backgroundImage: 'url(' + selectArrowIcon + ')',
+              ...(this.state.navOpen && {
+                backgroundImage: 'url(' + crossIcon + ')',
+              }),
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: '10px center',
+              width: 50,
+              height: 45,
+              content: '""'
+            }          
+          }}
+          onClick={this.toggleNav}
+          >{(self.state.sectionOn == -1) ? 'Overview' : this.props.data.edges[self.state.sectionOn].node.frontmatter.title}&nbsp;</div>
+
           <div id="menuContainer"
             css={{
               position: 'relative',
               float: 'left',
-              width: '100%'
+              width: '100%',
+              float: 'left',
+              overflow: 'hidden',
+              [media.lessThan('large')]: {
+                maxHeight: 0,
+                transition: 'max-height 0.3s ease-in-out',
+                ...(this.state.navOpen && {
+                  maxHeight: '100vh',
+                })
+              }
             }}
           >
             <div id="menuHover"
@@ -192,7 +287,9 @@ class LeftNav extends React.Component {
                 sectionOn={self.state.sectionOn} 
                 expander={self.expandSection} 
                 mouseEnter={self.mouseEnter} 
-                mouseLeave={self.mouseLeave}/>
+                mouseLeave={self.mouseLeave}
+                closeToggle={self.closeToggle}
+                />
             ))}
           </div>
         </div>
@@ -218,10 +315,12 @@ class LeftNav extends React.Component {
             '::before': {
                 content: 'attr(data-sap-ui-icon-content)'
             },
-            ...(!this.state.navOpen && {
-              opacity: 1,
-              pointerEvents: 'all'
-            })
+            [media.greaterThan('large')]: {
+              ...(!this.state.navOpen && {
+                opacity: 1,
+                pointerEvents: 'all'
+              })
+            }
           }}
           data-sap-ui-icon-content=''
           onClick={this.toggleNav}
