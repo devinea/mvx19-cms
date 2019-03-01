@@ -158,7 +158,7 @@ exports.sourceNodes = ({ boundActionCreators, getNodes, getNode }) => {
                     leftNavResObj.title = (menu.subItem) ? menu.subItem : '';
                     leftNavResObj.slug = (guidelineNode.fields.slug) ? guidelineNode.fields.slug : '';
                     leftNavResObj.hasChildren = (menu.submenu && menu.submenu.items) ? true : false;
-                    leftNavResObj.parentId = parentId;
+                    // leftNavResObj.parentId = parentId;
                     parentId = guidelineNode.id;
                     leftNavRes.push(leftNavResObj);
                     if (menu.submenu && menu.submenu.items){

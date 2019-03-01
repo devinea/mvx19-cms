@@ -24,26 +24,16 @@ class LeftNav extends React.Component {
     for (let i = 0; i < this.props.data.edges.length; i++) {
       const item = this.props.data.edges[i];
       // Check if this item is currently selected.
-      // if (typeof window !== 'undefined' && window.location && item.node.fields.slug === decodeURIComponent(window.location.pathname)) {
       if (typeof window !== 'undefined' && window.location && item.slug === decodeURIComponent(window.location.pathname)) {
         sectionOn = i;
       }
-      if (item.hasChildren) {
-        if (!this.state.opened.includes(item.slug)) {
-          // item.isHidden = true;
+        // if (!this.state.opened.includes(item.slug)) {
+        //   item.isHidden = false;
+        // } else {
           item.isHidden = false;
-        } else {
-          item.isHidden = false;
-        }
-        // if (this.props.data.edges[i -1].hasChildren) {
-        //   this.props.data.edges[i -1].hasChildren = true;
-        //   if (!item.node.isHidden) {
-            this.props.data.edges[i -1].expanded = true;
-        //   } else {
-        //     this.props.data.edges[i -1].expanded = false;
-        //   }
         // }
-      }
+            this.props.data.edges[i].expanded = true;
+          // }
     }
     
     this.state.sectionOn = sectionOn;
