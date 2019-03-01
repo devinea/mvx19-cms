@@ -1,56 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="118px" height="97px" viewBox="0 0 118 97" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
-    <title>Group 4</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <polygon id="path-1" points="55 0 110 28.6184343 55 55 0 28.6184343"></polygon>
-        <filter x="-6.4%" y="-9.1%" width="112.7%" height="125.5%" filterUnits="objectBoundingBox" id="filter-2">
-            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.13 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
-        </filter>
-        <polygon id="path-3" points="55 0 110 28.6184343 55 55 0 28.6184343"></polygon>
-        <filter x="-6.4%" y="-9.1%" width="112.7%" height="125.5%" filterUnits="objectBoundingBox" id="filter-4">
-            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.13 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
-        </filter>
-    </defs>
-    <g id="Get-Started" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Get-Started---Desktop-984" transform="translate(-265.000000, -831.000000)">
-            <g id="Group-17" transform="translate(232.000000, 790.000000)">
-                <g id="Group-23">
-                    <g id="Group-4" transform="translate(37.000000, 43.000000)">
-                        <polygon id="Rectangle-Copy-2" fill="#1E4452" fill-rule="nonzero" points="55 40 110 68.6184343 55 95 0 68.6184343"></polygon>
-                        <g id="Group-13" transform="translate(14.000000, 48.000000)" fill-rule="nonzero" opacity="0.266438802" stroke="#E4F8FF" stroke-linecap="square">
-                            <path d="M0.466666667,14.4666667 L56.4666667,41.5333333" id="Line-2"></path>
-                            <path d="M4.2,12.6 L60.2,39.6666667" id="Line-2-Copy-5"></path>
-                            <path d="M9.8,8.86666667 L65.8,35.9333333" id="Line-2-Copy-6"></path>
-                            <path d="M16.3333333,5.13333333 L72.3333333,32.2" id="Line-2-Copy-7"></path>
-                            <path d="M22.8666667,2.33333333 L78.8666667,29.4" id="Line-2-Copy-8"></path>
-                            <path d="M7,10.7333333 L63,37.8" id="Line-2-Copy"></path>
-                            <path d="M13.5333333,7 L70.4666667,35" id="Line-2-Copy-2"></path>
-                            <path d="M19.1333333,3.26666667 L76.0666667,31.2666667" id="Line-2-Copy-3"></path>
-                            <path d="M26.6,0.466666667 L83.5333333,28.4666667" id="Line-2-Copy-4"></path>
-                        </g>
-                        <g id="Group-12" transform="translate(0.000000, 20.000000)" fill-rule="nonzero">
-                            <g id="Rectangle">
-                                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
-                                <use fill="#297794" xlink:href="#path-1"></use>
-                            </g>
-                        </g>
-                        <image id="colors" x="25" y="37" width="61" height="27" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAAAgCAYAAACxSj5wAAAABGdBTUEAALGOfPtRkwAAA4dJREFUaAXVmU9IVUEYxTM1MjCCKAijKISUgojCjUFgRVS0aCG0cpUkUkmFLvuzcVNgRFERSBS1yIVEIBYtiiJS2gSVUiFUQhujdv3/8zuv5nbf817fve/N9+B9cJi5c2fOmXucGd43VjTuPjSrlDE22OdNbnTyexxXNS9awFawAdSDRWAO+ALeg5fgMRhqWlo9ShkZVZGtfxtTiTAkVmQGDd+v5kN4BHSAxTHkc2lf8Q/bKI9h9HPK06Afs35RBjE7qP2vSOQEmATDQIKbQB3QX0DhRDICPI+AZ2AviOKk2Tx2ojAOjoI4c+ImsZoXl8ATzFoT7pT7MV5EEMgSCQsa1bvgvQWWFMm/jvEjmLTD8YQN8iqCQCDixIzKPfDqYKvwxD8PnkFM2ig+Z5CJCPwZEQkZxUJ4zwNf5rhp6ii5hkk1MshUBP4ap2pQ7odzgQGvKJeBdhlkLiI1o9hlxOtoW2WQuYhTMygbDDjDlOtlkLlIWLHM6pUyyDoqDQXGDLlFPa5f0hLRz3Gr0I+3yNjS1h3ZnqLxJn0t5z6gFSQRyxgwJD8H90cj/g/wXpBB5iJGHyBambMP/NaDxxBfJ3nZlAwyFYF/KmribC8lw8rlToF7QLnfV6DJfQYTYBgcB00gLrRClQP+iOuQsl3J6gHMuaFxOoMUEqkFF4Fro1pwSOQgyIiEWTCmoIwbjiDjpi7+cPTz8ApcBcvDL1LW39K/HXPuuHFaQS4k0gLeuIYCS4lsB9q6WVFXW2WZDD9ArBEcBq+zhPM/TNKlBzSEzdGw3NXiRDp41wnq1SlhSOQMOAu0RbICc7po6APF5k2ZjBueVjAEwiFdaehupxloC2t7rgK6rtH3qs8noAszXdPcBvcx5ifltKiY4UZRH5JKhP6RIpijZPg6KNYcKIL4Rm1zb2/vw6AlZQVT8o6YyaC8g5N0wBwlw1ryFkmltnMDJk1bsUnmlsSg8BmUhLOQPuWcDE87gwoxIN8Y82SYlaCzzySqfP6XIWqGdW3dZZ0Ml2KLRfnms80yGQ6uXH1OOJdrLLfB83NsMuxDpxQrqJyT4ZKsoHJOhu0NunvlpGkyDH9kMuxje4nD9IBzk5x4+ujFyrXN73hWLuZjW2eSYcy57DSsSh+TTTQ3PsY8GU40kZSdSmaQ5oVJLhkuKuOGKriOSPm9qbv7TB5TiXMvVHQyjOGpNAvp/AfuK9e20mTa2QAAAABJRU5ErkJggg=="></image>
-                        <g id="Group-16">
-                            <g id="Rectangle-Copy" fill-rule="nonzero">
-                                <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
-                                <use fill="#5DCCF5" xlink:href="#path-3"></use>
-                            </g>
-                            <image id="Aa-copy" opacity="0.295340402" transform="translate(54.555596, 27.960756) rotate(2.000000) translate(-54.555596, -27.960756) " x="27.5216981" y="13.752423" width="54.0677966" height="28.4166667" xlink:href="data:image/png;base64,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"></image>
-                        </g>
-                    </g>
-                </g>
-            </g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120" height="105" viewBox="0 0 120 105">
+  <defs>
+    <polygon id="a" points="55 0 110 28.618 55 55 0 28.618"/>
+    <polygon id="d" points="60 25 115 53.618 60 80 5 53.618"/>
+    <filter id="c" width="112.7%" height="125.5%" x="-6.4%" y="-9.1%" filterUnits="objectBoundingBox">
+      <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13 0"/>
+    </filter>
+    <polygon id="f" points="60 5 115 33.618 60 60 5 33.618"/>
+    <filter id="e" width="112.7%" height="125.5%" x="-6.4%" y="-9.1%" filterUnits="objectBoundingBox">
+      <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <g transform="translate(5 45)">
+      <mask id="b" fill="white">
+        <use xlink:href="#a"/>
+      </mask>
+      <use fill="#1E4452" fill-rule="nonzero" xlink:href="#a"/>
+      <g fill="#537380" mask="url(#b)">
+        <g transform="rotate(26 23.308 16.903)">
+          <rect width="100" height="1" y="24"/>
+          <rect width="100" height="1" y="21"/>
+          <rect width="100" height="1" y="18"/>
+          <rect width="100" height="1" y="15"/>
+          <rect width="100" height="1" y="12"/>
+          <rect width="100" height="1" y="9"/>
+          <rect width="100" height="1" y="6"/>
+          <rect width="100" height="1" y="3"/>
+          <rect width="100" height="1"/>
         </g>
+      </g>
     </g>
+    <g fill-rule="nonzero">
+      <use fill="black" filter="url(#c)" xlink:href="#d"/>
+      <use fill="#297794" xlink:href="#d"/>
+    </g>
+    <ellipse cx="61" cy="61.5" fill="#445E75" rx="9" ry="7.5"/>
+    <ellipse cx="80.5" cy="49.5" fill="#CAE4FB" rx="9.5" ry="7.5"/>
+    <ellipse cx="40.5" cy="49.5" fill="#445E75" rx="9.5" ry="7.5"/>
+    <g fill-rule="nonzero">
+      <use fill="black" filter="url(#e)" xlink:href="#f"/>
+      <use fill="#5DCCF5" xlink:href="#f"/>
+    </g>
+    <path fill="#1E4452" fill-rule="nonzero" d="M55.6607599,35.4444965 L45.6219927,40.1480525 L47.5924994,45.5116303 L44.6006869,47 L37,27.2031656 L40.8935275,25.5605745 L64.9948315,36.9223019 L61.7023657,38.5157649 L55.6607599,35.4444965 Z M52.9717576,34.1982125 L45.0746844,31.1397835 C44.2625416,30.8815179 43.4777674,30.6304188 42.7205188,30.3861112 C41.9611521,30.146119 41.4378854,29.9708145 41.1520134,29.8575229 C41.2865033,30.067964 41.4649511,30.4066534 41.6869082,30.8745243 C41.908007,31.3441409 42.111437,31.8223279 42.2973236,32.3088565 L44.6511376,37.4445225 L52.9717576,34.1982125 Z M72.6111786,33.7468635 C70.6823893,34.6608159 68.951547,35.0220447 67.4058859,34.85644 C65.8576946,34.6960002 64.5957016,34.089008 63.6146755,33.0460079 C62.4183658,31.8129796 62.3395606,30.5760901 63.3973598,29.296413 C64.4670003,27.9926285 66.1919787,26.7121781 68.5801103,25.4392407 L72.4614229,23.3043537 L71.8298536,22.6443384 C71.0880615,21.8844088 70.1493623,21.491961 69.0165903,21.4611615 C67.8823101,21.4334399 66.6659332,21.7736528 65.373199,22.4700535 C64.3289187,23.0258184 63.5087329,23.6362831 62.912002,24.3027141 C62.3184985,24.962575 61.8356098,25.8258097 61.4636069,26.8918594 L58.2502006,26.7820576 C58.4814509,25.8462665 59.0447266,24.8859453 59.9440828,23.8928479 C60.8510081,22.8843425 62.1619532,21.9215668 63.879455,20.9994192 C65.411243,20.1632374 66.8940465,19.5845532 68.3225777,19.274204 C69.7526625,18.9607044 71.0378144,18.9145135 72.1742445,19.1434172 C73.30711,19.3795841 74.2323317,19.8718531 74.9488097,20.6225294 L79.7404049,26.0691865 C80.53396,27.0480456 81.2865723,27.9096298 82,28.6504331 L78.8413556,30.3151768 C78.2957508,29.8002518 77.7524099,29.2119004 77.210778,28.5512012 L77.138301,28.5891967 C76.958012,29.6463223 76.5332551,30.5913987 75.8663102,31.4197906 C75.2035888,32.2395849 74.1174205,33.0175765 72.6111786,33.7468635 Z M71.9099192,31.7066787 C73.0469976,31.1446451 73.9098747,30.5087279 74.4972793,29.8015437 C75.0879128,29.0877867 75.4041587,28.3835734 75.4436613,27.6936961 C75.4832477,27.0036463 75.2803128,26.4026703 74.8332132,25.8940839 L73.8389852,24.786672 L70.7853122,26.4690455 C69.0209881,27.4214304 67.750308,28.3133797 66.9680483,29.1554652 C66.191163,29.9866104 66.1658316,30.7776901 66.8842165,31.544682 C67.3840524,32.0877515 68.0810643,32.3803163 68.9767472,32.4193876 C69.8718918,32.4595592 70.8483897,32.2244678 71.9099192,31.7066787 Z" opacity=".3"/>
+  </g>
 </svg>
