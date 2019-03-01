@@ -17,7 +17,6 @@ class HamburgerMenu extends React.Component {
           height: 0,
           position: 'fixed',
           top: 0,
-          // zIndex: 1000,
           width: '100%',
           overflow: 'auto',
           backgroundColor: colors.white,
