@@ -23,7 +23,7 @@ export default class DesignGuidelineIndexPage extends React.Component {
             width: '100%',
           }}
         >
-          <LeftNav title="Fiori For Web" data={data.leftNav}/>
+          <LeftNav title="Fiori For Web" data={(data.leftNav)}/>
           <div
             css={{
               width: '100%'
@@ -47,35 +47,27 @@ export default class DesignGuidelineIndexPage extends React.Component {
 }
 
 export const pageQuery = graphql`
-  query {
-    leftNav: allMarkdownRemark(
-          sort: { order: ASC, fields: [
-            frontmatter___leftnavorder___l1,
-              frontmatter___leftnavorder___l2,
-              frontmatter___leftnavorder___l3,
-              frontmatter___leftnavorder___l4,
-          ] }
-          filter: {
-            frontmatter: { templateKey: { eq: "design-guideline-post" }, version: { eq: "1.01" } }
-          }
-        ) {
-          edges {
-            node {
-              id
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                templateKey
-                leftnavorder {
-                  l1
-                  l2
-                  l3
-                  l4
-                }
-              }
+     {
+        leftNav: allMarkdownRemark(
+            filter: {
+                frontmatter: { templateKey: { eq: "web-left-nav" }, version: { eq: "1.01" } }
             }
-          }
+        ) {
+            edges {
+                node {
+                    id
+                    fields{
+                        leftNavFlattened {
+                            id
+                            slug
+                            title
+                            parentId
+                            hasChildren
+                        }
+                    }
+
+                }
+            }
         }
-    }`;
+    }
+`;

@@ -20,7 +20,7 @@ class LeftNav extends React.Component {
     this.state = state;
     let sectionOn = -1;
     // Quick copy to this.props.data.edges for some minor backward compatibility
-    this.props.data.edges = this.props.data.node.fields.leftNavFlattened;
+    this.props.data.edges = (this.props.data.node && this.props.data.node.fields && this.props.data.node.fields.leftNavFlattened) ? this.props.data.node.fields.leftNavFlattened : this.props.data.edges[0].node.fields.leftNavFlattened;
     for (let i = 0; i < this.props.data.edges.length; i++) {
       const item = this.props.data.edges[i];
       // Check if this item is currently selected.
