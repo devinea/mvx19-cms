@@ -105,7 +105,7 @@ class Header extends React.Component {
                 overflowY: 'hidden',
                 height: '100%',
                 opacity: 1,
-                ...(!this.state.isSearcPage && {
+                ...(!this.state.isSearchPage && {
                   transition: 'left 0.3s'
                 }),
                 ...(this.props.searchButtonActive && {
