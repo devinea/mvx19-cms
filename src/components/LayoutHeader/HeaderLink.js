@@ -59,7 +59,7 @@ class HeaderLink extends React.Component {
           <span
             css={{
               position: 'absolute',
-              bottom: 2,
+              bottom: 0,
               height: 2,
               background: colors.blue_600,
               color: colors.blue_600,
