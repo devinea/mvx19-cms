@@ -116,20 +116,44 @@ class Search extends React.Component {
             </h3>
           </section>
 
-
-
-
           {this.state.results.map(page => {
             return (
 
               <div
+              key={page.id}
                 css={{
-                  paddingBottom: 20
+                  paddingBottom: 60
                 }}
               >
-                <div>Title: <Link to={`/${page.path}`}>{page.title}</Link></div>
-                <div>Description: {page.description}</div>
-                <div>Section: {page.templateKeyName}</div>
+                <div
+                  css={{
+                    fontSize: 28,
+                    fontWeight: 300,
+                    color: colors.black
+                  }}
+                >
+                  <Link to={`/${page.path}`}>{page.title}</Link>
+                </div>
+                <div
+                  css={{
+                    paddingTop: 10,
+                    fontSize: 12,
+                    fontWeight: 'normal',
+                    color: colors.gray_700
+                  }}
+                >
+                  {page.templateKeyName}
+                </div>
+                <div
+                  css={{
+                    fontSize: 16,
+                    fontWeight: 'normal',
+                    color: colors.gray_700,
+                    paddingTop: 20
+                  }}
+                >
+                  {page.description}
+                </div>
               </div>
 
             );

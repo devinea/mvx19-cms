@@ -16,12 +16,12 @@ class HamburgerMenu extends React.Component {
           display: 'block',
           height: 0,
           position: 'fixed',
-          top: 60,
-          zIndex: 1000,
+          top: 0,
+          // zIndex: 1000,
           width: '100%',
-          overflow: 'hidden',
+          overflow: 'auto',
           backgroundColor: colors.white,
-          padding: 0,
+          padding: '60px 0 0 0',
           transition: 'all .56s cubic-bezier(0.52, 0.16, 0.24, 1)',
           ...(this.props.active && {
             height: '100%'
