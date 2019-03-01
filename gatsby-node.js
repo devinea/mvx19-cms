@@ -115,3 +115,90 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     }
   }
 }
+
+exports.sourceNodes = ({ boundActionCreators, getNodes, getNode }) => {
+  const { createNodeField } = boundActionCreators;
+  const leftNavs = [];
+  // iterate thorugh all markdown nodes to link books to author
+  // and build author index
+  const markdownNodes = getNodes()
+    .filter(node => node.internal.type === "MarkdownRemark" && node.frontmatter.templateKey == 'web-left-nav' )
+    .forEach(node => {
+      const leftNavRes = [];
+
+      if (node.frontmatter.version) {
+          let parentId = null;
+
+            if (node.id) {
+              const leftNavResObj = {};
+              leftNavResObj.id = node.id;
+              leftNavResObj.title = node.frontmatter.title;
+              leftNavResObj.version = node.frontmatter.version;
+              leftNavResObj.slug = (node.fields && node.fields.slug) ? node.fields.slug : '';
+              leftNavResObj.parentId = null;
+              // leftNavResObj.hasChildren = (node.frontmatter.leftmenu && node.frontmatter.leftmenu.menu) ? true : false;
+              leftNavResObj.hasChildren = false;
+              // parentId = leftNavResObj.id;
+              parentId = null;
+              leftNavRes.push(leftNavResObj);
+              if (node.frontmatter.leftmenu){
+              if (node.frontmatter.leftmenu.menu ) {
+                  node.frontmatter.leftmenu.menu.forEach(menu => {
+
+                      const guidelineNode = getNodes().find(
+                        node2 =>
+                          node2.internal.type === "MarkdownRemark" &&
+                          // TO DO - Add template key here !!!!
+                          node2.frontmatter.title === menu.subItem &&
+                          node2.frontmatter.version === node.frontmatter.version
+                      );
+                      if (guidelineNode) {
+                    const leftNavResObj = {};
+                    leftNavResObj.id = (guidelineNode.id) ? guidelineNode.id : '';
+                    leftNavResObj.title = (menu.subItem) ? menu.subItem : '';
+                    leftNavResObj.slug = (guidelineNode.fields.slug) ? guidelineNode.fields.slug : '';
+                    leftNavResObj.hasChildren = (menu.submenu && menu.submenu.items) ? true : false;
+                    leftNavResObj.parentId = parentId;
+                    parentId = guidelineNode.id;
+                    leftNavRes.push(leftNavResObj);
+                    if (menu.submenu && menu.submenu.items){
+
+                      menu.submenu.items.forEach(item => {
+                        const guidelineNode = getNodes().find(
+                          node2 =>
+                            node2.internal.type === "MarkdownRemark" &&
+                            // TO DO - Add template key here !!!!
+                            node2.frontmatter.title === item.subItem &&
+                            node2.frontmatter.version === node.frontmatter.version
+                        );
+                        if (guidelineNode) {
+                            const leftNavResObj = {};
+                            leftNavResObj.id = (guidelineNode.id) ? guidelineNode.id : '';
+                            leftNavResObj.title = (item.subItem) ? item.subItem : '';
+                            leftNavResObj.slug = (guidelineNode.fields.slug) ? guidelineNode.fields.slug : '';
+                            leftNavResObj.hasChildren = false;
+                            leftNavResObj.parentId = parentId;
+                            leftNavRes.push(leftNavResObj);
+                        }
+                      })
+
+                    }
+                      }
+                  })
+                }
+              }
+            }
+        }
+      const id = node.id;
+      leftNavs.push({id,leftNavRes});
+      })
+
+  Object.entries(leftNavs).forEach(([id, leftNavRes]) => {
+    createNodeField({
+      node: getNode(leftNavRes.id),
+      name: "leftNavFlattened",
+      value: leftNavRes.leftNavRes,
+    });
+  });
+};
+

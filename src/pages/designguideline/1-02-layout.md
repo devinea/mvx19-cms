@@ -10,11 +10,6 @@ tags:
   - Floorplans
   - SAP Fiori
 version: '1.02'
-leftnavorder:
-  l1: '3'
-  l2: '0'
-  l3: '0'
-  l4: '0'
 ---
 
 

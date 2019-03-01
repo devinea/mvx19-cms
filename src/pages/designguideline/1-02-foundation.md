@@ -8,13 +8,7 @@ description: >-
 tags:
   - Foundation
   - SAP Fiori
-iscontrol: false  
 version: '1.02'
-leftnavorder:
-  l1: '2'
-  l2: '0'
-  l3: '0'
-  l4: '0'
 ---
 
 

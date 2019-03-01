@@ -90,7 +90,7 @@ const DesignGuidelinePost = ({ data, location, pageContext }) => {
           height: '100%'
         }}
       >
-        <LeftNav title="Fiori For Web" navOpener={navOpener} data={data.leftNav}/>
+        <LeftNav title="Fiori For Web" navOpener={navOpener} data={data.leftNav.edges[0]}/>
         <div id="design-guideline-div"
           css={{
             width: 828,
@@ -150,34 +150,25 @@ export const pageQuery = graphql`
       }
     },
     leftNav: allMarkdownRemark(
-          sort: { order: ASC, fields: [
-            frontmatter___leftnavorder___l1,
-              frontmatter___leftnavorder___l2,
-              frontmatter___leftnavorder___l3,
-              frontmatter___leftnavorder___l4,
-          ] }
-          filter: {
-            frontmatter: { templateKey: { eq: "design-guideline-post" }, version: { eq: $version } }
-          }
-        ) {
-          edges {
-            node {
-              id
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                templateKey
-                leftnavorder {
-                  l1
-                  l2
-                  l3
-                  l4
-                }
-              }
-            }
-          }
+        filter: {
+            frontmatter: { templateKey: { eq: "web-left-nav" }, version: { eq: $version } }
         }
+    ) {
+          edges {
+              node {
+                  id
+                  fields{
+                      leftNavFlattened {
+                          id
+                          slug
+                          title
+                          parentId
+                          hasChildren
+                      }
+                  }
+
+              }
+          }
       }
+  }
 `;

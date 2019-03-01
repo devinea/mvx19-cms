@@ -67,7 +67,6 @@ export default props => (
       sort: { order: ASC, fields: [frontmatter___title] },
       filter: { frontmatter: {
         templateKey: { eq: "design-guideline-post" }
-        iscontrol: { eq: true }
         }}
     ) {
       edges {
@@ -79,7 +78,6 @@ export default props => (
           frontmatter {
             title
             templateKey
-            iscontrol
              featuredImage {
               childImageSharp {
                 sizes {

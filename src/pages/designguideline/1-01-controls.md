@@ -8,12 +8,7 @@ tags:
   - Button
   - design Button
   - SAP Fiori
-iscontrol: true
 version: '1.01'
-leftnavorder:
-  l1: '4'
-  l2: '0'
-  l3: '0'
-  l4: '0'
+
 ---
 

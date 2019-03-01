@@ -6,13 +6,7 @@ date: 2019-02-06T14:36:48.068Z
 description: Table
 tags:
   - Table
-iscontrol: true
 version: '1.01'
-leftnavorder:
-  l1: '4'
-  l2: '4'
-  l3: '0'
-  l4: '0'
 ---
 # Table
 
