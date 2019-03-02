@@ -61,7 +61,7 @@ class LeftNavLink extends React.Component {
                     }
                     }
                     onClick={() => {
-                        this.props.closeToggle()
+                        // this.props.closeToggle()
                     }
                     }
                 >

@@ -11,6 +11,8 @@ import { sharedStyles } from '../../components/theme';
 
 import Content, { HTMLContent } from '../../components/Content';
 import LeftNav from '../../components/LeftNav';
+import {LeftNavData} from '../../components/Layout/Layout';
+import ContextConsumer from "../../components/Layout/Context"
 
 export const DesignGuidelinePostTemplate = ({
   content,
@@ -65,6 +67,26 @@ DesignGuidelinePostTemplate.propTypes = {
 
 
 const DesignGuidelinePost = ({ data, location, pageContext }) => {
+
+  <ContextConsumer>
+    {function({data}) {
+      data.menuOpen ? <Menu /> : <DIV>1ARSE</DIV>
+    }}
+  </ContextConsumer>
+
+  console.log(LeftNavData.Consumer);
+  <LeftNavData.Consumer>
+  {function({navData, setNavData}) {
+    console.log('ARSE1:', navData);
+    // if (!data.edges) {
+      if (!navData) {
+        console.log(data.leftNav);
+        setNavData(data.leftNav)
+      }
+    // }
+  }}
+</LeftNavData.Consumer>
+
   const { markdownRemark: post } = data;
   let navOpen = true;
 
@@ -76,19 +98,22 @@ const DesignGuidelinePost = ({ data, location, pageContext }) => {
     }
   }
 
+
   return (
-      <Flex
-        direction='row'
-        shrink='0'
-        grow='1'
-        overflow='auto'
-        valign='stretch'
-        css={{
-          width: '100%',
-          height: '100%'
-        }}
-      >
-        <LeftNav title="Fiori For Web" navOpener={navOpener} data={data.leftNav}/>
+      // <Flex
+      //   direction='row'
+      //   shrink='0'
+      //   grow='1'
+      //   overflow='auto'
+      //   valign='stretch'
+      //   css={{
+      //     width: '100%',
+      //     height: '100%'
+      //   }}
+      // >
+      //   <LeftNav title="Fiori For Web222" navOpener={navOpener} data={data.leftNav}/>
+
+
         <div id="design-guideline-div"
           css={{
             width: 828,
@@ -97,6 +122,26 @@ const DesignGuidelinePost = ({ data, location, pageContext }) => {
             transition: 'width 0.3s ease-in-out'
           }}
         >
+
+
+<ContextConsumer>
+    {function({data}) {
+      data.menuOpen ? <div>arse2</div> : <div>1ARSE</div>
+    }}
+  </ContextConsumer>
+{/* 
+      <LeftNavData.Consumer>
+        {function({navData, setNavData}) {
+          console.log('ARSE1:', navData);
+          // if (!data.edges) {
+            if (!navData) {
+              console.log(data.leftNav);
+              setNavData(data.leftNav)
+            }
+          // }
+        }}
+      </LeftNavData.Consumer> */}
+
           <Filter location={location} pageContext= {pageContext} />
           <DesignGuidelinePostTemplate
             content={post.html}
@@ -116,7 +161,7 @@ const DesignGuidelinePost = ({ data, location, pageContext }) => {
             title={post.frontmatter.title}
           />
         </div>
-      </Flex>
+      // </Flex>
   );
 };
 

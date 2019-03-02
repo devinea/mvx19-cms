@@ -3,7 +3,7 @@ import { colors, media } from '../theme';
 import LeftNavLink from './LeftNavLink';
 import crossIcon from './../../img/cross.svg';
 import selectArrowIcon from './../../img/select-arrow.svg';
-
+import {LeftNavData} from '../Layout/Layout';
 
 let state = {
   navOpen: true,
@@ -14,12 +14,15 @@ let state = {
 let updating = false;
 
 class LeftNav extends React.Component {
-  
+
   constructor(props) {
     super(props);
 
     this.state = state;
     let sectionOn = -1;
+    if (!this.props.data) {
+      return;
+    }
     for (let i = 0; i < this.props.data.edges.length; i++) {
       const item = this.props.data.edges[i];
       // Check if this item is currently selected.
@@ -140,8 +143,7 @@ class LeftNav extends React.Component {
   }
 
   render() {
-    const self = this;
-
+    const self = this; 
     return (
       <nav
         css={{
@@ -247,7 +249,8 @@ class LeftNav extends React.Component {
             }          
           }}
           onClick={this.toggleNav}
-          >{(self.state.sectionOn == -1) ? 'Overview' : this.props.data.edges[self.state.sectionOn].node.frontmatter.title}&nbsp;</div>
+          >arseM</div>
+          {/* >{(self.state.sectionOn == -1) ? 'Overview' : this.props.data.edges[self.state.sectionOn].node.frontmatter.title}&nbsp;</div> */}
 
           <div id="menuContainer"
             css={{
@@ -277,8 +280,17 @@ class LeftNav extends React.Component {
                 transition: 'all 0.3s',
                 pointerEvents: 'none'
               }}>
-            </div>          
-            {this.props.data.edges.map(({ node: data }, i) => (
+            </div>    
+            {/* <LeftNavData.Consumer>
+            {({data, setNavData}) => (
+              <button
+                onClick={setNavData}
+                style={{backgroundColor: data}}>
+                Toggle data
+              </button>
+            )}
+            </LeftNavData.Consumer> */}
+            {this.props.data && this.props.data.edges.map(({ node: data }, i) => (
               <LeftNavLink 
                 updating={updating}
                 key={(data.fields.slug === '/designguideline/controls/') ? '' : data.id} 
@@ -329,5 +341,7 @@ class LeftNav extends React.Component {
     )
   }
 }
+
+// LeftNav.contextType = MyContext;
 
 export default LeftNav;

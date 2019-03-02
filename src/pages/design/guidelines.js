@@ -3,13 +3,18 @@ import React from 'react';
 import Flex from '../../components/Flex';
 
 import LeftNav from '../../components/LeftNav';
+import {LeftNavData} from '../../components/Layout/Layout';
 import designImg from './../../img/design.png';
 import { graphql } from "gatsby";
 
 export default class DesignGuidelineIndexPage extends React.Component {
   render() {
     const { data, location } = this.props;
-
+    <LeftNavData.Consumer>
+      {({setNavData}) => (
+        <LeftNavData.Provider setNavData="data.leftNav"></LeftNavData.Provider>
+      )}
+    </LeftNavData.Consumer>    
     return (
         <Flex
           direction='row'
@@ -21,7 +26,7 @@ export default class DesignGuidelineIndexPage extends React.Component {
             width: '100%',
           }}
         >
-          <LeftNav title="Fiori For Web" data={data.leftNav}/>
+          {/* <LeftNav title="Fiori For Webffsdaf" data={data.leftNav}/> */}
           <div
             css={{
               width: '100%'
