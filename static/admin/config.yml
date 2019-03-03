@@ -32,8 +32,8 @@ collections:
     label: "Menu Left Navigation"
     folder: "src/pages/left/nav"
     create: true
-    slug: "{{slug}}"
-    identifier_field: version
+    slug: "{{fields.version}}-{{fields.srcTemplateKey}}"
+    identifier_field: slug
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "left-nav"}
       - {label: "Content Template Key", name: "srcTemplateKey", widget: "select", options: ["web-guideline", "ios-guideline", "android-guideline"]}
