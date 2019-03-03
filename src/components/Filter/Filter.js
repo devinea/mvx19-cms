@@ -64,7 +64,7 @@ export default props => (
   <StaticQuery
     query={graphql`
 {
-  allMarkdownRemark(sort: {order: ASC, fields: [frontmatter___version]}, filter: {frontmatter: {templateKey: {eq: "design-guideline-post"}, version: {ne: null}}}) {
+  allMarkdownRemark(sort: {order: ASC, fields: [frontmatter___version]}, filter: {frontmatter: {templateKey: {eq: "web-guideline"}, version: {ne: null}}}) {
     edges {
       node {
         frontmatter {

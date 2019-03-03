@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Flex from '../../components/Flex';
-import Layout from '../../components/Layout';
+import Flex from '../../../components/Flex';
+import Layout from '../../../components/Layout';
 
-import LeftNav from '../../components/LeftNav';
-import designImg from './../../img/design.png';
+import LeftNav from '../../../components/LeftNav';
+import designImg from '../../../img/design.png';
 import { graphql } from "gatsby";
 
 export default class DesignGuidelineIndexPage extends React.Component {
@@ -48,26 +48,26 @@ export default class DesignGuidelineIndexPage extends React.Component {
 
 export const pageQuery = graphql`
      {
-        leftNav: allMarkdownRemark(
-            filter: {
-                frontmatter: { templateKey: { eq: "web-left-nav" }, version: { eq: "1.01" } }
-            }
-        ) {
-            edges {
-                node {
-                    id
-                    fields{
-                        leftNavFlattened {
-                            id
-                            slug
-                            title
-                            parentId
-                            hasChildren
-                        }
-                    }
+         leftNav: allMarkdownRemark(
+         filter: {
+             frontmatter: { templateKey: { eq: "left-nav" }, srcTemplateKey: { eq: "web-guideline"}, version: { eq: "1.01" } }
+         }
+     ) {
+         edges {
+             node {
+                 id
+                 fields{
+                     leftNavFlattened {
+                         id
+                         slug
+                         title
+                         parentId
+                         hasChildren
+                     }
+                 }
 
-                }
-            }
-        }
+             }
+         }
+     }
     }
 `;

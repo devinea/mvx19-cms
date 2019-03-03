@@ -1,5 +1,5 @@
 ---
-templateKey: design-guideline-post
+templateKey: web-guideline
 title: Resources
 date: 2019-01-11T00:15:32.894Z
 featuredImage: "/img/control-input-field.png"

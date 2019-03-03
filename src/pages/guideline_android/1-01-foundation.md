@@ -1,5 +1,5 @@
 ---
-templateKey: android-guideline-post
+templateKey: android-guideline
 title: Foundation
 date: 2019-01-11T00:15:32.894Z
 featuredImage: "/img/control-button.png"
@@ -9,11 +9,6 @@ tags:
   - Foundation
   - SAP Fiori
 version: '1.01'
-leftnavorder:
-  l1: '2'
-  l2: '0'
-  l3: '0'
-  l4: '0'
 ---
 
 

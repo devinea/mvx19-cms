@@ -1,5 +1,5 @@
 ---
-templateKey: design-guideline-post
+templateKey: web-guideline
 title: Button
 featuredImage: /img/control-button.png
 date: 2019-01-11T00:15:32.894Z

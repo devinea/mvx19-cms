@@ -9,7 +9,7 @@ exports.createPages = ({ actions, graphql }) => {
   return graphql(`
     {
       allMarkdownRemark(limit: 1000, 
-      filter: { frontmatter: { templateKey: { ne: "web-left-nav" } } }
+      filter: { frontmatter: { templateKey: { ne: "left-nav" } } }
       ) {
         edges {
           node {
@@ -38,17 +38,21 @@ exports.createPages = ({ actions, graphql }) => {
     posts.forEach(edge => {
       const id = edge.node.id
       const version = edge.node.frontmatter.version;
-      if (edge.node.frontmatter.templateKey.includes('-guideline-post')){
+      const templateKey = edge.node.frontmatter.templateKey;
+      const guidelineKey = edge.node.frontmatter.templateKey.replace('-guideline','');
+      const URIpath = `/guideline/${guidelineKey}`;
+      if (edge.node.frontmatter.templateKey.includes('-guideline')){
         createPage({
-          path: `/designguideline/${String(edge.node.frontmatter.version)}/${String(edge.node.frontmatter.title)}`,
+          path: `${URIpath}/${String(edge.node.frontmatter.version)}/${String(edge.node.frontmatter.title)}`,
           tags: edge.node.frontmatter.tags,
           component: path.resolve(
-            `src/templates/design-guideline-post/design-guideline-post.js`
+            `src/templates/web-guideline-post/web-guideline-post.js`
           ),
           // additional data can be passed via context
           context: {
             id,
-            version
+            version,
+            templateKey
           },
         })
       } else {
@@ -98,8 +102,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   fmImagesToRelative(node) // convert image paths for gatsby images
 
   if (node.internal.type === `MarkdownRemark`) {
-    if (node.frontmatter.templateKey.includes('-guideline-post')){
-      const value = `/designguideline/${String(node.frontmatter.version)}/${String(node.frontmatter.title)}`;
+    if (node.frontmatter.templateKey.includes('-guideline')){
+      const guidelineKey = node.frontmatter.templateKey.replace('-guideline','');
+      const URIpath = `/guideline/${guidelineKey}`;
+      const value = `${URIpath}/${String(node.frontmatter.version)}/${String(node.frontmatter.title)}`;
       createNodeField({
         name: `slug`,
         node,
@@ -119,10 +125,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.sourceNodes = ({ boundActionCreators, getNodes, getNode }) => {
   const { createNodeField } = boundActionCreators;
   const leftNavs = [];
-  // iterate thorugh all markdown nodes to link books to author
-  // and build author index
   const markdownNodes = getNodes()
-    .filter(node => node.internal.type === "MarkdownRemark" && node.frontmatter.templateKey == 'web-left-nav' )
+    .filter(node => node.internal.type === "MarkdownRemark" && node.frontmatter.templateKey == 'left-nav' )
     .forEach(node => {
       const leftNavRes = [];
 
@@ -148,7 +152,7 @@ exports.sourceNodes = ({ boundActionCreators, getNodes, getNode }) => {
                       const guidelineNode = getNodes().find(
                         node2 =>
                           node2.internal.type === "MarkdownRemark" &&
-                          // TO DO - Add template key here !!!!
+                          node2.frontmatter.templateKey === node.frontmatter.srcTemplateKey &&
                           node2.frontmatter.title === menu.subItem &&
                           node2.frontmatter.version === node.frontmatter.version
                       );
@@ -167,7 +171,7 @@ exports.sourceNodes = ({ boundActionCreators, getNodes, getNode }) => {
                         const guidelineNode = getNodes().find(
                           node2 =>
                             node2.internal.type === "MarkdownRemark" &&
-                            // TO DO - Add template key here !!!!
+                            node2.frontmatter.templateKey === node.frontmatter.srcTemplateKey &&
                             node2.frontmatter.title === item.subItem &&
                             node2.frontmatter.version === node.frontmatter.version
                         );

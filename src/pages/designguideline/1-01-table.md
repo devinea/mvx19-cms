@@ -1,5 +1,5 @@
 ---
-templateKey: design-guideline-post
+templateKey: web-guideline
 title: Table
 featuredImage: /img/SAP_logo_big.png
 date: 2019-02-06T14:36:48.068Z

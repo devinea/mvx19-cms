@@ -65,7 +65,7 @@ DesignGuidelinePostTemplate.propTypes = {
 };
 
 
-const DesignGuidelinePost = ({ data, location, pageContext }) => {
+const WebGuidelinePost = ({ data, location, pageContext }) => {
   const { markdownRemark: post } = data;
   let navOpen = true;
 
@@ -123,7 +123,7 @@ const DesignGuidelinePost = ({ data, location, pageContext }) => {
   );
 };
 
-DesignGuidelinePost.propTypes = {
+WebGuidelinePost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object
   }),
@@ -132,10 +132,10 @@ DesignGuidelinePost.propTypes = {
   })
 };
 
-export default DesignGuidelinePost;
+export default WebGuidelinePost;
 
 export const pageQuery = graphql`
-  query DesignGuidelinePostByID($id: String!, $version: String!) {
+  query DesignGuidelinePostByID($id: String!, $version: String!, $templateKey: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
@@ -151,7 +151,7 @@ export const pageQuery = graphql`
     },
     leftNav: allMarkdownRemark(
         filter: {
-            frontmatter: { templateKey: { eq: "web-left-nav" }, version: { eq: $version } }
+            frontmatter: { templateKey: { eq: "left-nav" }, srcTemplateKey: { eq: $templateKey }, version: { eq: $version } }
         }
     ) {
           edges {
