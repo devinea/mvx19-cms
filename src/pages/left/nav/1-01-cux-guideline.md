@@ -1,8 +1,8 @@
 ---
 templateKey: left-nav
-srcTemplateKey: ios-guideline
-uri: /guideline/ios
-title: Fiori IOS
+srcTemplateKey: cux-guideline
+uri: /guideline/cux
+title: Fiori CUX
 version: '1.01'
 leftmenu:
   menu:

@@ -138,7 +138,7 @@ exports.sourceNodes = ({ boundActionCreators, getNodes, getNode }) => {
               leftNavResObj.id = node.id;
               leftNavResObj.title = node.frontmatter.title;
               leftNavResObj.version = node.frontmatter.version;
-              leftNavResObj.slug = (node.fields && node.fields.slug) ? node.fields.slug : '';
+              leftNavResObj.slug = (node.frontmatter.uri) ? node.frontmatter.uri : '';
               leftNavResObj.parentId = null;
               // leftNavResObj.hasChildren = (node.frontmatter.leftmenu && node.frontmatter.leftmenu.menu) ? true : false;
               leftNavResObj.hasChildren = false;

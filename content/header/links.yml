@@ -5,19 +5,19 @@
 - title: Fiori for Web
   items:
     - id: design
-    - url: /guideline/web/
+    - url: /guideline/web
 - title: Fiori for iOS
   items:
     - id: ios
-    - url: /guideline/ios/
+    - url: /guideline/ios
 - title: Fiori for Android
   items:
     - id: android
-    - url: /guideline/android/
+    - url: /guideline/android
 - title: Fiori for CUX
   items:
     - id: cux
-    - url: /design/guidelines#cux
+    - url: /guideline/cux
 - title: Contribute
   items:
     - id: contribute

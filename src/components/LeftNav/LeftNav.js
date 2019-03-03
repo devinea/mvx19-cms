@@ -19,13 +19,16 @@ class LeftNav extends React.Component {
 
     this.state = state;
     let sectionOn = -1;
-    // Quick copy to this.props.data.edges for some minor backward compatibility
-    this.props.data.edges = (this.props.data.node && this.props.data.node.fields && this.props.data.node.fields.leftNavFlattened) ? this.props.data.node.fields.leftNavFlattened : this.props.data.edges[0].node.fields.leftNavFlattened;
-    if (!this.props.data.edges) {
-      this.props.data.edges = [];
+    // Quick copy to this.props.data.leftNavFlattened for some minor backward compatibility
+    if (!this.props.data.leftNavFlattened){
+      this.props.data.leftNavFlattened = (this.props.data.node && this.props.data.node.fields && this.props.data.node.fields.leftNavFlattened) ? this.props.data.node.fields.leftNavFlattened : this.props.data.edges[0].node.fields.leftNavFlattened;
     }
-    for (let i = 0; i < this.props.data.edges.length; i++) {
-      const item = this.props.data.edges[i];
+
+    if (!this.props.data.leftNavFlattened) {
+      this.props.data.leftNavFlattened = [];
+    }
+    for (let i = 0; i < this.props.data.leftNavFlattened.length; i++) {
+      const item = this.props.data.leftNavFlattened[i];
       // Check if this item is currently selected.
       if (typeof window !== 'undefined' && window.location && item.slug === decodeURIComponent(window.location.pathname)) {
         sectionOn = i;
@@ -35,7 +38,7 @@ class LeftNav extends React.Component {
         // } else {
           item.isHidden = false;
         // }
-            this.props.data.edges[i].expanded = true;
+            this.props.data.leftNavFlattened[i].expanded = true;
           // }
     }
 
@@ -62,14 +65,14 @@ class LeftNav extends React.Component {
   }
 
   _expandSection(event, sectionIndex) {
-    this.props.data.edges[sectionIndex].expanded = !this.props.data.edges[sectionIndex].expanded;
-    for (let i = sectionIndex + 1; i < i < this.props.data.edges.length; i++) {
-      if (this.props.data.edges[i] && this.props.data.edges[i].hasChildren) {
-        this.props.data.edges[i].isHidden = !this.props.data.edges[i].isHidden;
-        if (!this.props.data.edges[i].isHidden) {
-          this.state.opened.push(this.props.data.edges[i].slug);
+    this.props.data.leftNavFlattened[sectionIndex].expanded = !this.props.data.leftNavFlattened[sectionIndex].expanded;
+    for (let i = sectionIndex + 1; i < i < this.props.data.leftNavFlattened.length; i++) {
+      if (this.props.data.leftNavFlattened[i] && this.props.data.leftNavFlattened[i].hasChildren) {
+        this.props.data.leftNavFlattened[i].isHidden = !this.props.data.leftNavFlattened[i].isHidden;
+        if (!this.props.data.leftNavFlattened[i].isHidden) {
+          this.state.opened.push(this.props.data.leftNavFlattened[i].slug);
         } else {
-          this.state.opened = this.state.opened.filter(item => item !== this.props.data.edges[i].slug);
+          this.state.opened = this.state.opened.filter(item => item !== this.props.data.leftNavFlattened[i].slug);
         }
       } else {
         break;
@@ -186,7 +189,7 @@ class LeftNav extends React.Component {
                 pointerEvents: 'none'
               }}>
             </div>          
-            {this.props.data.edges.map((data, i) => (
+            {this.props.data.leftNavFlattened.map((data, i) => (
               <LeftNavLink
                 updating={updating}
                 // key={(data.fields.slug === '/designguideline/controls/') ? '' : data.id}
