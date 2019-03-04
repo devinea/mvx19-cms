@@ -153,6 +153,7 @@ export const pageQuery = graphql`
                           title
                           parentId
                           hasChildren
+                          navTitle
                       }
                   }
 

@@ -138,6 +138,7 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
               leftNavResObj.id = node.id;
               leftNavResObj.title = node.frontmatter.title;
               leftNavResObj.version = node.frontmatter.version;
+              leftNavResObj.navTitle = true;
               leftNavResObj.slug = (node.frontmatter.uri) ? node.frontmatter.uri : '';
               leftNavResObj.parentId = null;
               // leftNavResObj.hasChildren = (node.frontmatter.leftmenu && node.frontmatter.leftmenu.menu) ? true : false;
@@ -160,6 +161,7 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
                     const leftNavResObj = {};
                     leftNavResObj.id = (guidelineNode.id) ? guidelineNode.id : '';
                     leftNavResObj.title = (menu.subItem) ? menu.subItem : '';
+                    leftNavResObj.navTitle = false;
                     leftNavResObj.slug = (guidelineNode.fields.slug) ? guidelineNode.fields.slug : '';
                     leftNavResObj.hasChildren = (menu.submenu && menu.submenu.items) ? true : false;
                     // leftNavResObj.parentId = parentId;
@@ -179,6 +181,7 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
                             const leftNavResObj = {};
                             leftNavResObj.id = (guidelineNode.id) ? guidelineNode.id : '';
                             leftNavResObj.title = (item.subItem) ? item.subItem : '';
+                            leftNavResObj.navTitle = false;
                             leftNavResObj.slug = (guidelineNode.fields.slug) ? guidelineNode.fields.slug : '';
                             leftNavResObj.hasChildren = false;
                             leftNavResObj.parentId = parentId;
