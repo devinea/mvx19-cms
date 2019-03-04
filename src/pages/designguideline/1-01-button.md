@@ -1,6 +1,7 @@
 ---
 templateKey: web-guideline
 title: Button
+fioriString: dasdasdas
 image: /img/control-button.png
 date: 2019-01-11T00:15:32.894Z
 description: >-
