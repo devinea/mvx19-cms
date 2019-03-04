@@ -1,7 +1,7 @@
 ---
 templateKey: web-guideline
 title: Button
-featuredImage: /img/control-button.png
+image: /img/control-button.png
 date: 2019-01-11T00:15:32.894Z
 description: >-
   Buttons allow users to trigger an action – either by clicking on or tapping

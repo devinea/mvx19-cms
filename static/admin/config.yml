@@ -19,7 +19,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "web-guideline"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Featured Image", name: "featuredImage", widget: "image", tagname: ''}
+      - {label: "Featured Image", name: "image", widget: "image", tagname: ''}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown", default: "# Intro \n # Usage \n # Responsiveness and Adaptiveness \n # Types  \n # Components  \n # Behavior and Interaction \n # Styles \n # Guidelines \n # Exceptions \n #  Resources"}
