@@ -1,5 +1,5 @@
 ---
-templateKey: design-guideline-post
+templateKey: web-guideline
 title: Button
 featuredImage: /img/control-button.png
 date: 2019-01-11T00:15:32.894Z
@@ -10,13 +10,7 @@ tags:
   - Button
   - design Button
   - SAP Fiori
-iscontrol: true
 version: '1.02'
-leftnavorder:
-  l1: '4'
-  l2: '2'
-  l3: '0'
-  l4: '0'
 ---
 
 # Intro

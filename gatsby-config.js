@@ -91,7 +91,7 @@ module.exports = {
                   templateKeyName = 'News';
                   break;
                 }
-                case 'design-guideline-post': {
+                case 'web-guideline': {
                   templateKeyName = 'Fiori for Web';
                   break;
                 }

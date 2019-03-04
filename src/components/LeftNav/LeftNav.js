@@ -19,29 +19,29 @@ class LeftNav extends React.Component {
 
     this.state = state;
     let sectionOn = -1;
-    for (let i = 0; i < this.props.data.edges.length; i++) {
-      const item = this.props.data.edges[i];
+    // Quick copy to this.props.data.leftNavFlattened for some minor backward compatibility
+    if (!this.props.data.leftNavFlattened){
+      this.props.data.leftNavFlattened = (this.props.data.node && this.props.data.node.fields && this.props.data.node.fields.leftNavFlattened) ? this.props.data.node.fields.leftNavFlattened : this.props.data.edges[0].node.fields.leftNavFlattened;
+    }
+
+    if (!this.props.data.leftNavFlattened) {
+      this.props.data.leftNavFlattened = [];
+    }
+    for (let i = 0; i < this.props.data.leftNavFlattened.length; i++) {
+      const item = this.props.data.leftNavFlattened[i];
       // Check if this item is currently selected.
-      if (typeof window !== 'undefined' && window.location && item.node.fields.slug === decodeURIComponent(window.location.pathname)) {
+      if (typeof window !== 'undefined' && window.location && item.slug === decodeURIComponent(window.location.pathname)) {
         sectionOn = i;
       }
-      if (item.node.frontmatter.leftnavorder.l2 > 0) {
-        if (!this.state.opened.includes(item.node.fields.slug)) {
-          item.node.frontmatter.isHidden = true;
-        } else {
-          item.node.frontmatter.isHidden = false;
-        }
-        if (this.props.data.edges[i -1].node.frontmatter.leftnavorder.l2 == 0) {
-          this.props.data.edges[i -1].node.frontmatter.hasChildren = true;
-          if (!item.node.frontmatter.isHidden) {
-            this.props.data.edges[i -1].node.frontmatter.expanded = true;
-          } else {
-            this.props.data.edges[i -1].node.frontmatter.expanded = false;
-          }
-        }
-      }
+        // if (!this.state.opened.includes(item.slug)) {
+        //   item.isHidden = false;
+        // } else {
+          item.isHidden = false;
+        // }
+            this.props.data.leftNavFlattened[i].expanded = true;
+          // }
     }
-    
+
     this.state.sectionOn = sectionOn;
 
     this.toggleNav = toggle => this._toggleNav(toggle);
@@ -65,14 +65,14 @@ class LeftNav extends React.Component {
   }
 
   _expandSection(event, sectionIndex) {
-    this.props.data.edges[sectionIndex].node.frontmatter.expanded = !this.props.data.edges[sectionIndex].node.frontmatter.expanded;
-    for (let i = sectionIndex + 1; i < i < this.props.data.edges.length; i++) {
-      if (this.props.data.edges[i] && this.props.data.edges[i].node.frontmatter.leftnavorder.l2 > 0) {
-        this.props.data.edges[i].node.frontmatter.isHidden = !this.props.data.edges[i].node.frontmatter.isHidden;
-        if (!this.props.data.edges[i].node.frontmatter.isHidden) {
-          this.state.opened.push(this.props.data.edges[i].node.fields.slug);
+    this.props.data.leftNavFlattened[sectionIndex].expanded = !this.props.data.leftNavFlattened[sectionIndex].expanded;
+    for (let i = sectionIndex + 1; i < i < this.props.data.leftNavFlattened.length; i++) {
+      if (this.props.data.leftNavFlattened[i] && this.props.data.leftNavFlattened[i].hasChildren) {
+        this.props.data.leftNavFlattened[i].isHidden = !this.props.data.leftNavFlattened[i].isHidden;
+        if (!this.props.data.leftNavFlattened[i].isHidden) {
+          this.state.opened.push(this.props.data.leftNavFlattened[i].slug);
         } else {
-          this.state.opened = this.state.opened.filter(item => item !== this.props.data.edges[i].node.fields.slug);
+          this.state.opened = this.state.opened.filter(item => item !== this.props.data.leftNavFlattened[i].slug);
         }
       } else {
         break;
@@ -189,11 +189,12 @@ class LeftNav extends React.Component {
                 pointerEvents: 'none'
               }}>
             </div>          
-            {this.props.data.edges.map(({ node: data }, i) => (
-              <LeftNavLink 
+            {this.props.data.leftNavFlattened.map((data, i) => (
+              <LeftNavLink
                 updating={updating}
-                key={(data.fields.slug === '/designguideline/controls/') ? '' : data.id} 
-                section={data} 
+                // key={(data.fields.slug === '/designguideline/controls/') ? '' : data.id}
+                key={(data.slug === '/designguideline/controls/') ? '' : data.id}
+                section={data}
                 sectionIndex={i} 
                 sectionOn={self.state.sectionOn} 
                 expander={self.expandSection} 

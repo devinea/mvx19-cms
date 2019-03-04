@@ -1,5 +1,7 @@
 ---
-templateKey: web-left-nav
+templateKey: left-nav
+srcTemplateKey: web-guideline
+uri: /guideline/web
 title: Fiori Web
 version: '1.01'
 leftmenu:
