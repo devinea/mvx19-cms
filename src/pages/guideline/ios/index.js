@@ -26,7 +26,7 @@ export default class GuidelineIosIndexPage extends React.Component {
             width: '100%',
           }}
         >
-          <LeftNav title="Fiori For Web" open="false" data={data.leftNav.edges[0]} />
+          <LeftNav data={data.leftNav.edges[0]} />
           <div
             css={{
               width: '100%'
@@ -153,6 +153,7 @@ export const pageQuery = graphql`
                           title
                           parentId
                           hasChildren
+                          navTitle
                       }
                   }
 

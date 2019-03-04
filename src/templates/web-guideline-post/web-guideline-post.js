@@ -90,7 +90,7 @@ const WebGuidelinePost = ({ data, location, pageContext }) => {
           height: '100%'
         }}
       >
-        <LeftNav title="Fiori For Web" navOpener={navOpener} data={data.leftNav.edges[0]}/>
+        <LeftNav navOpener={navOpener} data={data.leftNav.edges[0]}/>
         <div id="design-guideline-div"
           css={{
             width: 828,
@@ -164,6 +164,7 @@ export const pageQuery = graphql`
                           title
                           parentId
                           hasChildren
+                          navTitle
                       }
                   }
 

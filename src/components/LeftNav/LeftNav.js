@@ -1,7 +1,7 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
 import { colors } from '../theme';
 import LeftNavLink from './LeftNavLink';
+import { Link } from 'gatsby';
 import crossIcon from './../../img/cross.svg';
 
 let state = {
@@ -18,7 +18,7 @@ class LeftNav extends React.Component {
     super(props);
 
     this.state = state;
-    let sectionOn = -1;
+    let sectionOn = null;
     // Quick copy to this.props.data.leftNavFlattened for some minor backward compatibility
     if (!this.props.data.leftNavFlattened){
       this.props.data.leftNavFlattened = (this.props.data.node && this.props.data.node.fields && this.props.data.node.fields.leftNavFlattened) ? this.props.data.node.fields.leftNavFlattened : this.props.data.edges[0].node.fields.leftNavFlattened;
@@ -27,21 +27,26 @@ class LeftNav extends React.Component {
     if (!this.props.data.leftNavFlattened) {
       this.props.data.leftNavFlattened = [];
     }
+    this.topLevelItem = this.props.data.leftNavFlattened.find(item => item.navTitle);
     for (let i = 0; i < this.props.data.leftNavFlattened.length; i++) {
       const item = this.props.data.leftNavFlattened[i];
       // Check if this item is currently selected.
       if (typeof window !== 'undefined' && window.location && item.slug === decodeURIComponent(window.location.pathname)) {
-        sectionOn = i;
+        sectionOn = item.id;
       }
-        // if (!this.state.opened.includes(item.slug)) {
-        //   item.isHidden = false;
-        // } else {
+      if (item.parentId) {
+        const parentItem = this.props.data.leftNavFlattened.find(obj => obj.id == item.parentId);
+        if (!this.state.opened.includes(item.slug)) {
+          item.isHidden = true;
+          // Ensure that the parent element is not expanded.        
+          parentItem.expanded = false;
+        } else {
           item.isHidden = false;
-        // }
-            this.props.data.leftNavFlattened[i].expanded = true;
-          // }
-    }
-
+          // Ensure that the parent element is expanded.        
+          parentItem.expanded = true;
+        }
+      }
+``    }
     this.state.sectionOn = sectionOn;
 
     this.toggleNav = toggle => this._toggleNav(toggle);
@@ -64,18 +69,16 @@ class LeftNav extends React.Component {
     }
   }
 
-  _expandSection(event, sectionIndex) {
-    this.props.data.leftNavFlattened[sectionIndex].expanded = !this.props.data.leftNavFlattened[sectionIndex].expanded;
-    for (let i = sectionIndex + 1; i < i < this.props.data.leftNavFlattened.length; i++) {
-      if (this.props.data.leftNavFlattened[i] && this.props.data.leftNavFlattened[i].hasChildren) {
-        this.props.data.leftNavFlattened[i].isHidden = !this.props.data.leftNavFlattened[i].isHidden;
-        if (!this.props.data.leftNavFlattened[i].isHidden) {
-          this.state.opened.push(this.props.data.leftNavFlattened[i].slug);
-        } else {
-          this.state.opened = this.state.opened.filter(item => item !== this.props.data.leftNavFlattened[i].slug);
-        }
+  _expandSection(event, id) {
+    const section = this.props.data.leftNavFlattened.find(item => item.id == id);
+    section.expanded = !section.expanded;
+    const childItems = this.props.data.leftNavFlattened.filter(item => item.parentId == id);
+    for (let childItem of childItems) {
+      childItem.isHidden = !childItem.isHidden;
+      if (!childItem.isHidden) {
+        this.state.opened.push(childItem.slug);
       } else {
-        break;
+        this.state.opened = this.state.opened.filter(item => item !== childItem.slug);
       }
     }
     state = this.state;
@@ -153,7 +156,9 @@ class LeftNav extends React.Component {
               paddingLeft: 40,
               float: 'left'
             }}>
-            {this.props.title}
+            <Link
+                key={this.topLevelItem.id}
+                to={this.topLevelItem.slug}>{this.topLevelItem.title}</Link>
           </div>
           <div
             css={{
@@ -189,10 +194,10 @@ class LeftNav extends React.Component {
                 pointerEvents: 'none'
               }}>
             </div>          
-            {this.props.data.leftNavFlattened.map((data, i) => (
+            {this.props.data.leftNavFlattened && 
+             this.props.data.leftNavFlattened.filter(item => !item.navTitle).map((data, i) => (
               <LeftNavLink
                 updating={updating}
-                // key={(data.fields.slug === '/designguideline/controls/') ? '' : data.id}
                 key={(data.slug === '/designguideline/controls/') ? '' : data.id}
                 section={data}
                 sectionIndex={i} 
