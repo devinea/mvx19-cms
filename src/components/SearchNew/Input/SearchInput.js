@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { colors, header, media } from '../../theme';
+import { colors, media } from '../../theme';
 import searchIcon from './../../../img/search.svg';
 import crossIcon from './../../../img/cross.svg';
 
@@ -13,6 +13,8 @@ class SearchInput extends Component {
       value: ''
     };
     this.handleChange = e => this._handleChange(e);
+
+    this.onBack = this._onBack.bind(this);
   }
 
   componentDidUpdate = prevprops => {
@@ -34,11 +36,15 @@ class SearchInput extends Component {
     this.props.onClose(!this.props.active);
   };
 
+  _onBack = event => {
+    window.history.back();
+  };
+
   _onKeyPress = event => {
     if (event.key === 'Enter') {
       this.props.onEnter(this.state.value);
     }
-  }
+  };
 
   render() {
     return (
@@ -48,16 +54,33 @@ class SearchInput extends Component {
           textAlign: 'center',
           margin: '0 auto',
           width: 'calc(100% - 40px)',
-          top: 0,
-          zIndex: -1,
-          transition: 'opacity 0.3s',
+          top: '12px',
           opacity: 0,
+          zIndex: '-1',
+          transition: 'opacity 0.3s',
           ...(this.props.active && {
-            zIndex: 10,
+            zIndex: 0,
             opacity: 1
           })
         }}
       >
+        <div
+          css={{
+            backgroundImage: 'url(' + crossIcon + ')',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: '5px 50%',
+            backgroundSize: '13px 13px',
+            position: 'absolute',
+            width: 20,
+            height: 40,
+            left: 0,
+            top: 0,
+            cursor: 'pointer',
+            display: 'inline-block'
+          }}
+          onClick={this.onBack}
+        />
+
         <div
           css={{
             margin: '0 auto',
@@ -87,44 +110,37 @@ class SearchInput extends Component {
               border: 'none',
               backgroundColor: colors.gray_100,
               borderRadius: 20,
-              padding: '5px 20px 5px 40px',
               height: 40,
-              marginTop: 12,
-              marginRight: 30,
-              transition: 'width 0.6s',
               outline: 'none',
               color: colors.gray_500,
+              paddingLeft: 40,
+              paddingRight: 20,
               backgroundImage: 'url(' + searchIcon + ')',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: '15px 50%',
               backgroundSize: '16px 16px',
-              ...(!this.props.active && {
-                width: 0
-              }),
-              ...(this.props.active && {
-                width: 'calc(100% - 30px)'
-              })
+              width: '100%'
             }}
             placeholder='Search...'
             type='search'
           />
-          <div
-            css={{
-              backgroundImage: 'url(' + crossIcon + ')',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: '5px 50%',
-              backgroundSize: '13px 13px',
-              width: 20,
-              height: 40,
-              marginTop: 12,
-              right: 0,
-              position: 'absolute',
-              cursor: 'pointer',
-              display: 'inline-block'
-            }}
-            onClick={this._onCloseSearch}
-          />
         </div>
+        <div
+          css={{
+            backgroundImage: 'url(' + crossIcon + ')',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: '5px 50%',
+            backgroundSize: '13px 13px',
+            position: 'absolute',
+            width: 20,
+            height: 40,
+            right: 0,
+            top: 0,
+            cursor: 'pointer',
+            display: 'inline-block'
+          }}
+          onClick={this._onCloseSearch}
+        />
       </div>
     );
   }

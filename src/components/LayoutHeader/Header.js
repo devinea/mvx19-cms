@@ -46,7 +46,14 @@ class Header extends React.Component {
               alignItems: 'center',
               justifyContent: 'space-between',
               height: header.height,
-              position: 'relative'
+              position: 'relative',
+              opacity: 1,
+              zIndex: 0,
+              transition: 'opacity 0.3s',
+              ...(this.props.searchButtonActive && {
+                zIndex: -1,
+                opacity: 0
+              })
             }}
           >
             <div
@@ -58,13 +65,7 @@ class Header extends React.Component {
                 overflowY: 'hidden',
                 height: '100%',
                 position: 'relative',
-                left: 0,
-                ...(!this.state.isSearcPage && {
-                  transition: 'left 0.3s'
-                }),
-                ...(this.props.searchButtonActive && {
-                  left: '-180px'
-                })
+                left: 0
               }}
             >
               <HamburgerButton
@@ -102,13 +103,7 @@ class Header extends React.Component {
                 overflowX: 'auto',
                 overflowY: 'hidden',
                 height: '100%',
-                opacity: 1,
-                ...(!this.state.isSearchPage && {
-                  transition: 'left 0.3s'
-                }),
-                ...(this.props.searchButtonActive && {
-                  opacity: 0
-                })
+                opacity: 1
               }}
             >
               <nav
