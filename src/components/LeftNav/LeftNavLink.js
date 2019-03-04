@@ -28,7 +28,7 @@ class LeftNavLink extends React.Component {
                         paddingLeft: 40,
                         cursor: 'pointer',
                         position: 'relative',
-                        ...(this.props.sectionOn == this.props.sectionIndex && {
+                        ...(this.props.sectionOn == this.props.section.id && {
                             cursor: 'default'
                         }),
                         ...(this.props.section.hasChildren && {
@@ -36,13 +36,13 @@ class LeftNavLink extends React.Component {
                         })
                     }}
                     onMouseEnter={() => {
-                        if (this.props.sectionOn !== this.props.sectionIndex) {
+                        if (this.props.sectionOn !== this.props.section.id) {
                             this.props.mouseEnter(ReactDOM.findDOMNode(this))
                         }
                     }
                     }
                     onMouseLeave={() => {
-                        if (this.props.sectionOn !== this.props.sectionIndex) {
+                        if (this.props.sectionOn !== this.props.section.id) {
                             this.props.mouseLeave()
                         }
                     }
@@ -58,7 +58,7 @@ class LeftNavLink extends React.Component {
                             color: colors.gray_500,
                             lineHeight: '45px',
                             whiteSpace: 'nowrap',
-                            ...(this.props.section.hasChildren && {
+                            ...(this.props.section.parentId && {
                                 paddingLeft: 15,
                                 fontSize: 14,
                                 height: 0,
@@ -69,7 +69,7 @@ class LeftNavLink extends React.Component {
                                 height: 45,
                                 opacity: 1
                             }),
-                            ...(this.props.sectionOn == this.props.sectionIndex && {
+                            ...(this.props.sectionOn == this.props.section.id && {
                                 color: colors.black,
                                 ':after': {
                                     backgroundImage: 'url(' + arrowIcon + ')',
@@ -113,7 +113,7 @@ class LeftNavLink extends React.Component {
                                 })                                
                             }}
                             onClick={(e) => {
-                                this.props.expander(e, this.props.sectionIndex)
+                                this.props.expander(e, this.props.section.id)
                             }}
                         ></div>
                     )}

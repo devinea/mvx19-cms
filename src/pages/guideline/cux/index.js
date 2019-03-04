@@ -23,7 +23,7 @@ export default class DesignGuidelineIndexPage extends React.Component {
             width: '100%',
           }}
         >
-          <LeftNav title="Fiori For CUX" data={(data.leftNav)}/>
+          <LeftNav data={(data.leftNav)}/>
           <div
             css={{
               width: '100%'
