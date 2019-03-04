@@ -122,8 +122,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-exports.sourceNodes = ({ boundActionCreators, getNodes, getNode }) => {
-  const { createNodeField } = boundActionCreators;
+exports.sourceNodes = ({ actions, getNodes, getNode }) => {
+  const { createNodeField } = actions;
   const leftNavs = [];
   const markdownNodes = getNodes()
     .filter(node => node.internal.type === "MarkdownRemark" && node.frontmatter.templateKey == 'left-nav' )
