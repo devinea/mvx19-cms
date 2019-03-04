@@ -15,13 +15,12 @@ class HamburgerMenu extends React.Component {
         css={{
           display: 'block',
           height: 0,
-          position: 'absolute',
-          top: 60,
-          zIndex: 1000,
+          position: 'fixed',
+          top: 0,
           width: '100%',
-          overflow: 'hidden',
+          overflow: 'auto',
           backgroundColor: colors.white,
-          padding: 0,
+          padding: '60px 0 0 0',
           transition: 'all .56s cubic-bezier(0.52, 0.16, 0.24, 1)',
           ...(this.props.active && {
             height: '100%'
@@ -40,7 +39,6 @@ class HamburgerMenu extends React.Component {
               <li
                 key={defaultItem[0].id}
                 css={{
-                  padding: 20,
                   borderTopColor: colors.gray_200,
                   borderTopStyle: 'solid',
                   borderTopWidth: 1

@@ -28,9 +28,7 @@ class Header extends React.Component {
       <header
         css={{
           backgroundColor: colors.white,
-          ...(this.props.hasScroll && {
-            boxShadow: '0 1px 6px 0 rgba(0, 0, 0, 0.30)'
-          }),
+          boxShadow: '0 1px 6px 0 rgba(0, 0, 0, 0.30)',
           color: colors.black,
           transition: 'box-shadow 0.5s',
           position: 'fixed',
@@ -105,7 +103,7 @@ class Header extends React.Component {
                 overflowY: 'hidden',
                 height: '100%',
                 opacity: 1,
-                ...(!this.state.isSearcPage && {
+                ...(!this.state.isSearchPage && {
                   transition: 'left 0.3s'
                 }),
                 ...(this.props.searchButtonActive && {

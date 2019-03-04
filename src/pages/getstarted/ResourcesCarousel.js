@@ -37,14 +37,10 @@ class ResourcesCarousel extends React.Component {
           css={{
             margin: '0 auto',
             [media.greaterThan('small')]: {
-              // minWidth: media.getSize('small').width,
-              // maxWidth: media.getSize('small').width
               minWidth: '100%',
               maxWidth: '100%'
             },
             [media.greaterThan('medium')]: {
-              // minWidth: media.getSize('medium').width,
-              // maxWidth: media.getSize('medium').width
               minWidth: '100%',
               maxWidth: '100%'
             }

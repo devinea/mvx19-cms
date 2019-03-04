@@ -40,7 +40,7 @@ exports.createPages = ({ actions, graphql }) => {
       const version = edge.node.frontmatter.version;
       if (edge.node.frontmatter.templateKey.includes('-guideline-post')){
         createPage({
-          path: `/designguideline/${String(edge.node.frontmatter.version)}/${String(edge.node.frontmatter.title)}`,
+          path: `/designguideline/${String(edge.node.frontmatter.version)}/${String(edge.node.frontmatter.title)}/`,
           tags: edge.node.frontmatter.tags,
           component: path.resolve(
             `src/templates/design-guideline-post/design-guideline-post.js`
@@ -99,7 +99,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (node.internal.type === `MarkdownRemark`) {
     if (node.frontmatter.templateKey.includes('-guideline-post')){
-      const value = `/designguideline/${String(node.frontmatter.version)}/${String(node.frontmatter.title)}`;
+      const value = `/designguideline/${String(node.frontmatter.version)}/${String(node.frontmatter.title)}/`;
       createNodeField({
         name: `slug`,
         node,

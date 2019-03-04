@@ -23,8 +23,9 @@ class Filter extends Component {
     })
     // Eliminate duplicate versions 
     versions = _.uniq(versions)
-    this.state = {value:versions[0]};
-    this.curVersion = this.state.value;
+
+    //get the version from the pageContext
+    this.state = {value:this.props.pageContext.version};
     this._onVersionSelect = this._onVersionSelect.bind(this);
   }
 
@@ -47,8 +48,7 @@ class Filter extends Component {
   _onVersionSelect= event => {
     this.setState({value: event.value});
     const version = event.value;
-    const target = location.pathname.replace(this.curVersion, version);
-    this.curVersion = version;
+    const target = location.pathname.replace(this.props.pageContext.version, version);
     navigate(target, {
       replace: false
     });
@@ -75,10 +75,7 @@ export default props => (
   }
 }
     `}
-    render={data => <Filter data={data} location={props.location} {...props} />}
+    render={data => <Filter data={data} location={props.location} pageContext={props.pageContext} {...props} />}
   />
 );
-
-// export default Filter;
-
 

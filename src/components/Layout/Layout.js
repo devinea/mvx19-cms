@@ -17,8 +17,7 @@ class Layout extends React.Component {
     this.state = {
       menuToggle: false,
       searchToggle: false,
-      searchValue: '',
-      hasScroll: false
+      searchValue: ''
     };
     this.mediaQueryListener = null;
     this.onMatchMQ = mediaQueryListener => this._onMatchMQ(mediaQueryListener);
@@ -28,14 +27,11 @@ class Layout extends React.Component {
   }
 
   componentDidMount = () => {
-    window.addEventListener('scroll', this._handleOnScroll);
-
     if (!window.matchMedia) return;
     const large = media.getSize('large');
     this.mediaQueryListener = window.matchMedia(`(max-width: ${large.min}px)`);
     this.mediaQueryListener.addListener(this.onMatchMQ);
     this.onMatchMQ();
-
 
     if (this.props.search && this.props.search.display) {
       const values = queryString.parse(this.props.location.search);
@@ -47,7 +43,6 @@ class Layout extends React.Component {
         this.setState({ searchValue: '' });
       }
     }
-
   };
 
   componentWillUnmount = () => {
@@ -67,40 +62,36 @@ class Layout extends React.Component {
     }
   };
 
-  _onMatchMQ() {
+  _onMatchMQ = () => {
     this.toggleMenu(false);
-  }
-
-  _handleOnScroll = () => {
-    this.setState({
-      hasScroll: !!window.scrollY
-    });
   };
 
-  _toggleMenu(toggle) {
+  _toggleMenu = toggle => {
     this.setState({ menuToggle: toggle }, () => {
       if (!this.state.menuToggle) {
         document.body.style.overflow = 'auto';
+        document.body.style.position = 'inherit';
       } else {
         window.scrollTo(0, 0);
         document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
       }
     });
-  }
+  };
 
-  _toggleSearch(toggle) {
+  _toggleSearch = toggle => {
     this.setState({ searchToggle: toggle });
     // if hamburger menu is open then close it
     if (toggle && this.state.menuToggle) {
       this.toggleMenu(false);
     }
-  }
+  };
 
-  _onSearch(options) {
+  _onSearch = options => {
     navigate('/search?q=' + options, {
       replace: true
     });
-  }
+  };
 
   render() {
     const { children, location, search } = this.props;
@@ -122,7 +113,6 @@ class Layout extends React.Component {
           onSearch={this.onSearch}
           searchButtonActive={this.state.searchToggle}
           searchValue={this.state.searchValue}
-          hasScroll={this.state.hasScroll}
         />
         <HamburgerMenu active={this.state.menuToggle} />
         <Flex
