@@ -43,7 +43,7 @@ exports.createPages = ({ actions, graphql }) => {
       const URIpath = `/guideline/${guidelineKey}`;
       if (edge.node.frontmatter.templateKey.includes('-guideline')){
         createPage({
-          path: `${URIpath}/${String(edge.node.frontmatter.version)}/${String(edge.node.frontmatter.title)}`,
+          path: `${URIpath}/${String(edge.node.frontmatter.version)}/${String(edge.node.frontmatter.title)}/`,
           tags: edge.node.frontmatter.tags,
           component: path.resolve(
             `src/templates/web-guideline-post/web-guideline-post.js`
@@ -105,7 +105,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     if (node.frontmatter.templateKey.includes('-guideline')){
       const guidelineKey = node.frontmatter.templateKey.replace('-guideline','');
       const URIpath = `/guideline/${guidelineKey}`;
-      const value = `${URIpath}/${String(node.frontmatter.version)}/${String(node.frontmatter.title)}`;
+      const value = `${URIpath}/${String(node.frontmatter.version)}/${String(node.frontmatter.title)}/`;
       createNodeField({
         name: `slug`,
         node,
