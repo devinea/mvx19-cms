@@ -25,14 +25,15 @@ class Tab extends Component {
 
         const listItem = css`display: inline-block;
         list-style: none;
-        margin-bottom: -1px;
-        padding: 10px 60px;
+        padding: 10px 0px;
+        margin-right: 60px;
         color: ${activeTab === label ? '#427CAC' : '#424242'};
         font-family: 72-Regular;
         font-size: 20px;
         font-weight: normal;
         height: 32px;
-        line-height: 32px;
+        line-height: 10px;
+        border-bottom: ${activeTab === label ? '2px solid #427CAC' : 'none'};
         cursor:pointer;`
 
         return (

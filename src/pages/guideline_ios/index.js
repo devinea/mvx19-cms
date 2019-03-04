@@ -6,6 +6,8 @@ import designImg from './../../img/design.png';
 import { Link, graphql } from 'gatsby';
 import ResourcesList from '../../components/ResourceList/ResourcesList';
 import Tabs from '../../components/Tabs';
+import Panel from '../../components/Panel';
+import SeeAllButton from '../../components/SeeAllButton';
 import { css } from '@emotion/core';
 
 export default class GuidelineIosIndexPage extends React.Component {
@@ -13,6 +15,7 @@ export default class GuidelineIosIndexPage extends React.Component {
     const { data, location } = this.props;
     const frontmatter = data.ios.edges[0].node.frontmatter;
     const posts = data.posts.edges;
+    const panels = data.panels.edges[0].node.data;
 
     return (
       <Layout location={location}>
@@ -43,7 +46,7 @@ export default class GuidelineIosIndexPage extends React.Component {
               }}
             />
             <div css={{
-              width: 828,
+              width: 984,
               margin: '0 auto',
               paddingBottom: 120,
               paddingTop: 120,
@@ -54,15 +57,37 @@ export default class GuidelineIosIndexPage extends React.Component {
               font-family: 72-Regular;
               font-size: 36px;
               font-weight: normal;
-              height: 43px;
               letter-spacing: 0.11px;
               line-height: 43px;`}>explore Fiori for iOS</h1>
               <Tabs>
                 {frontmatter.tabs.map((tab, idx) => {
                   return (
-                    <div label={tab} key={idx}>
-                      Hello from {tab}!
-              </div>
+                    <div label={tab.label} key={idx}>
+                      <h3 css={css`
+                    color: #424242;
+                    font-size: 20px;
+                    font-weight: normal;
+                    line-height: 32px;
+                    margin-bottom: 40px;
+                    `}>{tab.description}</h3>
+                      <div css={css`
+                      display: flex;
+                      flex-wrap: wrap;
+                      justify-content: space-between;
+                      `}>
+                        {
+                          panels.map((p) => {
+                            if (p.title === tab.label) {
+                              return p.data.map((info, idx) => {
+                                return <Panel key={idx} data={info}/>;
+                              })
+                            }
+                            return ''
+                          })
+                        }
+                      </div>
+                      <SeeAllButton data={tab}></SeeAllButton>
+                    </div>
                   );
                 })}
               </Tabs>
@@ -86,8 +111,6 @@ export default class GuidelineIosIndexPage extends React.Component {
               padding: 0 76px 22px 76px;
               `}>{"what's new"}</h1>
               {posts.map((post) => {
-                console.log('***', post);
-
                 return (
                   <Link to={post.node.fields.slug} key={post.node.id}>
                     <div css={css`
@@ -138,6 +161,24 @@ export default class GuidelineIosIndexPage extends React.Component {
 
 export const pageQuery = graphql`
   query {
+    panels: allConceptsJson(filter: { name: { eq: "iOS" } }) {
+      edges {
+        node {
+          name
+          data {
+            type
+            title
+            data {
+              title
+              image {
+                src
+              }
+              url
+            }
+          }
+        }
+      }
+    },
     leftNav: allMarkdownRemark(
           sort: { order: ASC, fields: [
             frontmatter___leftnavorder___l1,
@@ -179,13 +220,16 @@ export const pageQuery = graphql`
               fields {
                 slug
               }
-    
               frontmatter {
                 title
                 templateKey
                 description
                 date(formatString: "MMMM DD, YYYY")
-                tabs
+                tabs {
+                  label
+                  description,
+                  url
+                }
                 tags
                 featuredImage {
                   childImageSharp {

@@ -36,7 +36,7 @@ class Tabs extends Component {
             <div>
                 <ol css={css`
                 display: flex;
-                justify-content: center;
+                justify-content: flex-start;
                 padding-bottom: 50px;`
                 }>
                     {children.map((child) => {
