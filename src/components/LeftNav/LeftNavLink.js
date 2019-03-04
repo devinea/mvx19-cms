@@ -17,8 +17,10 @@ class LeftNavLink extends React.Component {
                     clear: 'both',
                     width: '100%'
                 }}
-                key={(this.props.section.fields.slug === '/designguideline/controls/') ? '' : this.props.section.id}
-                to={(this.props.section.fields.slug === '/designguideline/controls/') ? '/design/controls/' : this.props.section.fields.slug}>
+                // key={(this.props.section.fields.slug === '/designguideline/controls/') ? '' : this.props.section.id}
+                key={(this.props.section.slug === '/designguideline/controls/') ? '' : this.props.section.id}
+                // to={(this.props.section.fields.slug === '/designguideline/controls/') ? '/design/controls/' : this.props.section.fields.slug}>
+                to={(this.props.section.slug === '/designguideline/controls/') ? '/design/controls/' : this.props.section.slug}>
                 <nav
                     css={{
                         width: '100%',
@@ -26,21 +28,21 @@ class LeftNavLink extends React.Component {
                         paddingLeft: 40,
                         cursor: 'pointer',
                         position: 'relative',
-                        ...(this.props.sectionOn == this.props.sectionIndex && {
+                        ...(this.props.sectionOn == this.props.section.id && {
                             cursor: 'default'
                         }),
-                        ...(this.props.section.frontmatter.hasChildren && {
+                        ...(this.props.section.hasChildren && {
                             cursor: 'default'
                         })
                     }}
                     onMouseEnter={() => {
-                        if (this.props.sectionOn !== this.props.sectionIndex) {
+                        if (this.props.sectionOn !== this.props.section.id) {
                             this.props.mouseEnter(ReactDOM.findDOMNode(this))
                         }
                     }
                     }
                     onMouseLeave={() => {
-                        if (this.props.sectionOn !== this.props.sectionIndex) {
+                        if (this.props.sectionOn !== this.props.section.id) {
                             this.props.mouseLeave()
                         }
                     }
@@ -56,18 +58,18 @@ class LeftNavLink extends React.Component {
                             color: colors.gray_500,
                             lineHeight: '45px',
                             whiteSpace: 'nowrap',
-                            ...(this.props.section.frontmatter.leftnavorder.l2 > 0 && {
+                            ...(this.props.section.parentId && {
                                 paddingLeft: 15,
                                 fontSize: 14,
                                 height: 0,
                                 opacity: 0,
                                 transition: 'height 0.3s ease-in-out, opacity 0.3s ease-in-out'
                             }),
-                            ...(this.props.section.frontmatter.isHidden == false && {
+                            ...(this.props.section.isHidden == false && {
                                 height: 45,
                                 opacity: 1
                             }),
-                            ...(this.props.sectionOn == this.props.sectionIndex && {
+                            ...(this.props.sectionOn == this.props.section.id && {
                                 color: colors.black,
                                 ':after': {
                                     backgroundImage: 'url(' + arrowIcon + ')',
@@ -82,9 +84,9 @@ class LeftNavLink extends React.Component {
                                 }
                             })
                         }}
-                    >{this.props.section.frontmatter.title}
+                    >{this.props.section.title}
                     </div>
-                    {this.props.section.frontmatter.hasChildren && (
+                    {this.props.section.hasChildren && (
                         <div
                             css={{
                                 position: 'absolute',
@@ -99,19 +101,19 @@ class LeftNavLink extends React.Component {
                                 fontSize: 14,
                                 color: colors.gray_500,
                                 backgroundColor: 'transparent',
-                                ...(!this.props.section.frontmatter.expanded && {
+                                ...(!this.props.section.expanded && {
                                     '::before': {
                                         content: '""'
                                     }
                                 }),
-                                ...(this.props.section.frontmatter.expanded && {
+                                ...(this.props.section.expanded && {
                                     '::before': {
                                         content: '""'
                                     }
                                 })                                
                             }}
                             onClick={(e) => {
-                                this.props.expander(e, this.props.sectionIndex)
+                                this.props.expander(e, this.props.section.id)
                             }}
                         ></div>
                     )}

@@ -1,5 +1,5 @@
 ---
-templateKey: web-guideline
+templateKey: cux-guideline
 title: Foundation
 date: 2019-01-11T00:15:32.894Z
 featuredImage: "/img/control-button.png"
@@ -8,10 +8,16 @@ description: >-
 tags:
   - Foundation
   - SAP Fiori
-version: '1.02'
+version: '1.01'
+tabs:
+  - All
+  - Controls
+  - Views
+  - Patterns
+  - Floorplans
 ---
 
 
 
 
-Foundation ... VERSION 2
+Foundation ...

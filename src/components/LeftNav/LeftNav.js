@@ -1,7 +1,7 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
 import { colors } from '../theme';
 import LeftNavLink from './LeftNavLink';
+import { Link } from 'gatsby';
 import crossIcon from './../../img/cross.svg';
 
 let state = {
@@ -18,30 +18,35 @@ class LeftNav extends React.Component {
     super(props);
 
     this.state = state;
-    let sectionOn = -1;
-    for (let i = 0; i < this.props.data.edges.length; i++) {
-      const item = this.props.data.edges[i];
-      // Check if this item is currently selected.
-      if (typeof window !== 'undefined' && window.location && item.node.fields.slug === decodeURIComponent(window.location.pathname)) {
-        sectionOn = i;
-      }
-      if (item.node.frontmatter.leftnavorder.l2 > 0) {
-        if (!this.state.opened.includes(item.node.fields.slug)) {
-          item.node.frontmatter.isHidden = true;
-        } else {
-          item.node.frontmatter.isHidden = false;
-        }
-        if (this.props.data.edges[i -1].node.frontmatter.leftnavorder.l2 == 0) {
-          this.props.data.edges[i -1].node.frontmatter.hasChildren = true;
-          if (!item.node.frontmatter.isHidden) {
-            this.props.data.edges[i -1].node.frontmatter.expanded = true;
-          } else {
-            this.props.data.edges[i -1].node.frontmatter.expanded = false;
-          }
-        }
-      }
+    let sectionOn = null;
+    // Quick copy to this.props.data.leftNavFlattened for some minor backward compatibility
+    if (!this.props.data.leftNavFlattened){
+      this.props.data.leftNavFlattened = (this.props.data.node && this.props.data.node.fields && this.props.data.node.fields.leftNavFlattened) ? this.props.data.node.fields.leftNavFlattened : this.props.data.edges[0].node.fields.leftNavFlattened;
     }
-    
+
+    if (!this.props.data.leftNavFlattened) {
+      this.props.data.leftNavFlattened = [];
+    }
+    this.topLevelItem = this.props.data.leftNavFlattened.find(item => item.navTitle);
+    for (let i = 0; i < this.props.data.leftNavFlattened.length; i++) {
+      const item = this.props.data.leftNavFlattened[i];
+      // Check if this item is currently selected.
+      if (typeof window !== 'undefined' && window.location && item.slug === decodeURIComponent(window.location.pathname)) {
+        sectionOn = item.id;
+      }
+      if (item.parentId) {
+        const parentItem = this.props.data.leftNavFlattened.find(obj => obj.id == item.parentId);
+        if (!this.state.opened.includes(item.slug)) {
+          item.isHidden = true;
+          // Ensure that the parent element is not expanded.        
+          parentItem.expanded = false;
+        } else {
+          item.isHidden = false;
+          // Ensure that the parent element is expanded.        
+          parentItem.expanded = true;
+        }
+      }
+``    }
     this.state.sectionOn = sectionOn;
 
     this.toggleNav = toggle => this._toggleNav(toggle);
@@ -64,18 +69,16 @@ class LeftNav extends React.Component {
     }
   }
 
-  _expandSection(event, sectionIndex) {
-    this.props.data.edges[sectionIndex].node.frontmatter.expanded = !this.props.data.edges[sectionIndex].node.frontmatter.expanded;
-    for (let i = sectionIndex + 1; i < i < this.props.data.edges.length; i++) {
-      if (this.props.data.edges[i] && this.props.data.edges[i].node.frontmatter.leftnavorder.l2 > 0) {
-        this.props.data.edges[i].node.frontmatter.isHidden = !this.props.data.edges[i].node.frontmatter.isHidden;
-        if (!this.props.data.edges[i].node.frontmatter.isHidden) {
-          this.state.opened.push(this.props.data.edges[i].node.fields.slug);
-        } else {
-          this.state.opened = this.state.opened.filter(item => item !== this.props.data.edges[i].node.fields.slug);
-        }
+  _expandSection(event, id) {
+    const section = this.props.data.leftNavFlattened.find(item => item.id == id);
+    section.expanded = !section.expanded;
+    const childItems = this.props.data.leftNavFlattened.filter(item => item.parentId == id);
+    for (let childItem of childItems) {
+      childItem.isHidden = !childItem.isHidden;
+      if (!childItem.isHidden) {
+        this.state.opened.push(childItem.slug);
       } else {
-        break;
+        this.state.opened = this.state.opened.filter(item => item !== childItem.slug);
       }
     }
     state = this.state;
@@ -153,7 +156,9 @@ class LeftNav extends React.Component {
               paddingLeft: 40,
               float: 'left'
             }}>
-            {this.props.title}
+            <Link
+                key={this.topLevelItem.id}
+                to={this.topLevelItem.slug}>{this.topLevelItem.title}</Link>
           </div>
           <div
             css={{
@@ -189,11 +194,12 @@ class LeftNav extends React.Component {
                 pointerEvents: 'none'
               }}>
             </div>          
-            {this.props.data.edges.map(({ node: data }, i) => (
-              <LeftNavLink 
+            {this.props.data.leftNavFlattened && 
+             this.props.data.leftNavFlattened.filter(item => !item.navTitle).map((data, i) => (
+              <LeftNavLink
                 updating={updating}
-                key={(data.fields.slug === '/designguideline/controls/') ? '' : data.id} 
-                section={data} 
+                key={(data.slug === '/designguideline/controls/') ? '' : data.id}
+                section={data}
                 sectionIndex={i} 
                 sectionOn={self.state.sectionOn} 
                 expander={self.expandSection} 

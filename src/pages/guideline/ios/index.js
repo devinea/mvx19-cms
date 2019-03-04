@@ -1,8 +1,8 @@
 import React from 'react';
-import Flex from '../../components/Flex';
-import Layout from '../../components/Layout';
-import LeftNav from '../../components/LeftNav';
-import designImg from './../../img/design.png';
+import Flex from '../../../components/Flex';
+import Layout from '../../../components/Layout';
+import LeftNav from '../../../components/LeftNav';
+import designImg from '../../../img/design.png';
 import { Link, graphql } from 'gatsby';
 import ResourcesList from '../../components/ResourceList/ResourcesList';
 import Tabs from '../../components/Tabs';
@@ -29,7 +29,7 @@ export default class GuidelineIosIndexPage extends React.Component {
             width: '100%',
           }}
         >
-          <LeftNav title="Fiori For Web" open="false" data={data.leftNav} />
+          <LeftNav data={data.leftNav.edges[0]} />
           <div
             css={{
               width: '100%'
@@ -79,7 +79,7 @@ export default class GuidelineIosIndexPage extends React.Component {
                           panels.map((p) => {
                             if (p.title === tab.label) {
                               return p.data.map((info, idx) => {
-                                return <Panel key={idx} data={info}/>;
+                                return <Panel key={idx} data={info} />;
                               })
                             }
                             return ''
@@ -179,39 +179,31 @@ export const pageQuery = graphql`
         }
       }
     },
-    leftNav: allMarkdownRemark(
-          sort: { order: ASC, fields: [
-            frontmatter___leftnavorder___l1,
-              frontmatter___leftnavorder___l2,
-              frontmatter___leftnavorder___l3,
-              frontmatter___leftnavorder___l4,
-          ] }
+      leftNav: allMarkdownRemark(
           filter: {
-            frontmatter: { templateKey: { eq: "design-guideline-post" }, version: { eq: "1.01" } }
+              frontmatter: { templateKey: { eq: "left-nav" }, srcTemplateKey: { eq: "ios-guideline"}, version: { eq: "1.01" } }
           }
-        ) {
+      ) {
           edges {
-            node {
-              id
-              fields {
-                slug
+              node {
+                  id
+                  fields{
+                      leftNavFlattened {
+                          id
+                          slug
+                          title
+                          parentId
+                          hasChildren
+                          navTitle
+                      }
+                  }
+
               }
-              frontmatter {
-                title
-                templateKey
-                leftnavorder {
-                  l1
-                  l2
-                  l3
-                  l4
-                }
-              }
-            }
           }
-        },
+      },
       ios: allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "ios-guideline-post" } } }
+          filter: { frontmatter: { templateKey: { eq: "ios-guideline" } } }
         ) {
           edges {
             node {

@@ -66,8 +66,7 @@ export default props => (
     allMarkdownRemark(
       sort: { order: ASC, fields: [frontmatter___title] },
       filter: { frontmatter: {
-        templateKey: { eq: "design-guideline-post" }
-        iscontrol: { eq: true }
+        templateKey: { eq: "web-guideline" }
         }}
     ) {
       edges {
@@ -79,7 +78,6 @@ export default props => (
           frontmatter {
             title
             templateKey
-            iscontrol
              featuredImage {
               childImageSharp {
                 sizes {
