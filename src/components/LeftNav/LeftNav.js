@@ -1,5 +1,5 @@
 import React from 'react';
-import { colors } from '../theme';
+import { colors, media } from '../theme';
 import LeftNavLink from './LeftNavLink';
 import { Link } from 'gatsby';
 import crossIcon from './../../img/cross.svg';
@@ -64,9 +64,6 @@ class LeftNav extends React.Component {
 
   _toggleNav() {
     this.setState({ navOpen: !this.state.navOpen });
-    if (this.props.navOpener) {
-      this.props.navOpener(!this.state.navOpen);
-    }
   }
 
   _expandSection(event, id) {
@@ -118,127 +115,139 @@ class LeftNav extends React.Component {
     const self = this;
 
     return (
-      <nav
+      <div
         css={{
-          position: 'relative',
-          backgroundColor: colors.white,
-          display: 'flex',
-          width: 0,
-          transition: 'width 0.3s ease-in-out',
-          ...(this.state.navOpen && {
-            width: 260,
-          }),
-          position: 'fixed',
-          flexDirection: 'row',
-          alignItems: 'top',
-          justifyContent: 'space-between',
-          height: '100vh',
-          boxShadow: '0 2px 39px 0 rgba(0, 0, 0, 0.06)'
+          position: 'relative'
         }}>
-        <div
+        <nav
           css={{
-            transition: 'opacity 0.3s ease-in-out',
-            position: 'relative',
-            overflow: 'hidden',
-            fontSize: 20,
-            width: '100%',
-            opacity: 0,
+            backgroundColor: colors.white,
+            display: 'flex',
+            left: '-260px',
+            zIndex: 1,
+            width: '260px',
+            transition: 'left 0.3s ease-in-out',
             ...(this.state.navOpen && {
-              opacity: 1,
-            })
+              left: '0'
+            }),
+            position: 'fixed',
+            flexDirection: 'row',
+            alignItems: 'top',
+            justifyContent: 'space-between',
+            height: '100vh',
+            boxShadow: '0 2px 39px 0 rgba(0, 0, 0, 0.06)'
           }}>
           <div
             css={{
+              transition: 'opacity 0.3s ease-in-out',
+              position: 'relative',
               overflow: 'hidden',
-              lineHeight: '90px',
-              height: 90,
+              fontSize: 20,
               width: '100%',
-              paddingLeft: 40,
-              float: 'left'
+              opacity: 0,
+              ...(this.state.navOpen && {
+                opacity: 1,
+              })
             }}>
-            <Link
-                key={this.topLevelItem.id}
-                to={this.topLevelItem.slug}>{this.topLevelItem.title}</Link>
+            <div
+              css={{
+                overflow: 'hidden',
+                lineHeight: '90px',
+                height: 90,
+                width: '100%',
+                paddingLeft: 40,
+                float: 'left'
+              }}>
+              <Link
+                  key={this.topLevelItem.id}
+                  to={this.topLevelItem.slug}>{this.topLevelItem.title}</Link>
+            </div>
+            <div
+              css={{
+                width: 12,
+                height: 12,
+                backgroundSize: 'cover',
+                backgroundImage: 'url(' + crossIcon + ')',
+                position: 'absolute',
+                right: 12,
+                fontSize: 12,
+                top: 39,
+                cursor: 'pointer',
+                [media.greaterThan('xlarge')]: {
+                  display: 'none',
+                }
+
+              }}
+              onClick={this.toggleNav}
+            />
+            <div id="menuContainer"
+              css={{
+                position: 'relative',
+                float: 'left',
+                width: '100%'
+              }}
+            >
+              <div id="menuHover"
+                css={{
+                  position: 'absolute',
+                  left: 0,
+                  opacity: 0,
+                  backgroundColor: colors.gray_100,
+                  height: 45,
+                  width: '100%',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s',
+                  pointerEvents: 'none'
+                }}>
+              </div>          
+              {this.props.data.leftNavFlattened && 
+              this.props.data.leftNavFlattened.filter(item => !item.navTitle).map((data, i) => (
+                <LeftNavLink
+                  updating={updating}
+                  key={(data.slug === '/designguideline/controls/') ? '' : data.id}
+                  section={data}
+                  sectionIndex={i} 
+                  sectionOn={self.state.sectionOn} 
+                  expander={self.expandSection} 
+                  mouseEnter={self.mouseEnter} 
+                  mouseLeave={self.mouseLeave}/>
+              ))}
+            </div>
           </div>
-          <div
+        </nav>
+        <div
             css={{
-              width: 12,
-              height: 12,
-              backgroundSize: 'cover',
-              backgroundImage: 'url(' + crossIcon + ')',
+              transition: 'opacity 0.3s ease-in-out',
+              opacity: 0,
+              width: 28,
+              height: 28,
               position: 'absolute',
-              right: 12,
-              fontSize: 12,
-              top: 39,
-              cursor: 'pointer'
+              zIndex: '3',
+              borderRadius: '2.5px',
+              boxShadow: '0 0 14px 0 rgba(0, 0, 0, 0.11)',
+              top: 29,
+              left: 40,
+              cursor: 'pointer',
+              fontFamily: 'SAP-icons',
+              fontSize: 18,
+              lineHeight: '28px',
+              textAlign: 'center',
+              color: colors.gray_500,
+              backgroundColor: 'transparent',
+              pointerEvents: 'none',
+              '::before': {
+                  content: 'attr(data-sap-ui-icon-content)'
+              },
+              ...(!this.state.navOpen && {
+                opacity: 1,
+                transition: 'opacity 0.3s ease-in-out',
+                pointerEvents: 'all'
+              })
             }}
+            data-sap-ui-icon-content=''
             onClick={this.toggleNav}
           />
-          <div id="menuContainer"
-            css={{
-              position: 'relative',
-              float: 'left',
-              width: '100%'
-            }}
-          >
-            <div id="menuHover"
-              css={{
-                position: 'absolute',
-                left: 0,
-                opacity: 0,
-                backgroundColor: colors.gray_100,
-                height: 45,
-                width: '100%',
-                cursor: 'pointer',
-                transition: 'all 0.3s',
-                pointerEvents: 'none'
-              }}>
-            </div>          
-            {this.props.data.leftNavFlattened && 
-             this.props.data.leftNavFlattened.filter(item => !item.navTitle).map((data, i) => (
-              <LeftNavLink
-                updating={updating}
-                key={(data.slug === '/designguideline/controls/') ? '' : data.id}
-                section={data}
-                sectionIndex={i} 
-                sectionOn={self.state.sectionOn} 
-                expander={self.expandSection} 
-                mouseEnter={self.mouseEnter} 
-                mouseLeave={self.mouseLeave}/>
-            ))}
-          </div>
-        </div>
-        <div
-          css={{
-            transition: 'opacity 0.3s ease-in-out',
-            opacity: 0,
-            width: 28,
-            height: 28,
-            position: 'absolute',
-            borderRadius: '2.5px',
-            boxShadow: '0 0 14px 0 rgba(0, 0, 0, 0.11)',
-            top: 29,
-            left: 40,
-            cursor: 'pointer',
-            fontFamily: 'SAP-icons',
-            fontSize: 18,
-            lineHeight: '28px',
-            textAlign: 'center',
-            color: colors.gray_500,
-            backgroundColor: 'transparent',
-            pointerEvents: 'none',
-            '::before': {
-                content: 'attr(data-sap-ui-icon-content)'
-            },
-            ...(!this.state.navOpen && {
-              opacity: 1,
-              pointerEvents: 'all'
-            })
-          }}
-          data-sap-ui-icon-content=''
-          onClick={this.toggleNav}
-        />
-      </nav>
+      </div>
     )
   }
 }
