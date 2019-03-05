@@ -14,11 +14,6 @@ tabs:
   - {label: "Views", url: "#", description: "View is a fundamental building block of the Fiori for iOS design language. It is a container for which information can be displayed."}
   - {label: "Patterns", url: "#", description: "With effortless interaction patterns, the SAP Fiori UX is designed for a powerful impact across your enterprise."}
   - {label: "Floorplans", url: "#", description: "Floorplan is a hub that provides previews of larger bodies of information sourced from different parts of the app."}
-leftnavorder:
-  l1: '2'
-  l2: '0'
-  l3: '0'
-  l4: '0'
 ---
 
 
