@@ -7,7 +7,8 @@ import selectArrowIcon from './../../img/select-arrow.svg';
 
 let state = {
   navOpen: true,
-  sectionOn: -1,
+  sectionOn: null,
+  mobileTitle: null,
   opened: []
 };
 
@@ -34,6 +35,7 @@ class LeftNav extends React.Component {
       // Check if this item is currently selected.
       if (typeof window !== 'undefined' && window.location && item.slug === decodeURIComponent(window.location.pathname)) {
         sectionOn = item.id;
+        this.state.mobileTitle = item.title;
       }
       if (item.parentId) {
         const parentItem = this.props.data.leftNavFlattened.find(obj => obj.id == item.parentId);
@@ -49,6 +51,9 @@ class LeftNav extends React.Component {
       }
 ``    }
     this.state.sectionOn = sectionOn;
+    if (!sectionOn) {
+      this.state.mobileTitle = 'Overview'
+    }
 
     this.toggleNav = toggle => this._toggleNav(toggle);
     this.expandSection = (event, sectionIndex) => this._expandSection(event, sectionIndex);
@@ -229,7 +234,7 @@ class LeftNav extends React.Component {
             }          
           }}
           onClick={this.toggleNav}
-          >Overview&nbsp;</div>            
+          >{self.state.mobileTitle}&nbsp;</div>            
             <div id="menuContainer"
               css={{
                 position: 'relative',
