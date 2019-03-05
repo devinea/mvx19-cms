@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import arrowIcon from './../../img/arrow.svg';
 import { Link } from 'gatsby';
-import { colors } from '../theme';
+import { colors, media } from '../theme';
 
 class LeftNavLink extends React.Component {
     constructor(props) {
@@ -33,7 +33,22 @@ class LeftNavLink extends React.Component {
                         }),
                         ...(this.props.section.hasChildren && {
                             cursor: 'default'
-                        })
+                        }),
+                        [media.lessThan('large')]: {
+                            height: '40',
+                            paddingLeft: 0,
+                            borderBottom: '1px solid',
+                            marginLeft: '20px',
+                            marginRight: '20px',
+                            width: 'calc(100% - 60px)',
+                            borderColor: colors.gray_200,
+                            ...(this.props.section.parentId && {
+                                borderColor: 'transparent',
+                                ...(this.props.section.isHidden == false && {
+                                    borderColor: colors.gray_200
+                                })
+                            })
+                        }
                     }}
                     onMouseEnter={() => {
                         if (this.props.sectionOn !== this.props.section.id) {
@@ -47,6 +62,10 @@ class LeftNavLink extends React.Component {
                         }
                     }
                     }
+                    onClick={() => {
+                        // this.props.closeToggle()
+                    }
+                    }                    
                 >
                     <div
                         css={{
@@ -71,16 +90,18 @@ class LeftNavLink extends React.Component {
                             }),
                             ...(this.props.sectionOn == this.props.section.id && {
                                 color: colors.black,
-                                ':after': {
-                                    backgroundImage: 'url(' + arrowIcon + ')',
-                                    backgroundPosition: 'center center',
-                                    backgroundRepeat: 'no-repeat',
-                                    content: '""',
-                                    width: 12,
-                                    height: 12,
-                                    position: 'absolute',
-                                    top: 17,
-                                    right: -21
+                                [media.greaterThan('large')]: {       
+                                    ':after': {
+                                        backgroundImage: 'url(' + arrowIcon + ')',
+                                        backgroundPosition: 'center center',
+                                        backgroundRepeat: 'no-repeat',
+                                        content: '""',
+                                        width: 12,
+                                        height: 12,
+                                        position: 'absolute',
+                                        top: 17,
+                                        right: -21
+                                    }
                                 }
                             })
                         }}

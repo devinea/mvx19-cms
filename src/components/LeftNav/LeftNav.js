@@ -3,6 +3,7 @@ import { colors, media } from '../theme';
 import LeftNavLink from './LeftNavLink';
 import { Link } from 'gatsby';
 import crossIcon from './../../img/cross.svg';
+import selectArrowIcon from './../../img/select-arrow.svg';
 
 let state = {
   navOpen: true,
@@ -130,6 +131,12 @@ class LeftNav extends React.Component {
             ...(this.state.navOpen && {
               left: '0'
             }),
+            [media.lessThan('large')]: {
+              width: '100%',
+              height: 'auto',
+              left: '0px',
+              backgroundColor: colors.gray_100
+            },
             position: 'fixed',
             flexDirection: 'row',
             alignItems: 'top',
@@ -144,18 +151,26 @@ class LeftNav extends React.Component {
               overflow: 'hidden',
               fontSize: 20,
               width: '100%',
-              opacity: 0,
-              ...(this.state.navOpen && {
-                opacity: 1,
-              })
+              [media.greaterThan('large')]: {
+                opacity: 0,
+                ...(this.state.navOpen && {
+                  opacity: 1,
+                })
+              }
             }}>
             <div
               css={{
                 overflow: 'hidden',
                 lineHeight: '90px',
                 height: 90,
-                width: '100%',
                 paddingLeft: 40,
+                [media.lessThan('large')]: {
+                  lineHeight: '45px',
+                  height: 45,
+                  paddingLeft: 20,
+                  color: colors.gray_700
+                },
+                width: '100%',                
                 float: 'left'
               }}>
               <Link
@@ -175,16 +190,59 @@ class LeftNav extends React.Component {
                 cursor: 'pointer',
                 [media.greaterThan('xlarge')]: {
                   display: 'none',
+                },
+                [media.lessThan('large')]: {
+                  display: 'none'
                 }
-
               }}
               onClick={this.toggleNav}
             />
+<div css={{
+            position: 'absolute',
+            right: 45,
+            top: 0,
+            height: 45,
+            lineHeight: '45px',
+            display: 'none',
+            fontFamily: '72',
+            fontWeight: 'bold',
+            color: colors.gray_700,
+            fontSize: 16,
+            cursor: 'pointer',
+            [media.lessThan('large')]: {
+              display: 'block',
+              ...(this.state.navOpen && {
+                color: 'transparent'
+              })
+            },
+            '::after': {
+              position: 'absolute',
+              backgroundImage: 'url(' + selectArrowIcon + ')',
+              ...(this.state.navOpen && {
+                backgroundImage: 'url(' + crossIcon + ')',
+              }),
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: '10px center',
+              width: 50,
+              height: 45,
+              content: '""'
+            }          
+          }}
+          onClick={this.toggleNav}
+          >Overview&nbsp;</div>            
             <div id="menuContainer"
               css={{
                 position: 'relative',
                 float: 'left',
-                width: '100%'
+                width: '100%',
+                overflow: 'hidden',
+                [media.lessThan('large')]: {
+                  maxHeight: 0,
+                  transition: 'max-height 0.3s ease-in-out',
+                  ...(this.state.navOpen && {
+                    maxHeight: '100vh',
+                  })
+                }                            
               }}
             >
               <div id="menuHover"
@@ -238,11 +296,12 @@ class LeftNav extends React.Component {
               '::before': {
                   content: 'attr(data-sap-ui-icon-content)'
               },
-              ...(!this.state.navOpen && {
-                opacity: 1,
-                transition: 'opacity 0.3s ease-in-out',
-                pointerEvents: 'all'
-              })
+              [media.greaterThan('large')]: {
+                ...(!this.state.navOpen && {
+                  opacity: 1,
+                  pointerEvents: 'all'
+                })
+              }
             }}
             data-sap-ui-icon-content=''
             onClick={this.toggleNav}
