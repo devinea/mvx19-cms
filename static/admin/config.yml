@@ -146,17 +146,18 @@ collections:
     - {label: "Description", name: "description", widget: "text"}
     - {label: "Body", name: "body", widget: "markdown"}
     - {label: "Tags", name: "tags", widget: "list"}
-  - name: "guidelineSettings"
-    label: "Guideline Settings"
-    folder: "src/pages/guideline_settings"
+  - name: "colors"
+    label: "Colors"
+    folder: "src/pages/colors"
     create: true
     extension: "json"
     format: "json"
+    editor:
+     preview: false
     slug: "{{fields.version}}-{{slug}}"
     fields:
       - {label: "Content Template Key", name: "srcTemplateKey", widget: "select", options: ["web-guideline", "ios-guideline", "android-guideline", "cux-guideline"]}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
       - label: "Color Groups"
         name: "colorGroups"
         widget: "list"
@@ -182,5 +183,4 @@ collections:
               - label: "Color Description"
                 name: "description"
                 widget: "string"
-      - {label: "Tags", name: "tags", widget: "list"}
       - {label: "Version No.", name: "version", widget: "select", options: ["1.01", "1.02", "1.03","1.04", "1.05"]}
