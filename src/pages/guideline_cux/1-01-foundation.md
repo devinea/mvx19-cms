@@ -9,12 +9,6 @@ tags:
   - Foundation
   - SAP Fiori
 version: '1.01'
-tabs:
-  - All
-  - Controls
-  - Views
-  - Patterns
-  - Floorplans
 ---
 
 

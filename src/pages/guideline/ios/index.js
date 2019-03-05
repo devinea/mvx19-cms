@@ -4,10 +4,10 @@ import Layout from '../../../components/Layout';
 import LeftNav from '../../../components/LeftNav';
 import designImg from '../../../img/design.png';
 import { Link, graphql } from 'gatsby';
-import ResourcesList from '../../components/ResourceList/ResourcesList';
-import Tabs from '../../components/Tabs';
-import Panel from '../../components/Panel';
-import SeeAllButton from '../../components/SeeAllButton';
+import ResourcesList from '../../../components/ResourceList/ResourcesList';
+import Tabs from '../../../components/Tabs';
+import Panel from '../../../components/Panel';
+import SeeAllButton from '../../../components/SeeAllButton';
 import { css } from '@emotion/core';
 
 export default class GuidelineIosIndexPage extends React.Component {
@@ -46,7 +46,7 @@ export default class GuidelineIosIndexPage extends React.Component {
               }}
             />
             <div css={{
-              width: 984,
+              width: 828,
               margin: '0 auto',
               paddingBottom: 120,
               paddingTop: 120,

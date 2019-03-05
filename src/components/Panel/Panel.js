@@ -11,8 +11,8 @@ const Panel = (props) => (
         }}>
             <div
                 css={{
-                    width: 315,
-                    height: 200,
+                    width: 260,
+                    height: 180,
                     backgroundColor: colors.gray_100,
                     marginBottom: 20,
                     borderRadius: 6,
@@ -22,7 +22,7 @@ const Panel = (props) => (
             >
                 <img css={{
                     padding: 10,
-                    width: 310,
+                    width: 260,
                     margin: '0 auto',
                     display: 'block'
                 }}
