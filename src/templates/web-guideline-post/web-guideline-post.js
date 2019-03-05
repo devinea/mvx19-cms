@@ -69,14 +69,6 @@ const WebGuidelinePost = ({ data, location, pageContext }) => {
   const { markdownRemark: post } = data;
   let navOpen = true;
 
-  const navOpener = function(navOpen) {
-    if (navOpen) {
-      document.getElementById('design-guideline-div').style.width = '828px';
-    } else {
-      document.getElementById('design-guideline-div').style.width = '984px';
-    }
-  }
-
   return (
     <Layout location={location}>
       <Flex
@@ -90,7 +82,7 @@ const WebGuidelinePost = ({ data, location, pageContext }) => {
           height: '100%'
         }}
       >
-        <LeftNav navOpener={navOpener} data={data.leftNav.edges[0]}/>
+        <LeftNav data={data.leftNav.edges[0]}/>
         <div id="design-guideline-div"
           css={{
             width: 828,
