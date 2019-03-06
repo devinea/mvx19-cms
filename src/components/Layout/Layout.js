@@ -45,11 +45,12 @@ class Layout extends React.Component {
         this.toggleSearch(false);
         this.setState({ searchValue: '' });
       }
-      const fromUrl = this.props.location.state.fromUrl || '/';
-      if (fromUrl) {
-        this.setState({ searchFromUrl: fromUrl });
+      if (this.props.location.state) {
+        const fromUrl = this.props.location.state.fromUrl || '/';
+        if (fromUrl) {
+          this.setState({ searchFromUrl: fromUrl });
+        }
       }
-
       const backBtn = this.props.search.backBtn || false;
       this.setState({ searchBackBtn: backBtn });
     }
@@ -120,7 +121,6 @@ class Layout extends React.Component {
           location={location}
           onHamburgerButton={this.toggleMenu}
           hamburgerButtonActive={this.state.menuToggle}
-
           onSearchButton={this.toggleSearch}
           onSearch={this.onSearch}
           searchButtonActive={this.state.searchToggle}
