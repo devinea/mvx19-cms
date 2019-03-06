@@ -1,0 +1,39 @@
+{
+  "srcTemplateKey": "web-guideline",
+  "title": "Fiori for Web - Test Entry #1",
+  "textStyles": [
+    {
+      "name": "Titles",
+      "styles": [
+        {
+          "name": "Page Title",
+          "uppercase": false,
+          "style": "Regular",
+          "color": "#32363a",
+          "size": 24,
+          "weight": 27
+        },
+        {
+          "name": "Groupe Title",
+          "style": "Light",
+          "color": "#6f7275",
+          "size": 18,
+          "weight": 28
+        }
+      ]
+    },
+    {
+      "name": "Inputs",
+      "styles": [
+        {
+          "name": "Input Label (unfilled)",
+          "style": "Regular",
+          "color": "#32363a",
+          "size": 14,
+          "weight": 19
+        }
+      ]
+    }
+  ],
+  "version": "1.01"
+}
