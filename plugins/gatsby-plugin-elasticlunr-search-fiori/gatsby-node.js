@@ -111,7 +111,7 @@ const createOrGetIndex = async (
                 )
             )
             if (pageNode.frontmatter.templateKey.includes('-guideline')){
-                // TO DO Get current versions from the settings collections
+                // TODO Get current versions from the settings collections
                 if ((pageNode.frontmatter.templateKey === `web-guideline` && pageNode.frontmatter.version === `1.03`) ||
                     (pageNode.frontmatter.templateKey === `ios-guideline`  && pageNode.frontmatter.version === `1.01`) ||
                     (pageNode.frontmatter.templateKey === `android-guideline`  && pageNode.frontmatter.version === `1.01`) ||
