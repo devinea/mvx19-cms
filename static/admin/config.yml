@@ -196,11 +196,11 @@ collections:
     fields:
       - {label: "Content Template Key", name: "srcTemplateKey", widget: "select", options: ["web-guideline", "ios-guideline", "android-guideline", "cux-guideline"]}
       - {label: "Title", name: "title", widget: "string"}
-      - label: "Text Styles"
-        name: "textStyles"
+      - label: "Typography"
+        name: "typography"
         widget: "list"
         fields:
-          - label: "Text Type"
+          - label: "Group Name"
             name: "name"
             widget: "string"
           - label: "Styles"
@@ -231,8 +231,8 @@ collections:
                 min: 1
                 max: 101
                 step: 1
-              - label: "Weight"
-                name: "weight"
+              - label: "Height"
+                name: "height"
                 widget: "number"
                 default: 2
                 valueType: "int"
