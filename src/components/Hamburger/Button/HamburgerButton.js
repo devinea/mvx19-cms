@@ -67,7 +67,6 @@ class HamburgerButton extends Component {
               top: -6,
               ...(this.props.active && {
                 transform:
-                  //'rotateZ(45deg) scaleX(0.9) translate(3.5px, 5.5px)'
                   'rotateZ(45deg) translate(3px, 5px)'
               })
             },
@@ -82,7 +81,6 @@ class HamburgerButton extends Component {
               top: 6,
               ...(this.props.active && {
                 transform:
-                  //'rotateZ(-45deg) scaleX(0.9) translate(3.5px, -5.5px)'
                   'rotateZ(-45deg) translate(3.5px, -5.5px)'
               })
             }
