@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { colors, media } from '../../theme';
+import { colors, media, header } from '../../theme';
 import InternalMenuLink from './InternalMenuLink';
 import { sectionListHeaderLinks } from '../../../../utils/sectionList';
 
@@ -13,6 +13,7 @@ class HamburgerMenu extends React.Component {
     return (
       <div
         css={{
+          zIndex: 1,
           display: 'block',
           height: 0,
           position: 'fixed',
@@ -20,11 +21,25 @@ class HamburgerMenu extends React.Component {
           width: '100%',
           overflow: 'auto',
           backgroundColor: colors.white,
-          padding: '60px 0 0 0',
+          paddingLeft: 0,
+          paddingBottom: 0,
+          paddingRight: 0,
           transition: 'all .56s cubic-bezier(0.52, 0.16, 0.24, 1)',
           ...(this.props.active && {
             height: '100%'
-          })
+          }),
+          [media.lessThan('medium')]: {
+            paddingTop: header.mobile.height
+          },
+          [media.greaterThan('medium')]: {
+            paddingTop: header.mobile.height
+          },
+          [media.greaterThan('large')]: {
+            paddingTop: header.desktop.height
+          },
+          [media.greaterThan('xlarge')]: {
+            paddingTop: header.desktop.height
+          }
         }}
       >
         <ul

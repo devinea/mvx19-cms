@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { navigate } from 'gatsby';
 
-import { colors, media } from '../../theme';
-import searchIcon from './../../../img/search.svg';
-import crossIcon from './../../../img/cross.svg';
+import { colors, media, header } from '../../theme';
+import searchIcon from './../../../../static/img/icons/ico_search_24x24.svg';
+
+import BackButton from '../BackButton';
+import CloseButton from '../CloseButton';
 
 class SearchInput extends Component {
   constructor(props) {
@@ -10,11 +13,11 @@ class SearchInput extends Component {
 
     this.searchInput = React.createRef();
     this.state = {
-      value: ''
+      value: '',
+      fromUrl: '/',
+      backBtn: false
     };
     this.handleChange = e => this._handleChange(e);
-
-    this.onBack = this._onBack.bind(this);
   }
 
   componentDidUpdate = prevprops => {
@@ -25,6 +28,8 @@ class SearchInput extends Component {
         this.searchInput.current.blur();
       }
       this.setState({ value: this.props.value });
+      this.setState({ fromUrl: this.props.fromUrl });
+      this.setState({ backBtn: this.props.backBtn });
     }
   };
 
@@ -37,7 +42,7 @@ class SearchInput extends Component {
   };
 
   _onBack = event => {
-    window.history.back();
+    navigate(this.state.fromUrl);
   };
 
   _onKeyPress = event => {
@@ -53,33 +58,47 @@ class SearchInput extends Component {
           position: 'absolute',
           textAlign: 'center',
           margin: '0 auto',
-          width: 'calc(100% - 40px)',
-          top: '12px',
+          width: 'calc(100% - 80px)',
           opacity: 0,
           zIndex: '-1',
           transition: 'opacity 0.3s',
           ...(this.props.active && {
             zIndex: 0,
             opacity: 1
-          })
+          }),
+          [media.lessThan('medium')]: {
+            width: `calc(100% - ${header.mobile.paddingLeft}px - ${header.mobile.paddingRight}px)`,
+            top: `calc( ( ${header.mobile.height}px - ${header.mobile.search.height}px) / 2)`
+          },
+          [media.greaterThan('medium')]: {
+            width: `calc(100% - ${header.mobile.paddingLeft}px - ${header.mobile.paddingRight}px)`,
+            top: `calc( ( ${header.mobile.height}px - ${header.mobile.search.height}px) / 2)`
+          },
+          [media.greaterThan('large')]: {
+            width: `calc(100% - ${header.desktop.paddingLeft}px - ${header.desktop.paddingRight}px)`,
+            top: `calc( ( ${header.desktop.height}px - ${header.desktop.search.height}px) / 2)`
+          },
+          [media.greaterThan('xlarge')]: {
+            width: `calc(100% - ${header.desktop.paddingLeft}px - ${header.desktop.paddingRight}px)`,
+            top: `calc( ( ${header.desktop.height}px - ${header.desktop.search.height}px) / 2)`
+          }
         }}
       >
-        <div
-          css={{
-            backgroundImage: 'url(' + crossIcon + ')',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: '5px 50%',
-            backgroundSize: '13px 13px',
-            position: 'absolute',
-            width: 20,
-            height: 40,
-            left: 0,
-            top: 0,
-            cursor: 'pointer',
-            display: 'inline-block'
-          }}
-          onClick={this.onBack}
-        />
+        {this.state.backBtn ? (
+          <BackButton
+            onClick={this._onBack}
+            cssProps={{
+              position: 'absolute',
+              cursor: 'pointer',
+              width: 24,
+              height: 40,
+              left: 0,
+              top: 0
+            }}
+          />
+        ) : (
+          ''
+        )}
 
         <div
           css={{
@@ -87,16 +106,16 @@ class SearchInput extends Component {
             textAlign: 'right',
             position: 'relative',
             [media.lessThan('medium')]: {
-              maxWidth: media.getSize('small').width
+              width: 'calc(100% - 24px - 20px - 24px - 20px)'
             },
             [media.greaterThan('medium')]: {
-              maxWidth: media.getSize('medium').width
+              width: 'calc(100% - 24px - 20px - 24px - 20px)'
             },
             [media.greaterThan('large')]: {
-              maxWidth: media.getSize('large').width
+              width: 'calc(100% - 24px - 40px - 24px - 40px)'
             },
             [media.greaterThan('xlarge')]: {
-              maxWidth: media.getSize('xlarge').width
+              width: 'calc(100% - 24px - 40px - 24px - 40px)'
             }
           }}
         >
@@ -110,36 +129,46 @@ class SearchInput extends Component {
               border: 'none',
               backgroundColor: colors.gray_100,
               borderRadius: 20,
-              height: 40,
               outline: 'none',
               color: colors.gray_500,
               paddingLeft: 40,
               paddingRight: 20,
               backgroundImage: 'url(' + searchIcon + ')',
               backgroundRepeat: 'no-repeat',
-              backgroundPosition: '15px 50%',
-              backgroundSize: '16px 16px',
-              width: '100%'
+              backgroundPosition: '10px 50%',
+              backgroundSize: '24px 24px',
+              width: '100%',
+              [media.lessThan('medium')]: {
+                height: header.mobile.search.height
+              },
+              [media.greaterThan('medium')]: {
+                height: header.mobile.search.height
+              },
+              [media.greaterThan('large')]: {
+                height: header.desktop.search.height
+              },
+              [media.greaterThan('xlarge')]: {
+                height: header.desktop.search.height
+              },
+              '::placeholder': {
+                fontStyle: 'italic'
+              }
             }}
             placeholder='Search...'
             type='search'
           />
         </div>
-        <div
-          css={{
-            backgroundImage: 'url(' + crossIcon + ')',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: '5px 50%',
-            backgroundSize: '13px 13px',
+
+        <CloseButton
+          onClick={this._onCloseSearch}
+          cssProps={{
             position: 'absolute',
-            width: 20,
+            cursor: 'pointer',
+            width: 24,
             height: 40,
             right: 0,
-            top: 0,
-            cursor: 'pointer',
-            display: 'inline-block'
+            top: 0
           }}
-          onClick={this._onCloseSearch}
         />
       </div>
     );
