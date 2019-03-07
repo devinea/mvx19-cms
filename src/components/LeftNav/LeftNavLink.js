@@ -30,9 +30,6 @@ class LeftNavLink extends React.Component {
                         position: 'relative',
                         ...(this.props.sectionOn == this.props.section.id && {
                             cursor: 'default'
-                        }),
-                        ...(this.props.section.hasChildren && {
-                            cursor: 'default'
                         })
                     }}
                     onMouseEnter={() => {
