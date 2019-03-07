@@ -6,7 +6,10 @@ import crossIcon from './../../img/cross.svg';
 import selectArrowIcon from './../../img/select-arrow.svg';
 
 // Define when the LHS switches to mobile view based on the pre-defined media queries.
-let mobileMedia = window.matchMedia(media.lessThan('large').replace('@media ', ''));
+let mobileMedia = false;
+if (typeof window !== 'undefined' && window.matchMedia) {
+  mobileMedia = window.matchMedia(media.lessThan('large').replace('@media ', ''));
+}
 let isMobileMedia = mobileMedia.matches;
 
 let state = {
