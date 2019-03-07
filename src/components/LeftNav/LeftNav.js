@@ -25,7 +25,7 @@ class LeftNav extends React.Component {
   
   constructor(props) {
     super(props);
-
+    
     this.state = state;
     let sectionOn = null;
     // Quick copy to this.props.data.leftNavFlattened for some minor backward compatibility
@@ -69,8 +69,6 @@ class LeftNav extends React.Component {
     this.mouseLeave = () => this._mouseLeave();
     this.checkMediaQuery = e => this._checkMediaQuery(e);
     this.isOverElement = false;
-
-
   }
 
   /**
@@ -215,7 +213,6 @@ class LeftNav extends React.Component {
                   paddingLeft: 20,
                   color: colors.gray_700
                 },
-                width: '100%',
                 float: 'left'
               }}>
               <Link
@@ -274,10 +271,10 @@ class LeftNav extends React.Component {
               width: 50,
               height: 45,
               content: '""'
-            }
+            }          
           }}
           onClick={this.toggleNav}
-          >{self.state.mobileTitle}&nbsp;</div>
+          >{self.state.mobileTitle}&nbsp;</div>            
             <div id="menuContainer"
               css={{
                 position: 'relative',
@@ -290,7 +287,8 @@ class LeftNav extends React.Component {
                   ...(this.state.navOpen && {
                     maxHeight: '100vh',
                   })
-                }
+
+                }                            
               }}
             >
               <div id="menuHover"
@@ -350,7 +348,7 @@ class LeftNav extends React.Component {
                 ...(!this.state.navOpen && {
                   opacity: 1,
                   left: 40,
-                  transitionDelay: '0.4s',
+                  transitionDelay: '0.4s',                  
                   pointerEvents: 'all'
                 })
               }

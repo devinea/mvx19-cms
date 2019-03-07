@@ -62,7 +62,7 @@ class LeftNavLink extends React.Component {
                     onClick={() => {
                         this.props.closeNavOnMobile()
                     }
-                    }
+                    }                    
                 >
                     <div
                         css={{
@@ -87,7 +87,7 @@ class LeftNavLink extends React.Component {
                             }),
                             ...(this.props.sectionOn == this.props.section.id && {
                                 color: colors.black,
-                                [media.greaterThan('large')]: {
+                                [media.greaterThan('large')]: {       
                                     ':after': {
                                         backgroundImage: 'url(' + arrowIcon + ')',
                                         backgroundPosition: 'center center',

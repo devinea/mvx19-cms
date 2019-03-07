@@ -30,7 +30,7 @@ export default class DesignGuidelineIndexPage extends React.Component {
               width: '100%',
               [media.lessThan('large')]: {
                 marginTop: '50px'
-              }
+              }              
             }}
           >
             <div

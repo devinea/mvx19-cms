@@ -33,7 +33,7 @@ export default class GuidelineIosIndexPage extends React.Component {
               width: '100%',
               [media.lessThan('large')]: {
                 marginTop: '50px'
-              }
+              }              
             }}
           >
             <div
