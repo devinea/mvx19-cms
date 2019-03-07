@@ -3,10 +3,19 @@ import { colors, media } from '../theme';
 import LeftNavLink from './LeftNavLink';
 import { Link } from 'gatsby';
 import crossIcon from './../../img/cross.svg';
+import selectArrowIcon from './../../img/select-arrow.svg';
+
+// Define when the LHS switches to mobile view based on the pre-defined media queries.
+let mobileMedia = false;
+if (typeof window !== 'undefined' && window.matchMedia) {
+  mobileMedia = window.matchMedia(media.lessThan('large').replace('@media ', ''));
+}
+let isMobileMedia = mobileMedia.matches;
 
 let state = {
-  navOpen: true,
-  sectionOn: -1,
+  navOpen: !isMobileMedia,
+  sectionOn: null,
+  mobileTitle: null,
   opened: []
 };
 
@@ -33,6 +42,7 @@ class LeftNav extends React.Component {
       // Check if this item is currently selected.
       if (typeof window !== 'undefined' && window.location && item.slug === decodeURIComponent(window.location.pathname)) {
         sectionOn = item.id;
+        this.state.mobileTitle = item.title;
       }
       if (item.parentId) {
         const parentItem = this.props.data.leftNavFlattened.find(obj => obj.id == item.parentId);
@@ -48,22 +58,57 @@ class LeftNav extends React.Component {
       }
 ``    }
     this.state.sectionOn = sectionOn;
+    if (!sectionOn) {
+      this.state.mobileTitle = 'Overview'
+    }
 
-    this.toggleNav = toggle => this._toggleNav(toggle);
+    this.toggleNav = event => this._toggleNav(event);
+    this.closeNavOnMobile = () => this._closeNavOnMobile();
     this.expandSection = (event, sectionIndex) => this._expandSection(event, sectionIndex);
     this.mouseEnter = element => this._mouseEnter(element);
     this.mouseLeave = () => this._mouseLeave();
+    this.checkMediaQuery = e => this._checkMediaQuery(e);
     this.isOverElement = false;
+
+
   }
 
-  componentWillMount = () => {
-    if(this.props.open === "false") {
-      this._toggleNav();
+  /**
+   * Check that when the media query updates, do we now need to close or open the side nav.
+   * @param {e} the media query event
+   */
+  _checkMediaQuery(e) {
+    isMobileMedia = e.matches;
+    state.navOpen = !isMobileMedia;
+    if (!isMobileMedia) {
+      this._openNav();
+    } else {
+      this._closeNavOnMobile();
     }
   }
 
-  _toggleNav() {
+  componentWillUnmount = () => {
+    mobileMedia.removeListener(this.checkMediaQuery);
+  }
+
+  componentDidMount() {
+    mobileMedia.addListener(this.checkMediaQuery);
+  }
+
+  _toggleNav(event) {
     this.setState({ navOpen: !this.state.navOpen });
+  }
+
+  _openNav() {
+    this.setState({ navOpen: true });
+  }
+
+  _closeNavOnMobile() {
+    if (isMobileMedia) {
+      this.setState({ navOpen: false });
+      this.state.navOpen = false;
+      state = this.state;
+    }
   }
 
   _expandSection(event, id) {
@@ -80,6 +125,7 @@ class LeftNav extends React.Component {
     }
     state = this.state;
     event.preventDefault();
+    event.stopPropagation();
     this.setState({updating: !this.state.updating})
   }
 
@@ -130,6 +176,12 @@ class LeftNav extends React.Component {
             ...(this.state.navOpen && {
               left: '0'
             }),
+            [media.lessThan('large')]: {
+              width: '100%',
+              height: 'auto',
+              left: '0px',
+              backgroundColor: colors.gray_100
+            },
             position: 'fixed',
             flexDirection: 'row',
             alignItems: 'top',
@@ -144,18 +196,26 @@ class LeftNav extends React.Component {
               overflow: 'hidden',
               fontSize: 20,
               width: '100%',
-              opacity: 0,
-              ...(this.state.navOpen && {
-                opacity: 1,
-              })
+              [media.greaterThan('large')]: {
+                opacity: 0,
+                ...(this.state.navOpen && {
+                  opacity: 1,
+                })
+              }
             }}>
             <div
               css={{
                 overflow: 'hidden',
                 lineHeight: '90px',
                 height: 90,
-                width: '100%',
                 paddingLeft: 40,
+                [media.lessThan('large')]: {
+                  lineHeight: '45px',
+                  height: 45,
+                  paddingLeft: 20,
+                  color: colors.gray_700
+                },
+                width: '100%',
                 float: 'left'
               }}>
               <Link
@@ -178,16 +238,59 @@ class LeftNav extends React.Component {
                 [media.greaterThan('xlarge')]: {
                   opacity: '0',
                   pointerEvents: 'none'
+                },
+                [media.lessThan('large')]: {
+                  display: 'none'
                 }
-
               }}
               onClick={this.toggleNav}
             />
+<div css={{
+            position: 'absolute',
+            right: 45,
+            top: 0,
+            height: 45,
+            lineHeight: '45px',
+            display: 'none',
+            fontFamily: '72',
+            fontWeight: 'bold',
+            color: colors.gray_700,
+            fontSize: 16,
+            cursor: 'pointer',
+            [media.lessThan('large')]: {
+              display: 'block',
+              ...(this.state.navOpen && {
+                color: 'transparent'
+              })
+            },
+            '::after': {
+              position: 'absolute',
+              backgroundImage: 'url(' + selectArrowIcon + ')',
+              ...(this.state.navOpen && {
+                backgroundImage: 'url(' + crossIcon + ')',
+              }),
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: '10px center',
+              width: 50,
+              height: 45,
+              content: '""'
+            }
+          }}
+          onClick={this.toggleNav}
+          >{self.state.mobileTitle}&nbsp;</div>
             <div id="menuContainer"
               css={{
                 position: 'relative',
                 float: 'left',
-                width: '100%'
+                width: '100%',
+                overflow: 'hidden',
+                [media.lessThan('large')]: {
+                  maxHeight: 0,
+                  transition: 'max-height 0.3s ease-in-out',
+                  ...(this.state.navOpen && {
+                    maxHeight: '100vh',
+                  })
+                }
               }}
             >
               <div id="menuHover"
@@ -213,7 +316,8 @@ class LeftNav extends React.Component {
                   sectionOn={self.state.sectionOn} 
                   expander={self.expandSection} 
                   mouseEnter={self.mouseEnter} 
-                  mouseLeave={self.mouseLeave}/>
+                  mouseLeave={self.mouseLeave}
+                  closeNavOnMobile={self.closeNavOnMobile}/>
               ))}
             </div>
           </div>
@@ -242,12 +346,14 @@ class LeftNav extends React.Component {
               '::before': {
                   content: 'attr(data-sap-ui-icon-content)'
               },
-              ...(!this.state.navOpen && {
-                opacity: 1,
-                left: 40,
-                transitionDelay: '0.4s',
-                pointerEvents: 'all'
-              })
+              [media.greaterThan('large')]: {
+                ...(!this.state.navOpen && {
+                  opacity: 1,
+                  left: 40,
+                  transitionDelay: '0.4s',
+                  pointerEvents: 'all'
+                })
+              }
             }}
             data-sap-ui-icon-content=''
             onClick={this.toggleNav}

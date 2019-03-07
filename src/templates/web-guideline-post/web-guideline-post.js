@@ -8,10 +8,11 @@ import Filter from '../../components/Filter/Filter.js';
 import Flex from '../../components/Flex';
 import Layout from '../../components/Layout';
 
-import { sharedStyles } from '../../components/theme';
+import { sharedStyles, media } from '../../components/theme';
 
 import Content, { HTMLContent } from '../../components/Content';
 import LeftNav from '../../components/LeftNav';
+
 
 export const DesignGuidelinePostTemplate = ({
   content,
@@ -88,7 +89,10 @@ const WebGuidelinePost = ({ data, location, pageContext }) => {
             width: 828,
             margin: '0 auto',
             paddingBottom: 20,
-            transition: 'width 0.3s ease-in-out'
+            transition: 'width 0.3s ease-in-out',
+            [media.lessThan('large')]: {
+              marginTop: '50px'
+            }
           }}
         >
           <Filter location={location} pageContext= {pageContext} />

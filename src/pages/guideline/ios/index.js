@@ -4,6 +4,7 @@ import Layout from '../../../components/Layout';
 import LeftNav from '../../../components/LeftNav';
 import designImg from '../../../img/design.png';
 import { Link, graphql } from 'gatsby';
+import { media } from '../../../components/theme';
 import ResourcesList from '../../../components/ResourceList/ResourcesList';
 import Tabs from '../../../components/Tabs';
 import { css } from '@emotion/core';
@@ -29,7 +30,10 @@ export default class GuidelineIosIndexPage extends React.Component {
           <LeftNav data={data.leftNav.edges[0]} />
           <div
             css={{
-              width: '100%'
+              width: '100%',
+              [media.lessThan('large')]: {
+                marginTop: '50px'
+              }
             }}
           >
             <div
