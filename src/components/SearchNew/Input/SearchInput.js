@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { navigate } from 'gatsby';
 
-import { colors, header, media } from '../../theme';
-import searchIcon from './../../../img/search.svg';
-import crossIcon from './../../../img/cross.svg';
+import { colors, media, header } from '../../theme';
+import searchIcon from './../../../../static/img/icons/ico_search_24x24.svg';
+
+import BackButton from '../BackButton';
+import CloseButton from '../CloseButton';
 
 class SearchInput extends Component {
   constructor(props) {
@@ -10,7 +13,9 @@ class SearchInput extends Component {
 
     this.searchInput = React.createRef();
     this.state = {
-      value: ''
+      value: '',
+      fromUrl: '/',
+      backBtn: false
     };
     this.handleChange = e => this._handleChange(e);
   }
@@ -23,6 +28,8 @@ class SearchInput extends Component {
         this.searchInput.current.blur();
       }
       this.setState({ value: this.props.value });
+      this.setState({ fromUrl: this.props.fromUrl });
+      this.setState({ backBtn: this.props.backBtn });
     }
   };
 
@@ -34,11 +41,15 @@ class SearchInput extends Component {
     this.props.onClose(!this.props.active);
   };
 
+  _onBack = event => {
+    navigate(this.state.fromUrl);
+  };
+
   _onKeyPress = event => {
     if (event.key === 'Enter') {
       this.props.onEnter(this.state.value);
     }
-  }
+  };
 
   render() {
     return (
@@ -47,33 +58,50 @@ class SearchInput extends Component {
           position: 'absolute',
           textAlign: 'center',
           margin: '0 auto',
-          width: 'calc(100% - 40px)',
-          top: 0,
-          zIndex: -1,
-          transition: 'opacity 0.3s',
+          width: 'calc(100% - 80px)',
           opacity: 0,
+          zIndex: '-1',
+          transition: 'opacity 0.3s',
           ...(this.props.active && {
-            zIndex: 10,
+            zIndex: 0,
             opacity: 1
-          })
+          }),
+          [media.lessThan('large')]: {
+            width: `calc(100% - ${header.mobile.paddingLeft}px - ${header.mobile.paddingRight}px)`,
+            top: `calc( ( ${header.mobile.height}px - ${header.mobile.search.height}px) / 2)`
+          },
+          [media.greaterThan('large')]: {
+            width: `calc(100% - ${header.desktop.paddingLeft}px - ${header.desktop.paddingRight}px)`,
+            top: `calc( ( ${header.desktop.height}px - ${header.desktop.search.height}px) / 2)`
+          }
         }}
       >
+        {this.state.backBtn ? (
+          <BackButton
+            onClick={this._onBack}
+            cssProps={{
+              position: 'absolute',
+              cursor: 'pointer',
+              width: 24,
+              height: 40,
+              left: 0,
+              top: 0
+            }}
+          />
+        ) : (
+          ''
+        )}
+
         <div
           css={{
             margin: '0 auto',
             textAlign: 'right',
             position: 'relative',
-            [media.lessThan('medium')]: {
-              maxWidth: media.getSize('small').width
-            },
-            [media.greaterThan('medium')]: {
-              maxWidth: media.getSize('medium').width
+            [media.lessThan('large')]: {
+              width: `calc(100% - 24px - ${header.mobile.paddingLeft}px - 24px - ${header.mobile.paddingRight}px)`
             },
             [media.greaterThan('large')]: {
-              maxWidth: media.getSize('large').width
-            },
-            [media.greaterThan('xlarge')]: {
-              maxWidth: media.getSize('xlarge').width
+              width: `calc(100% - 24px - ${header.desktop.paddingLeft}px - 24px - ${header.desktop.paddingRight}px)`
             }
           }}
         >
@@ -87,44 +115,48 @@ class SearchInput extends Component {
               border: 'none',
               backgroundColor: colors.gray_100,
               borderRadius: 20,
-              padding: '5px 20px 5px 40px',
-              height: 40,
-              marginTop: 12,
-              marginRight: 30,
-              transition: 'width 0.6s',
               outline: 'none',
               color: colors.gray_500,
+              paddingLeft: 40,
+              paddingRight: 20,
               backgroundImage: 'url(' + searchIcon + ')',
               backgroundRepeat: 'no-repeat',
-              backgroundPosition: '15px 50%',
-              backgroundSize: '16px 16px',
-              ...(!this.props.active && {
-                width: 0
-              }),
-              ...(this.props.active && {
-                width: 'calc(100% - 30px)'
-              })
+              backgroundPosition: '10px 50%',
+              backgroundSize: '24px 24px',
+              width: '100%',
+              transition: 'height 0.3s',
+              [media.lessThan('medium')]: {
+                height: header.mobile.search.height
+              },
+              [media.greaterThan('medium')]: {
+                height: header.mobile.search.height
+              },
+              [media.greaterThan('large')]: {
+                height: header.desktop.search.height
+              },
+              [media.greaterThan('xlarge')]: {
+                height: header.desktop.search.height
+              },
+              '::placeholder': {
+                fontStyle: 'italic'
+              }
             }}
             placeholder='Search...'
             type='search'
           />
-          <div
-            css={{
-              backgroundImage: 'url(' + crossIcon + ')',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: '5px 50%',
-              backgroundSize: '13px 13px',
-              width: 20,
-              height: 40,
-              marginTop: 12,
-              right: 0,
-              position: 'absolute',
-              cursor: 'pointer',
-              display: 'inline-block'
-            }}
-            onClick={this._onCloseSearch}
-          />
         </div>
+
+        <CloseButton
+          onClick={this._onCloseSearch}
+          cssProps={{
+            position: 'absolute',
+            cursor: 'pointer',
+            width: 24,
+            height: 40,
+            right: 0,
+            top: 0
+          }}
+        />
       </div>
     );
   }
