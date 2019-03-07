@@ -1,4 +1,9 @@
 "use strict"
+const webVersion = require('.../src/pages/versions/web-version.json')
+const iosVersion = require('.../src/pages/versions/ios-version.json')
+const androidVersion = require('.../src/pages/versions/android-version.json')
+const cuxVersion = require('.../src/pages/versions/android-version.json')
+
 
 function _objectSpread(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -111,11 +116,11 @@ const createOrGetIndex = async (
                 )
             )
             if (pageNode.frontmatter.templateKey.includes('-guideline')){
-                // TODO Get current versions from the settings collections
-                if ((pageNode.frontmatter.templateKey === `web-guideline` && pageNode.frontmatter.version === `1.03`) ||
-                    (pageNode.frontmatter.templateKey === `ios-guideline`  && pageNode.frontmatter.version === `1.01`) ||
-                    (pageNode.frontmatter.templateKey === `android-guideline`  && pageNode.frontmatter.version === `1.01`) ||
-                    (pageNode.frontmatter.templateKey === `cux-guideline`  && pageNode.frontmatter.version === `1.01`) )
+                // Get current versions from the settings collections maintained via the CMS
+                if ((pageNode.frontmatter.templateKey === `web-guideline` && pageNode.frontmatter.version === webVersion.version) ||
+                    (pageNode.frontmatter.templateKey === `ios-guideline`  && pageNode.frontmatter.version === iosVersion.version) ||
+                    (pageNode.frontmatter.templateKey === `android-guideline`  && pageNode.frontmatter.version === androidVersion.version) ||
+                    (pageNode.frontmatter.templateKey === `cux-guideline`  && pageNode.frontmatter.version === cuxVersion.version) )
                     index.addDoc(doc)
             } else {
                 index.addDoc(doc)
