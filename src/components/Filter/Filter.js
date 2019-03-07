@@ -14,6 +14,7 @@ class Filter extends Component {
 
     //prepare a list of versions
     const posts = this.props.versions.edges;
+    versions = [];
     // Iterate through each post, putting all found version into `versions`
     posts.forEach(edge => {
       if (_.get(edge, `node.frontmatter.version`)) {
