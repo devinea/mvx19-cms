@@ -6,9 +6,9 @@ const cuxVersion = require('../../src/pages/versions/android-version.json')
 
 
 function _objectSpread(target) {
-    for (var i = 1; i < arguments.length; i++) {
-        var source = arguments[i] != null ? arguments[i] : {}
-        var ownKeys = Object.keys(source)
+    for (let i = 1; i < arguments.length; i++) {
+        const source = arguments[i] != null ? arguments[i] : {}
+        let ownKeys = Object.keys(source)
         if (typeof Object.getOwnPropertySymbols === `function`) {
             ownKeys = ownKeys.concat(
                 Object.getOwnPropertySymbols(source).filter(function(sym) {
