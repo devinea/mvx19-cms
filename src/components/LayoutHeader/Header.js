@@ -29,7 +29,7 @@ class Header extends React.Component {
           backgroundColor: colors.white,
           boxShadow: '0 2px 20px 0 rgba(0, 0, 0, 0.15)',
           color: colors.black,
-          transition: 'box-shadow 0.5s',
+          transition: 'height 0.3s',
           position: 'fixed',
           zIndex: 2,
           width: '100%',
