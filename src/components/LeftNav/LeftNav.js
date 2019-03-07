@@ -5,8 +5,12 @@ import { Link } from 'gatsby';
 import crossIcon from './../../img/cross.svg';
 import selectArrowIcon from './../../img/select-arrow.svg';
 
+// Define when the LHS switches to mobile view based on the pre-defined media queries.
+let mobileMedia = window.matchMedia(media.lessThan('large').replace('@media ', ''));
+let isMobileMedia = mobileMedia.matches;
+
 let state = {
-  navOpen: true,
+  navOpen: !isMobileMedia,
   sectionOn: null,
   mobileTitle: null,
   opened: []
@@ -18,7 +22,7 @@ class LeftNav extends React.Component {
   
   constructor(props) {
     super(props);
-
+    
     this.state = state;
     let sectionOn = null;
     // Quick copy to this.props.data.leftNavFlattened for some minor backward compatibility
@@ -55,21 +59,53 @@ class LeftNav extends React.Component {
       this.state.mobileTitle = 'Overview'
     }
 
-    this.toggleNav = toggle => this._toggleNav(toggle);
+    this.toggleNav = event => this._toggleNav(event);
+    this.closeNavOnMobile = () => this._closeNavOnMobile();
     this.expandSection = (event, sectionIndex) => this._expandSection(event, sectionIndex);
     this.mouseEnter = element => this._mouseEnter(element);
     this.mouseLeave = () => this._mouseLeave();
+    this.checkMediaQuery = e => this._checkMediaQuery(e);
     this.isOverElement = false;
+
+    
   }
 
-  componentWillMount = () => {
-    if(this.props.open === "false") {
-      this._toggleNav();
+  /**
+   * Check that when the media query updates, do we now need to close or open the side nav.
+   * @param {e} the media query event
+   */
+  _checkMediaQuery(e) {
+    isMobileMedia = e.matches;
+    state.navOpen = !isMobileMedia;
+    if (!isMobileMedia) {
+      this._openNav();
+    } else {
+      this._closeNavOnMobile();
     }
   }
 
-  _toggleNav() {
+  componentWillUnmount = () => {
+    mobileMedia.removeListener(this.checkMediaQuery);
+  }
+
+  componentDidMount() {
+    mobileMedia.addListener(this.checkMediaQuery);
+  }
+
+  _toggleNav(event) {
     this.setState({ navOpen: !this.state.navOpen });
+  }
+
+  _openNav() {
+    this.setState({ navOpen: true });
+  }
+
+  _closeNavOnMobile() {
+    if (isMobileMedia) {
+      this.setState({ navOpen: false });
+      this.state.navOpen = false;
+      state = this.state;
+    }
   }
 
   _expandSection(event, id) {
@@ -86,6 +122,7 @@ class LeftNav extends React.Component {
     }
     state = this.state;
     event.preventDefault();
+    event.stopPropagation();
     this.setState({updating: !this.state.updating})
   }
 
@@ -276,7 +313,8 @@ class LeftNav extends React.Component {
                   sectionOn={self.state.sectionOn} 
                   expander={self.expandSection} 
                   mouseEnter={self.mouseEnter} 
-                  mouseLeave={self.mouseLeave}/>
+                  mouseLeave={self.mouseLeave}
+                  closeNavOnMobile={self.closeNavOnMobile}/>
               ))}
             </div>
           </div>
