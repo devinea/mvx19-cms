@@ -213,6 +213,7 @@ class LeftNav extends React.Component {
                   paddingLeft: 20,
                   color: colors.gray_700
                 },
+                width: '100%',
                 float: 'left'
               }}>
               <Link
