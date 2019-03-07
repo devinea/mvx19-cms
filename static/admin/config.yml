@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: ade_ios
   accept_roles: #optional - accepts all users if left out
     - admin
     - editor
@@ -33,7 +33,6 @@ collections:
     folder: "src/pages/left/nav"
     create: true
     slug: "{{fields.version}}-{{fields.srcTemplateKey}}"
-    identifier_field: slug
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "left-nav"}
       - {label: "Content Template Key", name: "srcTemplateKey", widget: "select", options: ["web-guideline", "ios-guideline", "android-guideline"]}
@@ -54,6 +53,13 @@ collections:
                 collection: 'fioriwebguideline'
                 searchFields: ['title', 'slug']
                 valueField: 'title'
+              - label: 'Overview Page Category'
+                name: 'category'
+                widget: 'select'
+                options: ['controls','views','patterns','floorplans']
+              - label: 'Overview Page Category Description'
+                name: 'categoryDesc'
+                widget: 'string'
               - label: 'SubMenu'
                 name: 'submenu'
                 widget: 'object'
@@ -68,6 +74,10 @@ collections:
                         collection: 'fioriwebguideline'
                         searchFields: ['title', 'slug']
                         valueField: 'title'
+                      - label: 'Show in Overview Page'
+                        name: 'onOverview'
+                        widget: 'boolean'
+                        default: false
 
   - name: "fioriiosguideline"
     label: "Fiori IOS"
