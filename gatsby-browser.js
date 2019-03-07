@@ -10,7 +10,7 @@ require('./src/css/SAP-icons.css');
 require('./src/css/reset.css');
 require('./src/styles/global.css');
 
-// // Expose React and ReactDOM as globals for console playground
+// Expose React and ReactDOM as globals for console playground
 window.React = React;
 window.ReactDOM = ReactDOM;
 
