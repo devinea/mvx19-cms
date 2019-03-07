@@ -184,6 +184,62 @@ collections:
                 name: "description"
                 widget: "string"
       - {label: "Version No.", name: "version", widget: "select", options: ["1.01", "1.02", "1.03","1.04", "1.05"]}
+  - name: "typography"
+    label: "Typography"
+    folder: "src/pages/text"
+    create: true
+    extension: "json"
+    format: "json"
+    editor:
+     preview: false
+    slug: "{{fields.version}}-{{slug}}"
+    fields:
+      - {label: "Content Template Key", name: "srcTemplateKey", widget: "select", options: ["web-guideline", "ios-guideline", "android-guideline", "cux-guideline"]}
+      - {label: "Title", name: "title", widget: "string"}
+      - label: "Typography"
+        name: "typography"
+        widget: "list"
+        fields:
+          - label: "Group Name"
+            name: "name"
+            widget: "string"
+          - label: "Styles"
+            name: "styles"
+            widget: "list"
+            fields:
+              - label: "Style Name"
+                name: "name"
+                widget: "string"
+              - label: "Uppercase"
+                name: "uppercase"
+                widget: "boolean"
+                default: false
+                required: false
+              - label: "Style"
+                name: "style"
+                widget: "select"
+                options: ["Regular", "Bold", "Italic", "Condensed", "Condensed Bold", "Light"]
+              - label: "Color"
+                name: "color"
+                widget: "color"
+                default: "#000000"
+              - label: "Size"
+                name: "size"
+                widget: "number"
+                default: 2
+                valueType: "int"
+                min: 1
+                max: 101
+                step: 1
+              - label: "Height"
+                name: "height"
+                widget: "number"
+                default: 2
+                valueType: "int"
+                min: 1
+                max: 101
+                step: 1
+      - {label: "Version No.", name: "version", widget: "select", options: ["1.01", "1.02", "1.03","1.04", "1.05"]}
   - name: "versions"
     label: "Set Guideline Current Version"
     folder: "src/pages/versions"
