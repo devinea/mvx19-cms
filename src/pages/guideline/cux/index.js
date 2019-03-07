@@ -2,6 +2,7 @@ import React from 'react';
 
 import Flex from '../../../components/Flex';
 import Layout from '../../../components/Layout';
+import { media } from '../../../components/theme';
 
 import LeftNav from '../../../components/LeftNav';
 import designImg from '../../../img/design.png';
@@ -26,7 +27,10 @@ export default class DesignGuidelineIndexPage extends React.Component {
           <LeftNav data={(data.leftNav)}/>
           <div
             css={{
-              width: '100%'
+              width: '100%',
+              [media.lessThan('large')]: {
+                marginTop: '50px'
+              }              
             }}
           >
             <div
