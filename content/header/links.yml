@@ -4,7 +4,7 @@
     - url: /getstarted
 - title: Fiori for Web
   items:
-    - id: design
+    - id: web
     - url: /guideline/web
 - title: Fiori for iOS
   items:

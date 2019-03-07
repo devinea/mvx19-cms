@@ -1,18 +1,17 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
+import SVG from 'react-inlinesvg';
+
 import HamburgerButton from './../Hamburger/Button';
-import SearchButton from './../SearchNew/Button';
+import SearchButton from './../SearchNew/SearchButton';
 import SearchInput from './../SearchNew/Input';
 import Container from './../Container';
 import HeaderLink from './HeaderLink';
 import { sectionListHeaderLinks } from '../../../utils/sectionList';
 import { colors, header, media } from '../theme';
 
-import logoSvg from './../../img/logo.svg';
-
 class Header extends React.Component {
-
   constructor(props) {
     super(props);
 
@@ -28,25 +27,48 @@ class Header extends React.Component {
       <header
         css={{
           backgroundColor: colors.white,
-          boxShadow: '0 1px 6px 0 rgba(0, 0, 0, 0.30)',
+          boxShadow: '0 2px 20px 0 rgba(0, 0, 0, 0.15)',
           color: colors.black,
-          transition: 'box-shadow 0.5s',
+          transition: 'height 0.3s',
           position: 'fixed',
           zIndex: 2,
           width: '100%',
           top: 0,
-          left: 0
+          left: 0,
+          [media.lessThan('medium')]: {
+            height: header.mobile.height
+          },
+          [media.greaterThan('medium')]: {
+            height: header.mobile.height
+          },
+          [media.greaterThan('large')]: {
+            height: header.desktop.height
+          },
+          [media.greaterThan('xlarge')]: {
+            height: header.desktop.height
+          }
         }}
       >
-        <Container>
+        <Container
+          cssProps={{
+            height: '100%'
+          }}
+        >
           <div
             css={{
+              height: '100%',
               display: 'flex',
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'space-between',
-              height: header.height,
-              position: 'relative'
+              position: 'relative',
+              opacity: 1,
+              zIndex: 0,
+              transition: 'opacity 0.3s',
+              ...(this.props.searchButtonActive && {
+                zIndex: -1,
+                opacity: 0
+              })
             }}
           >
             <div
@@ -58,13 +80,7 @@ class Header extends React.Component {
                 overflowY: 'hidden',
                 height: '100%',
                 position: 'relative',
-                left: 0,
-                ...(!this.state.isSearcPage && {
-                  transition: 'left 0.3s'
-                }),
-                ...(this.props.searchButtonActive && {
-                  left: '-180px'
-                })
+                left: 0
               }}
             >
               <HamburgerButton
@@ -80,7 +96,29 @@ class Header extends React.Component {
                 }}
                 to='/'
               >
-                <img src={logoSvg} alt='SAP' width='63' height='32' />
+                <SVG
+                  src='/img/svg/logo-sap.svg'
+                  css={{
+                    [media.lessThan('large')]: {
+                      width: 40,
+                      height: 20,
+                      svg: {
+                        width: 40,
+                        height: 20
+                      }
+                    },
+                    [media.greaterThan('large')]: {
+                      width: 48,
+                      height: 24,
+                      svg: {
+                        width: 48,
+                        height: 24
+                      }
+                    },
+                    display: 'block'
+                  }}
+                />
+
                 <span
                   css={{
                     color: 'inherit',
@@ -102,13 +140,7 @@ class Header extends React.Component {
                 overflowX: 'auto',
                 overflowY: 'hidden',
                 height: '100%',
-                opacity: 1,
-                ...(!this.state.isSearchPage && {
-                  transition: 'left 0.3s'
-                }),
-                ...(this.props.searchButtonActive && {
-                  opacity: 0
-                })
+                opacity: 1
               }}
             >
               <nav
@@ -118,7 +150,7 @@ class Header extends React.Component {
                   alignItems: 'stretch',
                   overflow: 'hidden',
                   height: '100%',
-                  opacity: 1,
+                  opacity: 1
                 }}
               >
                 <div
@@ -133,17 +165,20 @@ class Header extends React.Component {
                     }
                   }}
                 >
-                {sectionListHeaderLinks.map(section => {
-                  const defaultItem = section.items;
-                  return (
-                    <HeaderLink
-                      isActive={location.pathname.includes(defaultItem[0].id) || location.hash.includes(defaultItem[0].id)}
-                      title={section.title}
-                      to={defaultItem[1].url}
-                      key={defaultItem[0].id}
-                    />
-                  );
-                })}
+                  {sectionListHeaderLinks.map(section => {
+                    const defaultItem = section.items;
+                    return (
+                      <HeaderLink
+                        isActive={
+                          location.pathname.includes(defaultItem[0].id) ||
+                          location.hash.includes(defaultItem[0].id)
+                        }
+                        title={section.title}
+                        to={defaultItem[1].url}
+                        key={defaultItem[0].id}
+                      />
+                    );
+                  })}
                 </div>
                 <SearchButton
                   cssProps={{
@@ -164,6 +199,8 @@ class Header extends React.Component {
             onEnter={this.props.onSearch}
             onClose={this.props.onSearchButton}
             value={this.props.searchValue}
+            fromUrl={this.props.searchFromUrl}
+            backBtn={this.props.searchBackBtn}
           />
         </Container>
       </header>

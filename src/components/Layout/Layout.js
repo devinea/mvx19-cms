@@ -17,7 +17,9 @@ class Layout extends React.Component {
     this.state = {
       menuToggle: false,
       searchToggle: false,
-      searchValue: ''
+      searchValue: '',
+      searchFromUrl: '/',
+      searchBackBtn: false
     };
     this.mediaQueryListener = null;
     this.onMatchMQ = mediaQueryListener => this._onMatchMQ(mediaQueryListener);
@@ -35,6 +37,7 @@ class Layout extends React.Component {
 
     if (this.props.search && this.props.search.display) {
       const values = queryString.parse(this.props.location.search);
+
       if (values.q) {
         this.toggleSearch(true);
         this.setState({ searchValue: values.q });
@@ -42,6 +45,14 @@ class Layout extends React.Component {
         this.toggleSearch(false);
         this.setState({ searchValue: '' });
       }
+      if (this.props.location.state) {
+        const fromUrl = this.props.location.state.fromUrl || '/';
+        if (fromUrl) {
+          this.setState({ searchFromUrl: fromUrl });
+        }
+      }
+      const backBtn = this.props.search.backBtn || false;
+      this.setState({ searchBackBtn: backBtn });
     }
   };
 
@@ -89,7 +100,8 @@ class Layout extends React.Component {
 
   _onSearch = options => {
     navigate('/search?q=' + options, {
-      replace: true
+      replace: true,
+      state: { fromUrl: this.props.location.pathname }
     });
   };
 
@@ -113,6 +125,8 @@ class Layout extends React.Component {
           onSearch={this.onSearch}
           searchButtonActive={this.state.searchToggle}
           searchValue={this.state.searchValue}
+          searchFromUrl={this.state.searchFromUrl}
+          searchBackBtn={this.state.searchBackBtn}
         />
         <HamburgerMenu active={this.state.menuToggle} />
         <Flex
@@ -122,7 +136,18 @@ class Layout extends React.Component {
           overflow='auto'
           valign='stretch'
           css={{
-            marginTop: header.height
+            [media.lessThan('medium')]: {
+              marginTop: header.mobile.height
+            },
+            [media.greaterThan('medium')]: {
+              marginTop: header.mobile.height
+            },
+            [media.greaterThan('large')]: {
+              marginTop: header.desktop.height
+            },
+            [media.greaterThan('xlarge')]: {
+              marginTop: header.desktop.height
+            }
           }}
         >
           {children}

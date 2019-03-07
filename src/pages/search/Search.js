@@ -17,6 +17,7 @@ class Search extends React.Component {
     this.state = {
       searchToggle: true,
       searchValue: '',
+      searchFromUrl: '/',
       results: []
     };
     this.toggleSearch = toggle => this._toggleSearch(toggle);
@@ -27,6 +28,11 @@ class Search extends React.Component {
   componentDidMount = () => {
     const values = queryString.parse(this.props.location.search);
     const idx = Index.load(this.props.data.search.index);
+
+    if (this.props.location.state) {
+      const fromUrl = this.props.location.state.fromUrl || '/';
+      this.setState({ searchFromUrl: fromUrl });
+    }
 
     if (values.q) {
       this.setState({ searchValue: values.q }, () => {
@@ -44,6 +50,12 @@ class Search extends React.Component {
         this.setState({ searchValue: values.q }, () => {
           this.search(this.state.searchValue, idx);
         });
+      }
+    }
+
+    if (this.props.location.state && this.props.location.state.fromUrl) {
+      if (this.state.searchFromUrl !== this.props.location.state.fromUrl) {
+        this.setState({ searchFromUrl: this.props.location.state.fromUrl });
       }
     }
   };
@@ -76,7 +88,9 @@ class Search extends React.Component {
         location={location}
         search={{
           display: this.state.searchToggle,
-          value: this.state.searchValue
+          value: this.state.searchValue,
+          fromUrl: this.state.searchFromUrl,
+          backBtn: true
         }}
       >
         <Flex
