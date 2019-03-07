@@ -141,10 +141,10 @@ export default class GuidelineIosIndexPage extends React.Component {
 }
 
 export const pageQuery = graphql`
-  query {
+    query IosGuidelinePageQuery($curVersion: String!) {
       leftNav: allMarkdownRemark(
           filter: {
-              frontmatter: { templateKey: { eq: "left-nav" }, srcTemplateKey: { eq: "ios-guideline"}, version: { eq: "1.01" } }
+              frontmatter: { templateKey: { eq: "left-nav" }, srcTemplateKey: { eq: "ios-guideline"}, version: { eq: $curVersion } }
           }
       ) {
           edges {

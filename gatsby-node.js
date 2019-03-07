@@ -2,6 +2,10 @@ const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
+const webVersion = require('./src/pages/versions/web-version.json')
+const iosVersion = require('./src/pages/versions/ios-version.json')
+const androidVersion = require('./src/pages/versions/android-version.json')
+const cuxVersion = require('./src/pages/versions/android-version.json')
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
@@ -25,7 +29,17 @@ exports.createPages = ({ actions, graphql }) => {
             }
           }
         }
-      }
+      },
+      allVersionsJson {
+          edges {
+            node {
+              id
+              templateKey
+              srcTemplateKey
+              version
+            }
+          }
+        }
     }
   `).then(result => {
     if (result.errors) {
@@ -34,6 +48,7 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     const posts = result.data.allMarkdownRemark.edges
+    const guidelineVersions = result.data.allVersionsJson.edges
 
     posts.forEach(edge => {
       const id = edge.node.id
@@ -42,6 +57,10 @@ exports.createPages = ({ actions, graphql }) => {
       const guidelineKey = edge.node.frontmatter.templateKey.replace('-guideline','');
       const URIpath = `/guideline/${guidelineKey}`;
       if (edge.node.frontmatter.templateKey.includes('-guideline')){
+
+        const curVersions = guidelineVersions.filter(version =>
+          version.node && version.node.version && version.node.srcTemplateKey === templateKey);
+        const curVersion = (curVersions[0] && curVersions[0].node && curVersions[0].node.version) ? curVersions[0].node.version : undefined;
         createPage({
           path: `${URIpath}/${String(edge.node.frontmatter.version)}/${String(edge.node.frontmatter.title)}/`,
           tags: edge.node.frontmatter.tags,
@@ -52,8 +71,8 @@ exports.createPages = ({ actions, graphql }) => {
           context: {
             id,
             version,
-            templateKey
-          },
+            templateKey,
+            curVersion          },
         })
       } else {
 
@@ -209,3 +228,30 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
   });
 };
 
+
+exports.onCreatePage = ({ page, actions }) => {
+
+  const { createPage, deletePage } = actions
+  let curVersion
+  if (page.path === '/guideline/web/' ||
+      page.path === '/guideline/android/' ||
+      page.path === '/guideline/cux/' ||
+      page.path === '/guideline/ios/') {
+
+    curVersion = undefined;
+    curVersion = (page.path === '/guideline/web/') ?  webVersion.version : curVersion;
+    curVersion = (page.path === '/guideline/ios/') ?  iosVersion.version : curVersion;
+    curVersion = (page.path === '/guideline/android/') ?  androidVersion.version : curVersion;
+    curVersion = (page.path === '/guideline/cux/') ?  cuxVersion.version : curVersion;
+
+        deletePage(page)
+        // You can access the variable "house" in your page queries now
+        createPage({
+          ...page,
+          context: {
+            curVersion
+          },
+        })
+
+  }
+}
