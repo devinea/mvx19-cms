@@ -1,0 +1,7 @@
+{
+  "templateKey": "version-config\"",
+  "title": "IOS-version",
+  "srcTemplateKey": "ios-guideline",
+  "description": "Version for IOS guidelines",
+  "version": "1.02"
+}
