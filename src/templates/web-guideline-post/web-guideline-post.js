@@ -67,7 +67,7 @@ DesignGuidelinePostTemplate.propTypes = {
 
 
 const WebGuidelinePost = ({ data, location, pageContext }) => {
-  const { markdownRemark: post } = data;
+  const { markdownRemark: post, guidelineVersions} = data;
   let navOpen = true;
 
   return (
@@ -95,7 +95,7 @@ const WebGuidelinePost = ({ data, location, pageContext }) => {
             }
           }}
         >
-          <Filter location={location} pageContext= {pageContext} />
+          <Filter location={location} pageContext= {pageContext} versions={guidelineVersions}/>
           <DesignGuidelinePostTemplate
             content={post.html}
             contentComponent={HTMLContent}
@@ -166,6 +166,17 @@ export const pageQuery = graphql`
 
               }
           }
+      },
+      guidelineVersions: allMarkdownRemark(
+          sort: {order: ASC, fields: [frontmatter___version]},
+          filter: {frontmatter: {templateKey: {eq: $templateKey }}}) {
+          edges {
+           node {
+           frontmatter {
+           version
+           }
+           }
+           }
       }
   }
 `;

@@ -51,10 +51,10 @@ export default class DesignGuidelineIndexPage extends React.Component {
 }
 
 export const pageQuery = graphql`
-     {
+    query WebGuidelinePageQuery($curVersion: String!) {
          leftNav: allMarkdownRemark(
          filter: {
-             frontmatter: { templateKey: { eq: "left-nav" }, srcTemplateKey: { eq: "web-guideline"}, version: { eq: "1.01" } }
+             frontmatter: { templateKey: { eq: "left-nav" }, srcTemplateKey: { eq: "web-guideline"}, version: { eq: $curVersion } }
          }
      ) {
          edges {

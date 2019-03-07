@@ -69,8 +69,6 @@ class LeftNav extends React.Component {
     this.mouseLeave = () => this._mouseLeave();
     this.checkMediaQuery = e => this._checkMediaQuery(e);
     this.isOverElement = false;
-
-    
   }
 
   /**
@@ -215,7 +213,7 @@ class LeftNav extends React.Component {
                   paddingLeft: 20,
                   color: colors.gray_700
                 },
-                width: '100%',                
+                width: '100%',
                 float: 'left'
               }}>
               <Link
@@ -290,6 +288,7 @@ class LeftNav extends React.Component {
                   ...(this.state.navOpen && {
                     maxHeight: '100vh',
                   })
+
                 }                            
               }}
             >
