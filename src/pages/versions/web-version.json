@@ -1,0 +1,7 @@
+{
+  "templateKey": "version-config\"",
+  "title": "Web-version",
+  "srcTemplateKey": "web-guideline",
+  "description": "latest version for Web guidelines",
+  "version": "1.03"
+}
