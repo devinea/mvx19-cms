@@ -9,6 +9,8 @@ import FileSystemControl from './FileSelectControl';
 import alignableImage from './AlignableEditorImage';
 import * as ColorWidget from "netlify-cms-widget-color";
 
+import ColorCollectionPreview from './preview-templates/ColorCollectionPreview'
+
 // We need this for injecting the inline css into preview section of admin
 class CSSInjector extends React.Component {
   constructor() {
@@ -27,6 +29,7 @@ class CSSInjector extends React.Component {
   }
 }
 
+CMS.registerPreviewTemplate('colors', ColorCollectionPreview)
 CMS.registerPreviewTemplate('about', props => (
   <CSSInjector>
     <AboutPagePreview {...props} />
