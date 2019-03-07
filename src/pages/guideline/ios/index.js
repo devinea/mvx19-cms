@@ -4,6 +4,7 @@ import Layout from '../../../components/Layout';
 import LeftNav from '../../../components/LeftNav';
 import designImg from '../../../img/design.png';
 import { Link, graphql } from 'gatsby';
+import { media } from '../../../components/theme';
 import ResourcesList from '../../../components/ResourceList/ResourcesList';
 import Tabs from '../../../components/Tabs';
 import Panel from '../../../components/Panel';
@@ -32,7 +33,10 @@ export default class GuidelineIosIndexPage extends React.Component {
           <LeftNav data={data.leftNav.edges[0]} />
           <div
             css={{
-              width: '100%'
+              width: '100%',
+              [media.lessThan('large')]: {
+                marginTop: '50px'
+              }              
             }}
           >
             <div
@@ -160,7 +164,7 @@ export default class GuidelineIosIndexPage extends React.Component {
 }
 
 export const pageQuery = graphql`
-  query {
+query IosGuidelinePageQuery($curVersion: String!) {
     panels: allConceptsJson(filter: { name: { eq: "iOS" } }) {
       edges {
         node {
@@ -181,7 +185,7 @@ export const pageQuery = graphql`
     },
       leftNav: allMarkdownRemark(
           filter: {
-              frontmatter: { templateKey: { eq: "left-nav" }, srcTemplateKey: { eq: "ios-guideline"}, version: { eq: "1.01" } }
+              frontmatter: { templateKey: { eq: "left-nav" }, srcTemplateKey: { eq: "ios-guideline"}, version: { eq: $curVersion } }
           }
       ) {
           edges {

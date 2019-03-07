@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
-import {StaticQuery, graphql } from 'gatsby';
 import { navigate } from 'gatsby';
 const _ = require('lodash')
 
@@ -14,7 +13,8 @@ class Filter extends Component {
     super(props)
 
     //prepare a list of versions
-    const posts = this.props.data.allMarkdownRemark.edges;
+    const posts = this.props.versions.edges;
+    versions = [];
     // Iterate through each post, putting all found version into `versions`
     posts.forEach(edge => {
       if (_.get(edge, `node.frontmatter.version`)) {
@@ -57,25 +57,4 @@ class Filter extends Component {
 
 }
 
-/**
- * Generates the version list
- */
-export default props => (
-  <StaticQuery
-    query={graphql`
-{
-  allMarkdownRemark(sort: {order: ASC, fields: [frontmatter___version]}, filter: {frontmatter: {templateKey: {eq: "web-guideline"}, version: {ne: null}}}) {
-    edges {
-      node {
-        frontmatter {
-          version
-        }
-      }
-    }
-  }
-}
-    `}
-    render={data => <Filter data={data} location={props.location} pageContext={props.pageContext} {...props} />}
-  />
-);
-
+export default Filter;

@@ -2,6 +2,7 @@ import React from 'react';
 
 import Flex from '../../../components/Flex';
 import Layout from '../../../components/Layout';
+import { media } from '../../../components/theme';
 
 import LeftNav from '../../../components/LeftNav';
 import designImg from '../../../img/design.png';
@@ -26,7 +27,10 @@ export default class DesignGuidelineIndexPage extends React.Component {
           <LeftNav data={(data.leftNav)}/>
           <div
             css={{
-              width: '100%'
+              width: '100%',
+              [media.lessThan('large')]: {
+                marginTop: '50px'
+              }              
             }}
           >
             <div
@@ -47,10 +51,10 @@ export default class DesignGuidelineIndexPage extends React.Component {
 }
 
 export const pageQuery = graphql`
-     {
+    query AndroidGuidelinePageQuery($curVersion: String!) {
          leftNav: allMarkdownRemark(
          filter: {
-             frontmatter: { templateKey: { eq: "left-nav" }, srcTemplateKey: { eq: "android-guideline"}, version: { eq: "1.01" } }
+             frontmatter: { templateKey: { eq: "left-nav" }, srcTemplateKey: { eq: "android-guideline"}, version: { eq: $curVersion } }
          }
      ) {
          edges {

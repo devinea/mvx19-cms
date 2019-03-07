@@ -41,7 +41,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-json`,
       options: {
-        typeName: ({ node, object, isArray }) => object.name
+        typeName: ({ node, object, isArray }) => object.name || 'Json'
       }
     },
     {
@@ -76,7 +76,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
-      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      resolve: `gatsby-plugin-elasticlunr-search-fiori`,
       options: {
         // Fields to index
         fields: [`title`, `tags`, `slug`],
@@ -95,8 +95,16 @@ module.exports = {
                   templateKeyName = 'Fiori for Web';
                   break;
                 }
-                case 'developer-guideline-post': {
-                  templateKeyName = 'Fiori for Web';
+                case 'ios-guideline': {
+                  templateKeyName = 'Fiori for IOS';
+                  break;
+                }
+                case 'android-guideline': {
+                  templateKeyName = 'Fiori for Android';
+                  break;
+                }
+                case 'cux-guideline': {
+                  templateKeyName = 'Fiori for CUX';
                   break;
                 }
                 default: {
@@ -110,9 +118,11 @@ module.exports = {
             path: node => node.fields.slug,
             featuredImage: node => node.frontmatter.featuredImage,
             description: node => node.frontmatter.description,
+            version: node => node.frontmatter.version,
 
-            tags: node => node.frontmatter.tags
-          }
+            tags: node => node.frontmatter.tags,
+
+          },
         }
       }
     },
