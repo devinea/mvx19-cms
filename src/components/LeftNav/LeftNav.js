@@ -168,13 +168,16 @@ class LeftNav extends React.Component {
                 height: 12,
                 backgroundSize: 'cover',
                 backgroundImage: 'url(' + crossIcon + ')',
+                transition: 'opacity 0.3s ease-in-out',
                 position: 'absolute',
                 right: 12,
                 fontSize: 12,
                 top: 39,
                 cursor: 'pointer',
+                opacity: '1',
                 [media.greaterThan('xlarge')]: {
-                  display: 'none',
+                  opacity: '0',
+                  pointerEvents: 'none'
                 }
 
               }}
@@ -217,7 +220,8 @@ class LeftNav extends React.Component {
         </nav>
         <div
             css={{
-              transition: 'opacity 0.3s ease-in-out',
+              transition: 'opacity 0.3s ease-in-out, left 0.3s ease-in-out',
+              transitionDelay: '0s',
               opacity: 0,
               width: 28,
               height: 28,
@@ -226,7 +230,7 @@ class LeftNav extends React.Component {
               borderRadius: '2.5px',
               boxShadow: '0 0 14px 0 rgba(0, 0, 0, 0.11)',
               top: 29,
-              left: 40,
+              left: 0,
               cursor: 'pointer',
               fontFamily: 'SAP-icons',
               fontSize: 18,
@@ -240,7 +244,8 @@ class LeftNav extends React.Component {
               },
               ...(!this.state.navOpen && {
                 opacity: 1,
-                transition: 'opacity 0.3s ease-in-out',
+                left: 40,
+                transitionDelay: '0.4s',
                 pointerEvents: 'all'
               })
             }}
