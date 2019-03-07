@@ -1,14 +1,48 @@
 import React, { Component } from 'react';
 
+import { ReactReduxContext, connect } from 'react-redux';
+
 import { media, colors, header } from '../../theme';
+import { toggleHamburgerMenu as toggleHamburgerMenuAction } from '../../../state/app';
 
 class HamburgerButton extends Component {
+
+  static contextType = ReactReduxContext;
+
   constructor(props) {
     super(props);
+
+    this.mediaQueryListener = null;
+    this.onMatchMQ = mediaQueryListener => this._onMatchMQ(mediaQueryListener);
+    this.toggleBodyStyle = toggle => this._toggleBodyStyle(toggle);
+  }
+
+  componentDidMount = () => {
+    if (!window.matchMedia) return;
+    const large = media.getSize('large');
+    this.mediaQueryListener = window.matchMedia(`(max-width: ${large.min}px)`);
+    this.mediaQueryListener.addListener(this.onMatchMQ);
+    this.onMatchMQ();
   };
 
-  _setActiveState = event => {
-    this.props.onPress(!this.props.active);
+  componentWillUnmount = () => {
+    this.mediaQueryListener && this.mediaQueryListener.removeListener(this.onMatchMQ);
+  };
+
+  _onMatchMQ = () => {
+    this.toggleBodyStyle(false);
+    this.context.store.dispatch(toggleHamburgerMenuAction(false));
+  };
+
+  _toggleBodyStyle = toggle => {
+    if (!toggle) {
+      document.body.style.overflow = 'auto';
+      document.body.style.position = 'inherit';
+    } else {
+      window.scrollTo(0, 0);
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+    }
   };
 
   render() {
@@ -34,7 +68,10 @@ class HamburgerButton extends Component {
             display: 'none'
           }
         }}
-        onClick={this._setActiveState}
+        onClick={() => {
+          this.toggleBodyStyle(!this.props.isHamburgerMenuOpen);
+          this.props.toggleHamburgerMenu(!this.props.isHamburgerMenuOpen);
+        }}
       >
         <div
           css={{
@@ -52,7 +89,7 @@ class HamburgerButton extends Component {
               top: 30
             },
             backgroundColor: colors.gray_700,
-            ...(this.props.active && {
+            ...(this.props.isHamburgerMenuOpen && {
               transitionDuration: '0.3s',
               background: 'transparent'
             }),
@@ -65,9 +102,8 @@ class HamburgerButton extends Component {
               backgroundColor: colors.gray_700,
               content: `''`,
               top: -6,
-              ...(this.props.active && {
-                transform:
-                  'rotateZ(45deg) translate(3px, 5px)'
+              ...(this.props.isHamburgerMenuOpen && {
+                transform: 'rotateZ(45deg) translate(3px, 5px)'
               })
             },
             '::after': {
@@ -79,9 +115,8 @@ class HamburgerButton extends Component {
               backgroundColor: colors.gray_700,
               content: `''`,
               top: 6,
-              ...(this.props.active && {
-                transform:
-                  'rotateZ(-45deg) translate(3.5px, -5.5px)'
+              ...(this.props.isHamburgerMenuOpen && {
+                transform: 'rotateZ(-45deg) translate(3.5px, -5.5px)'
               })
             }
           }}
@@ -91,4 +126,9 @@ class HamburgerButton extends Component {
   }
 }
 
-export default HamburgerButton;
+export default connect(
+  state => ({ isHamburgerMenuOpen: state.app.isHamburgerMenuOpen }),
+  dispatch => ({
+    toggleHamburgerMenu: open => dispatch(toggleHamburgerMenuAction(open))
+  })
+)(HamburgerButton);
