@@ -66,19 +66,11 @@ class SearchInput extends Component {
             zIndex: 0,
             opacity: 1
           }),
-          [media.lessThan('medium')]: {
-            width: `calc(100% - ${header.mobile.paddingLeft}px - ${header.mobile.paddingRight}px)`,
-            top: `calc( ( ${header.mobile.height}px - ${header.mobile.search.height}px) / 2)`
-          },
-          [media.greaterThan('medium')]: {
+          [media.lessThan('large')]: {
             width: `calc(100% - ${header.mobile.paddingLeft}px - ${header.mobile.paddingRight}px)`,
             top: `calc( ( ${header.mobile.height}px - ${header.mobile.search.height}px) / 2)`
           },
           [media.greaterThan('large')]: {
-            width: `calc(100% - ${header.desktop.paddingLeft}px - ${header.desktop.paddingRight}px)`,
-            top: `calc( ( ${header.desktop.height}px - ${header.desktop.search.height}px) / 2)`
-          },
-          [media.greaterThan('xlarge')]: {
             width: `calc(100% - ${header.desktop.paddingLeft}px - ${header.desktop.paddingRight}px)`,
             top: `calc( ( ${header.desktop.height}px - ${header.desktop.search.height}px) / 2)`
           }
@@ -105,17 +97,11 @@ class SearchInput extends Component {
             margin: '0 auto',
             textAlign: 'right',
             position: 'relative',
-            [media.lessThan('medium')]: {
-              width: 'calc(100% - 24px - 20px - 24px - 20px)'
-            },
-            [media.greaterThan('medium')]: {
-              width: 'calc(100% - 24px - 20px - 24px - 20px)'
+            [media.lessThan('large')]: {
+              width: `calc(100% - 24px - ${header.mobile.paddingLeft}px - 24px - ${header.mobile.paddingRight}px)`
             },
             [media.greaterThan('large')]: {
-              width: 'calc(100% - 24px - 40px - 24px - 40px)'
-            },
-            [media.greaterThan('xlarge')]: {
-              width: 'calc(100% - 24px - 40px - 24px - 40px)'
+              width: `calc(100% - 24px - ${header.desktop.paddingLeft}px - 24px - ${header.desktop.paddingRight}px)`
             }
           }}
         >
@@ -138,6 +124,7 @@ class SearchInput extends Component {
               backgroundPosition: '10px 50%',
               backgroundSize: '24px 24px',
               width: '100%',
+              transition: 'height 0.3s',
               [media.lessThan('medium')]: {
                 height: header.mobile.search.height
               },
