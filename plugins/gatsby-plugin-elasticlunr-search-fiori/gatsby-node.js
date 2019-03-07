@@ -1,8 +1,8 @@
 "use strict"
-const webVersion = require('.../src/pages/versions/web-version.json')
-const iosVersion = require('.../src/pages/versions/ios-version.json')
-const androidVersion = require('.../src/pages/versions/android-version.json')
-const cuxVersion = require('.../src/pages/versions/android-version.json')
+const webVersion = require('../../src/pages/versions/web-version.json')
+const iosVersion = require('../../src/pages/versions/ios-version.json')
+const androidVersion = require('../../src/pages/versions/android-version.json')
+const cuxVersion = require('../../src/pages/versions/android-version.json')
 
 
 function _objectSpread(target) {
