@@ -2,12 +2,13 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { Link } from 'gatsby';
 
+import SVG from 'react-inlinesvg';
+
 import Container from './../Container';
 import Flex from '../Flex';
 import ExternalFooterLink from './ExternalFooterLink';
 import FooterLink from './FooterLink';
 
-import logoSvg from './../../img/logo1.svg';
 import { media, colors } from '../theme';
 
 const Footer = props => (
@@ -128,7 +129,31 @@ const Footer = props => (
             >
               THE BEST RUN
             </span>
-            <img src={logoSvg} alt='' width='32' height='16' />
+            <SVG
+              src='/img/svg/logo-sap.svg'
+              css={{
+                [media.lessThan('large')]: {
+                  width: 40,
+                  height: 20,
+                  svg: {
+                    width: 40,
+                    height: 20
+                  }
+                },
+                [media.greaterThan('large')]: {
+                  width: 48,
+                  height: 24,
+                  svg: {
+                    width: 48,
+                    height: 24
+                  }
+                },
+                display: 'block'
+              }}
+            />
+
+
+
           </Link>
           <nav
             css={{

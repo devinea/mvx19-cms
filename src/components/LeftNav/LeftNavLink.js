@@ -31,9 +31,6 @@ class LeftNavLink extends React.Component {
                         ...(this.props.sectionOn == this.props.section.id && {
                             cursor: 'default'
                         }),
-                        ...(this.props.section.hasChildren && {
-                            cursor: 'default'
-                        }),
                         [media.lessThan('large')]: {
                             height: '40',
                             paddingLeft: 0,

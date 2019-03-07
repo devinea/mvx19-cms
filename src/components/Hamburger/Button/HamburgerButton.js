@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { media, colors } from '../../theme';
+import { media, colors, header } from '../../theme';
 
 class HamburgerButton extends Component {
   constructor(props) {
@@ -16,7 +16,6 @@ class HamburgerButton extends Component {
       <div
         css={{
           width: 18,
-          height: 60,
           minWidth: 18,
           marginRight: 16,
           position: 'relative',
@@ -24,6 +23,12 @@ class HamburgerButton extends Component {
           display: 'block',
           ':hover': {
             cursor: 'pointer'
+          },
+          [media.lessThan('medium')]: {
+            height: header.mobile.height
+          },
+          [media.greaterThan('medium')]: {
+            height: header.mobile.height
           },
           [media.greaterThan('large')]: {
             display: 'none'
@@ -37,9 +42,15 @@ class HamburgerButton extends Component {
             height: 60,
             position: 'absolute',
             transitionDuration: '0.3s',
-            height: 2,
+            height: 3,
+            borderRadius: 1,
             width: 18,
-            top: 30,
+            [media.lessThan('large')]: {
+              top: 24
+            },
+            [media.greaterThan('large')]: {
+              top: 30
+            },
             backgroundColor: colors.gray_700,
             ...(this.props.active && {
               transitionDuration: '0.3s',
@@ -49,26 +60,28 @@ class HamburgerButton extends Component {
               transitionDuration: '0.3s',
               position: 'absolute',
               width: 18,
-              height: 2,
+              height: 3,
+              borderRadius: 1,
               backgroundColor: colors.gray_700,
               content: `''`,
               top: -6,
               ...(this.props.active && {
                 transform:
-                  'rotateZ(45deg) scaleX(0.9) translate(3.5px, 5.5px)'
+                  'rotateZ(45deg) translate(3px, 5px)'
               })
             },
             '::after': {
               transitionDuration: '0.3s',
               position: 'absolute',
               width: 18,
-              height: 2,
+              height: 3,
+              borderRadius: 1,
               backgroundColor: colors.gray_700,
               content: `''`,
               top: 6,
               ...(this.props.active && {
                 transform:
-                  'rotateZ(-45deg) scaleX(0.9) translate(3.5px, -5.5px)'
+                  'rotateZ(-45deg) translate(3.5px, -5.5px)'
               })
             }
           }}
