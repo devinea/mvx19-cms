@@ -245,7 +245,6 @@ class LeftNav extends React.Component {
               ...(!this.state.navOpen && {
                 opacity: 1,
                 left: 40,
-                transition: 'opacity 0.3s ease-in-out, left 0.3s ease-in-out',
                 transitionDelay: '0.4s',
                 pointerEvents: 'all'
               })
