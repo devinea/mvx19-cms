@@ -86,6 +86,7 @@ collections:
       - {label: "Angular Docs Path", name: "angularFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental-ngx", required: false}
       - {label: "React Docs Path", name: "reactFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental-react", required: false}
       - {label: "Version No.", name: "version", widget: "select", options: ["1.01", "1.02", "1.03","1.04", "1.05"]}
+      - {label: "Category", name: "category", widget: "select", options: ["Controls", "Views", "Patterns", "Floorplans"]}
   - name: "fioriandroidguideline"
     label: "Fiori Android"
     folder: "src/pages/guideline_android"
