@@ -8,10 +8,11 @@ import Filter from '../../components/Filter/Filter.js';
 import Flex from '../../components/Flex';
 import Layout from '../../components/Layout';
 
-import { sharedStyles } from '../../components/theme';
+import { sharedStyles, media } from '../../components/theme';
 
 import Content, { HTMLContent } from '../../components/Content';
 import LeftNav from '../../components/LeftNav';
+
 
 export const DesignGuidelinePostTemplate = ({
   content,
@@ -66,16 +67,8 @@ DesignGuidelinePostTemplate.propTypes = {
 
 
 const WebGuidelinePost = ({ data, location, pageContext }) => {
-  const { markdownRemark: post } = data;
+  const { markdownRemark: post, guidelineVersions} = data;
   let navOpen = true;
-
-  const navOpener = function(navOpen) {
-    if (navOpen) {
-      document.getElementById('design-guideline-div').style.width = '828px';
-    } else {
-      document.getElementById('design-guideline-div').style.width = '984px';
-    }
-  }
 
   return (
     <Layout location={location}>
@@ -90,16 +83,19 @@ const WebGuidelinePost = ({ data, location, pageContext }) => {
           height: '100%'
         }}
       >
-        <LeftNav navOpener={navOpener} data={data.leftNav.edges[0]}/>
+        <LeftNav data={data.leftNav.edges[0]}/>
         <div id="design-guideline-div"
           css={{
             width: 828,
             margin: '0 auto',
             paddingBottom: 20,
-            transition: 'width 0.3s ease-in-out'
+            transition: 'width 0.3s ease-in-out',
+            [media.lessThan('large')]: {
+              marginTop: '50px'
+            }
           }}
         >
-          <Filter location={location} pageContext= {pageContext} />
+          <Filter location={location} pageContext= {pageContext} versions={guidelineVersions}/>
           <DesignGuidelinePostTemplate
             content={post.html}
             contentComponent={HTMLContent}
@@ -170,6 +166,17 @@ export const pageQuery = graphql`
 
               }
           }
+      },
+      guidelineVersions: allMarkdownRemark(
+          sort: {order: ASC, fields: [frontmatter___version]},
+          filter: {frontmatter: {templateKey: {eq: $templateKey }}}) {
+          edges {
+           node {
+           frontmatter {
+           version
+           }
+           }
+           }
       }
   }
 `;
