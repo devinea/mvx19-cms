@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { colors } from '../theme';
 
 const Panel = (props) => (
-    <Link to={props.data.url}>
+    <Link to={props.data.slug}>
         <div css={{
             marginBottom: 30,
             height: 260
@@ -26,7 +26,7 @@ const Panel = (props) => (
                     margin: '0 auto',
                     display: 'block'
                 }}
-                    src={props.data.image.src} />
+                    src={props.data.img} />
             </div>
             <div css={{
                 color: '#373737',

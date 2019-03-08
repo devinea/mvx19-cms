@@ -148,9 +148,64 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
     .filter(node => node.internal.type === "MarkdownRemark" && node.frontmatter.templateKey == 'left-nav' )
     .forEach(node => {
       const leftNavRes = [];
+      const controls = {};
+      const views = {};
+      const patterns = {};
+      const floorplans = {};
+      controls.title = 'Controls';
+      views.title = 'Views';
+      floorplans.title = 'Floorplans';
+      patterns.title = 'Patterns';
+
+      controls.type = 'controls';
+      views.type = 'views';
+      floorplans.type = 'floorplans';
+      patterns.type = 'patterns';
+
+      controls.type = 'controls';
+      views.type = 'views';
+      floorplans.type = 'floorplans';
+      patterns.type = 'patterns';
+
+      controls.desc = 'A user interface (UI) control is a visual element on a computer screen that helps humans to interact with the underlying software.';
+      views.desc = 'View is a fundamental building block of the Fiori for iOS design language. It is a container for which information can be displayed.';
+      floorplans.desc = 'Floorplan is a hub that provides previews of larger bodies of information sourced from different parts of the app.';
+      patterns.desc = 'With effortless interaction patterns, the SAP Fiori UX is designed for a powerful impact across your enterprise.';
+
+      controls.slug = '/guideline/ios/1.02/Controls/';
+      views.slug = '/guideline/ios/1.02/Views/';
+      floorplans.slug = '/guideline/ios/1.02/Floorplans/';
+      patterns.slug = '/guideline/ios/1.02/Patterns/';
+
+      controls.tiles = [      {
+        "img": "file.png",
+        "name": "title",
+        "slug": "https://",
+        "id": ""
+      }];
+      views.tiles = [      {
+        "img": "file.png",
+        "name": "title",
+        "slug": "https://",
+        "id": ""
+      }];
+      floorplans.tiles = [      {
+        "img": "file.png",
+        "name": "title",
+        "slug": "https://",
+        "id": ""
+      }];
+      patterns.tiles = [      {
+        "img": "file.png",
+        "name": "title",
+        "slug": "https://",
+        "id": ""
+      }];
 
       if (node.frontmatter.version) {
           let parentId = null;
+          let explorerTileObj = {};
+        explorerTileObj.tiles = [];
 
             if (node.id) {
               const leftNavResObj = {};
@@ -180,14 +235,19 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
                     const leftNavResObj = {};
                     leftNavResObj.id = (guidelineNode.id) ? guidelineNode.id : '';
                     leftNavResObj.title = (menu.subItem) ? menu.subItem : '';
+
                     leftNavResObj.navTitle = false;
                     leftNavResObj.slug = (guidelineNode.fields.slug) ? guidelineNode.fields.slug : '';
                     leftNavResObj.hasChildren = (menu.submenu && menu.submenu.items) ? true : false;
                     // leftNavResObj.parentId = parentId;
                     parentId = guidelineNode.id;
                     leftNavRes.push(leftNavResObj);
-                    if (menu.submenu && menu.submenu.items){
 
+                    if (menu.submenu && menu.submenu.items){
+                      if (menu.subItem.category) {
+                        explorerTileObj.type = menu.subItem.category;
+                        explorerTileObj.title = menu.subItem;
+                      }
                       menu.submenu.items.forEach(item => {
                         const guidelineNode = getNodes().find(
                           node2 =>
@@ -198,6 +258,7 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
                         );
                         if (guidelineNode) {
                             const leftNavResObj = {};
+                            const tileObj = {};
                             leftNavResObj.id = (guidelineNode.id) ? guidelineNode.id : '';
                             leftNavResObj.title = (item.subItem) ? item.subItem : '';
                             leftNavResObj.navTitle = false;
@@ -205,10 +266,31 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
                             leftNavResObj.hasChildren = false;
                             leftNavResObj.parentId = parentId;
                             leftNavRes.push(leftNavResObj);
+
+
+                            tileObj.title = leftNavResObj.title;
+                            tileObj.slug = leftNavResObj.slug;
+                            // TODO - Replace with gatsby-mage
+                            tileObj.img = guidelineNode.frontmatter.featuredImage;
+
+                            if (explorerTileObj && tileObj)
+                            explorerTileObj.tiles.push(tileObj)
                         }
                       })
 
-                    }
+                      if (explorerTileObj && explorerTileObj.type === 'controls' ){
+                        controls.push(explorerTileObj);
+                      }
+                      if (explorerTileObj && explorerTileObj.type === 'views' ){
+                        views.push(explorerTileObj);
+                      }
+                      if (explorerTileObj && explorerTileObj.type === 'patterns' ){
+                        patterns.push(explorerTileObj);
+                      }
+                      if (explorerTileObj && explorerTileObj.type === 'floorplans' ){
+                        floorplans.push(explorerTileObj);
+                      }
+                      }
                       }
                   })
                 }
@@ -216,7 +298,9 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
             }
         }
       const id = node.id;
-      leftNavs.push({id,leftNavRes});
+
+      leftNavs.push({id,leftNavRes, controls, views, patterns, floorplans});
+
       })
 
   Object.entries(leftNavs).forEach(([id, leftNavRes]) => {
@@ -224,6 +308,26 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
       node: getNode(leftNavRes.id),
       name: "leftNavFlattened",
       value: leftNavRes.leftNavRes,
+    });
+    createNodeField({
+      node: getNode(leftNavRes.id),
+      name: "controls",
+      value: leftNavRes.controls,
+    });
+    createNodeField({
+      node: getNode(leftNavRes.id),
+      name: "views",
+      value: leftNavRes.views,
+    });
+    createNodeField({
+      node: getNode(leftNavRes.id),
+      name: "patterns",
+      value: leftNavRes.patterns,
+    });
+    createNodeField({
+      node: getNode(leftNavRes.id),
+      name: "floorplans",
+      value: leftNavRes.floorplans,
     });
   });
 };

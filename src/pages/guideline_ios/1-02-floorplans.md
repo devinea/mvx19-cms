@@ -1,6 +1,6 @@
 ---
 templateKey: ios-guideline
-title: Foundation
+title: Floorplans
 date: 2019-01-11T00:15:32.894Z
 featuredImage: "/img/control-button.png"
 description: >-

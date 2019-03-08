@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { colors } from '../theme';
 
 const SeeAllButton = (props) => (
-    <Link to={props.data.url}>
+    <Link to={props.data.slug}>
         <div css={{
             backgroundColor: colors.gray_100,
             borderRadius: '18.5px 18.5px 18.5px 18.5px',
