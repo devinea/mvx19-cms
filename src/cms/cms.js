@@ -9,6 +9,8 @@ import FileSystemControl from './FileSelectControl';
 import alignableImage from './AlignableEditorImage';
 import * as ColorWidget from "netlify-cms-widget-color";
 
+import ColorCollectionPreview from './preview-templates/ColorCollectionPreview';
+
 // We need this for injecting the inline css into preview section of admin
 class CSSInjector extends React.Component {
   constructor() {
@@ -26,7 +28,7 @@ class CSSInjector extends React.Component {
     )
   }
 }
-
+/*
 // Color Collection Preview 
 /*
 The API for accessing the individual fields of list- and object-type entries is similar 
@@ -34,6 +36,7 @@ to the API for accessing fields in standard entries, but there are a few key dif
 Access to these nested fields is facilitated through the widgetsFor function, which is 
 passed to the preview template component during render.
 */
+/*
 var ColorsPreview = createClass({
   // For list fields, the widgetFor function returns an array of objects
   // that you can map over in your template. If our field is a list of
@@ -71,7 +74,9 @@ var ColorsPreview = createClass({
 });
 
 CMS.registerPreviewTemplate("colors", ColorsPreview);
-// // Color Collection Preview End
+// Color Collection Preview End
+*/
+CMS.registerPreviewTemplate('colors', ColorCollectionPreview)
 
 CMS.registerPreviewTemplate('about', props => (
   <CSSInjector>

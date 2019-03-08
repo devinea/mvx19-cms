@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { colors } from '../../components/theme';
+import { colors } from '../../components/theme'
+import ColorList from '../../components/Color/ColorList'
 
 const ColorCollectionPreview = ({ entry, widgetsFor, widgetFor }) => {
     return (
@@ -9,7 +10,14 @@ const ColorCollectionPreview = ({ entry, widgetsFor, widgetFor }) => {
             <h2>{entry.getIn(['data', 'srcTemplateKey'])}</h2>
 
             <div>
-                { widgetsFor('colorGroups').map((colorGroups, index) => <li><div>{index}</div><div>{colorGroups}</div></li>)}
+                { widgetsFor('colorGroups').map((colorGroups, index) => 
+                <ColorList 
+                    id={index}
+                    name={colorGroups.getIn(['data', 'name'])}
+                    colors={colorGroups.getIn(['data', 'colors'])}
+                    colors2={colorGroups.getIn(['widgets', 'colors'])}
+                />
+                )}
             </div>
 
         </section>
