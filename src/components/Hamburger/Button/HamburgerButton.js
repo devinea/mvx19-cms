@@ -18,7 +18,6 @@ class HamburgerButton extends Component {
   }
 
   componentDidMount = () => {
-    if (!window.matchMedia) return;
     const large = media.getSize('large');
     this.mediaQueryListener = window.matchMedia(`(max-width: ${large.min}px)`);
     this.mediaQueryListener.addListener(this.onMatchMQ);
