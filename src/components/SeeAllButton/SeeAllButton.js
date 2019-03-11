@@ -3,13 +3,14 @@ import { jsx } from '@emotion/core'
 import { Link } from 'gatsby';
 import { colors } from '../theme';
 
-const SeeAllButton = (props) => (
-    <Link to={props.data.url}>
+const SeeAllButton = (props) => {
+    return (<Link to={props.data.url}>
         <div css={{
             backgroundColor: colors.gray_100,
             borderRadius: '18.5px 18.5px 18.5px 18.5px',
-            height: 37,
-            width: 112,
+            height: 36,
+            width: 'fit-content',
+            padding: '20px',
             display: 'flex',
             justifyContent: 'center',
             flexFlow: 'column',
@@ -22,9 +23,9 @@ const SeeAllButton = (props) => (
                 fontWeight: 'bold',
                 letterSpacing: 0.05,
                 textTransform: 'uppercase'
-            }}>See All</span>
+            }}>See All {props.data.label}</span>
         </div>
-    </Link>
-);
+    </Link>);
+};
 
 export default SeeAllButton;

@@ -17,7 +17,6 @@ export default class GuidelineIosIndexPage extends React.Component {
     const frontmatter = data.ios.edges[0].node.frontmatter;
     const posts = data.posts.edges;
     const panels = data.panels.edges[0].node.data;
-
     return (
       <Layout location={location}>
         <Flex
@@ -36,7 +35,7 @@ export default class GuidelineIosIndexPage extends React.Component {
               width: '100%',
               [media.lessThan('large')]: {
                 marginTop: '50px'
-              }              
+              }
             }}
           >
             <div
@@ -52,8 +51,8 @@ export default class GuidelineIosIndexPage extends React.Component {
             <div css={{
               width: 828,
               margin: '0 auto',
-              paddingBottom: 120,
-              paddingTop: 120,
+              paddingBottom: 60,
+              paddingTop: 40,
               transition: 'width 0.3s ease-in-out'
             }}>
               <h1 css={css`
@@ -164,26 +163,25 @@ export default class GuidelineIosIndexPage extends React.Component {
 }
 
 export const pageQuery = graphql`
-  query {
-    panels: allConceptsJson(filter: { name: { eq: "iOS" } }) {
-      edges {
-        node {
-          name
-          data {
-            type
-            title
+    query IosGuidelinePageQuery($curVersion: String!) {
+      panels: allConceptsJson(filter: { name: { eq: "iOS" } }) {
+        edges {
+          node {
+            name
             data {
+              type
               title
-              image {
-                src
+              data {
+                title
+                image {
+                  src
+                }
+                url
               }
-              url
             }
           }
         }
-      }
-    },
-    query IosGuidelinePageQuery($curVersion: String!) {
+      },
       leftNav: allMarkdownRemark(
           filter: {
               frontmatter: { templateKey: { eq: "left-nav" }, srcTemplateKey: { eq: "ios-guideline"}, version: { eq: $curVersion } }

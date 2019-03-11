@@ -6,25 +6,25 @@ import { colors } from '../theme';
 const Panel = (props) => (
     <Link to={props.data.url}>
         <div css={{
-            marginBottom: 30,
-            height: 260
+            marginBottom: 72
         }}>
             <div
                 css={{
                     width: 260,
-                    height: 180,
+                    height: 140,
                     backgroundColor: colors.gray_100,
                     marginBottom: 20,
                     borderRadius: 6,
                     display: 'flex',
-                    alignItems: 'center'
+                    alignItems: 'center',
+                    position: 'relative'
                 }}
             >
                 <img css={{
-                    padding: 10,
+                    padding: '10px 10px 0 10px',
                     width: 260,
-                    margin: '0 auto',
-                    display: 'block'
+                    bottom: 0,
+                    position: 'absolute'
                 }}
                     src={props.data.image.src} />
             </div>
