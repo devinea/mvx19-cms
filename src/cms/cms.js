@@ -8,7 +8,6 @@ import { CacheProvider } from '@emotion/core'
 import FileSystemControl from './FileSelectControl';
 import alignableImage from './AlignableEditorImage';
 import * as ColorWidget from "netlify-cms-widget-color";
-
 import ColorCollectionPreview from './preview-templates/ColorCollectionPreview';
 
 // We need this for injecting the inline css into preview section of admin
@@ -28,56 +27,13 @@ class CSSInjector extends React.Component {
     )
   }
 }
-/*
-// Color Collection Preview 
-/*
-The API for accessing the individual fields of list- and object-type entries is similar 
-to the API for accessing fields in standard entries, but there are a few key differences. 
-Access to these nested fields is facilitated through the widgetsFor function, which is 
-passed to the preview template component during render.
-*/
-/*
-var ColorsPreview = createClass({
-  // For list fields, the widgetFor function returns an array of objects
-  // that you can map over in your template. If our field is a list of
-  // authors containing two entries, with fields `name` and `description`,
-  // the return value of `widgetsFor` would look like this:
-  //
-  // [{
-  //   data: { name: 'Mathias', description: 'Co-Founder'},
-  //   widgets: { name: (<WidgetComponent>), description: (WidgetComponent>)}
-  // },
-  // {
-  //   data: { name: 'Chris', description: 'Co-Founder'},
-  //   widgets: { name: (<WidgetComponent>), description: (WidgetComponent>)}
-  // }]
-  //
-  // Templating would look something like this:
 
-  render: function() {
-    return h('div', {},
-
-      // This is a static header that would only be rendered once for the entire list
-      h('h1', {}, 'Colors'),
-
-      // Here we provide a simple mapping function that will be applied to each
-      // object in the array of authors
-      this.props.widgetsFor('colorGroups').map(function(colorGroups, index) {
-        return h('div', {key: index},
-          h('hr', {}),
-          h('strong', {}, colorGroups.getIn(['data', 'name'])),
-          colorGroups.getIn(['data', 'colors'])
-        );
-      })
-    );
-  }
-});
-
-CMS.registerPreviewTemplate("colors", ColorsPreview);
-// Color Collection Preview End
-*/
-CMS.registerPreviewTemplate('colors', ColorCollectionPreview)
-
+//CMS.registerPreviewTemplate('colors', ColorCollectionPreview)
+CMS.registerPreviewTemplate('colors', props => (
+  <CSSInjector>
+    <ColorCollectionPreview {...props} />
+  </CSSInjector>
+))
 CMS.registerPreviewTemplate('about', props => (
   <CSSInjector>
     <AboutPagePreview {...props} />

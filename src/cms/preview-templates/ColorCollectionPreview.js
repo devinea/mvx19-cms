@@ -3,23 +3,19 @@ import PropTypes from 'prop-types'
 import { colors } from '../../components/theme'
 import ColorList from '../../components/Color/ColorList'
 
-const ColorCollectionPreview = ({ entry, widgetsFor, widgetFor }) => {
+const ColorCollectionPreview = ({ entry, widgetsFor }) => {
     return (
         <section>
             <h1>{entry.getIn(['data', 'title'])}</h1>
-            <h2>{entry.getIn(['data', 'srcTemplateKey'])}</h2>
-
             <div>
                 { widgetsFor('colorGroups').map((colorGroups, index) => 
                 <ColorList 
-                    id={index}
+                    key={index}
                     name={colorGroups.getIn(['data', 'name'])}
-                    colors={colorGroups.getIn(['data', 'colors'])}
-                    colors2={colorGroups.getIn(['widgets', 'colors'])}
+                    colors={colorGroups.getIn(['data', 'colors'])} // Object containing color 'data'
                 />
                 )}
             </div>
-
         </section>
   )
 }

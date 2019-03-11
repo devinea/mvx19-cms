@@ -2,17 +2,22 @@ import React from 'react'
 import Color from './Color'
 
 class ColorList extends React.Component {
+
   render() {
-    console.log(this.props)
+
+    let colorObject = JSON.parse(JSON.stringify(this.props.colors)); // Put in try/catch and a couple of console logs to show reasoning being this code.
 
     return (
     <section>
-    <div>{this.props.name}</div>
+    <h2>Color Group: {this.props.name}</h2>
     <div>
-        { this.props.colors.map((colors, i) => 
+        { colorObject.map((color, index) => 
         <Color
-            id={i}
-            colors={colors}
+            id={index}
+            name={color.name}
+            light={color.light}
+            dark={color.dark}
+            description={color.description}
         />
         )}
     </div>
