@@ -2,6 +2,8 @@ import React from 'react';
 import queryString from 'query-string';
 import { navigate } from 'gatsby';
 
+import { ReactReduxContext, connect } from 'react-redux';
+
 import SEO from '../SEO';
 import Flex from '../Flex';
 import Footer from '../LayoutFooter';
@@ -9,32 +11,25 @@ import Header from '../LayoutHeader';
 import HamburgerMenu from './../Hamburger/Menu';
 
 import { header, media } from '../theme';
+import { toggleHamburgerMenu as toggleHamburgerMenuAction } from '../../state/app';
 
 class Layout extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
 
     this.state = {
-      menuToggle: false,
       searchToggle: false,
       searchValue: '',
       searchFromUrl: '/',
       searchBackBtn: false
     };
-    this.mediaQueryListener = null;
-    this.onMatchMQ = mediaQueryListener => this._onMatchMQ(mediaQueryListener);
-    this.toggleMenu = toggle => this._toggleMenu(toggle);
     this.toggleSearch = toggle => this._toggleSearch(toggle);
     this.onSearch = toggle => this._onSearch(toggle);
   }
 
-  componentDidMount = () => {
-    if (!window.matchMedia) return;
-    const large = media.getSize('large');
-    this.mediaQueryListener = window.matchMedia(`(max-width: ${large.min}px)`);
-    this.mediaQueryListener.addListener(this.onMatchMQ);
-    this.onMatchMQ();
+  static contextType = ReactReduxContext;
 
+  componentDidMount = () => {
     if (this.props.search && this.props.search.display) {
       const values = queryString.parse(this.props.location.search);
 
@@ -56,45 +51,22 @@ class Layout extends React.Component {
     }
   };
 
-  componentWillUnmount = () => {
-    window.removeEventListener('scroll', this._handleOnScroll);
-
-    this.mediaQueryListener &&
-      this.mediaQueryListener.removeListener(this.onMatchMQ);
-  };
-
   componentDidUpdate = prevprops => {
     if (
       this.props.location !== prevprops.location &&
       (this.props.location.state && this.props.location.state.fromHamburger)
     ) {
       document.body.style.overflow = 'auto';
-      this.toggleMenu(false);
+      this.context.store.dispatch(toggleHamburgerMenuAction(false));
     }
-  };
-
-  _onMatchMQ = () => {
-    this.toggleMenu(false);
-  };
-
-  _toggleMenu = toggle => {
-    this.setState({ menuToggle: toggle }, () => {
-      if (!this.state.menuToggle) {
-        document.body.style.overflow = 'auto';
-        document.body.style.position = 'inherit';
-      } else {
-        window.scrollTo(0, 0);
-        document.body.style.overflow = 'hidden';
-        document.body.style.position = 'fixed';
-      }
-    });
   };
 
   _toggleSearch = toggle => {
     this.setState({ searchToggle: toggle });
+    const isHamburgerMenuOpen = this.context.store.getState().app.isHamburgerMenuOpen;
     // if hamburger menu is open then close it
-    if (toggle && this.state.menuToggle) {
-      this.toggleMenu(false);
+    if (toggle && isHamburgerMenuOpen) {
+      this.context.store.dispatch(toggleHamburgerMenuAction(false));
     }
   };
 
@@ -106,7 +78,7 @@ class Layout extends React.Component {
   };
 
   render() {
-    const { children, location, search } = this.props;
+    const { children, location} = this.props;
 
     return (
       <Flex
@@ -119,8 +91,7 @@ class Layout extends React.Component {
         <SEO />
         <Header
           location={location}
-          onHamburgerButton={this.toggleMenu}
-          hamburgerButtonActive={this.state.menuToggle}
+
           onSearchButton={this.toggleSearch}
           onSearch={this.onSearch}
           searchButtonActive={this.state.searchToggle}
@@ -128,7 +99,7 @@ class Layout extends React.Component {
           searchFromUrl={this.state.searchFromUrl}
           searchBackBtn={this.state.searchBackBtn}
         />
-        <HamburgerMenu active={this.state.menuToggle} />
+        <HamburgerMenu />
         <Flex
           direction='column'
           shrink='0'
@@ -136,16 +107,10 @@ class Layout extends React.Component {
           overflow='auto'
           valign='stretch'
           css={{
-            [media.lessThan('medium')]: {
-              marginTop: header.mobile.height
-            },
-            [media.greaterThan('medium')]: {
+            [media.lessThan('large')]: {
               marginTop: header.mobile.height
             },
             [media.greaterThan('large')]: {
-              marginTop: header.desktop.height
-            },
-            [media.greaterThan('xlarge')]: {
               marginTop: header.desktop.height
             }
           }}
@@ -158,4 +123,6 @@ class Layout extends React.Component {
   }
 }
 
-export default Layout;
+export default connect(
+  state => ({ isHamburgerMenuOpen: state.app.isHamburgerMenuOpen })
+)(Layout);
