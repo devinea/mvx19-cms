@@ -2,38 +2,39 @@
 import { jsx } from '@emotion/core'
 import { Link } from 'gatsby';
 import { colors } from '../theme';
-import { Img }  from "gatsby-image";
-import React from "react";
 
 const Panel = (props) => (
-    <Link to={props.data.fields.slug} id={props.data.id}>
+    <Link to={props.data.fields.slug}>
         <div css={{
-            marginBottom: 30,
-            height: 260
+            marginBottom: 24
         }}>
             <div
                 css={{
                     width: 260,
-                    height: 180,
+                    height: 140,
                     backgroundColor: colors.gray_100,
                     marginBottom: 20,
                     borderRadius: 6,
                     display: 'flex',
-                    alignItems: 'center'
+                    alignItems: 'center',
+                    transitionDuration: '0.5s',
+                    ':hover': {
+                        boxShadow: '0 5px 15px 0 rgba(0, 0, 0, 0.15)',
+                        transform: 'translateY(-5px)',
+                        transitionDuration: '0.5s',
+                        transitionTimingFunction: 'ease',
+                        transitionTimingFunction: 'cubic-bezier(0.25, 0.1, 0.25, 1)'
+                    }
                 }}
             >
                 <img css={{
                     padding: 10,
-                    width: 260,
-                    margin: '0 auto',
-                    display: 'block'
+                    width: 260
                 }}
-
                      src={props.data.frontmatter.featuredImage.childImageSharp.sizes.src} />
-
             </div>
             <div css={{
-                color: '#373737',
+                color: colors.gray_700,
                 fontSize: 16,
                 fontWeight: 'normal',
                 height: 24

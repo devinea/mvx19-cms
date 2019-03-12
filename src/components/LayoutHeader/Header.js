@@ -8,6 +8,7 @@ import SearchButton from './../SearchNew/SearchButton';
 import SearchInput from './../SearchNew/Input';
 import Container from './../Container';
 import HeaderLink from './HeaderLink';
+
 import { sectionListHeaderLinks } from '../../../utils/sectionList';
 import { colors, header, media } from '../theme';
 
@@ -31,20 +32,14 @@ class Header extends React.Component {
           color: colors.black,
           transition: 'height 0.3s',
           position: 'fixed',
-          zIndex: 2,
+          zIndex: 10,
           width: '100%',
           top: 0,
           left: 0,
-          [media.lessThan('medium')]: {
-            height: header.mobile.height
-          },
-          [media.greaterThan('medium')]: {
+          [media.lessThan('large')]: {
             height: header.mobile.height
           },
           [media.greaterThan('large')]: {
-            height: header.desktop.height
-          },
-          [media.greaterThan('xlarge')]: {
             height: header.desktop.height
           }
         }}
@@ -83,10 +78,7 @@ class Header extends React.Component {
                 left: 0
               }}
             >
-              <HamburgerButton
-                onPress={this.props.onHamburgerButton}
-                active={this.props.hamburgerButtonActive}
-              />
+              <HamburgerButton />
               <Link
                 css={{
                   display: 'flex',

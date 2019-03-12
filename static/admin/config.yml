@@ -1,13 +1,13 @@
 backend:
   name: git-gateway
-  branch: ade_ios2
+  branch: master
   accept_roles: #optional - accepts all users if left out
     - admin
     - editor
 
 media_folder: static/img
 public_folder: /img
-#publish_mode: editorial_workflow
+publish_mode: editorial_workflow
 display_url: https://github.com/devinea/mvx19-cms/pulls
 
 collections:
