@@ -1,6 +1,6 @@
 ---
 templateKey: ios-guideline
-title: Foundation
+title: Buttons
 date: 2019-01-11T00:15:32.894Z
 featuredImage: "/img/control-button.png"
 description: >-
@@ -9,6 +9,9 @@ tags:
   - Foundation
   - SAP Fiori
 version: '1.02'
+onOverview: true
+categories:
+  - Controls
 ---
 
 

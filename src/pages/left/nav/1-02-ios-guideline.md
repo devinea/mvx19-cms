@@ -7,5 +7,18 @@ version: '1.02'
 leftmenu:
   menu:
     - subItem: Foundation
+    - subItem: Views
+      category: views    
+    - subItem: Patterns
+      category: patterns    
+    - subItem: Floorplans   
+      category: floorplans 
+    - submenu:
+        items:
+          - subItem: Buttons
+          - subItem: Input Field
+          - subItem: Slider
+      subItem: Controls
+      category: controls
 
 ---

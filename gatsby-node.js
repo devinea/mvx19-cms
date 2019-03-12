@@ -180,12 +180,14 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
                     const leftNavResObj = {};
                     leftNavResObj.id = (guidelineNode.id) ? guidelineNode.id : '';
                     leftNavResObj.title = (menu.subItem) ? menu.subItem : '';
+
                     leftNavResObj.navTitle = false;
                     leftNavResObj.slug = (guidelineNode.fields.slug) ? guidelineNode.fields.slug : '';
                     leftNavResObj.hasChildren = (menu.submenu && menu.submenu.items) ? true : false;
                     // leftNavResObj.parentId = parentId;
                     parentId = guidelineNode.id;
                     leftNavRes.push(leftNavResObj);
+
                     if (menu.submenu && menu.submenu.items){
 
                       menu.submenu.items.forEach(item => {
@@ -208,7 +210,7 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
                         }
                       })
 
-                    }
+                      }
                       }
                   })
                 }
@@ -217,6 +219,7 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
         }
       const id = node.id;
       leftNavs.push({id,leftNavRes});
+
       })
 
   Object.entries(leftNavs).forEach(([id, leftNavRes]) => {

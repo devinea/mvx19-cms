@@ -14,9 +14,12 @@ import { css } from '@emotion/core';
 export default class GuidelineIosIndexPage extends React.Component {
   render() {
     const { data, location } = this.props;
-    const frontmatter = data.ios.edges[0].node.frontmatter;
+    // const frontmatter = data.explore.edges[0].node.frontmatter;
     const posts = data.posts.edges;
-    const panels = data.panels.edges[0].node.data;
+    const explore = data.explore.edges;
+    // const panels = data.panels.edges[0].node.data;
+    // const tabs = data.tabs.edges;
+    const panels = data.tabs.edges;
 
     return (
       <Layout location={location}>
@@ -64,27 +67,29 @@ export default class GuidelineIosIndexPage extends React.Component {
               letter-spacing: 0.11px;
               line-height: 43px;`}>explore Fiori for iOS</h1>
               <Tabs>
-                {frontmatter.tabs.map((tab, idx) => {
+                {panels.map((tab, idx) => {
                   return (
-                    <div label={tab.label} key={idx}>
+                    <div label={tab.node.title} key={idx}>
                       <h3 css={css`
                     color: #424242;
                     font-size: 20px;
                     font-weight: normal;
                     line-height: 32px;
                     margin-bottom: 40px;
-                    `}>{tab.description}</h3>
+                    `}>{tab.node.desc}</h3>
                       <div css={css`
                       display: flex;
                       flex-wrap: wrap;
                       justify-content: space-between;
                       `}>
                         {
-                          panels.map((p) => {
-                            if (p.title === tab.label) {
-                              return p.data.map((info, idx) => {
-                                return <Panel key={idx} data={info} />;
-                              })
+
+                          explore.map((p, panelIdx) => {
+                            if (p.node.frontmatter.categories && p.node.frontmatter.categories.includes(tab.node.title)) {
+
+                              // return p.node.frontmatter.map((info, idx) => {
+                                return <Panel key={panelIdx} data={p.node} />;
+                              // })
                             }
                             return ''
                           })
@@ -164,108 +169,137 @@ export default class GuidelineIosIndexPage extends React.Component {
 }
 
 export const pageQuery = graphql`
-query IosGuidelinePageQuery($curVersion: String!) {
-    panels: allConceptsJson(filter: { name: { eq: "iOS" } }) {
-      edges {
-        node {
-          name
-          data {
-            type
-            title
-            data {
-              title
-              image {
-                src
-              }
-              url
-            }
-          }
-        }
-      }
-    },
-      leftNav: allMarkdownRemark(
-          filter: {
-              frontmatter: { templateKey: { eq: "left-nav" }, srcTemplateKey: { eq: "ios-guideline"}, version: { eq: $curVersion } }
-          }
-      ) {
-          edges {
-              node {
-                  id
-                  fields{
-                      leftNavFlattened {
-                          id
-                          slug
-                          title
-                          parentId
-                          hasChildren
-                          navTitle
-                      }
-                  }
-
-              }
-          }
-      },
-      ios: allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "ios-guideline" } } }
-        ) {
-          edges {
-            node {
-              excerpt(pruneLength: 400)
-              id
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                templateKey
-                description
-                date(formatString: "MMMM DD, YYYY")
-                tabs {
-                  label
-                  description,
-                  url
+    query IosGuidelinePageQuery($curVersion: String!) {
+        tabs: allCategoriesJson{
+            edges {
+                node {
+                    title
+                    desc
                 }
-                tags
-                featuredImage {
-                  childImageSharp {
-                    sizes(maxWidth: 75) {
-                      ...GatsbyImageSharpSizes
-                    }
-                  }
-                }
-              }
             }
-          }
         },
-        posts: allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
-        ) {
-          edges {
-            node {
-              excerpt(pruneLength: 400)
-              id
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                templateKey
-                description
-                date(formatString: "MMMM DD, YYYY")
-                featuredImage {
-                  childImageSharp {
-                    sizes(maxWidth: 75) {
-                      ...GatsbyImageSharpSizes
+        leftNav: allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "left-nav"}, srcTemplateKey: {eq: "ios-guideline"}, version: {eq: $curVersion}}}) {
+            edges {
+                node {
+                    id
+                    fields {
+                        leftNavFlattened {
+                            id
+                            slug
+                            title
+                            parentId
+                            hasChildren
+                            navTitle
+                        }
+#                        controls {
+#                            title
+#                            type
+#                            desc
+#                            slug
+#                            tiles {
+#                                id
+#                                name
+#                                slug
+#                                img
+#                            }
+#                        }
+#                        floorplans {
+#                            title
+#                            type
+#                            desc
+#                            slug
+#                            tiles {
+#                                id
+#                                name
+#                                slug
+#                                img
+#                            }
+#                        }
+#                        patterns {
+#                            title
+#                            type
+#                            desc
+#                            slug
+#                            tiles {
+#                                id
+#                                name
+#                                slug
+#                                img
+#                            }
+#                        }
+#                        views {
+#                            title
+#                            type
+#                            desc
+#                            slug
+#                            tiles {
+#                                id
+#                                name
+#                                slug
+#                                img
+#                            }
+#                        }
                     }
-                  }
                 }
-              }
             }
-          }
         }
-    }`;
+        explore: allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {templateKey: {eq: "ios-guideline"}, , onOverview: {eq: true}}}) {
+            edges {
+                node {
+                    excerpt(pruneLength: 400)
+                    id
+                    fields {
+                        slug
+                    }
+                    frontmatter {
+                        title
+                        templateKey
+                        description
+                        date(formatString: "MMMM DD, YYYY")
+                        categories
+                        tabs {
+                            label
+                            description
+                            url
+                        }
+                        tags
+                        featuredImage {
+                            childImageSharp {
+                                sizes(maxWidth: 75) {
+                                    ...GatsbyImageSharpSizes
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        posts: allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {templateKey: {eq: "blog-post"}}}) {
+            edges {
+                node {
+                    excerpt(pruneLength: 400)
+                    id
+                    fields {
+                        slug
+                    }
+                    frontmatter {
+                        title
+                        templateKey
+                        description
+                        date(formatString: "MMMM DD, YYYY")
+                        featuredImage {
+                            childImageSharp {
+                                sizes(maxWidth: 75) {
+                                    ...GatsbyImageSharpSizes
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;
 
 
 

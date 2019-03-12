@@ -2,9 +2,11 @@
 import { jsx } from '@emotion/core'
 import { Link } from 'gatsby';
 import { colors } from '../theme';
+import { Img }  from "gatsby-image";
+import React from "react";
 
 const Panel = (props) => (
-    <Link to={props.data.url}>
+    <Link to={props.data.fields.slug} id={props.data.id}>
         <div css={{
             marginBottom: 30,
             height: 260
@@ -26,7 +28,9 @@ const Panel = (props) => (
                     margin: '0 auto',
                     display: 'block'
                 }}
-                    src={props.data.image.src} />
+
+                     src={props.data.frontmatter.featuredImage.childImageSharp.sizes.src} />
+
             </div>
             <div css={{
                 color: '#373737',
@@ -34,7 +38,7 @@ const Panel = (props) => (
                 fontWeight: 'normal',
                 height: 24
             }}>
-                {props.data.title}
+                {props.data.frontmatter.title}
             </div>
         </div>
     </Link>
