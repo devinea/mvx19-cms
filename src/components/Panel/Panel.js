@@ -6,7 +6,7 @@ import { colors } from '../theme';
 const Panel = (props) => (
     <Link to={props.data.url}>
         <div css={{
-            marginBottom: 72
+            marginBottom: 24
         }}>
             <div
                 css={{
@@ -17,19 +17,24 @@ const Panel = (props) => (
                     borderRadius: 6,
                     display: 'flex',
                     alignItems: 'center',
-                    position: 'relative'
+                    transitionDuration: '0.5s',
+                    ':hover': {
+                        boxShadow: '0 5px 15px 0 rgba(0, 0, 0, 0.15)',
+                        transform: 'translateY(-5px)',
+                        transitionDuration: '0.5s',
+                        transitionTimingFunction: 'ease',
+                        transitionTimingFunction: 'cubic-bezier(0.25, 0.1, 0.25, 1)'
+                    }
                 }}
             >
                 <img css={{
-                    padding: '10px 10px 0 10px',
-                    width: 260,
-                    bottom: 0,
-                    position: 'absolute'
+                    padding: 10,
+                    width: 260
                 }}
                     src={props.data.image.src} />
             </div>
             <div css={{
-                color: '#373737',
+                color: colors.gray_700,
                 fontSize: 16,
                 fontWeight: 'normal',
                 height: 24

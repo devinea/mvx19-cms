@@ -2,9 +2,9 @@ import React from 'react';
 import Flex from '../../../components/Flex';
 import Layout from '../../../components/Layout';
 import LeftNav from '../../../components/LeftNav';
-import designImg from '../../../img/design.png';
+import iosBackground from '../../../img/ios_background.png';
 import { Link, graphql } from 'gatsby';
-import { media } from '../../../components/theme';
+import { media, colors } from '../../../components/theme';
 import ResourcesList from '../../../components/ResourceList/ResourcesList';
 import Tabs from '../../../components/Tabs';
 import Panel from '../../../components/Panel';
@@ -40,14 +40,29 @@ export default class GuidelineIosIndexPage extends React.Component {
           >
             <div
               css={{
-                width: '100%',
                 backgroundColor: '#f8f9fb',
-                height: '682px',
-                backgroundImage: 'url(' + designImg + ')',
+                height: 400,
+                backgroundImage: 'url(' + iosBackground + ')',
                 backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'top right'
+                backgroundPosition: 'calc(50% + 400px)',
+                backgroundSize: '906px 400px'
               }}
-            />
+            >
+              <div css={{
+                width: 828,
+                margin: '0 auto',
+                paddingBottom: 60,
+                paddingTop: 40
+              }}>
+              <h1 css={{
+                      color: colors.gray_600,
+                      fontSize: 45,
+                      fontWeight: 300,
+                      paddingTop: 30,
+                      width: '36%'
+                    }}>Design and Develop delightful iOS mobile apps.</h1>
+              </div>
+            </div>
             <div css={{
               width: 828,
               margin: '0 auto',
@@ -56,7 +71,7 @@ export default class GuidelineIosIndexPage extends React.Component {
               transition: 'width 0.3s ease-in-out'
             }}>
               <h1 css={css`
-              color: #4F4F4F;
+              color: ${colors.gray_600};
               font-family: 72-Regular;
               font-size: 36px;
               font-weight: normal;
@@ -67,7 +82,7 @@ export default class GuidelineIosIndexPage extends React.Component {
                   return (
                     <div label={tab.label} key={idx}>
                       <h3 css={css`
-                    color: #424242;
+                    color: ${colors.gray_600};
                     font-size: 20px;
                     font-weight: normal;
                     line-height: 32px;
@@ -104,7 +119,7 @@ export default class GuidelineIosIndexPage extends React.Component {
               }}
             >
               <h1 css={css`
-              color: #4F4F4F;
+              color: ${colors.gray_600};
               font-family: 72-Regular;
               font-size: 36px;
               font-weight: normal;
@@ -122,7 +137,7 @@ export default class GuidelineIosIndexPage extends React.Component {
                   padding: 15px 76px;
                   :hover {
                     border-radius: 7px 7px 7px 7px;
-                    box-shadow: 0 0 10px 0 #E1E4E9;
+                    box-shadow: 0 0 10px 0 ${colors.gray_200};
                     cursor: pointer;
                   }`}>
                       <h2 css={css`
@@ -133,7 +148,7 @@ export default class GuidelineIosIndexPage extends React.Component {
                     letter-spacing: 0;
                     margin-bottom: 15px;`}>{post.node.frontmatter.title}</h2>
                       <p css={css`
-                    color: #6A6D70;
+                    color: ${colors.gray_700};
                     font-family: 72-Regular;
                     font-size: 16px;
                     font-weight: normal;
@@ -141,7 +156,7 @@ export default class GuidelineIosIndexPage extends React.Component {
                     line-height: 24px;
                     `}>{post.node.frontmatter.description}</p>
                       <div css={css`
-                    color: #6A6D70;
+                    color: ${colors.gray_700};
                     font-family: 72-Light;
                     font-size: 14px;
                     font-weight: 300;
@@ -163,25 +178,25 @@ export default class GuidelineIosIndexPage extends React.Component {
 }
 
 export const pageQuery = graphql`
-    query IosGuidelinePageQuery($curVersion: String!) {
-      panels: allConceptsJson(filter: { name: { eq: "iOS" } }) {
-        edges {
-          node {
-            name
+query IosGuidelinePageQuery($curVersion: String!) {
+    panels: allConceptsJson(filter: { name: { eq: "iOS" } }) {
+      edges {
+        node {
+          name
+          data {
+            type
+            title
             data {
-              type
               title
-              data {
-                title
-                image {
-                  src
-                }
-                url
+              image {
+                src
               }
+              url
             }
           }
         }
-      },
+      }
+    },
       leftNav: allMarkdownRemark(
           filter: {
               frontmatter: { templateKey: { eq: "left-nav" }, srcTemplateKey: { eq: "ios-guideline"}, version: { eq: $curVersion } }
@@ -200,7 +215,6 @@ export const pageQuery = graphql`
                           navTitle
                       }
                   }
-
               }
           }
       },

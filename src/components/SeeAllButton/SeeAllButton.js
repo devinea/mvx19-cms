@@ -14,7 +14,8 @@ const SeeAllButton = (props) => {
             display: 'flex',
             justifyContent: 'center',
             flexFlow: 'column',
-            alignItems: 'center'
+            alignItems: 'center',
+            margin: '5px 0'
         }}>
             <span css={{
                 color: colors.gray_500,

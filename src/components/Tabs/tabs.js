@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import { css } from '@emotion/core'
 import Tab from './tab';
+import { colors } from '../theme';
 
 class Tabs extends Component {
     static propTypes = {
@@ -37,7 +37,8 @@ class Tabs extends Component {
                 <ol css={css`
                 display: flex;
                 justify-content: flex-start;
-                padding-bottom: 50px;`
+                margin-bottom: 50px;
+                border-bottom: 1px solid ${colors.gray_200};`
                 }>
                     {children.map((child) => {
                         const { label } = child.props;
