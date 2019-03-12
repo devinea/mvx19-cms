@@ -9,8 +9,16 @@ class Color extends React.Component {
     let darkHex = this.props.dark;
 
     return (
-    <section>
-    <div>{this.props.name}</div>
+    <section
+      css={{
+        borderRadius: 7,
+        paddingBottom: 30,
+        padding: 10,
+        margin: 25,
+        boxShadow: '0 0 22px 0 rgba(0, 0, 0, 0.10)'
+      }}
+    >
+    <h3>{this.props.name}</h3>
     <Flex>
     <div
       css={{

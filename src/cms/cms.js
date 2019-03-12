@@ -28,12 +28,6 @@ class CSSInjector extends React.Component {
   }
 }
 
-//CMS.registerPreviewTemplate('colors', ColorCollectionPreview)
-CMS.registerPreviewTemplate('colors', props => (
-  <CSSInjector>
-    <ColorCollectionPreview {...props} />
-  </CSSInjector>
-))
 CMS.registerPreviewTemplate('about', props => (
   <CSSInjector>
     <AboutPagePreview {...props} />
@@ -59,6 +53,12 @@ CMS.registerPreviewTemplate('blog', props => (
     <BlogPostPreview {...props} />
   </CSSInjector>
 ))
+CMS.registerPreviewTemplate('colors', props => (
+  <CSSInjector>
+    <ColorCollectionPreview {...props} />
+  </CSSInjector>
+))
+
 CMS.registerEditorComponent({
   // Internal id of the component
   id: "vimeo",

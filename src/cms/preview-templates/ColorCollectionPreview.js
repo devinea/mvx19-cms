@@ -1,18 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { colors } from '../../components/theme'
 import ColorList from '../../components/Color/ColorList'
 
 const ColorCollectionPreview = ({ entry, widgetsFor }) => {
     return (
         <section>
-            <h1>{entry.getIn(['data', 'title'])}</h1>
+            <div
+                css={{
+                    borderBottom: 3,
+                    borderBottomStyle: 'double',
+                    marginBottom: 30
+                }}
+            >
+                <h1>{entry.getIn(['data', 'title'])}</h1>
+                <h2>Version: {entry.getIn(['data', 'version'])}</h2>
+            </div>
             <div>
                 { widgetsFor('colorGroups').map((colorGroups, index) => 
                 <ColorList 
                     key={index}
                     name={colorGroups.getIn(['data', 'name'])}
-                    colors={colorGroups.getIn(['data', 'colors'])} // Object containing color 'data'
+                    colors={colorGroups.getIn(['data', 'colors'])} // Returns an 'array of objects' containing color 'data' from CMS
                 />
                 )}
             </div>
