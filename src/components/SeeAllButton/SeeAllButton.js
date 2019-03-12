@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { colors } from '../theme';
 
 const SeeAllButton = (props) => {
-    return (<Link to={props.data.fromformatter.url}>
+    return (<Link to={props.link}>
         <div css={{
             backgroundColor: colors.gray_100,
             borderRadius: '18.5px 18.5px 18.5px 18.5px',
@@ -24,7 +24,7 @@ const SeeAllButton = (props) => {
                 fontWeight: 'bold',
                 letterSpacing: 0.05,
                 textTransform: 'uppercase'
-            }}>See All {props.data.frontformatter.title}</span>
+            }}>See All {props.text}</span>
         </div>
     </Link>);
 };

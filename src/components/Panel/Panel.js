@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { Link } from 'gatsby';
+import Img from 'gatsby-image';
 import { colors } from '../theme';
 
 const Panel = (props) => (
@@ -27,11 +28,11 @@ const Panel = (props) => (
                     }
                 }}
             >
-                <img css={{
+                <Img css={{
                     padding: 10,
                     width: 260
                 }}
-                     src={props.data.frontmatter.featuredImage.childImageSharp.sizes.src} />
+                     sizes={props.data.frontmatter.featuredImage.childImageSharp.sizes} />
             </div>
             <div css={{
                 color: colors.gray_700,

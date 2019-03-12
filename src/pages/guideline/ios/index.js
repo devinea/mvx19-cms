@@ -13,7 +13,7 @@ import { css } from '@emotion/core';
 
 export default class GuidelineIosIndexPage extends React.Component {
   render() {
-    const { data, location } = this.props;
+    const { data, location, pageContext} = this.props;
     const posts = data.posts.edges;
     const explore = data.explore.edges;
     const panels = data.tabs.edges;
@@ -107,7 +107,7 @@ export default class GuidelineIosIndexPage extends React.Component {
                           })
                         }
                       </div>
-                      <SeeAllButton data={tab}></SeeAllButton>
+                      <SeeAllButton link={`${location.pathname}/${pageContext.curVersion}/${tab.node.title}`} text={tab.node.title}></SeeAllButton>
                     </div>
                   );
                 })}
@@ -182,11 +182,12 @@ export default class GuidelineIosIndexPage extends React.Component {
 
 export const pageQuery = graphql`
     query IosGuidelinePageQuery($curVersion: String!) {
-        tabs: allCategoriesJson{
+        tabs: allCategoriesJson (sort: {order: ASC, fields: [ordinal]}){
             edges {
                 node {
                     title
                     desc
+                    ordinal
                 }
             }
         },
@@ -203,59 +204,11 @@ export const pageQuery = graphql`
                             hasChildren
                             navTitle
                         }
-#                        controls {
-#                            title
-#                            type
-#                            desc
-#                            slug
-#                            tiles {
-#                                id
-#                                name
-#                                slug
-#                                img
-#                            }
-#                        }
-#                        floorplans {
-#                            title
-#                            type
-#                            desc
-#                            slug
-#                            tiles {
-#                                id
-#                                name
-#                                slug
-#                                img
-#                            }
-#                        }
-#                        patterns {
-#                            title
-#                            type
-#                            desc
-#                            slug
-#                            tiles {
-#                                id
-#                                name
-#                                slug
-#                                img
-#                            }
-#                        }
-#                        views {
-#                            title
-#                            type
-#                            desc
-#                            slug
-#                            tiles {
-#                                id
-#                                name
-#                                slug
-#                                img
-#                            }
-#                        }
                     }
                 }
             }
         }
-        explore: allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {templateKey: {eq: "ios-guideline"}, , onOverview: {eq: true}}}) {
+        explore: allMarkdownRemark(limit: 6, sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {templateKey: {eq: "ios-guideline"}, onOverview: {eq: true}}}) {
             edges {
                 node {
                     excerpt(pruneLength: 400)
@@ -269,11 +222,6 @@ export const pageQuery = graphql`
                         description
                         date(formatString: "MMMM DD, YYYY")
                         categories
-                        tabs {
-                            label
-                            description
-                            url
-                        }
                         tags
                         featuredImage {
                             childImageSharp {
