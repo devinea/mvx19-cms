@@ -5,8 +5,7 @@ import Flex from '../../components/Flex'
 class Color extends React.Component {
   render() {
 
-    let lightHex = this.props.light;
-    let darkHex = this.props.dark;
+    const { name, light, dark, description } = this.props;
 
     return (
     <section
@@ -18,7 +17,7 @@ class Color extends React.Component {
         boxShadow: '0 0 22px 0 rgba(0, 0, 0, 0.10)'
       }}
     >
-    <h3>{this.props.name}</h3>
+    <h3>{name}</h3>
     <Flex>
     <div
       css={{
@@ -31,13 +30,13 @@ class Color extends React.Component {
         flexShrink: 0
     }}
     >
-    <span css={{ textAlign: 'center' }}>Light: {this.props.light}</span>
+    <span css={{ textAlign: 'center' }}>Light: {light}</span>
     </div>
     <div 
       css={{
         height: 100,
         width: 100,
-        backgroundColor: lightHex,
+        backgroundColor: light,
         borderRadius: 50,
         margin: 10,
         flexShrink: 0
@@ -54,13 +53,13 @@ class Color extends React.Component {
         flexShrink: 0
     }}
     >
-    <span css={{ textAlign: 'center' }}>Dark: {this.props.dark}</span>
+    <span css={{ textAlign: 'center' }}>Dark: {dark}</span>
     </div>
     <div 
       css={{
         height: 100,
         width: 100,
-        backgroundColor: darkHex,
+        backgroundColor: dark,
         borderRadius: 50,
         margin: 10,
         flexShrink: 0
@@ -76,7 +75,7 @@ class Color extends React.Component {
         flexShrink: 0
     }}
     >
-    <span>{this.props.description}</span>
+    <span>{description}</span>
     </div>
     </Flex>
     </section>
