@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
+import { colors } from '../theme';
 
 class Tab extends Component {
     static propTypes = {
@@ -25,15 +26,19 @@ class Tab extends Component {
 
         const listItem = css`display: inline-block;
         list-style: none;
-        margin-bottom: -1px;
-        padding: 10px 60px;
-        color: ${activeTab === label ? '#427CAC' : '#424242'};
+        padding: 10px 0px;
+        margin-right: 60px;
+        color: ${colors.gray_700};
         font-family: 72-Regular;
         font-size: 20px;
         font-weight: normal;
         height: 32px;
-        line-height: 32px;
-        cursor:pointer;`
+        line-height: 10px;
+        border-bottom: ${activeTab === label ? '2px solid ' + colors.gray_700 : 'none'};
+        cursor:pointer;
+        :hover {
+            color: ${activeTab === label ? colors.gray_700 : colors.blue_300};
+        }`
 
         return (
             <li css={listItem} onClick={onClick}>
