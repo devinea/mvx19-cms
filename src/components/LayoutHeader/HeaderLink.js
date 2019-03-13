@@ -30,26 +30,30 @@ class HeaderLink extends React.Component {
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
-          color: colors.gray_500,
+          color: colors.gray_700,
           transition: 'color 0.2s ease-out',
           [media.greaterThan('large')]: {
-            marginRight: 50
+            marginRight: 40
           },
           [media.greaterThan('xlarge')]: {
-            marginRight: 70
+            marginRight: 40
           },
-          fontWeight: 500,
+          fontWeight: 700,
           fontSize: 14,
+          lineHeight: '19px',
           textDecoration: 'none',
           ':focus': {
             outline: 0,
-            color: colors.blue_600
+            color: colors.gray_700
           },
           ':hover': {
-            color: colors.blue_600
+            color: colors.blue_300,
+            ...(this.props.isActive && {
+              color: colors.gray_700
+            })
           },
           ...(this.props.isActive && {
-            color: colors.blue_600
+            color: colors.gray_700
           })
         }}
         to={this.props.to}
@@ -59,10 +63,10 @@ class HeaderLink extends React.Component {
           <span
             css={{
               position: 'absolute',
-              bottom: 2,
-              height: 2,
-              background: colors.blue_600,
-              color: colors.blue_600,
+              bottom: 0,
+              height: 3,
+              background: colors.gray_700,
+              color: colors.gray_700,
               left: 0,
               right: 0,
               zIndex: 1

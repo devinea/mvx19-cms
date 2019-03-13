@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import { colors, media } from '../../theme';
+import { ReactReduxContext, connect } from 'react-redux';
+
 import InternalMenuLink from './InternalMenuLink';
 import { sectionListHeaderLinks } from '../../../../utils/sectionList';
 
-class HamburgerMenu extends React.Component {
+import { colors, media, header } from '../../theme';
+
+class HamburgerMenu extends Component {
+  static contextType = ReactReduxContext;
+
   constructor(props) {
     super(props);
   }
@@ -13,19 +18,27 @@ class HamburgerMenu extends React.Component {
     return (
       <div
         css={{
+          zIndex: 5,
           display: 'block',
           height: 0,
-          position: 'absolute',
-          top: 60,
-          zIndex: 1000,
+          position: 'fixed',
+          top: 0,
           width: '100%',
-          overflow: 'hidden',
+          overflow: 'auto',
           backgroundColor: colors.white,
-          padding: 0,
+          paddingLeft: 0,
+          paddingBottom: 0,
+          paddingRight: 0,
           transition: 'all .56s cubic-bezier(0.52, 0.16, 0.24, 1)',
-          ...(this.props.active && {
+          ...(this.props.isHamburgerMenuOpen && {
             height: '100%'
-          })
+          }),
+          [media.lessThan('large')]: {
+            paddingTop: header.mobile.height
+          },
+          [media.greaterThan('large')]: {
+            paddingTop: header.desktop.height
+          }
         }}
       >
         <ul
@@ -40,15 +53,12 @@ class HamburgerMenu extends React.Component {
               <li
                 key={defaultItem[0].id}
                 css={{
-                  padding: 20,
                   borderTopColor: colors.gray_200,
                   borderTopStyle: 'solid',
                   borderTopWidth: 1
                 }}
               >
-                <InternalMenuLink
-                  to={defaultItem[1].url}
-                >
+                <InternalMenuLink to={defaultItem[1].url}>
                   {section.title}
                 </InternalMenuLink>
               </li>
@@ -60,4 +70,6 @@ class HamburgerMenu extends React.Component {
   }
 }
 
-export default HamburgerMenu;
+export default connect(state => ({
+  isHamburgerMenuOpen: state.app.isHamburgerMenuOpen
+}))(HamburgerMenu);

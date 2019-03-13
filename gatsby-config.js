@@ -41,7 +41,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-json`,
       options: {
-        typeName: ({ node, object, isArray }) => object.name
+        typeName: ({ node, object, isArray }) => object.name || 'Json'
       }
     },
     {
@@ -50,6 +50,38 @@ module.exports = {
       options: {
         path: `${__dirname}/static/img`,
         name: 'uploads'
+      }
+    },
+    {
+      // keep as first gatsby-source-filesystem plugin for gatsby image support
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static/img/controls`,
+        name: 'uploads_controls'
+      }
+    },
+    {
+      // keep as first gatsby-source-filesystem plugin for gatsby image support
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static/img/views`,
+        name: 'uploads_views'
+      }
+    },
+    {
+      // keep as first gatsby-source-filesystem plugin for gatsby image support
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static/img/patterns`,
+        name: 'uploads_patterns'
+      }
+    },
+    {
+      // keep as first gatsby-source-filesystem plugin for gatsby image support
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static/img/floorplans`,
+        name: 'uploads_floorplans'
       }
     },
     {
@@ -76,7 +108,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
-      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      resolve: `gatsby-plugin-elasticlunr-search-fiori`,
       options: {
         // Fields to index
         fields: [`title`, `tags`, `slug`],
@@ -91,12 +123,20 @@ module.exports = {
                   templateKeyName = 'News';
                   break;
                 }
-                case 'design-guideline-post': {
+                case 'web-guideline': {
                   templateKeyName = 'Fiori for Web';
                   break;
                 }
-                case 'developer-guideline-post': {
-                  templateKeyName = 'Fiori for Web';
+                case 'ios-guideline': {
+                  templateKeyName = 'Fiori for IOS';
+                  break;
+                }
+                case 'android-guideline': {
+                  templateKeyName = 'Fiori for Android';
+                  break;
+                }
+                case 'cux-guideline': {
+                  templateKeyName = 'Fiori for CUX';
                   break;
                 }
                 default: {
@@ -108,11 +148,13 @@ module.exports = {
             },
             title: node => node.frontmatter.title,
             path: node => node.fields.slug,
-            featuredImage: node => node.frontmatter.featuredImage,
+            picture: node => node.frontmatter.picture,
             description: node => node.frontmatter.description,
+            version: node => node.frontmatter.version,
 
-            tags: node => node.frontmatter.tags
-          }
+            tags: node => node.frontmatter.tags,
+
+          },
         }
       }
     },

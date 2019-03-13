@@ -4,20 +4,20 @@
     - url: /getstarted
 - title: Fiori for Web
   items:
-    - id: design
-    - url: /design/guidelines
+    - id: web
+    - url: /guideline/web
 - title: Fiori for iOS
   items:
     - id: ios
-    - url: /design/guidelines#ios
+    - url: /guideline/ios
 - title: Fiori for Android
   items:
     - id: android
-    - url: /design/guidelines#android
+    - url: /guideline/android
 - title: Fiori for CUX
   items:
     - id: cux
-    - url: /design/guidelines#cux
+    - url: /guideline/cux
 - title: Contribute
   items:
     - id: contribute

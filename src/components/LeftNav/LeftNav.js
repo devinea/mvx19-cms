@@ -1,12 +1,21 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
-import { colors } from '../theme';
+import { colors, media } from '../theme';
 import LeftNavLink from './LeftNavLink';
+import { Link } from 'gatsby';
 import crossIcon from './../../img/cross.svg';
+import selectArrowIcon from './../../img/select-arrow.svg';
+
+// Define when the LHS switches to mobile view based on the pre-defined media queries.
+let mobileMedia = false;
+if (typeof window !== 'undefined' && window.matchMedia) {
+  mobileMedia = window.matchMedia(media.lessThan('large').replace('@media ', ''));
+}
+let isMobileMedia = mobileMedia.matches;
 
 let state = {
-  navOpen: true,
-  sectionOn: -1,
+  navOpen: !isMobileMedia,
+  sectionOn: null,
+  mobileTitle: null,
   opened: []
 };
 
@@ -16,64 +25,105 @@ class LeftNav extends React.Component {
   
   constructor(props) {
     super(props);
-
-    this.state = state;
-    let sectionOn = -1;
-    for (let i = 0; i < this.props.data.edges.length; i++) {
-      const item = this.props.data.edges[i];
-      // Check if this item is currently selected.
-      if (typeof window !== 'undefined' && window.location && item.node.fields.slug === decodeURIComponent(window.location.pathname)) {
-        sectionOn = i;
-      }
-      if (item.node.frontmatter.leftnavorder.l2 > 0) {
-        if (!this.state.opened.includes(item.node.fields.slug)) {
-          item.node.frontmatter.isHidden = true;
-        } else {
-          item.node.frontmatter.isHidden = false;
-        }
-        if (this.props.data.edges[i -1].node.frontmatter.leftnavorder.l2 == 0) {
-          this.props.data.edges[i -1].node.frontmatter.hasChildren = true;
-          if (!item.node.frontmatter.isHidden) {
-            this.props.data.edges[i -1].node.frontmatter.expanded = true;
-          } else {
-            this.props.data.edges[i -1].node.frontmatter.expanded = false;
-          }
-        }
-      }
-    }
     
-    this.state.sectionOn = sectionOn;
+    this.state = state;
+    let sectionOn = null;
+    // Quick copy to this.props.data.leftNavFlattened for some minor backward compatibility
+    if (!this.props.data.leftNavFlattened){
+      this.props.data.leftNavFlattened = (this.props.data.node && this.props.data.node.fields && this.props.data.node.fields.leftNavFlattened) ? this.props.data.node.fields.leftNavFlattened : this.props.data.edges[0].node.fields.leftNavFlattened;
+    }
 
-    this.toggleNav = toggle => this._toggleNav(toggle);
+    if (!this.props.data.leftNavFlattened) {
+      this.props.data.leftNavFlattened = [];
+    }
+    this.topLevelItem = this.props.data.leftNavFlattened.find(item => item.navTitle);
+    for (let i = 0; i < this.props.data.leftNavFlattened.length; i++) {
+      const item = this.props.data.leftNavFlattened[i];
+      // Check if this item is currently selected.
+      if (typeof window !== 'undefined' && window.location && item.slug === decodeURIComponent(window.location.pathname)) {
+        sectionOn = item.id;
+        this.state.mobileTitle = item.title;
+      }
+      if (item.parentId) {
+        const parentItem = this.props.data.leftNavFlattened.find(obj => obj.id == item.parentId);
+        if (!this.state.opened.includes(item.slug)) {
+          item.isHidden = true;
+          // Ensure that the parent element is not expanded.        
+          parentItem.expanded = false;
+        } else {
+          item.isHidden = false;
+          // Ensure that the parent element is expanded.        
+          parentItem.expanded = true;
+        }
+      }
+``    }
+    this.state.sectionOn = sectionOn;
+    if (!sectionOn) {
+      this.state.mobileTitle = 'Overview'
+    }
+
+    this.toggleNav = event => this._toggleNav(event);
+    this.closeNavOnMobile = () => this._closeNavOnMobile();
     this.expandSection = (event, sectionIndex) => this._expandSection(event, sectionIndex);
     this.mouseEnter = element => this._mouseEnter(element);
     this.mouseLeave = () => this._mouseLeave();
+    this.checkMediaQuery = e => this._checkMediaQuery(e);
     this.isOverElement = false;
   }
 
-  _toggleNav() {
-    this.setState({ navOpen: !this.state.navOpen });
-    if (this.props.navOpener) {
-      this.props.navOpener(!this.state.navOpen);
+  /**
+   * Check that when the media query updates, do we now need to close or open the side nav.
+   * @param {e} the media query event
+   */
+  _checkMediaQuery(e) {
+    isMobileMedia = e.matches;
+    state.navOpen = !isMobileMedia;
+    if (!isMobileMedia) {
+      this._openNav();
+    } else {
+      this._closeNavOnMobile();
     }
   }
 
-  _expandSection(event, sectionIndex) {
-    this.props.data.edges[sectionIndex].node.frontmatter.expanded = !this.props.data.edges[sectionIndex].node.frontmatter.expanded;
-    for (let i = sectionIndex + 1; i < i < this.props.data.edges.length; i++) {
-      if (this.props.data.edges[i] && this.props.data.edges[i].node.frontmatter.leftnavorder.l2 > 0) {
-        this.props.data.edges[i].node.frontmatter.isHidden = !this.props.data.edges[i].node.frontmatter.isHidden;
-        if (!this.props.data.edges[i].node.frontmatter.isHidden) {
-          this.state.opened.push(this.props.data.edges[i].node.fields.slug);
-        } else {
-          this.state.opened = this.state.opened.filter(item => item !== this.props.data.edges[i].node.fields.slug);
-        }
+  componentWillUnmount = () => {
+    mobileMedia.removeListener(this.checkMediaQuery);
+  }
+
+  componentDidMount() {
+    mobileMedia.addListener(this.checkMediaQuery);
+  }
+
+  _toggleNav(event) {
+    this.setState({ navOpen: !this.state.navOpen });
+  }
+
+  _openNav() {
+    this.setState({ navOpen: true });
+  }
+
+  _closeNavOnMobile() {
+    if (isMobileMedia) {
+      this.setState({ navOpen: false });
+      this.state.navOpen = false;
+      state = this.state;
+    }
+  }
+
+  _expandSection(event, id) {
+    const section = this.props.data.leftNavFlattened.find(item => item.id == id);
+    section.expanded = !section.expanded;
+    const childItems = this.props.data.leftNavFlattened.filter(item => item.parentId == id);
+    for (let childItem of childItems) {
+      childItem.isHidden = !childItem.isHidden;
+      if (!childItem.isHidden) {
+        this.state.opened.push(childItem.slug);
       } else {
-        break;
+        this.state.opened = this.state.opened.filter(item => item !== childItem.slug);
       }
     }
     state = this.state;
     event.preventDefault();
+    event.stopPropagation();
     this.setState({updating: !this.state.updating})
   }
 
@@ -109,124 +159,205 @@ class LeftNav extends React.Component {
     const self = this;
 
     return (
-      <nav
+      <div
         css={{
-          position: 'relative',
-          backgroundColor: colors.white,
-          display: 'flex',
-          width: 0,
-          transition: 'width 0.3s ease-in-out',
-          ...(this.state.navOpen && {
-            width: 260,
-          }),
-          position: 'fixed',
-          flexDirection: 'row',
-          alignItems: 'top',
-          justifyContent: 'space-between',
-          height: '100vh',
-          boxShadow: '0 2px 39px 0 rgba(0, 0, 0, 0.06)'
+          position: 'relative'
         }}>
-        <div
+        <nav
           css={{
-            transition: 'opacity 0.3s ease-in-out',
-            position: 'relative',
-            overflow: 'hidden',
-            fontSize: 20,
-            width: '100%',
-            opacity: 0,
+            backgroundColor: colors.white,
+            display: 'flex',
+            left: '-260px',
+            zIndex: 1,
+            width: '260px',
+            transition: 'left 0.3s ease-in-out',
             ...(this.state.navOpen && {
-              opacity: 1,
-            })
+              left: '0'
+            }),
+            [media.lessThan('large')]: {
+              width: '100%',
+              height: 'auto',
+              left: '0px',
+              backgroundColor: colors.gray_100
+            },
+            position: 'fixed',
+            flexDirection: 'row',
+            alignItems: 'top',
+            justifyContent: 'space-between',
+            height: '100vh',
+            boxShadow: '0 2px 39px 0 rgba(0, 0, 0, 0.06)'
           }}>
           <div
             css={{
+              transition: 'opacity 0.3s ease-in-out',
+              position: 'relative',
               overflow: 'hidden',
-              lineHeight: '90px',
-              height: 90,
+              fontSize: 20,
               width: '100%',
-              paddingLeft: 40,
-              float: 'left'
+              [media.greaterThan('large')]: {
+                opacity: 0,
+                ...(this.state.navOpen && {
+                  opacity: 1,
+                })
+              }
             }}>
-            {this.props.title}
-          </div>
-          <div
-            css={{
-              width: 12,
-              height: 12,
-              backgroundSize: 'cover',
-              backgroundImage: 'url(' + crossIcon + ')',
+            <div
+              css={{
+                overflow: 'hidden',
+                lineHeight: '90px',
+                height: 90,
+                paddingLeft: 40,
+                [media.lessThan('large')]: {
+                  lineHeight: '45px',
+                  height: 45,
+                  paddingLeft: 20,
+                  color: colors.gray_700
+                },
+                width: '100%',
+                float: 'left'
+              }}>
+              <Link
+                  key={this.topLevelItem.id}
+                  to={this.topLevelItem.slug}>{this.topLevelItem.title}</Link>
+            </div>
+            <div
+              css={{
+                width: 12,
+                height: 12,
+                backgroundSize: 'cover',
+                backgroundImage: 'url(' + crossIcon + ')',
+                transition: 'opacity 0.3s ease-in-out',
+                position: 'absolute',
+                right: 12,
+                fontSize: 12,
+                top: 39,
+                cursor: 'pointer',
+                opacity: '1',
+                [media.greaterThan('xlarge')]: {
+                  opacity: '0',
+                  pointerEvents: 'none'
+                },
+                [media.lessThan('large')]: {
+                  display: 'none'
+                }
+              }}
+              onClick={this.toggleNav}
+            />
+<div css={{
+            position: 'absolute',
+            right: 45,
+            top: 0,
+            height: 45,
+            lineHeight: '45px',
+            display: 'none',
+            fontFamily: '72',
+            fontWeight: 'bold',
+            color: colors.gray_700,
+            fontSize: 16,
+            cursor: 'pointer',
+            [media.lessThan('large')]: {
+              display: 'block',
+              ...(this.state.navOpen && {
+                color: 'transparent'
+              })
+            },
+            '::after': {
               position: 'absolute',
-              right: 12,
-              fontSize: 12,
-              top: 39,
-              cursor: 'pointer'
+              backgroundImage: 'url(' + selectArrowIcon + ')',
+              ...(this.state.navOpen && {
+                backgroundImage: 'url(' + crossIcon + ')',
+              }),
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: '10px center',
+              width: 50,
+              height: 45,
+              content: '""'
+            }          
+          }}
+          onClick={this.toggleNav}
+          >{self.state.mobileTitle}&nbsp;</div>            
+            <div id="menuContainer"
+              css={{
+                position: 'relative',
+                float: 'left',
+                width: '100%',
+                overflow: 'hidden',
+                [media.lessThan('large')]: {
+                  maxHeight: 0,
+                  transition: 'max-height 0.3s ease-in-out',
+                  ...(this.state.navOpen && {
+                    maxHeight: '100vh',
+                  })
+
+                }                            
+              }}
+            >
+              <div id="menuHover"
+                css={{
+                  position: 'absolute',
+                  left: 0,
+                  opacity: 0,
+                  backgroundColor: colors.gray_100,
+                  height: 45,
+                  width: '100%',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s',
+                  pointerEvents: 'none'
+                }}>
+              </div>          
+              {this.props.data.leftNavFlattened && 
+              this.props.data.leftNavFlattened.filter(item => !item.navTitle).map((data, i) => (
+                <LeftNavLink
+                  updating={updating}
+                  key={(data.slug === '/designguideline/controls/') ? '' : data.id}
+                  section={data}
+                  sectionIndex={i} 
+                  sectionOn={self.state.sectionOn} 
+                  expander={self.expandSection} 
+                  mouseEnter={self.mouseEnter} 
+                  mouseLeave={self.mouseLeave}
+                  closeNavOnMobile={self.closeNavOnMobile}/>
+              ))}
+            </div>
+          </div>
+        </nav>
+        <div
+            css={{
+              transition: 'opacity 0.3s ease-in-out, left 0.3s ease-in-out',
+              transitionDelay: '0s',
+              opacity: 0,
+              width: 28,
+              height: 28,
+              position: 'absolute',
+              zIndex: '3',
+              borderRadius: '2.5px',
+              boxShadow: '0 0 14px 0 rgba(0, 0, 0, 0.11)',
+              top: 29,
+              left: 0,
+              cursor: 'pointer',
+              fontFamily: 'SAP-icons',
+              fontSize: 18,
+              lineHeight: '28px',
+              textAlign: 'center',
+              color: colors.gray_500,
+              backgroundColor: 'transparent',
+              pointerEvents: 'none',
+              '::before': {
+                  content: 'attr(data-sap-ui-icon-content)'
+              },
+              [media.greaterThan('large')]: {
+                ...(!this.state.navOpen && {
+                  opacity: 1,
+                  left: 40,
+                  transitionDelay: '0.4s',                  
+                  pointerEvents: 'all'
+                })
+              }
             }}
+            data-sap-ui-icon-content=''
             onClick={this.toggleNav}
           />
-          <div id="menuContainer"
-            css={{
-              position: 'relative',
-              float: 'left',
-              width: '100%'
-            }}
-          >
-            <div id="menuHover"
-              css={{
-                position: 'absolute',
-                left: 0,
-                opacity: 0,
-                backgroundColor: colors.gray_100,
-                height: 45,
-                width: '100%',
-                cursor: 'pointer',
-                transition: 'all 0.3s',
-                pointerEvents: 'none'
-              }}>
-            </div>          
-            {this.props.data.edges.map(({ node: data }, i) => (
-              <LeftNavLink 
-                updating={updating}
-                key={(data.fields.slug === '/designguideline/controls/') ? '' : data.id} 
-                section={data} 
-                sectionIndex={i} 
-                sectionOn={self.state.sectionOn} 
-                expander={self.expandSection} 
-                mouseEnter={self.mouseEnter} 
-                mouseLeave={self.mouseLeave}/>
-            ))}
-          </div>
-        </div>
-        <div
-          css={{
-            transition: 'opacity 0.3s ease-in-out',
-            opacity: 0,
-            width: 28,
-            height: 28,
-            position: 'absolute',
-            borderRadius: '2.5px',
-            boxShadow: '0 0 14px 0 rgba(0, 0, 0, 0.11)',
-            top: 29,
-            left: 40,
-            cursor: 'pointer',
-            fontFamily: 'SAP-icons',
-            fontSize: 18,
-            lineHeight: '28px',
-            textAlign: 'center',
-            color: colors.gray_500,
-            backgroundColor: 'transparent',
-            pointerEvents: 'none',
-            '::before': {
-                content: 'attr(data-sap-ui-icon-content)'
-            },
-            ...(!this.state.navOpen && {
-              opacity: 1,
-              pointerEvents: 'all'
-            })
-          }}
-          data-sap-ui-icon-content=''
-          onClick={this.toggleNav}
-        />
-      </nav>
+      </div>
     )
   }
 }

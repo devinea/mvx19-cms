@@ -2,6 +2,8 @@ import React from 'react';
 import queryString from 'query-string';
 import { navigate } from 'gatsby';
 
+import { ReactReduxContext, connect } from 'react-redux';
+
 import SEO from '../SEO';
 import Flex from '../Flex';
 import Footer from '../LayoutFooter';
@@ -9,38 +11,28 @@ import Header from '../LayoutHeader';
 import HamburgerMenu from './../Hamburger/Menu';
 
 import { header, media } from '../theme';
+import { toggleHamburgerMenu as toggleHamburgerMenuAction } from '../../state/app';
 
 class Layout extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
 
     this.state = {
-      menuToggle: false,
       searchToggle: false,
       searchValue: '',
-      hasScroll: false
+      searchFromUrl: '/',
+      searchBackBtn: false
     };
-    this.mediaQueryListener = null;
-    this.onMatchMQ = mediaQueryListener => this._onMatchMQ(mediaQueryListener);
-    this.toggleMenu = toggle => this._toggleMenu(toggle);
     this.toggleSearch = toggle => this._toggleSearch(toggle);
     this.onSearch = toggle => this._onSearch(toggle);
   }
 
+  static contextType = ReactReduxContext;
+
   componentDidMount = () => {
-    window.addEventListener('scroll', this._handleOnScroll);
-
-    if (!window.matchMedia) return;
-    const large = media.getSize('large');
-    this.mediaQueryListener = window.matchMedia(`(max-width: ${large.min}px)`);
-    this.mediaQueryListener.addListener(this.onMatchMQ);
-    this.onMatchMQ();
-
-
-
-
     if (this.props.search && this.props.search.display) {
       const values = queryString.parse(this.props.location.search);
+
       if (values.q) {
         this.toggleSearch(true);
         this.setState({ searchValue: values.q });
@@ -48,15 +40,15 @@ class Layout extends React.Component {
         this.toggleSearch(false);
         this.setState({ searchValue: '' });
       }
+      if (this.props.location.state) {
+        const fromUrl = this.props.location.state.fromUrl || '/';
+        if (fromUrl) {
+          this.setState({ searchFromUrl: fromUrl });
+        }
+      }
+      const backBtn = this.props.search.backBtn || false;
+      this.setState({ searchBackBtn: backBtn });
     }
-
-  };
-
-  componentWillUnmount = () => {
-    window.removeEventListener('scroll', this._handleOnScroll);
-
-    this.mediaQueryListener &&
-      this.mediaQueryListener.removeListener(this.onMatchMQ);
   };
 
   componentDidUpdate = prevprops => {
@@ -65,47 +57,28 @@ class Layout extends React.Component {
       (this.props.location.state && this.props.location.state.fromHamburger)
     ) {
       document.body.style.overflow = 'auto';
-      this.toggleMenu(false);
+      this.context.store.dispatch(toggleHamburgerMenuAction(false));
     }
   };
 
-  _onMatchMQ() {
-    this.toggleMenu(false);
-  }
-
-  _handleOnScroll = () => {
-    this.setState({
-      hasScroll: !!window.scrollY
-    });
-  };
-
-  _toggleMenu(toggle) {
-    this.setState({ menuToggle: toggle }, () => {
-      if (!this.state.menuToggle) {
-        document.body.style.overflow = 'auto';
-      } else {
-        window.scrollTo(0, 0);
-        document.body.style.overflow = 'hidden';
-      }
-    });
-  }
-
-  _toggleSearch(toggle) {
+  _toggleSearch = toggle => {
     this.setState({ searchToggle: toggle });
+    const isHamburgerMenuOpen = this.context.store.getState().app.isHamburgerMenuOpen;
     // if hamburger menu is open then close it
-    if (toggle && this.state.menuToggle) {
-      this.toggleMenu(false);
+    if (toggle && isHamburgerMenuOpen) {
+      this.context.store.dispatch(toggleHamburgerMenuAction(false));
     }
-  }
+  };
 
-  _onSearch(options) {
+  _onSearch = options => {
     navigate('/search?q=' + options, {
-      replace: true
+      replace: true,
+      state: { fromUrl: this.props.location.pathname }
     });
-  }
+  };
 
   render() {
-    const { children, location, search } = this.props;
+    const { children, location} = this.props;
 
     return (
       <Flex
@@ -118,15 +91,15 @@ class Layout extends React.Component {
         <SEO />
         <Header
           location={location}
-          onHamburgerButton={this.toggleMenu}
-          hamburgerButtonActive={this.state.menuToggle}
+
           onSearchButton={this.toggleSearch}
           onSearch={this.onSearch}
           searchButtonActive={this.state.searchToggle}
           searchValue={this.state.searchValue}
-          hasScroll={this.state.hasScroll}
+          searchFromUrl={this.state.searchFromUrl}
+          searchBackBtn={this.state.searchBackBtn}
         />
-        <HamburgerMenu active={this.state.menuToggle} />
+        <HamburgerMenu />
         <Flex
           direction='column'
           shrink='0'
@@ -134,7 +107,12 @@ class Layout extends React.Component {
           overflow='auto'
           valign='stretch'
           css={{
-            marginTop: header.height
+            [media.lessThan('large')]: {
+              marginTop: header.mobile.height
+            },
+            [media.greaterThan('large')]: {
+              marginTop: header.desktop.height
+            }
           }}
         >
           {children}
@@ -145,4 +123,6 @@ class Layout extends React.Component {
   }
 }
 
-export default Layout;
+export default connect(
+  state => ({ isHamburgerMenuOpen: state.app.isHamburgerMenuOpen })
+)(Layout);
