@@ -2,7 +2,7 @@
 templateKey: ios-guideline
 title: Filter Feedback
 date: 2019-01-11T00:15:32.894Z
-featuredImage: "/img/patterns/filter-feedback.png"
+picture: "/img/patterns/filter-feedback.png"
 description: >-
   Filter Feedback
 tags:

@@ -96,7 +96,7 @@ class LearningList extends React.Component {
                     }
                   }}
                 >
-                  <img src={post.frontmatter.featuredImage.publicURL} />
+                  <img src={post.frontmatter.picture.publicURL} />
                 </div>
                 <div
                   css={{
@@ -184,7 +184,7 @@ export default props => (
                 templateKey
                 description
                 date(formatString: "MMMM DD, YYYY")
-                featuredImage {
+                picture {
                   id
                   publicURL
                 }

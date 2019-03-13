@@ -2,7 +2,7 @@
 templateKey: ios-guideline
 title: Error Handling
 date: 2019-01-11T00:15:32.894Z
-featuredImage: "/img/patterns/error-handling.png"
+picture: "/img/patterns/error-handling.png"
 description: >-
   Error Handling
 tags:
