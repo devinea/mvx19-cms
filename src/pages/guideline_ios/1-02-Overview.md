@@ -2,7 +2,7 @@
 templateKey: ios-guideline
 title: Overview
 date: 2019-01-11T00:15:32.894Z
-featuredImage: "/img/floorplans/overview.png"
+picture: "/img/floorplans/overview.png"
 description: >-
   Chart
 tags:
