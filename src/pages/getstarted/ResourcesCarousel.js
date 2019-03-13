@@ -112,8 +112,8 @@ class ResourcesCarousel extends React.Component {
 
                   <Carousel
                     initialSlideHeight={476}
-                    initialSlideWidth={364}
-                    slideWidth='364px'
+                    initialSlideWidth={344}
+                    slideWidth='344px'
                     cellSpacing={20}
                     swiping={true}
                     renderCenterLeftControls={null}
@@ -126,8 +126,8 @@ class ResourcesCarousel extends React.Component {
                       <div
                         key={idx}
                         css={{
-                          paddingLeft: 20,
-                          paddingRight: 20
+                          paddingLeft: 10,
+                          paddingRight: 10
                         }}
                       >
                         <Card

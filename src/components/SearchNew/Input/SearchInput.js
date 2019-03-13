@@ -67,12 +67,20 @@ class SearchInput extends Component {
             opacity: 1
           }),
           [media.lessThan('large')]: {
-            width: `calc(100% - ${header.mobile.paddingLeft}px - ${header.mobile.paddingRight}px)`,
-            top: `calc( ( ${header.mobile.height}px - ${header.mobile.search.height}px) / 2)`
+            width: `calc(100% - ${header.mobile.paddingLeft}px - ${
+              header.mobile.paddingRight
+            }px)`,
+            top: `calc( ( ${header.mobile.height}px - ${
+              header.mobile.search.height
+            }px) / 2)`
           },
           [media.greaterThan('large')]: {
-            width: `calc(100% - ${header.desktop.paddingLeft}px - ${header.desktop.paddingRight}px)`,
-            top: `calc( ( ${header.desktop.height}px - ${header.desktop.search.height}px) / 2)`
+            width: `calc(100% - ${header.desktop.paddingLeft}px - ${
+              header.desktop.paddingRight
+            }px)`,
+            top: `calc( ( ${header.desktop.height}px - ${
+              header.desktop.search.height
+            }px) / 2)`
           }
         }}
       >
@@ -98,10 +106,14 @@ class SearchInput extends Component {
             textAlign: 'right',
             position: 'relative',
             [media.lessThan('large')]: {
-              width: `calc(100% - 24px - ${header.mobile.paddingLeft}px - 24px - ${header.mobile.paddingRight}px)`
+              width: `calc(100% - 24px - ${
+                header.mobile.paddingLeft
+              }px - 24px - ${header.mobile.paddingRight}px)`
             },
             [media.greaterThan('large')]: {
-              width: `calc(100% - 24px - ${header.desktop.paddingLeft}px - 24px - ${header.desktop.paddingRight}px)`
+              width: `calc(100% - 24px - ${
+                header.desktop.paddingLeft
+              }px - 24px - ${header.desktop.paddingRight}px)`
             }
           }}
         >
@@ -112,11 +124,12 @@ class SearchInput extends Component {
             autoFocus={true}
             ref={this.searchInput}
             css={{
+              fontSize: 14,
               border: 'none',
               backgroundColor: colors.gray_100,
               borderRadius: 20,
               outline: 'none',
-              color: colors.gray_500,
+              color: colors.gray_700,
               paddingLeft: 40,
               paddingRight: 20,
               backgroundImage: 'url(' + searchIcon + ')',
@@ -125,6 +138,9 @@ class SearchInput extends Component {
               backgroundSize: '24px 24px',
               width: '100%',
               transition: 'height 0.3s',
+              borderColor: 'transparent',
+              borderStyle: 'solid',
+              borderWidth: 1,
               [media.lessThan('medium')]: {
                 height: header.mobile.search.height
               },
@@ -136,6 +152,13 @@ class SearchInput extends Component {
               },
               [media.greaterThan('xlarge')]: {
                 height: header.desktop.search.height
+              },
+              ':hover': {
+                borderColor: colors.blue_300
+              },
+              ':focus': {
+                backgroundColor: colors.white,
+                borderColor: colors.gray_400
               },
               '::placeholder': {
                 fontStyle: 'italic'
