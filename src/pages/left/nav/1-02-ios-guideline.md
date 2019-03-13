@@ -7,12 +7,36 @@ version: '1.02'
 leftmenu:
   menu:
     - subItem: Foundation
-    - subItem: Views
+    - submenu:
+              items:
+                - subItem: Calendar
+                - subItem: Data Table
+                - subItem: Header Chart
+                - subItem: KPI Header
+                - subItem: Profile Header
+                - subItem: Timeline Preview
+      subItem: Views
       category: views    
-    - subItem: Patterns
+    - submenu:
+              items:
+                - subItem: Chart Types
+                - subItem: Create
+                - subItem: Error Handling
+                - subItem: Feedback
+                - subItem: Filter Feedback
+                - subItem: Filter
+      subItem: Patterns
       category: patterns    
-    - subItem: Floorplans   
-      category: floorplans 
+    - submenu:
+              items:
+                - subItem: Chart
+                - subItem: List Report
+                - subItem: Map
+                - subItem: Object Details
+                - subItem: Object
+                - subItem: Overview
+      subItem: Floorplans   
+      category: floorplans
     - submenu:
         items:
           - subItem: Action Sheet

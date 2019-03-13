@@ -23,7 +23,6 @@ const Panel = (props) => (
                         boxShadow: '0 5px 15px 0 rgba(0, 0, 0, 0.15)',
                         transform: 'translateY(-5px)',
                         transitionDuration: '0.5s',
-                        transitionTimingFunction: 'ease',
                         transitionTimingFunction: 'cubic-bezier(0.25, 0.1, 0.25, 1)'
                     }
                 }}
@@ -33,9 +32,11 @@ const Panel = (props) => (
                     padding: 10,
                     width: 260
                 }}
-                     sizes={props.data.frontmatter.featuredImage.childImageSharp.sizes || {}} />
+                   imgStyle={{padding: 10,
+                     width: 260}}
+                     sizes={props.data.frontmatter.featuredImage.childImageSharp.sizes} />
             </div>
-            <div cssz={{
+            <div css={{
                 color: colors.gray_700,
                 fontSize: 16,
                 fontWeight: 'normal',

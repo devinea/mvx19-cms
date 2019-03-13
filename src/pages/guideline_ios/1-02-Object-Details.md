@@ -2,7 +2,7 @@
 templateKey: ios-guideline
 title: Object Details
 date: 2019-01-11T00:15:32.894Z
-featuredImage: "/img/floorplans/map.png"
+featuredImage: "/img/floorplans/object-details.png"
 description: >-
   Map
 tags:

@@ -2,7 +2,7 @@
 templateKey: ios-guideline
 title: Chart
 date: 2019-01-11T00:15:32.894Z
-featuredImage: "/img/floorplans/chart.png"
+featuredImage: "/img/floorplan/chart.png"
 description: >-
   Chart
 tags:
@@ -11,7 +11,7 @@ tags:
 version: '1.02'
 onOverview: true
 categories:
-  - Patterns
+  - Floorplans
 ---
 
 

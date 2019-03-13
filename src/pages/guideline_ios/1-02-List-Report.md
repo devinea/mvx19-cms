@@ -2,7 +2,7 @@
 templateKey: ios-guideline
 title: List Report
 date: 2019-01-11T00:15:32.894Z
-featuredImage: "/img/floorplans/map.png"
+featuredImage: "/img/floorplans/list-report.png"
 description: >-
   Map
 tags:

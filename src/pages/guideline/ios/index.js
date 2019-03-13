@@ -98,10 +98,7 @@ export default class GuidelineIosIndexPage extends React.Component {
 
                           explore.map((p, panelIdx) => {
                             if (p.node.frontmatter.categories && p.node.frontmatter.categories.includes(tab.node.title)) {
-
-                              // return p.node.frontmatter.map((info, idx) => {
-                                return <Panel key={panelIdx} data={p.node} />;
-                              // })
+                               return <Panel key={panelIdx} data={p.node} />;
                             }
                             return ''
                           })
@@ -208,7 +205,7 @@ export const pageQuery = graphql`
                 }
             }
         }
-        explore: allMarkdownRemark(limit: 24, sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {templateKey: {eq: "ios-guideline"}, onOverview: {eq: true}}}) {
+        explore: allMarkdownRemark(limit: 24, sort: {order: ASC, fields: [frontmatter___title]}, filter: {frontmatter: {templateKey: {eq: "ios-guideline"}, onOverview: {eq: true}}}) {
             edges {
                 node {
                     excerpt(pruneLength: 400)
