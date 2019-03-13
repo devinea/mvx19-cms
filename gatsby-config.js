@@ -57,7 +57,31 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/static/img/controls`,
-        name: 'uploads'
+        name: 'uploads_controls'
+      }
+    },
+    {
+      // keep as first gatsby-source-filesystem plugin for gatsby image support
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static/img/views`,
+        name: 'uploads_views'
+      }
+    },
+    {
+      // keep as first gatsby-source-filesystem plugin for gatsby image support
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static/img/patterns`,
+        name: 'uploads_patterns'
+      }
+    },
+    {
+      // keep as first gatsby-source-filesystem plugin for gatsby image support
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static/img/floorplans`,
+        name: 'uploads_floorplans'
       }
     },
     {
