@@ -44,11 +44,12 @@ export default class GuidelineIosIndexPage extends React.Component {
   }
 
   render() {
-    const { data, location } = this.props;
-    const frontmatter = data.ios.edges[0].node.frontmatter;
+    const { data, location, pageContext } = this.props;
+    const explore = data.explore.edges;
+    const panels = data.tabs.edges;
     const posts = data.posts.edges;
-    const panels = data.panels.edges[0].node.data;
-    const options = data.ios.edges[0].node.frontmatter.tabs;
+    console.log('TESTTT', data);
+    
     return (
       <Layout location={location}>
         <Flex
@@ -158,41 +159,39 @@ export default class GuidelineIosIndexPage extends React.Component {
               letter-spacing: 0.11px;
               line-height: 43px;`}>explore Fiori for iOS</h1>
               {this.state.mediumSize ?
-                <Dropdown options={options} />
+                <Dropdown options={panels} />
                 :
                 <Tabs>
-                  {frontmatter.tabs.map((tab, idx) => {
+                  {panels.map((tab, idx) => {
                     return (
-                      <div label={tab.label} key={idx}>
+                      <div label={tab.node.title} key={idx}>
                         <h3 css={css`
                     color: ${colors.gray_600};
                     font-size: 20px;
                     font-weight: normal;
                     line-height: 32px;
                     margin-bottom: 40px;
-                    `}>{tab.description}</h3>
+                    `}>{tab.node.desc}</h3>
                         <div css={css`
                       display: flex;
                       flex-wrap: wrap;
                       justify-content: space-between;
                       `}>
                           {
-                            panels.map((p) => {
-                              if (p.title === tab.label) {
-                                return p.data.map((info, idx) => {
-                                  return <Panel key={idx} data={info} />;
-                                })
+
+                            explore.map((p, panelIdx) => {
+                              if (p.node.frontmatter.categories && p.node.frontmatter.categories.includes(tab.node.title)) {
+                                return <Panel key={panelIdx} data={p.node} />;
                               }
                               return ''
                             })
                           }
                         </div>
-                        <SeeAllButton data={tab}></SeeAllButton>
+                        <SeeAllButton link={`${location.pathname}/${pageContext.curVersion}/${tab.node.title}`} text={tab.node.title}></SeeAllButton>
                       </div>
                     );
                   })}
-                </Tabs>
-              }
+                </Tabs>}
             </div>
             <div
               css={{
@@ -218,16 +217,18 @@ export default class GuidelineIosIndexPage extends React.Component {
                 }
               }}
             >
-              <h1 css={css`
-              color: ${colors.gray_600};
-              font-family: 72-Regular;
-              font-size: 36px;
-              font-weight: normal;
-              height: 43px;
-              letter-spacing: 0.11px;
-              line-height: 43px;
-              padding: 0 76px 22px 76px;
-              `}>{"what's new"}</h1>
+              <h1 css={{
+              color: colors.gray_600,
+              fontSize: 36,
+              fontWeight: 'normal',
+              height: 43,
+              lineHeight: 43,
+              padding: '0 76px 22px 76px',
+              [media.lessThan('large')]: {
+                height: 125,
+                padding: '0px'
+              }
+              }}>{"what's new"}</h1>
               {posts.map((post) => {
                 return (
                   <Link to={post.node.fields.slug} key={post.node.id}>
@@ -251,6 +252,10 @@ export default class GuidelineIosIndexPage extends React.Component {
                         minWidth: media.getSize('xlarge').width,
                         maxWidth: media.getSize('xlarge').width
                       },
+                      [media.lessThan('large')]: {
+                        height: 125,
+                        padding: '15px 0px'
+                      },
                       ':hover': {
                         borderRadius: 7,
                         boxShadow: '0 0 10px 0 ${colors.gray_200}',
@@ -258,16 +263,16 @@ export default class GuidelineIosIndexPage extends React.Component {
                       }
                     }}>
                       <h2 css={{
-                    fontFamily: '72-Light',
-                    fontSize: 28,
-                    fontWeight: 300,
-                    height: 31,
-                    letterSpacing: 0,
-                    marginBottom: 15,
-                    [media.lessThan('large')]: {
-                      fontSize: 24
-                    }
-                    }}>{post.node.frontmatter.title}</h2>
+                        fontFamily: '72-Light',
+                        fontSize: 28,
+                        fontWeight: 300,
+                        height: 31,
+                        letterSpacing: 0,
+                        marginBottom: 15,
+                        [media.lessThan('large')]: {
+                          fontSize: 24
+                        }
+                      }}>{post.node.frontmatter.title}</h2>
                       <p css={css`
                     color: ${colors.gray_700};
                     font-family: 72-Regular;
@@ -277,17 +282,17 @@ export default class GuidelineIosIndexPage extends React.Component {
                     line-height: 24px;
                     `}>{post.node.frontmatter.description}</p>
                       <div css={{
-                    color: colors.gray_700,
-                    fontFamily: '72-Light',
-                    fontSize: 14,
-                    fontWeight: 300,
-                    height: 16,
-                    letterSpacing: '0.04',
-                    padding: '20px 0',
-                    [media.lessThan('large')]: {
-                      display: 'none'
-                    }
-                    }}>{post.node.frontmatter.date}</div>
+                        color: colors.gray_700,
+                        fontFamily: '72-Light',
+                        fontSize: 14,
+                        fontWeight: 300,
+                        height: 16,
+                        letterSpacing: '0.04',
+                        padding: '20px 0',
+                        [media.lessThan('large')]: {
+                          display: 'none'
+                        }
+                      }}>{post.node.frontmatter.date}</div>
                     </div>
                   </Link>
                 )
@@ -302,107 +307,85 @@ export default class GuidelineIosIndexPage extends React.Component {
 }
 
 export const pageQuery = graphql`
-query IosGuidelinePageQuery($curVersion: String!) {
-    panels: allConceptsJson(filter: { name: { eq: "iOS" } }) {
-      edges {
-        node {
-          name
-          data {
-            type
-            title
-            data {
-              title
-              image {
-                src
-              }
-              url
-            }
-          }
-        }
-      }
-    },
-      leftNav: allMarkdownRemark(
-          filter: {
-              frontmatter: { templateKey: { eq: "left-nav" }, srcTemplateKey: { eq: "ios-guideline"}, version: { eq: $curVersion } }
-          }
-      ) {
-          edges {
-              node {
-                  id
-                  fields{
-                      leftNavFlattened {
-                          id
-                          slug
-                          title
-                          parentId
-                          hasChildren
-                          navTitle
-                      }
-                  }
-              }
-          }
-      },
-      ios: allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "ios-guideline" } } }
-        ) {
-          edges {
-            node {
-              excerpt(pruneLength: 400)
-              id
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                templateKey
-                description
-                date(formatString: "MMMM DD, YYYY")
-                tabs {
-                  label
-                  description,
-                  url
+    query IosGuidelinePageQuery($curVersion: String!) {
+        tabs: allCategoriesJson (sort: {order: ASC, fields: [ordinal]}){
+            edges {
+                node {
+                    title
+                    desc
+                    ordinal
                 }
-                tags
-                featuredImage {
-                  childImageSharp {
-                    sizes(maxWidth: 75) {
-                      ...GatsbyImageSharpSizes
-                    }
-                  }
-                }
-              }
             }
-          }
         },
-        posts: allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
-        ) {
-          edges {
-            node {
-              excerpt(pruneLength: 400)
-              id
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                templateKey
-                description
-                date(formatString: "MMMM DD, YYYY")
-                featuredImage {
-                  childImageSharp {
-                    sizes(maxWidth: 75) {
-                      ...GatsbyImageSharpSizes
+        leftNav: allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "left-nav"}, srcTemplateKey: {eq: "ios-guideline"}, version: {eq: $curVersion}}}) {
+            edges {
+                node {
+                    id
+                    fields {
+                        leftNavFlattened {
+                            id
+                            slug
+                            title
+                            parentId
+                            hasChildren
+                            navTitle
+                        }
                     }
-                  }
                 }
-              }
             }
-          }
         }
-    }`;
+        explore: allMarkdownRemark(limit: 24, sort: {order: ASC, fields: [frontmatter___title]}, filter: {frontmatter: {templateKey: {eq: "ios-guideline"}, onOverview: {eq: true}}}) {
+            edges {
+                node {
+                    excerpt(pruneLength: 400)
+                    id
+                    fields {
+                        slug
+                    }
+                    frontmatter {
+                        title
+                        templateKey
+                        description
+                        date(formatString: "MMMM DD, YYYY")
+                        categories
+                        tags
+                        featuredImage {
+                            childImageSharp {
+                                sizes(maxWidth: 260, maxHeight: 125) {
+                                    ...GatsbyImageSharpSizes
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        posts: allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {templateKey: {eq: "blog-post"}}}) {
+            edges {
+                node {
+                    excerpt(pruneLength: 400)
+                    id
+                    fields {
+                        slug
+                    }
+                    frontmatter {
+                        title
+                        templateKey
+                        description
+                        date(formatString: "MMMM DD, YYYY")
+                        featuredImage {
+                            childImageSharp {
+                                sizes(maxWidth: 75) {
+                                    ...GatsbyImageSharpSizes
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;
 
 
 

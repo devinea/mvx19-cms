@@ -1,10 +1,11 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { Link } from 'gatsby';
+import Img from 'gatsby-image';
 import { colors } from '../theme';
 
 const Panel = (props) => (
-    <Link to={props.data.url}>
+    <Link to={props.data.fields.slug}>
         <div css={{
             marginBottom: 24
         }}>
@@ -22,16 +23,18 @@ const Panel = (props) => (
                         boxShadow: '0 5px 15px 0 rgba(0, 0, 0, 0.15)',
                         transform: 'translateY(-5px)',
                         transitionDuration: '0.5s',
-                        transitionTimingFunction: 'ease',
                         transitionTimingFunction: 'cubic-bezier(0.25, 0.1, 0.25, 1)'
                     }
                 }}
             >
-                <img css={{
+
+              <Img css={{
                     padding: 10,
                     width: 260
                 }}
-                    src={props.data.image.src} />
+                   imgStyle={{padding: 10,
+                     width: 260}}
+                     sizes={props.data.frontmatter.featuredImage.childImageSharp.sizes} />
             </div>
             <div css={{
                 color: colors.gray_700,
@@ -39,7 +42,7 @@ const Panel = (props) => (
                 fontWeight: 'normal',
                 height: 24
             }}>
-                {props.data.title}
+                {props.data.frontmatter.title}
             </div>
         </div>
     </Link>
