@@ -208,7 +208,7 @@ export const pageQuery = graphql`
                 }
             }
         }
-        explore: allMarkdownRemark(limit: 6, sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {templateKey: {eq: "ios-guideline"}, onOverview: {eq: true}}}) {
+        explore: allMarkdownRemark(limit: 24, sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {templateKey: {eq: "ios-guideline"}, onOverview: {eq: true}}}) {
             edges {
                 node {
                     excerpt(pruneLength: 400)
@@ -225,7 +225,7 @@ export const pageQuery = graphql`
                         tags
                         featuredImage {
                             childImageSharp {
-                                sizes(maxWidth: 75) {
+                                sizes(maxWidth: 260, maxHeight: 125) {
                                     ...GatsbyImageSharpSizes
                                 }
                             }

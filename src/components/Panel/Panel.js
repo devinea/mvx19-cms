@@ -28,13 +28,14 @@ const Panel = (props) => (
                     }
                 }}
             >
-                <Img css={{
+
+              <Img css={{
                     padding: 10,
                     width: 260
                 }}
-                     sizes={props.data.frontmatter.featuredImage.childImageSharp.sizes} />
+                     sizes={props.data.frontmatter.featuredImage.childImageSharp.sizes || {}} />
             </div>
-            <div css={{
+            <div cssz={{
                 color: colors.gray_700,
                 fontSize: 16,
                 fontWeight: 'normal',

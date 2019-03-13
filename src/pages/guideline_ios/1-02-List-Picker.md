@@ -9,7 +9,7 @@ tags:
   - Foundation
   - SAP Fiori
 version: '1.02'
-onOverview: true
+onOverview: false
 categories:
   - Controls
 ---

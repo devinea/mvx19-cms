@@ -15,9 +15,12 @@ leftmenu:
       category: floorplans 
     - submenu:
         items:
+          - subItem: Action Sheet
+          - subItem: Attachments
           - subItem: Buttons
           - subItem: Input Field
           - subItem: Slider
+          - subItem: Switches
       subItem: Controls
       category: controls
 

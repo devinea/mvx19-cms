@@ -10,7 +10,8 @@ tags:
   - SAP Fiori
 version: '1.02'
 onOverview: true
-
+categories:
+  - Patterns
 ---
 
 
