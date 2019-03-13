@@ -2,7 +2,7 @@
 templateKey: ios-guideline
 title: Chart
 date: 2019-01-11T00:15:32.894Z
-picture: "/img/floorplan/chart.png"
+picture: "/img/floorplans/chart.png"
 description: >-
   Chart
 tags:
