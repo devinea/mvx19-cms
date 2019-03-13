@@ -28,12 +28,70 @@ collections:
       - {label: "Angular Docs Path", name: "angularFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental-ngx", required: false}
       - {label: "React Docs Path", name: "reactFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental-react", required: false}
       - {label: "Version No.", name: "version", widget: "select", options: ["1.01", "1.02", "1.03","1.04", "1.05"]}
+      - {label: 'Show in Overview Page', name: 'onOverview', widget: 'boolean', default: false }
+      - {label: "Explore Categories", name: "categories", widget: "relation", collection: "categories", searchFields: ["title", "desc"], valueField: "title", displayFields: ["title"], required: false, multiple: true }
+  - name: "fioriiosguideline"
+    label: "Fiori IOS"
+    folder: "src/pages/guideline_ios"
+    create: true
+    slug: "{{fields.version}}-{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "web-guideline"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Featured Image", name: "featuredImage", widget: "image", tagname: ''}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown", default: "# Intro \n # Usage \n # Responsiveness and Adaptiveness \n # Types  \n # Components  \n # Behavior and Interaction \n # Styles \n # Guidelines \n # Exceptions \n #  Resources"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Fundamentals Docs Path", name: "fundamentalsFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental/components", required: false}
+      - {label: "Angular Docs Path", name: "angularFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental-ngx", required: false}
+      - {label: "React Docs Path", name: "reactFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental-react", required: false}
+      - {label: "Version No.", name: "version", widget: "select", options: ["1.01", "1.02", "1.03","1.04", "1.05"]}
+      - {label: 'Show in Overview Page', name: 'onOverview', widget: 'boolean', default: false }
+      - {label: "Explore Categories", name: "categories", widget: "relation", collection: "categories", searchFields: ["title", "desc"], valueField: "title", displayFields: ["title"], required: false, multiple: true }
+  - name: "fioriandroidguideline"
+    label: "Fiori Android"
+    folder: "src/pages/guideline_android"
+    create: true
+    slug: "{{fields.version}}-{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "web-guideline"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Featured Image", name: "featuredImage", widget: "image", tagname: ''}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown", default: "# Intro \n # Usage \n # Responsiveness and Adaptiveness \n # Types  \n # Components  \n # Behavior and Interaction \n # Styles \n # Guidelines \n # Exceptions \n #  Resources"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Fundamentals Docs Path", name: "fundamentalsFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental/components", required: false}
+      - {label: "Angular Docs Path", name: "angularFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental-ngx", required: false}
+      - {label: "React Docs Path", name: "reactFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental-react", required: false}
+      - {label: "Version No.", name: "version", widget: "select", options: ["1.01", "1.02", "1.03","1.04", "1.05"]}
+      - {label: 'Show in Overview Page', name: 'onOverview', widget: 'boolean', default: false }
+      - {label: "Explore Categories", name: "categories", widget: "relation", collection: "categories", searchFields: ["title", "desc"], valueField: "title", displayFields: ["title"], required: false, multiple: true }
+  - name: "fioricuxguideline"
+    label: "Fiori CUX"
+    folder: "src/pages/guideline_cux"
+    create: true
+    slug: "{{fields.version}}-{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "cux-guideline"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Featured Image", name: "featuredImage", widget: "image", tagname: ''}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown", default: "# Intro \n # Usage \n # Responsiveness and Adaptiveness \n # Types  \n # Components  \n # Behavior and Interaction \n # Styles \n # Guidelines \n # Exceptions \n #  Resources"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Fundamentals Docs Path", name: "fundamentalsFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental/components", required: false}
+      - {label: "Angular Docs Path", name: "angularFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental-ngx", required: false}
+      - {label: "React Docs Path", name: "reactFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental-react", required: false}
+      - {label: "Version No.", name: "version", widget: "select", options: ["1.01", "1.02", "1.03","1.04", "1.05"]}
+      - {label: 'Show in Overview Page', name: 'onOverview', widget: 'boolean', default: false }
+      - {label: "Explore Categories", name: "categories", widget: "relation", collection: "categories", searchFields: ["title", "desc"], valueField: "title", displayFields: ["title"], required: false, multiple: true }
   - name: "leftnav"
     label: "Menu Left Navigation"
     folder: "src/pages/left/nav"
     create: true
     slug: "{{fields.version}}-{{fields.srcTemplateKey}}"
-    identifier_field: slug
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "left-nav"}
       - {label: "Content Template Key", name: "srcTemplateKey", widget: "select", options: ["web-guideline", "ios-guideline", "android-guideline"]}
@@ -52,8 +110,9 @@ collections:
                 name: 'subItem'
                 widget: 'relation'
                 collection: 'fioriwebguideline'
-                searchFields: ['title', 'slug']
+                searchFields: ["version", 'title', 'slug']
                 valueField: 'title'
+                displayFields: ["version", "title"]
               - label: 'SubMenu'
                 name: 'submenu'
                 widget: 'object'
@@ -66,61 +125,10 @@ collections:
                         name: 'subItem'
                         widget: 'relation'
                         collection: 'fioriwebguideline'
-                        searchFields: ['title', 'slug']
+                        searchFields: ["version", 'title', 'slug']
                         valueField: 'title'
+                        displayFields: ["version", "title"]
 
-  - name: "fioriiosguideline"
-    label: "Fiori IOS"
-    folder: "src/pages/guideline_ios"
-    create: true
-    slug: "{{fields.version}}-{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "web-guideline"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Featured Image", name: "featuredImage", widget: "image", tagname: ''}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown", default: "# Intro \n # Usage \n # Responsiveness and Adaptiveness \n # Types  \n # Components  \n # Behavior and Interaction \n # Styles \n # Guidelines \n # Exceptions \n #  Resources"}
-      - {label: "Tags", name: "tags", widget: "list"}
-      - {label: "Fundamentals Docs Path", name: "fundamentalsFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental/components", required: false}
-      - {label: "Angular Docs Path", name: "angularFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental-ngx", required: false}
-      - {label: "React Docs Path", name: "reactFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental-react", required: false}
-      - {label: "Version No.", name: "version", widget: "select", options: ["1.01", "1.02", "1.03","1.04", "1.05"]}
-      - {label: "Category", name: "category", widget: "select", options: ["Controls", "Views", "Patterns", "Floorplans"]}
-  - name: "fioriandroidguideline"
-    label: "Fiori Android"
-    folder: "src/pages/guideline_android"
-    create: true
-    slug: "{{fields.version}}-{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "web-guideline"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Featured Image", name: "featuredImage", widget: "image", tagname: ''}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown", default: "# Intro \n # Usage \n # Responsiveness and Adaptiveness \n # Types  \n # Components  \n # Behavior and Interaction \n # Styles \n # Guidelines \n # Exceptions \n #  Resources"}
-      - {label: "Tags", name: "tags", widget: "list"}
-      - {label: "Fundamentals Docs Path", name: "fundamentalsFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental/components", required: false}
-      - {label: "Angular Docs Path", name: "angularFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental-ngx", required: false}
-      - {label: "React Docs Path", name: "reactFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental-react", required: false}
-      - {label: "Version No.", name: "version", widget: "select", options: ["1.01", "1.02", "1.03","1.04", "1.05"]}
-  - name: "fioricuxguideline"
-    label: "Fiori CUX"
-    folder: "src/pages/guideline_cux"
-    create: true
-    slug: "{{fields.version}}-{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "cux-guideline"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Featured Image", name: "featuredImage", widget: "image", tagname: ''}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown", default: "# Intro \n # Usage \n # Responsiveness and Adaptiveness \n # Types  \n # Components  \n # Behavior and Interaction \n # Styles \n # Guidelines \n # Exceptions \n #  Resources"}
-      - {label: "Tags", name: "tags", widget: "list"}
-      - {label: "Fundamentals Docs Path", name: "fundamentalsFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental/components", required: false}
-      - {label: "Angular Docs Path", name: "angularFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental-ngx", required: false}
-      - {label: "React Docs Path", name: "reactFile", widget: "fileSelect", url: ".netlify/git/github/contents/static/docs/fundamental-react", required: false}
-      - {label: "Version No.", name: "version", widget: "select", options: ["1.01", "1.02", "1.03","1.04", "1.05"]}
   - name: "blog"
     label: "Blog"
     folder: "src/pages/blog"
@@ -255,3 +263,17 @@ collections:
     - {label: "Template Key", name: "templateKey", widget: "hidden", default: "version-config"}
     - {label: "Content Template Key", name: "srcTemplateKey", widget: "select", options: ["web-guideline", "ios-guideline", "android-guideline","cux-guideline"]}
     - {label: "Version No.", name: "version", widget: "select", options: ["1.01", "1.02", "1.03","1.04", "1.05"]}
+  - name: "categories"
+    label: "Explore Overview Categories"
+    folder: "src/pages/categories"
+    create: true
+    extension: "json"
+    format: "json"
+    editor:
+      preview: false
+    slug: "{{slug}}"
+    identifier_field: title
+    fields:
+      - {label: 'Overview Page Category', name: 'title', widget: 'string' }
+      - {label: 'Overview Page Category Description', name: 'desc', widget: 'string'}
+      - {label: 'Ordinal', name: 'ordinal', widget: 'number'}
