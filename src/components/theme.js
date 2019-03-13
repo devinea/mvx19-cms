@@ -3,7 +3,9 @@ const colors = {
   black: '#000000',
 
   blue_300: '#0A6ED1',
+  blue_500: '#67B2F0',
   blue_600: '#427CAC',
+
   blue_800: '#354A5F',
   blue_900: '#2B3845',
 
@@ -19,14 +21,29 @@ const colors = {
 };
 
 const header = {
-  height: 64
-}
+  desktop: {
+    height: 64,
+    paddingLeft: 40,
+    paddingRight: 40,
+    search: {
+      height: 40
+    }
+  },
+  mobile: {
+    height: 50,
+    paddingLeft: 20,
+    paddingRight: 20,
+    search: {
+      height: 34
+    }
+  }
+};
 
 const SIZES = {
-  small: { min: 0, max: 599, width: 304 },
-  medium: { min: 600, max: 1023, width: 528 },
-  large: { min: 1024, max: 1279, width: 828 },
-  xlarge: { min: 1280, max: Infinity, width: 984 },
+  small: { min: 0, max: 599, width: 304, column: 64, gutter: 16 },
+  medium: { min: 600, max: 1023, width: 528, column: 52, gutter: 16 },
+  large: { min: 1024, max: 1279, width: 828, column: 47, gutter: 24 },
+  xlarge: { min: 1280, max: Infinity, width: 984, column: 60, gutter: 24 }
 };
 
 const media = {
@@ -34,14 +51,14 @@ const media = {
     if (excludeLarge) {
       return `@media (min-width: ${
         SIZES[smallKey].min
-        }px) and (max-width: ${SIZES[largeKey].min - 1}px)`;
+      }px) and (max-width: ${SIZES[largeKey].min - 1}px)`;
     } else {
       if (SIZES[largeKey].max === Infinity) {
         return `@media (min-width: ${SIZES[smallKey].min}px)`;
       } else {
         return `@media (min-width: ${SIZES[smallKey].min}px) and (max-width: ${
           SIZES[largeKey].max
-          }px)`;
+        }px)`;
       }
     }
   },
@@ -68,7 +85,7 @@ const media = {
     } else {
       return media.between(key, key);
     }
-  },
+  }
 };
 
 const linkStyle = {
@@ -193,7 +210,7 @@ const sharedStyles = {
     },
 
     '& table': {
-      color: colors.gray_500,
+      color: colors.gray_500
     },
 
     '& ol, & ul': {

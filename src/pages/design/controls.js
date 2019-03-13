@@ -41,7 +41,7 @@ class DesignControlsIndexPage extends React.Component {
               transform: translateZ(0);
               `} key={data.id} to={data.fields.slug} >
                   <Img css={css`max-height: 90%;`} imgStyle={{ 'objectFit': 'contain' }}
-                    sizes={data.frontmatter.featuredImage.childImageSharp.sizes} />
+                    sizes={data.frontmatter.picture.childImageSharp.sizes} />
                   <div css={
                     css`
                     bottom: 0;
@@ -66,8 +66,7 @@ export default props => (
     allMarkdownRemark(
       sort: { order: ASC, fields: [frontmatter___title] },
       filter: { frontmatter: {
-        templateKey: { eq: "design-guideline-post" }
-        iscontrol: { eq: true }
+        templateKey: { eq: "web-guideline" }
         }}
     ) {
       edges {
@@ -79,8 +78,7 @@ export default props => (
           frontmatter {
             title
             templateKey
-            iscontrol
-             featuredImage {
+             picture {
               childImageSharp {
                 sizes {
                   ...GatsbyImageSharpSizes

@@ -14,6 +14,4 @@ require('./src/styles/global.css');
 window.React = React;
 window.ReactDOM = ReactDOM;
 
-// A stub function is needed because gatsby won't load this file otherwise
-// (https://github.com/gatsbyjs/gatsby/issues/6759)
-exports.onClientEntry = () => {};
+export { default as wrapRootElement } from './src/state/ReduxWrapper';

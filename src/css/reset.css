@@ -37,3 +37,7 @@ img {
   display: inline-block;
   vertical-align: top;
 }
+
+ul.slider-list {
+  margin: 0 auto !important;
+}

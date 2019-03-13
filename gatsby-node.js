@@ -2,6 +2,10 @@ const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
+const webVersion = require('./src/pages/versions/web-version.json')
+const iosVersion = require('./src/pages/versions/ios-version.json')
+const androidVersion = require('./src/pages/versions/android-version.json')
+const cuxVersion = require('./src/pages/versions/android-version.json')
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
@@ -9,7 +13,7 @@ exports.createPages = ({ actions, graphql }) => {
   return graphql(`
     {
       allMarkdownRemark(limit: 1000, 
-      filter: { frontmatter: { templateKey: { ne: "web-left-nav" } } }
+      filter: { frontmatter: { templateKey: { ne: "left-nav" } } }
       ) {
         edges {
           node {
@@ -25,7 +29,17 @@ exports.createPages = ({ actions, graphql }) => {
             }
           }
         }
-      }
+      },
+      allVersionsJson {
+          edges {
+            node {
+              id
+              templateKey
+              srcTemplateKey
+              version
+            }
+          }
+        }
     }
   `).then(result => {
     if (result.errors) {
@@ -34,22 +48,31 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     const posts = result.data.allMarkdownRemark.edges
+    const guidelineVersions = result.data.allVersionsJson.edges
 
     posts.forEach(edge => {
       const id = edge.node.id
       const version = edge.node.frontmatter.version;
-      if (edge.node.frontmatter.templateKey.includes('-guideline-post')){
+      const templateKey = edge.node.frontmatter.templateKey;
+      const guidelineKey = edge.node.frontmatter.templateKey.replace('-guideline','');
+      const URIpath = `/guideline/${guidelineKey}`;
+      if (edge.node.frontmatter.templateKey.includes('-guideline')){
+
+        const curVersions = guidelineVersions.filter(version =>
+          version.node && version.node.version && version.node.srcTemplateKey === templateKey);
+        const curVersion = (curVersions[0] && curVersions[0].node && curVersions[0].node.version) ? curVersions[0].node.version : undefined;
         createPage({
-          path: `/designguideline/${String(edge.node.frontmatter.version)}/${String(edge.node.frontmatter.title)}`,
+          path: `${URIpath}/${String(edge.node.frontmatter.version)}/${String(edge.node.frontmatter.title)}/`,
           tags: edge.node.frontmatter.tags,
           component: path.resolve(
-            `src/templates/design-guideline-post/design-guideline-post.js`
+            `src/templates/web-guideline-post/web-guideline-post.js`
           ),
           // additional data can be passed via context
           context: {
             id,
-            version
-          },
+            version,
+            templateKey,
+            curVersion          },
         })
       } else {
 
@@ -98,8 +121,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   fmImagesToRelative(node) // convert image paths for gatsby images
 
   if (node.internal.type === `MarkdownRemark`) {
-    if (node.frontmatter.templateKey.includes('-guideline-post')){
-      const value = `/designguideline/${String(node.frontmatter.version)}/${String(node.frontmatter.title)}`;
+    if (node.frontmatter.templateKey.includes('-guideline')){
+      const guidelineKey = node.frontmatter.templateKey.replace('-guideline','');
+      const URIpath = `/guideline/${guidelineKey}`;
+      const value = `${URIpath}/${String(node.frontmatter.version)}/${String(node.frontmatter.title)}/`;
       createNodeField({
         name: `slug`,
         node,
@@ -113,5 +138,120 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
     }
+  }
+}
+
+exports.sourceNodes = ({ actions, getNodes, getNode }) => {
+  const { createNodeField } = actions;
+  const leftNavs = [];
+  const markdownNodes = getNodes()
+    .filter(node => node.internal.type === "MarkdownRemark" && node.frontmatter.templateKey == 'left-nav' )
+    .forEach(node => {
+      const leftNavRes = [];
+
+      if (node.frontmatter.version) {
+          let parentId = null;
+
+            if (node.id) {
+              const leftNavResObj = {};
+              leftNavResObj.id = node.id;
+              leftNavResObj.title = node.frontmatter.title;
+              leftNavResObj.version = node.frontmatter.version;
+              leftNavResObj.navTitle = true;
+              leftNavResObj.slug = (node.frontmatter.uri) ? node.frontmatter.uri : '';
+              leftNavResObj.parentId = null;
+              // leftNavResObj.hasChildren = (node.frontmatter.leftmenu && node.frontmatter.leftmenu.menu) ? true : false;
+              leftNavResObj.hasChildren = false;
+              // parentId = leftNavResObj.id;
+              parentId = null;
+              leftNavRes.push(leftNavResObj);
+              if (node.frontmatter.leftmenu){
+              if (node.frontmatter.leftmenu.menu ) {
+                  node.frontmatter.leftmenu.menu.forEach(menu => {
+
+                      const guidelineNode = getNodes().find(
+                        node2 =>
+                          node2.internal.type === "MarkdownRemark" &&
+                          node2.frontmatter.templateKey === node.frontmatter.srcTemplateKey &&
+                          node2.frontmatter.title === menu.subItem &&
+                          node2.frontmatter.version === node.frontmatter.version
+                      );
+                      if (guidelineNode) {
+                    const leftNavResObj = {};
+                    leftNavResObj.id = (guidelineNode.id) ? guidelineNode.id : '';
+                    leftNavResObj.title = (menu.subItem) ? menu.subItem : '';
+                    leftNavResObj.navTitle = false;
+                    leftNavResObj.slug = (guidelineNode.fields.slug) ? guidelineNode.fields.slug : '';
+                    leftNavResObj.hasChildren = (menu.submenu && menu.submenu.items) ? true : false;
+                    // leftNavResObj.parentId = parentId;
+                    parentId = guidelineNode.id;
+                    leftNavRes.push(leftNavResObj);
+                    if (menu.submenu && menu.submenu.items){
+
+                      menu.submenu.items.forEach(item => {
+                        const guidelineNode = getNodes().find(
+                          node2 =>
+                            node2.internal.type === "MarkdownRemark" &&
+                            node2.frontmatter.templateKey === node.frontmatter.srcTemplateKey &&
+                            node2.frontmatter.title === item.subItem &&
+                            node2.frontmatter.version === node.frontmatter.version
+                        );
+                        if (guidelineNode) {
+                            const leftNavResObj = {};
+                            leftNavResObj.id = (guidelineNode.id) ? guidelineNode.id : '';
+                            leftNavResObj.title = (item.subItem) ? item.subItem : '';
+                            leftNavResObj.navTitle = false;
+                            leftNavResObj.slug = (guidelineNode.fields.slug) ? guidelineNode.fields.slug : '';
+                            leftNavResObj.hasChildren = false;
+                            leftNavResObj.parentId = parentId;
+                            leftNavRes.push(leftNavResObj);
+                        }
+                      })
+
+                    }
+                      }
+                  })
+                }
+              }
+            }
+        }
+      const id = node.id;
+      leftNavs.push({id,leftNavRes});
+      })
+
+  Object.entries(leftNavs).forEach(([id, leftNavRes]) => {
+    createNodeField({
+      node: getNode(leftNavRes.id),
+      name: "leftNavFlattened",
+      value: leftNavRes.leftNavRes,
+    });
+  });
+};
+
+
+exports.onCreatePage = ({ page, actions }) => {
+
+  const { createPage, deletePage } = actions
+  let curVersion
+  if (page.path === '/guideline/web/' ||
+      page.path === '/guideline/android/' ||
+      page.path === '/guideline/cux/' ||
+      page.path === '/guideline/ios/') {
+
+    curVersion = undefined;
+    curVersion = (page.path === '/guideline/web/') ?  webVersion.version : curVersion;
+    curVersion = (page.path === '/guideline/ios/') ?  iosVersion.version : curVersion;
+    curVersion = (page.path === '/guideline/android/') ?  androidVersion.version : curVersion;
+    curVersion = (page.path === '/guideline/cux/') ?  cuxVersion.version : curVersion;
+
+        deletePage(page)
+        // You can access the variable "house" in your page queries now
+        createPage({
+          ...page,
+          context: {
+            curVersion
+          },
+        })
+
   }
 }

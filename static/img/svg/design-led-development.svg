@@ -1,31 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="113px" height="86px" viewBox="0 0 113 86" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
-    <title>Group 11</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <filter x="-15.8%" y="-15.4%" width="131.6%" height="130.8%" filterUnits="objectBoundingBox" id="filter-1">
-            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.13 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
-            <feMerge>
-                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
-                <feMergeNode in="SourceGraphic"></feMergeNode>
-            </feMerge>
-        </filter>
-    </defs>
-    <g id="Get-Started" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Get-Started---Desktop-984" transform="translate(-270.000000, -1019.000000)" fill-rule="nonzero">
-            <g id="Group-22" transform="translate(232.000000, 970.000000)">
-                <g id="Group-11" transform="translate(38.000000, 51.000000)">
-                    <g id="Group-11-Copy-2" fill="#297794">
-                        <path d="M76,39 L38,78 L0,39 L38,0 L76,39 Z" id="Combined-Shape"></path>
-                    </g>
-                    <g id="Group-11-Copy-3" filter="url(#filter-1)" transform="translate(33.000000, 0.000000)" fill="#5DCCF5">
-                        <path d="M76,39 L38,78 L0,39 L38,0 L76,39 Z" id="Combined-Shape"></path>
-                    </g>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="105" viewBox="0 0 120 105">
+  <g fill="none" transform="translate(6 13)">
+    <path fill="#297794" d="M76,39 L38,78 L-4.26325641e-14,39 L38,1.91846539e-13 L76,39 Z"/>
+    <path fill="#5DCCF5" d="M109,39 L71,78 L33,39 L71,1.91846539e-13 L109,39 Z"/>
+  </g>
 </svg>

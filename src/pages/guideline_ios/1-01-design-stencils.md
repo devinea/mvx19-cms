@@ -1,21 +1,17 @@
 ---
-templateKey: design-guideline-post
+templateKey: ios-guideline
 title: Design Stencils
-featuredImage: >-
-  https://raw.githubusercontent.com/devinea/mvx19-cms/sandbox/static/img/sketch.png
+picture: "/img/sketch.png"
 date: 2019-03-04T12:54:42.183Z
 description: >-
   Design stencils are ready-to-use drafts of SAP Fiori floorplans and UI
   elements. For high-fidelity mockups, you can use Axure RP with the extended
   SAP Fiori design stencil set. The download package also includes the SAP icon
   font and SAP’s proprietary typeface “72”.
-iscontrol: true
 version: '1.01'
-leftnavorder:
-  l1: 4
-  l2: 1
-  l3: 0
-  l4: 0
+onOverview: false
+categories:
+  - Patterns
 ---
 # Intro 
  # Usage 

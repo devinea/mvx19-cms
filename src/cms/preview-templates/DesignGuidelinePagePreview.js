@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { DesignGuidelinePostTemplate } from '../../templates/design-guideline-post/design-guideline-post'
+import { DesignGuidelinePostTemplate } from '../../templates/web-guideline-post/web-guideline-post'
 
 const DesignGuidelinePagePreview = ({ entry, getAsset, widgetFor }) => {
   const entryBlurbs = entry.getIn(['data', 'intro', 'blurbs'])
