@@ -8,15 +8,47 @@ import { media, colors } from '../../../components/theme';
 import ResourcesList from '../../../components/ResourceList/ResourcesList';
 import Tabs from '../../../components/Tabs';
 import Panel from '../../../components/Panel';
+import Dropdown from '../../../components/Dropdown';
 import SeeAllButton from '../../../components/SeeAllButton';
 import { css } from '@emotion/core';
 
 export default class GuidelineIosIndexPage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      mediumSize: false
+    };
+
+    this.mediaQueryListener = null;
+    this.onMatchMQ = mediaQueryListener => this._onMatchMQ(mediaQueryListener);
+    this.isSmallSize = toggle => this._isSmallSize(toggle);
+  }
+
+  componentDidMount = () => {
+    if (!window.matchMedia) return;
+    const medium = media.getSize('medium');
+    this.mediaQueryListener = window.matchMedia(`(max-width: ${medium.max}px)`);
+    this.mediaQueryListener.addListener(this.onMatchMQ);
+
+    this.setState({ mediumSize: this.mediaQueryListener.matches });
+  };
+
+  componentWillUnmount = () => {
+    this.mediaQueryListener &&
+      this.mediaQueryListener.removeListener(this.onMatchMQ);
+  };
+
+  _onMatchMQ(mql) {
+    this.setState({ mediumSize: mql.matches });
+  }
+
   render() {
     const { data, location } = this.props;
     const frontmatter = data.ios.edges[0].node.frontmatter;
     const posts = data.posts.edges;
     const panels = data.panels.edges[0].node.data;
+    const options = data.ios.edges[0].node.frontmatter.tabs;
     return (
       <Layout location={location}>
         <Flex
@@ -33,8 +65,10 @@ export default class GuidelineIosIndexPage extends React.Component {
           <div
             css={{
               width: '100%',
+              display: 'flex',
+              flexFlow: 'column',
               [media.lessThan('large')]: {
-                marginTop: '50px'
+                marginTop: 40
               }
             }}
           >
@@ -45,22 +79,47 @@ export default class GuidelineIosIndexPage extends React.Component {
                 backgroundImage: 'url(' + iosBackground + ')',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'calc(50% + 400px)',
-                backgroundSize: '906px 400px'
+                backgroundSize: '906px 400px',
+                [media.lessThan('medium')]: {
+                  backgroundImage: 'none'
+                }
               }}
             >
               <div css={{
                 width: 828,
                 margin: '0 auto',
                 paddingBottom: 60,
-                paddingTop: 40
+                paddingTop: 40,
+                [media.greaterThan('small')]: {
+                  minWidth: media.getSize('small').width,
+                  maxWidth: media.getSize('small').width
+                },
+                [media.greaterThan('medium')]: {
+                  minWidth: media.getSize('medium').width,
+                  maxWidth: media.getSize('medium').width
+                },
+                [media.greaterThan('large')]: {
+                  minWidth: media.getSize('large').width,
+                  maxWidth: media.getSize('large').width
+                },
+                [media.greaterThan('xlarge')]: {
+                  minWidth: media.getSize('xlarge').width,
+                  maxWidth: media.getSize('xlarge').width
+                }
               }}>
-              <h1 css={{
-                      color: colors.gray_600,
-                      fontSize: 45,
-                      fontWeight: 300,
-                      paddingTop: 30,
-                      width: '36%'
-                    }}>Design and Develop delightful iOS mobile apps.</h1>
+                <h1 css={{
+                  color: colors.gray_600,
+                  fontSize: 45,
+                  fontWeight: 300,
+                  paddingTop: 30,
+                  width: '36%',
+                  [media.lessThan('large')]: {
+                    fontSize: 28
+                  },
+                  [media.lessThan('medium')]: {
+                    fontSize: 30
+                  }
+                }}>Design and Develop delightful iOS mobile apps.</h1>
               </div>
             </div>
             <div css={{
@@ -68,7 +127,28 @@ export default class GuidelineIosIndexPage extends React.Component {
               margin: '0 auto',
               paddingBottom: 60,
               paddingTop: 40,
-              transition: 'width 0.3s ease-in-out'
+              transition: 'width 0.3s ease-in-out',
+              display: 'inline-block',
+              [media.lessThan('large')]: {
+                display: 'flex',
+                justifyContent: 'space-evenly'
+              },
+              [media.greaterThan('small')]: {
+                minWidth: media.getSize('small').width,
+                maxWidth: media.getSize('small').width
+              },
+              [media.greaterThan('medium')]: {
+                minWidth: media.getSize('medium').width,
+                maxWidth: media.getSize('medium').width
+              },
+              [media.greaterThan('large')]: {
+                minWidth: media.getSize('large').width,
+                maxWidth: media.getSize('large').width
+              },
+              [media.greaterThan('xlarge')]: {
+                minWidth: media.getSize('xlarge').width,
+                maxWidth: media.getSize('xlarge').width
+              }
             }}>
               <h1 css={css`
               color: ${colors.gray_600};
@@ -77,45 +157,65 @@ export default class GuidelineIosIndexPage extends React.Component {
               font-weight: normal;
               letter-spacing: 0.11px;
               line-height: 43px;`}>explore Fiori for iOS</h1>
-              <Tabs>
-                {frontmatter.tabs.map((tab, idx) => {
-                  return (
-                    <div label={tab.label} key={idx}>
-                      <h3 css={css`
+              {this.state.mediumSize ?
+                <Dropdown options={options} />
+                :
+                <Tabs>
+                  {frontmatter.tabs.map((tab, idx) => {
+                    return (
+                      <div label={tab.label} key={idx}>
+                        <h3 css={css`
                     color: ${colors.gray_600};
                     font-size: 20px;
                     font-weight: normal;
                     line-height: 32px;
                     margin-bottom: 40px;
                     `}>{tab.description}</h3>
-                      <div css={css`
+                        <div css={css`
                       display: flex;
                       flex-wrap: wrap;
                       justify-content: space-between;
                       `}>
-                        {
-                          panels.map((p) => {
-                            if (p.title === tab.label) {
-                              return p.data.map((info, idx) => {
-                                return <Panel key={idx} data={info} />;
-                              })
-                            }
-                            return ''
-                          })
-                        }
+                          {
+                            panels.map((p) => {
+                              if (p.title === tab.label) {
+                                return p.data.map((info, idx) => {
+                                  return <Panel key={idx} data={info} />;
+                                })
+                              }
+                              return ''
+                            })
+                          }
+                        </div>
+                        <SeeAllButton data={tab}></SeeAllButton>
                       </div>
-                      <SeeAllButton data={tab}></SeeAllButton>
-                    </div>
-                  );
-                })}
-              </Tabs>
+                    );
+                  })}
+                </Tabs>
+              }
             </div>
             <div
               css={{
                 width: 984,
                 margin: '0 auto',
                 paddingBottom: 20,
-                transition: 'width 0.3s ease-in-out'
+                transition: 'width 0.3s ease-in-out',
+                [media.greaterThan('small')]: {
+                  minWidth: media.getSize('small').width,
+                  maxWidth: media.getSize('small').width
+                },
+                [media.greaterThan('medium')]: {
+                  minWidth: media.getSize('medium').width,
+                  maxWidth: media.getSize('medium').width
+                },
+                [media.greaterThan('large')]: {
+                  minWidth: media.getSize('large').width,
+                  maxWidth: media.getSize('large').width
+                },
+                [media.greaterThan('xlarge')]: {
+                  minWidth: media.getSize('xlarge').width,
+                  maxWidth: media.getSize('xlarge').width
+                }
               }}
             >
               <h1 css={css`
@@ -131,22 +231,43 @@ export default class GuidelineIosIndexPage extends React.Component {
               {posts.map((post) => {
                 return (
                   <Link to={post.node.fields.slug} key={post.node.id}>
-                    <div css={css`
-                  height: 180px;
-                  width: 984px;
-                  padding: 15px 76px;
-                  :hover {
-                    border-radius: 7px 7px 7px 7px;
-                    box-shadow: 0 0 10px 0 ${colors.gray_200};
-                    cursor: pointer;
-                  }`}>
-                      <h2 css={css`
-                    font-family: 72-Light;
-                    font-size: 28px;
-                    font-weight: 300;
-                    height: 31px;
-                    letter-spacing: 0;
-                    margin-bottom: 15px;`}>{post.node.frontmatter.title}</h2>
+                    <div css={{
+                      height: 180,
+                      width: 984,
+                      padding: '15px 76px',
+                      [media.greaterThan('small')]: {
+                        minWidth: media.getSize('small').width,
+                        maxWidth: media.getSize('small').width
+                      },
+                      [media.greaterThan('medium')]: {
+                        minWidth: media.getSize('medium').width,
+                        maxWidth: media.getSize('medium').width
+                      },
+                      [media.greaterThan('large')]: {
+                        minWidth: media.getSize('large').width,
+                        maxWidth: media.getSize('large').width
+                      },
+                      [media.greaterThan('xlarge')]: {
+                        minWidth: media.getSize('xlarge').width,
+                        maxWidth: media.getSize('xlarge').width
+                      },
+                      ':hover': {
+                        borderRadius: 7,
+                        boxShadow: '0 0 10px 0 ${colors.gray_200}',
+                        cursor: 'pointer'
+                      }
+                    }}>
+                      <h2 css={{
+                    fontFamily: '72-Light',
+                    fontSize: 28,
+                    fontWeight: 300,
+                    height: 31,
+                    letterSpacing: 0,
+                    marginBottom: 15,
+                    [media.lessThan('large')]: {
+                      fontSize: 24
+                    }
+                    }}>{post.node.frontmatter.title}</h2>
                       <p css={css`
                     color: ${colors.gray_700};
                     font-family: 72-Regular;
@@ -155,15 +276,18 @@ export default class GuidelineIosIndexPage extends React.Component {
                     height: 48px;
                     line-height: 24px;
                     `}>{post.node.frontmatter.description}</p>
-                      <div css={css`
-                    color: ${colors.gray_700};
-                    font-family: 72-Light;
-                    font-size: 14px;
-                    font-weight: 300;
-                    height: 16px;
-                    letter-spacing: 0.04px;
-                    padding: 20px 0;
-                    `}>{post.node.frontmatter.date}</div>
+                      <div css={{
+                    color: colors.gray_700,
+                    fontFamily: '72-Light',
+                    fontSize: 14,
+                    fontWeight: 300,
+                    height: 16,
+                    letterSpacing: '0.04',
+                    padding: '20px 0',
+                    [media.lessThan('large')]: {
+                      display: 'none'
+                    }
+                    }}>{post.node.frontmatter.date}</div>
                     </div>
                   </Link>
                 )
