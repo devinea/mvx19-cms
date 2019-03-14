@@ -22,7 +22,6 @@ class TagRoute extends React.Component {
     } tagged with “${tag}”`;
 
     return (
-      <Layout location={location}>
         <section className='section'>
           <Helmet title={`${tag} | ${title}`} />
           <div className='container content'>
@@ -40,7 +39,6 @@ class TagRoute extends React.Component {
             </div>
           </div>
         </section>
-      </Layout>
     );
   }
 }

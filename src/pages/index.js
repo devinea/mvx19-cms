@@ -28,7 +28,7 @@ export default class IndexPage extends React.Component {
     const { edges: posts } = data.allMarkdownRemark;
 
     return (
-      <Layout location={location}>
+      <div>
         <section className={`${this.state.searchToggle === 'on' ? 'search-results' : 'trending'}`}>
           <div className="content">
             <div className="header">Explore, Design and Develop with the Design System for the Enterprise</div>
@@ -94,7 +94,7 @@ export default class IndexPage extends React.Component {
             </div>
           </div>
         </section>
-      </Layout>
+        </div>
     )
   }
 }

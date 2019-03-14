@@ -1,6 +1,5 @@
 import React from 'react';
 import Flex from '../../../components/Flex';
-import Layout from '../../../components/Layout';
 import LeftNav from '../../../components/LeftNav';
 import iosBackground from '../../../img/ios_background.png';
 import { Link, graphql } from 'gatsby';
@@ -19,7 +18,6 @@ export default class GuidelineIosIndexPage extends React.Component {
     const panels = data.tabs.edges;
 
     return (
-      <Layout location={location}>
         <Flex
           direction='row'
           shrink='0'
@@ -170,9 +168,8 @@ export default class GuidelineIosIndexPage extends React.Component {
               })}
             </div>
           </div>
+          <ResourcesList resource="ios" />
         </Flex>
-        <ResourcesList resource="ios" />
-      </Layout>
     );
   }
 }

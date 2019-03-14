@@ -108,6 +108,12 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
+      resolve: 'gatsby-plugin-layout',
+      options: {
+          component: require.resolve('./src/components/Layout/index.js')
+      }
+    },     
+    {
       resolve: `gatsby-plugin-elasticlunr-search-fiori`,
       options: {
         // Fields to index
