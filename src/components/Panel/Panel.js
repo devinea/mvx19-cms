@@ -34,7 +34,7 @@ const Panel = (props) => (
                 }}
                    imgStyle={{padding: 10,
                      width: 260}}
-                     sizes={props.data.frontmatter.featuredImage.childImageSharp.sizes} />
+                     sizes={props.data.frontmatter.picture.childImageSharp.sizes} />
             </div>
             <div css={{
                 color: colors.gray_700,

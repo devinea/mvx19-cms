@@ -85,7 +85,7 @@ class LearningList extends React.Component {
         >
           {posts.map(({ node: post }) => (
             <Post
-              image={post.frontmatter.featuredImage.publicURL}
+              image={post.frontmatter.picture.publicURL}
               title={post.frontmatter.title}
               description={post.frontmatter.description}
               url={post.fields.slug}
@@ -118,7 +118,7 @@ export default props => (
                 templateKey
                 description
                 date(formatString: "MMMM DD, YYYY")
-                featuredImage {
+                picture {
                   id
                   publicURL
                 }

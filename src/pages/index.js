@@ -77,7 +77,7 @@ export default class IndexPage extends React.Component {
                         key={post.id}
                       >
                         <div className="newitem-item-content">
-                          <Img className="newitem-item-thumbnail" sizes={post.frontmatter.featuredImage.childImageSharp.sizes} />
+                          <Img className="newitem-item-thumbnail" sizes={post.frontmatter.picture.childImageSharp.sizes} />
                           <p>
                             <span className="newitem-title">{post.frontmatter.title}</span>
                           </p>
@@ -126,7 +126,7 @@ export const pageQuery = graphql`
             templateKey
             description
             date(formatString: "MMMM DD, YYYY")
-            featuredImage {
+            picture {
               childImageSharp {
                 sizes(maxWidth: 75) {
                   ...GatsbyImageSharpSizes

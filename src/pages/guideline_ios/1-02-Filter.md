@@ -2,7 +2,7 @@
 templateKey: ios-guideline
 title: Filter
 date: 2019-01-11T00:15:32.894Z
-featuredImage: "/img/patterns/filter.png"
+picture: "/img/patterns/filter.png"
 description: >-
   Filter
 tags:

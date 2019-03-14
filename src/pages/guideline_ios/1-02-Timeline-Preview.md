@@ -2,7 +2,7 @@
 templateKey: ios-guideline
 title: Timeline Preview
 date: 2019-01-11T00:15:32.894Z
-featuredImage: "/img/views/timeline-preview.png"
+picture: "/img/views/timeline-preview.png"
 description: >-
     Timeline Preview
 tags:

@@ -2,7 +2,7 @@
 templateKey: ios-guideline
 title: Data Table
 date: 2019-01-11T00:15:32.894Z
-featuredImage: "/img/views/data-table.png"
+picture: "/img/views/data-table.png"
 description: >-
     Data Table
 tags:
