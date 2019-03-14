@@ -4,7 +4,7 @@
     "data": [
       {
         "type": "tools",
-        "title": "tools",
+        "title": "Tools",
         "data": [
           {
             "title": "Fiori Toolkit for Sketch",
@@ -54,7 +54,7 @@
       },
       {
         "type": "fiori_fundamentals",
-        "title": "fiori fundamentals",
+        "title": "Fiori fundamentals",
         "data": [
           {
             "title": "Getting started with Fundamentals",
@@ -82,7 +82,7 @@
       },
       {
         "type": "angular",
-        "title": "angular",
+        "title": "Angular",
         "data": [
           {
             "title": "Getting started with Angular",
@@ -110,7 +110,7 @@
       },
       {
         "type": "react",
-        "title": "react",
+        "title": "React",
         "data": [
           {
             "title": "Getting started with React",
