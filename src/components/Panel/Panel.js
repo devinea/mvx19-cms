@@ -13,6 +13,8 @@ const Panel = (props) => (
                 backgroundColor: colors.gray_100,
                 marginBottom: 20,
                 borderRadius: 6,
+                width: 312,
+                height: 198,
                 display: 'flex',
                 alignItems: 'center',
                 ':hover': {
@@ -20,51 +22,58 @@ const Panel = (props) => (
                     transform: 'translateY(-5px)',
                     transition: 'all 0.3s ease-in-out'
                 },
-                [media.lessThan('medium')]: {
-                    height: 100,
-                    width: 144
+                [media.lessThan('xlarge')]: {
+                    width: 260,
+                    height: 198
                 },
                 [media.lessThan('large')]: {
                     width: 256,
                     height: 150
                 },
-                [media.lessThan('xlarge')]: {
-                    width: 312,
-                    height: 198
+                [media.lessThan('medium')]: {
+                    height: 100,
+                    width: 144
                 }
             }}
         >
 
             <Img css={{
                 padding: 10,
-                width: 312,
-                [media.lessThan('medium')]: {
-                    height: 100,
-                    width: 144
+
+                [media.greaterThan('xlarge')]: {
+                    width: 312,
+                    height: 198,
+                },
+                [media.lessThan('xlarge')]: {
+                    width: 260,
+                    height: 198
                 },
                 [media.lessThan('large')]: {
                     width: 256,
                     height: 150
                 },
-                [media.lessThan('xlarge')]: {
-                    width: 312,
-                    height: 198
+                [media.lessThan('medium')]: {
+                    height: 100,
+                    width: 144
                 }
             }}
                 imgStyle={{
                     padding: 10,
-                    width: 312,
-                    [media.lessThan('medium')]: {
-                        height: 100,
-                        width: 144
+                    [media.greaterThan('xlarge')]: {
+                        width: 312,
+                        height: 198,
+                    },
+                    [media.lessThan('xlarge')]: {
+                        width: 260,
+                        height: 198
                     },
                     [media.lessThan('large')]: {
                         width: 256,
                         height: 150
                     },
-                    [media.lessThan('xlarge')]: {
-                        width: 312,
-                        height: 198
+                    [media.lessThan('medium')]: {
+                        height: 100,
+                        width: 144
                     }
                 }}
                 sizes={props.data.frontmatter.picture.childImageSharp.sizes} />

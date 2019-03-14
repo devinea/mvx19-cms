@@ -150,15 +150,46 @@ export default class GuidelineIosIndexPage extends React.Component {
                 maxWidth: media.getSize('xlarge').width
               }
             }}>
-              <h1 css={css`
+              {/* <h1 css={css`
               color: ${colors.gray_600};
               font-family: 72-Regular;
               font-size: 36px;
               font-weight: normal;
               letter-spacing: 0.11px;
-              line-height: 43px;`}>explore Fiori for iOS</h1>
+              line-height: 43px;`}>explore Fiori for iOS</h1> */}
               {this.state.mediumSize ?
+              <div>
                 <Dropdown options={panels} />
+                {panels.map((tab, idx) => {
+                    return (
+                      <div label={tab.node.title} key={idx}>
+                        <h3 css={css`
+                    color: ${colors.gray_600};
+                    font-size: 20px;
+                    font-weight: normal;
+                    line-height: 32px;
+                    margin-bottom: 40px;
+                    `}>{tab.node.desc}</h3>
+                        <div css={css`
+                      display: flex;
+                      flex-wrap: wrap;
+                      justify-content: space-between;
+                      `}>
+                          {
+
+                            explore.map((p, panelIdx) => {
+                              if (p.node.frontmatter.categories && p.node.frontmatter.categories.includes(tab.node.title)) {
+                                return <Panel key={panelIdx} data={p.node} />;
+                              }
+                              return ''
+                            })
+                          }
+                        </div>
+                        <SeeAllButton link={`${location.pathname}/${pageContext.curVersion}/${tab.node.title}`} text={tab.node.title}></SeeAllButton>
+                      </div>
+                    );
+                  })}
+                </div>
                 :
                 <Tabs>
                   {panels.map((tab, idx) => {
