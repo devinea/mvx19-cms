@@ -134,7 +134,7 @@ class LeftNav extends React.Component {
       if (!menuHover || !menuContainer) {
         return;
       }
-      const hoverPosition = element.getBoundingClientRect().y - menuContainer.getBoundingClientRect().y;
+      const hoverPosition = element.getBoundingClientRect().y - menuContainer.getBoundingClientRect().y + menuContainer.scrollTop;
       menuHover.style.opacity = 1;
       menuHover.style.top = hoverPosition + 'px';
       this.isOverElement = true;
@@ -281,7 +281,8 @@ class LeftNav extends React.Component {
                 position: 'relative',
                 float: 'left',
                 width: '100%',
-                overflow: 'hidden',
+                height: 'calc(100% - 155px)',
+                overflowX: 'auto',
                 [media.lessThan('large')]: {
                   maxHeight: 0,
                   transition: 'max-height 0.3s ease-in-out',
