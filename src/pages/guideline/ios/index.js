@@ -62,7 +62,7 @@ export default class GuidelineIosIndexPage extends React.Component {
             width: '100%',
           }}
         >
-          <LeftNav data={data.leftNav.edges[0]} />
+          {/* <LeftNav data={data.leftNav.edges[0]} /> */}
           <div
             css={{
               width: '100%',
@@ -221,13 +221,7 @@ export default class GuidelineIosIndexPage extends React.Component {
               color: colors.gray_600,
               fontSize: 36,
               fontWeight: 'normal',
-              height: 43,
-              lineHeight: 43,
-              padding: '0 76px 22px 76px',
-              [media.lessThan('large')]: {
-                height: 125,
-                padding: '0px'
-              }
+              height: 43
               }}>{"what's new"}</h1>
               {posts.map((post) => {
                 return (
@@ -351,7 +345,7 @@ export const pageQuery = graphql`
                         tags
                         featuredImage {
                             childImageSharp {
-                                sizes(maxWidth: 260, maxHeight: 125) {
+                                sizes(maxWidth: 312, maxHeight: 198) {
                                     ...GatsbyImageSharpSizes
                                 }
                             }
