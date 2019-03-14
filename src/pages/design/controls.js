@@ -41,7 +41,7 @@ class DesignControlsIndexPage extends React.Component {
               transform: translateZ(0);
               `} key={data.id} to={data.fields.slug} >
                   <Img css={css`max-height: 90%;`} imgStyle={{ 'objectFit': 'contain' }}
-                    sizes={data.frontmatter.featuredImage.childImageSharp.sizes} />
+                    sizes={data.frontmatter.picture.childImageSharp.sizes} />
                   <div css={
                     css`
                     bottom: 0;
@@ -78,7 +78,7 @@ export default props => (
           frontmatter {
             title
             templateKey
-             featuredImage {
+             picture {
               childImageSharp {
                 sizes {
                   ...GatsbyImageSharpSizes

@@ -112,7 +112,7 @@ class LeftNavLink extends React.Component {
                                 content: '""',
                                 border: 0,
                                 top: 15,
-                                right: 10,
+                                right: 20,
                                 width: 14,
                                 cursor: 'pointer',
                                 fontFamily: 'SAP-icons',

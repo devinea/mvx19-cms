@@ -2,7 +2,7 @@
 templateKey: ios-guideline
 title: Header Chart
 date: 2019-01-11T00:15:32.894Z
-featuredImage: "/img/views/header-chart.png"
+picture: "/img/views/header-chart.png"
 description: >-
     Data Table
 tags:

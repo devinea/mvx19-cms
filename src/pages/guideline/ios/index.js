@@ -343,7 +343,7 @@ export const pageQuery = graphql`
                         date(formatString: "MMMM DD, YYYY")
                         categories
                         tags
-                        featuredImage {
+                        picture {
                             childImageSharp {
                                 sizes(maxWidth: 312, maxHeight: 198) {
                                     ...GatsbyImageSharpSizes
@@ -367,7 +367,7 @@ export const pageQuery = graphql`
                         templateKey
                         description
                         date(formatString: "MMMM DD, YYYY")
-                        featuredImage {
+                        picture {
                             childImageSharp {
                                 sizes(maxWidth: 75) {
                                     ...GatsbyImageSharpSizes

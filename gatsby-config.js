@@ -148,7 +148,7 @@ module.exports = {
             },
             title: node => node.frontmatter.title,
             path: node => node.fields.slug,
-            featuredImage: node => node.frontmatter.featuredImage,
+            picture: node => node.frontmatter.picture,
             description: node => node.frontmatter.description,
             version: node => node.frontmatter.version,
 

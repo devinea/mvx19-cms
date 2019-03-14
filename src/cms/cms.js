@@ -8,6 +8,7 @@ import { CacheProvider } from '@emotion/core'
 import FileSystemControl from './FileSelectControl';
 import alignableImage from './AlignableEditorImage';
 import * as ColorWidget from "netlify-cms-widget-color";
+import ColorCollectionPreview from './preview-templates/ColorCollectionPreview';
 
 // We need this for injecting the inline css into preview section of admin
 class CSSInjector extends React.Component {
@@ -52,6 +53,12 @@ CMS.registerPreviewTemplate('blog', props => (
     <BlogPostPreview {...props} />
   </CSSInjector>
 ))
+CMS.registerPreviewTemplate('colors', props => (
+  <CSSInjector>
+    <ColorCollectionPreview {...props} />
+  </CSSInjector>
+))
+
 CMS.registerEditorComponent({
   // Internal id of the component
   id: "vimeo",

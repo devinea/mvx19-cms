@@ -12,6 +12,10 @@ const Card = props => (
       width: '100%',
       display: 'inline-block',
       verticalAlign: 'top',
+      boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.5)',
+      marginBottom: 0,
+      borderRadius: 8,
+      transition: 'all 0.3s ease-in-out',
       [media.greaterThan('small')]: {
         maxWidth: 304
       },
@@ -19,14 +23,20 @@ const Card = props => (
         maxWidth: 324
       },
       [media.greaterThan('large')]: {
-        maxWidth: 331
+        maxWidth: 331,
+        ':hover': {
+          marginTop: 6,
+          marginBottom: 18,
+          boxShadow: '0 5px 15px 0 rgba(0, 0, 0, 0.6)'
+        }
       },
       [media.greaterThan('xlarge')]: {
-        maxWidth: 396
-      },
-      borderRadius: 8,
-      ':hover': {
-        boxShadow: '0 0 22px 0 rgba(0, 0, 0, 0.70)'
+        maxWidth: 396,
+        ':hover': {
+          marginTop: 6,
+          marginBottom: 18,
+          boxShadow: '0 5px 15px 0 rgba(0, 0, 0, 0.6)'
+        }
       },
       ...props.cssProps
     }}
@@ -41,8 +51,19 @@ const Card = props => (
         backgroundSize: 'cover',
         borderTopLeftRadius: 8,
         borderTopRightRadius: 8,
-        height: 238,
-        width: '100%'
+        width: '100%',
+        [media.greaterThan('small')]: {
+          height: 177
+        },
+        [media.greaterThan('medium')]: {
+          height: 199
+        },
+        [media.greaterThan('large')]: {
+          height: 199
+        },
+        [media.greaterThan('xlarge')]: {
+          height: 238
+        }
       }}
     />
     <div
@@ -50,9 +71,20 @@ const Card = props => (
         backgroundColor: colors.blue_900,
         borderBottomLeftRadius: 8,
         borderBottomRightRadius: 8,
-        height: 238,
         width: '100%',
-        position: 'relative'
+        position: 'relative',
+        [media.greaterThan('small')]: {
+          height: 177
+        },
+        [media.greaterThan('medium')]: {
+          height: 199
+        },
+        [media.greaterThan('large')]: {
+          height: 199
+        },
+        [media.greaterThan('xlarge')]: {
+          height: 238
+        }
       }}
     >
       <div
@@ -60,23 +92,26 @@ const Card = props => (
           color: colors.white,
           padding: '20px 31px 15px 31px',
           [media.greaterThan('small')]: {
+            minHeight: 85,
             fontSize: 21,
             fontWeight: 300,
             lineHeight: '23px'
           },
           [media.greaterThan('medium')]: {
+            minHeight: 95,
             fontSize: 24,
-            lineHeight: '30px',
+            lineHeight: '30px'
           },
           [media.greaterThan('large')]: {
+            minHeight: 95,
             fontSize: 24,
-            lineHeight: '30px',
+            lineHeight: '30px'
           },
           [media.greaterThan('xlarge')]: {
+            minHeight: 109,
             fontSize: 28,
-            lineHeight: '37px',
+            lineHeight: '37px'
           },
-          minHeight: 109,
           fontWeight: 300,
           width: '100%'
         }}
@@ -89,15 +124,15 @@ const Card = props => (
           padding: '0 31px',
           [media.greaterThan('medium')]: {
             fontSize: 16,
-            lineHeight: '25px',
+            lineHeight: '25px'
           },
           [media.greaterThan('large')]: {
             fontSize: 16,
-            lineHeight: '22px',
+            lineHeight: '22px'
           },
           [media.greaterThan('xlarge')]: {
             fontSize: 18,
-            lineHeight: '24px',
+            lineHeight: '24px'
           },
           fontWeight: 'normal',
           width: '100%',
@@ -125,22 +160,21 @@ const Card = props => (
             textTransform: 'uppercase',
             lineHeight: '24px',
             fontWeight: 700,
-            color: colors.blue_500,
+            color: colors.white,
             [media.greaterThan('large')]: {
-              fontSize: 12,
+              fontSize: 12
             },
             [media.greaterThan('xlarge')]: {
-              fontSize: 14,
+              fontSize: 14
             },
             ':hover': {
-              color: colors.blue_500
+              color: colors.blue_300
             }
           }}
           to={props.data.url}
         >
           {props.data.action}
         </Link>
-
       </div>
     </div>
   </div>

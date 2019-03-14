@@ -2,7 +2,7 @@
 templateKey: blog-post
 title: New Sketch Plugin announced
 date: 2019-01-14T17:31:16.654Z
-featuredImage: "/img/sketch.png"
+picture: "/img/sketch.png"
 description: >-
   Rapidly design Fiori experiences on the platform of your choice using the new
   Fiori Toolkit available on Sketch

@@ -3,10 +3,11 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import Flex from '../../components/Flex';
 
-import { colors, media } from '../../components/theme';
-import ResourcesList from '../../components/ResourceList/ResourcesList';
-import LearningList from '../../components/LearningList/LearningList';
+import ResourcesList from './ResourcesList';
+import LearningList from './LearningList';
 import ResourcesCarousel from './ResourcesCarousel';
+
+import { colors, media } from '../../components/theme';
 
 class GetStarted extends React.Component {
   constructor(props) {
@@ -71,16 +72,27 @@ class GetStarted extends React.Component {
             css={{
               textAlign: 'center',
               width: '100%',
-              fontSize: 46,
+              lineHeight: '43px',
               fontWeight: 700,
-              color: colors.gray_600,
-              marginTop: 100,
+              color: colors.gray_700,
               marginBottom: 105,
-              [media.lessThan('medium')]: {
-                fontSize: 26,
-                lineHeight: '43px',
-                marginTop: 60,
-                marginBottom: 60
+              [media.greaterThan('small')]: {
+                marginTop: 42,
+                marginBottom: 50,
+                fontSize: 28
+              },
+              [media.greaterThan('medium')]: {
+                fontSize: 40,
+                marginTop: 100
+              },
+              [media.greaterThan('large')]: {
+                fontSize: 40,
+                marginTop: 100
+              },
+              [media.greaterThan('xlarge')]: {
+                fontSize: 60,
+                marginTop: 100,
+                marginBottom: 140
               }
             }}
           >
