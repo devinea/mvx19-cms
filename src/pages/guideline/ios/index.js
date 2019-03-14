@@ -48,8 +48,7 @@ export default class GuidelineIosIndexPage extends React.Component {
     const explore = data.explore.edges;
     const panels = data.tabs.edges;
     const posts = data.posts.edges;
-    console.log('TESTTT', data);
-    
+
     return (
       <Layout location={location}>
         <Flex
