@@ -62,7 +62,7 @@ export default class GuidelineIosIndexPage extends React.Component {
             width: '100%',
           }}
         >
-          {/* <LeftNav data={data.leftNav.edges[0]} /> */}
+          <LeftNav data={data.leftNav.edges[0]} />
           <div
             css={{
               width: '100%',
@@ -252,8 +252,11 @@ export default class GuidelineIosIndexPage extends React.Component {
                       },
                       ':hover': {
                         borderRadius: 7,
-                        boxShadow: '0 0 10px 0 ${colors.gray_200}',
-                        cursor: 'pointer'
+                        cursor: 'pointer',
+                        transition: 'all 0.3s',
+                        ':hover': {
+                          boxShadow: '0 0 22px 0 rgba(0, 0, 0, 0.10)'
+                        },
                       }
                     }}>
                       <h2 css={{
