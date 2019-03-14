@@ -31,7 +31,7 @@ ColorList.defaultProps = {
 
 ColorList.propTypes = {
   name: PropTypes.string,
-  colors: PropTypes.object,
+  colors: PropTypes.array,
 }
 
 export default ColorList
