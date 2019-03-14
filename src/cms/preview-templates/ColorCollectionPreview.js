@@ -20,7 +20,7 @@ const ColorCollectionPreview = ({ entry, widgetsFor }) => {
                 <ColorList 
                     key={index}
                     name={colorGroups.getIn(['data', 'name'])}
-                    colors={colorGroups.getIn(['data', 'colors'])} // Returns an 'array of objects' containing color 'data' from CMS
+                    colors={colorGroups.toJS().data.colors}
                 />
                 )}
             </div>

@@ -83,6 +83,11 @@ class Color extends React.Component {
   }
 }
 
+Color.defaultProps = {
+  name: "<Color Name>",
+  description: "<Description>",
+}
+
 Color.propTypes = {
   name: PropTypes.string,
   light: PropTypes.string,
