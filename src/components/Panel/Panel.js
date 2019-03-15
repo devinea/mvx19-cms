@@ -4,10 +4,31 @@ import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { colors, media } from '../theme';
 
+const imageDimensions = () => {
+    // React complains if it is in kebab case
+    return {
+        padding: 10,
+        [`@media (minWidth: 1280px)`]: {
+            width: 312,
+            height: 198,
+        },
+        [`@media (minWidth: 1279px)`]: {
+            width: 260,
+            height: 198
+        },
+        [`@media (minWidth: 1023px)`]: {
+            width: 256,
+            height: 150
+        },
+        [`@media (minWidth: 599px)`]: {
+            height: 100,
+            width: 144
+        }
+    }
+}
+
 const Panel = (props) => (
-    <Link to={props.data.fields.slug} css={{
-        marginBottom: 24
-    }}>
+    <Link to={props.data.fields.slug} css={{ marginBottom: 24 }}>
         <div
             css={{
                 backgroundColor: colors.gray_100,
@@ -37,45 +58,8 @@ const Panel = (props) => (
             }}
         >
 
-            <Img css={{
-                padding: 10,
-
-                [media.greaterThan('xlarge')]: {
-                    width: 312,
-                    height: 198,
-                },
-                [media.lessThan('xlarge')]: {
-                    width: 260,
-                    height: 198
-                },
-                [media.lessThan('large')]: {
-                    width: 256,
-                    height: 150
-                },
-                [media.lessThan('medium')]: {
-                    height: 100,
-                    width: 144
-                }
-            }}
-                imgStyle={{
-                    padding: 10,
-                    [media.greaterThan('xlarge')]: {
-                        width: 312,
-                        height: 198,
-                    },
-                    [media.lessThan('xlarge')]: {
-                        width: 260,
-                        height: 198
-                    },
-                    [media.lessThan('large')]: {
-                        width: 256,
-                        height: 150
-                    },
-                    [media.lessThan('medium')]: {
-                        height: 100,
-                        width: 144
-                    }
-                }}
+            <Img css={{ width: '100%', height: '100%' }}
+                imgStyle={imageDimensions()}
                 sizes={props.data.frontmatter.picture.childImageSharp.sizes} />
         </div>
         <div css={{

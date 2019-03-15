@@ -3,9 +3,9 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import Flex from '../../components/Flex';
 
-import ResourcesList from './ResourcesList';
+import ResourcesList from '../../components/ResourceList/ResourcesList'
 import LearningList from './LearningList';
-import ResourcesCarousel from './ResourcesCarousel';
+import ResourcesCarousel from '../../components/ResourcesCarousel/ResourcesCarousel';
 
 import { colors, media } from '../../components/theme';
 

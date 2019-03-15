@@ -6,15 +6,43 @@ import iosBackground from '../../../img/ios_background.png';
 import { Link, graphql } from 'gatsby';
 import { media, colors } from '../../../components/theme';
 import ResourcesList from '../../../components/ResourceList/ResourcesList';
+import ResourcesCarousel from '../../../components/ResourcesCarousel/ResourcesCarousel';
 import Tabs from '../../../components/Tabs';
 import Panel from '../../../components/Panel';
 import Dropdown from '../../../components/Dropdown';
 import SeeAllButton from '../../../components/SeeAllButton';
-import { css } from '@emotion/core';
+import { ReactReduxContext, connect } from 'react-redux';
 
-export default class GuidelineIosIndexPage extends React.Component {
-  constructor(props) {
-    super(props);
+const getWidths = () => {
+  return {
+    [media.greaterThan('small')]: {
+      minWidth: media.getSize('small').width,
+      maxWidth: media.getSize('small').width
+    },
+    [media.greaterThan('medium')]: {
+      minWidth: media.getSize('medium').width,
+      maxWidth: media.getSize('medium').width
+    },
+    [media.greaterThan('large')]: {
+      minWidth: media.getSize('large').width,
+      maxWidth: media.getSize('large').width
+    },
+    [media.greaterThan('xlarge')]: {
+      minWidth: media.getSize('xlarge').width,
+      maxWidth: media.getSize('xlarge').width
+    }
+  }
+};
+
+const getFontStyle = (color, fontSize, fontWeight) => {
+  return { color, fontSize, fontWeight };
+}
+
+class GuidelineIosIndexPage extends React.Component {
+  static contextType = ReactReduxContext;
+
+  constructor(props, context) {
+    super(props, context);
 
     this.state = {
       mediumSize: false
@@ -30,7 +58,6 @@ export default class GuidelineIosIndexPage extends React.Component {
     const medium = media.getSize('medium');
     this.mediaQueryListener = window.matchMedia(`(max-width: ${medium.max}px)`);
     this.mediaQueryListener.addListener(this.onMatchMQ);
-
     this.setState({ mediumSize: this.mediaQueryListener.matches });
   };
 
@@ -59,58 +86,36 @@ export default class GuidelineIosIndexPage extends React.Component {
           valign='stretch'
           css={{
             width: '100%',
-          }}
-        >
+          }}>
           <LeftNav data={data.leftNav.edges[0]} />
-          <div
-            css={{
-              width: '100%',
-              display: 'flex',
-              flexFlow: 'column',
-              [media.lessThan('large')]: {
-                marginTop: 40
+          <div css={{
+            width: '100%',
+            display: 'flex',
+            flexFlow: 'column',
+            [media.lessThan('large')]: {
+              marginTop: 40
+            }
+          }}>
+            <div css={{
+              backgroundColor: '#f8f9fb',
+              height: 400,
+              backgroundImage: 'url(' + iosBackground + ')',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'calc(50% + 400px)',
+              backgroundSize: '906px 400px',
+              [media.lessThan('medium')]: {
+                backgroundImage: 'none'
               }
-            }}
-          >
-            <div
-              css={{
-                backgroundColor: '#f8f9fb',
-                height: 400,
-                backgroundImage: 'url(' + iosBackground + ')',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'calc(50% + 400px)',
-                backgroundSize: '906px 400px',
-                [media.lessThan('medium')]: {
-                  backgroundImage: 'none'
-                }
-              }}
-            >
+            }}>
               <div css={{
                 width: 828,
                 margin: '0 auto',
                 paddingBottom: 60,
                 paddingTop: 40,
-                [media.greaterThan('small')]: {
-                  minWidth: media.getSize('small').width,
-                  maxWidth: media.getSize('small').width
-                },
-                [media.greaterThan('medium')]: {
-                  minWidth: media.getSize('medium').width,
-                  maxWidth: media.getSize('medium').width
-                },
-                [media.greaterThan('large')]: {
-                  minWidth: media.getSize('large').width,
-                  maxWidth: media.getSize('large').width
-                },
-                [media.greaterThan('xlarge')]: {
-                  minWidth: media.getSize('xlarge').width,
-                  maxWidth: media.getSize('xlarge').width
-                }
+                ...getWidths()
               }}>
                 <h1 css={{
-                  color: colors.gray_600,
-                  fontSize: 45,
-                  fontWeight: 300,
+                  ...getFontStyle(colors.gray_600, 45, 300),
                   paddingTop: 30,
                   width: '36%',
                   [media.lessThan('large')]: {
@@ -133,126 +138,90 @@ export default class GuidelineIosIndexPage extends React.Component {
                 display: 'flex',
                 justifyContent: 'space-evenly'
               },
-              [media.greaterThan('small')]: {
-                minWidth: media.getSize('small').width,
-                maxWidth: media.getSize('small').width
-              },
-              [media.greaterThan('medium')]: {
-                minWidth: media.getSize('medium').width,
-                maxWidth: media.getSize('medium').width
-              },
-              [media.greaterThan('large')]: {
-                minWidth: media.getSize('large').width,
-                maxWidth: media.getSize('large').width
-              },
-              [media.greaterThan('xlarge')]: {
-                minWidth: media.getSize('xlarge').width,
-                maxWidth: media.getSize('xlarge').width
-              }
+              ...getWidths()
             }}>
-              {/* <h1 css={css`
-              color: ${colors.gray_600};
-              font-family: 72-Regular;
-              font-size: 36px;
-              font-weight: normal;
-              letter-spacing: 0.11px;
-              line-height: 43px;`}>explore Fiori for iOS</h1> */}
               {this.state.mediumSize ?
-              <div>
-                <Dropdown options={panels} />
-                {panels.map((tab, idx) => {
-                    return (
-                      <div label={tab.node.title} key={idx}>
-                        <h3 css={css`
-                    color: ${colors.gray_600};
-                    font-size: 20px;
-                    font-weight: normal;
-                    line-height: 32px;
-                    margin-bottom: 40px;
-                    `}>{tab.node.desc}</h3>
-                        <div css={css`
-                      display: flex;
-                      flex-wrap: wrap;
-                      justify-content: space-between;
-                      `}>
-                          {
-
-                            explore.map((p, panelIdx) => {
-                              if (p.node.frontmatter.categories && p.node.frontmatter.categories.includes(tab.node.title)) {
-                                return <Panel key={panelIdx} data={p.node} />;
-                              }
-                              return ''
-                            })
+                <div>
+                  <div css={{
+                    display: 'flex',
+                    justifyContent: 'space-between'
+                  }}>
+                    <h1 css={{ ...getFontStyle(colors.gray_600, 36, 'normal') }}>
+                      explore Fiori for iOS
+                    </h1>
+                    <Dropdown options={panels} />
+                  </div>
+                  <div label={this.props.valueForPanels}>
+                    <h3 css={{
+                      ...getFontStyle(colors.gray_600, 20, 'normal'),
+                      marginBottom: 40
+                    }}>{
+                        panels.map((p) => {
+                          if (p.node.title === this.props.valueForPanels) {
+                            return p.node.desc;
                           }
-                        </div>
-                        <SeeAllButton link={`${location.pathname}/${pageContext.curVersion}/${tab.node.title}`} text={tab.node.title}></SeeAllButton>
-                      </div>
-                    );
-                  })}
+                          return '';
+                        })
+                      }</h3>
+                    <div css={{
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      justifyContent: 'space-between'
+                    }}>
+                      {
+                        explore.map((p, panelIdx) => {
+                          if (p.node.frontmatter.categories && p.node.frontmatter.categories.includes(this.props.valueForPanels)) {
+                            return <Panel key={panelIdx} data={p.node} />;
+                          }
+                          return ''
+                        })
+                      }
+                    </div>
+                    <SeeAllButton link={`${location.pathname}/${pageContext.curVersion}/${this.props.valueForPanels}`} text={this.props.valueForPanels}></SeeAllButton>
+                  </div>
                 </div>
                 :
-                <Tabs>
-                  {panels.map((tab, idx) => {
-                    return (
-                      <div label={tab.node.title} key={idx}>
-                        <h3 css={css`
-                    color: ${colors.gray_600};
-                    font-size: 20px;
-                    font-weight: normal;
-                    line-height: 32px;
-                    margin-bottom: 40px;
-                    `}>{tab.node.desc}</h3>
-                        <div css={css`
-                      display: flex;
-                      flex-wrap: wrap;
-                      justify-content: space-between;
-                      `}>
-                          {
-
-                            explore.map((p, panelIdx) => {
-                              if (p.node.frontmatter.categories && p.node.frontmatter.categories.includes(tab.node.title)) {
-                                return <Panel key={panelIdx} data={p.node} />;
-                              }
-                              return ''
-                            })
-                          }
+                <div>
+                  <h1 css={{ ...getFontStyle(colors.gray_600, 36, 'normal') }}>
+                    explore Fiori for iOS
+                  </h1>
+                  <Tabs>
+                    {panels.map((tab, idx) => {
+                      return (
+                        <div label={tab.node.title} key={idx}>
+                          <h3 css={{
+                            ...getFontStyle(colors.gray_600, 20, 'normal'),
+                            marginBottom: 40
+                          }}>{tab.node.desc}</h3>
+                          <div css={{
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            justifyContent: 'space-between'
+                          }}>
+                            {
+                              explore.map((p, panelIdx) => {
+                                if (p.node.frontmatter.categories && p.node.frontmatter.categories.includes(tab.node.title)) {
+                                  return <Panel key={panelIdx} data={p.node} />;
+                                }
+                                return ''
+                              })
+                            }
+                          </div>
+                          <SeeAllButton link={`${location.pathname}/${pageContext.curVersion}/${tab.node.title}`} text={tab.node.title}></SeeAllButton>
                         </div>
-                        <SeeAllButton link={`${location.pathname}/${pageContext.curVersion}/${tab.node.title}`} text={tab.node.title}></SeeAllButton>
-                      </div>
-                    );
-                  })}
-                </Tabs>}
+                      );
+                    })}
+                  </Tabs>
+                </div>}
             </div>
-            <div
-              css={{
-                width: 984,
-                margin: '0 auto',
-                paddingBottom: 20,
-                transition: 'width 0.3s ease-in-out',
-                [media.greaterThan('small')]: {
-                  minWidth: media.getSize('small').width,
-                  maxWidth: media.getSize('small').width
-                },
-                [media.greaterThan('medium')]: {
-                  minWidth: media.getSize('medium').width,
-                  maxWidth: media.getSize('medium').width
-                },
-                [media.greaterThan('large')]: {
-                  minWidth: media.getSize('large').width,
-                  maxWidth: media.getSize('large').width
-                },
-                [media.greaterThan('xlarge')]: {
-                  minWidth: media.getSize('xlarge').width,
-                  maxWidth: media.getSize('xlarge').width
-                }
-              }}
-            >
-              <h1 css={{
-              color: colors.gray_600,
-              fontSize: 36,
-              fontWeight: 'normal',
-              height: 43
-              }}>{"what's new"}</h1>
+            <div css={{
+              width: 984,
+              margin: '0 auto',
+              paddingBottom: 20,
+              transition: 'width 0.3s ease-in-out',
+              ...getWidths()
+            }}>
+              <h1 css={{ ...getFontStyle(colors.gray_600, 36, 'normal') }}>{"what's new"}</h1>
               {posts.map((post) => {
                 return (
                   <Link to={post.node.fields.slug} key={post.node.id}>
@@ -260,22 +229,7 @@ export default class GuidelineIosIndexPage extends React.Component {
                       height: 180,
                       width: 984,
                       padding: '15px 76px',
-                      [media.greaterThan('small')]: {
-                        minWidth: media.getSize('small').width,
-                        maxWidth: media.getSize('small').width
-                      },
-                      [media.greaterThan('medium')]: {
-                        minWidth: media.getSize('medium').width,
-                        maxWidth: media.getSize('medium').width
-                      },
-                      [media.greaterThan('large')]: {
-                        minWidth: media.getSize('large').width,
-                        maxWidth: media.getSize('large').width
-                      },
-                      [media.greaterThan('xlarge')]: {
-                        minWidth: media.getSize('xlarge').width,
-                        maxWidth: media.getSize('xlarge').width
-                      },
+                      ...getWidths(),
                       [media.lessThan('large')]: {
                         height: 125,
                         padding: '15px 0px'
@@ -290,31 +244,20 @@ export default class GuidelineIosIndexPage extends React.Component {
                       }
                     }}>
                       <h2 css={{
-                        fontFamily: '72-Light',
-                        fontSize: 28,
-                        fontWeight: 300,
+                        ...getFontStyle(colors.gray_600, 28, 300),
                         height: 31,
-                        letterSpacing: 0,
                         marginBottom: 15,
                         [media.lessThan('large')]: {
                           fontSize: 24
                         }
                       }}>{post.node.frontmatter.title}</h2>
-                      <p css={css`
-                    color: ${colors.gray_700};
-                    font-family: 72-Regular;
-                    font-size: 16px;
-                    font-weight: normal;
-                    height: 48px;
-                    line-height: 24px;
-                    `}>{post.node.frontmatter.description}</p>
+                      <p css={{
+                        ...getFontStyle(colors.gray_700, 16, 'normal'),
+                        height: 48
+                      }}>{post.node.frontmatter.description}</p>
                       <div css={{
-                        color: colors.gray_700,
-                        fontFamily: '72-Light',
-                        fontSize: 14,
-                        fontWeight: 300,
+                        ...getFontStyle(colors.gray_700, 14, 300),
                         height: 16,
-                        letterSpacing: '0.04',
                         padding: '20px 0',
                         [media.lessThan('large')]: {
                           display: 'none'
@@ -327,11 +270,13 @@ export default class GuidelineIosIndexPage extends React.Component {
             </div>
           </div>
         </Flex>
-        <ResourcesList resource="ios" />
+        {this.state.mediumSize ? <ResourcesCarousel resource="ios"/> : <ResourcesList resource="ios"/>}
       </Layout>
     );
   }
 }
+
+export default connect(state => ({ valueForPanels: state.app.valueForPanels }))(GuidelineIosIndexPage);
 
 export const pageQuery = graphql`
     query IosGuidelinePageQuery($curVersion: String!) {

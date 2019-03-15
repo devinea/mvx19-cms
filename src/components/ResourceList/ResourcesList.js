@@ -1,9 +1,9 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 
-import { colors, media } from '../../components/theme';
-import Flex from '../../components/Flex';
-import Card from '../../components/Card';
+import { colors, media } from '../theme';
+import Flex from '../Flex';
+import Card from '../Card';
 
 class ResourcesList extends React.Component {
   constructor(props) {
@@ -25,12 +25,16 @@ class ResourcesList extends React.Component {
             color: colors.gray_100,
             padding: '33px 0 46px 0'
           }}
-        >{category.title}</div>
+        >
+          {category.title}
+        </div>
+
         {category.data.map((entry, idx) => (
           <Card
             cssProps={{
               marginRight: 0,
-              marginBottom: 24,
+              marginBottom: 12,
+              marginTop: 12,
               ':nth-of-type(2n)': {
                 marginRight: 24
               }
@@ -40,8 +44,8 @@ class ResourcesList extends React.Component {
           />
         ))}
       </div>
-    )
-  }
+    );
+  };
 
   render() {
     return (
@@ -103,7 +107,7 @@ class ResourcesList extends React.Component {
                 marginTop: 88
               }}
             >
-              resources
+              Resources
             </h1>
 
             {
@@ -125,11 +129,11 @@ class ResourcesList extends React.Component {
           </section>
         </Flex>
       </div>
-    )
+    );
   }
-};
+}
 
-export default (props) => (
+export default props => (
   <StaticQuery
     query={graphql`
       query {
