@@ -7,9 +7,7 @@ class Typography extends React.Component {
 
     const { name, uppercase, style, color, size, height } = this.props;
     const textCase = uppercase === true ? "uppercase" : "lowercase";
-    const style72 = '72-' + style.replace( /\s/g, ''); // I think output is good but not sure if this is having an affect on rendered output...
-    console.log(style72);
-    
+
     return (
     <section>
         <table>
@@ -19,7 +17,7 @@ class Typography extends React.Component {
                     <div
                         css={css`
                             text-transform: ${textCase};
-                            font-family: ${style72};
+                            font-family: ${style};
                             color: ${color};
                             font-size: ${size}px;
                             line-height: ${height}px; /* Not sure that this.props.height in this case relates to CSS line-height... */

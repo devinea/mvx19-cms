@@ -223,7 +223,15 @@ collections:
               - label: "Style"
                 name: "style"
                 widget: "select"
-                options: ["Bold", "Bold Italic", "Black", "Condensed", "Condensed Bold", "Italic", "Light", "Regular"]
+                options: 
+                  - { label: "Bold", value: "72-Bold" }
+                  - { label: "Bold Italic", value: "72-BoldItalic" }
+                  - { label: "Black", value: "72-Black" }
+                  - { label: "Condensed", value: "72-Condensed" }
+                  - { label: "Condensed Bold", value: "72-CondensedBold" }
+                  - { label: "Italic", value: "72-Italic" }
+                  - { label: "Light", value: "72-Light" }
+                  - { label: "Regular", value: "72-Regular" }
               - label: "Color"
                 name: "color"
                 widget: "color"
@@ -231,7 +239,7 @@ collections:
               - label: "Size"
                 name: "size"
                 widget: "number"
-                default: 2
+                default: 12
                 valueType: "int"
                 min: 1
                 max: 101
@@ -239,7 +247,7 @@ collections:
               - label: "Height"
                 name: "height"
                 widget: "number"
-                default: 2
+                default: 14
                 valueType: "int"
                 min: 1
                 max: 101
