@@ -1,14 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { css } from '@emotion/core';
+import { css } from '@emotion/core'
 
 class Typography extends React.Component {
   render() {
 
     const { name, uppercase, style, color, size, height } = this.props;
     const textCase = uppercase === true ? "uppercase" : "lowercase";
-    const style72 = '72-' + style; // Not sure if this is having an affect on rendered output...?
-
+    const style72 = '72-' + style.replace( /\s/g, ''); // I think output is good but not sure if this is having an affect on rendered output...
+    console.log(style72);
+    
     return (
     <section>
         <table>
@@ -21,7 +22,7 @@ class Typography extends React.Component {
                             font-family: ${style72};
                             color: ${color};
                             font-size: ${size}px;
-                            line-height: ${height}px;
+                            line-height: ${height}px; /* Not sure that this.props.height in this case relates to CSS line-height... */
                             width: 150px;
                             text-align: right;`
                         }
@@ -55,7 +56,7 @@ Typography.defaultProps = {
   name: "<Style Name>",
   uppercase: false,
   style: "Regular",
-  color: "#ffffff",
+  color: "#000000",
   size: 12,
   height: 12,
 }

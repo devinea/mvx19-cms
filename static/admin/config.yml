@@ -223,7 +223,7 @@ collections:
               - label: "Style"
                 name: "style"
                 widget: "select"
-                options: ["Regular", "Bold", "Italic", "Condensed", "Condensed Bold", "Light"]
+                options: ["Bold", "Bold Italic", "Black", "Condensed", "Condensed Bold", "Italic", "Light", "Regular"]
               - label: "Color"
                 name: "color"
                 widget: "color"
