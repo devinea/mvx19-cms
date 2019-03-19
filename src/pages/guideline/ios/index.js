@@ -77,16 +77,22 @@ class GuidelineIosIndexPage extends React.Component {
     const explore = data.explore.edges;
     const panels = data.tabs.edges;
     const posts = data.posts.edges;
-    const bgImageDimensions = data.coverImage.childImageSharp.fluid;
-    const BackgroundWrapper = styled.div`
-      .gatsby-background-image-bgimg:after, .gatsby-background-image-bgimg:before {
-        height: 400px;
-        background-color: #f8f9fb;
-        background-repeat: no-repeat;
-        background-size: 906px 400px;
-        background-position: calc(50% + 400px);
-      }
-    `
+    const image= data.coverImage.childImageSharp.fluid;	    
+
+    const BackGroundImage = styled(BgImage)`
+    background-color: #f8f9fb;
+    height: 400;
+    background-repeat: no-repeat;
+    background-size: 906px 400px;
+
+    &:after{ 
+      background-position: calc(50% + 400px);
+     }
+
+    &:before { 
+      display:none !important;
+     }
+   `
 
     return (
       <Layout location={location}>
@@ -108,8 +114,12 @@ class GuidelineIosIndexPage extends React.Component {
               marginTop: 40
             }
           }}>
-            <BackgroundWrapper>
-              <BgImage fluid={bgImageDimensions} classId="bgimg">
+            <div>
+              <BackGroundImage fluid={image}  css={{
+                [media.lessThan('medium')]: {
+                  display: 'none'
+                }
+              }}>
                 <div css={{
                   width: 828,
                   margin: '0 auto',
@@ -129,8 +139,8 @@ class GuidelineIosIndexPage extends React.Component {
                     }
                   }}>Design and Develop delightful iOS mobile apps.</h1>
                 </div>
-              </BgImage>
-            </BackgroundWrapper>
+              </BackGroundImage>
+            </div>
             <div css={{
               width: 828,
               margin: '0 auto',
