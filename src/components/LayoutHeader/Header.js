@@ -20,7 +20,7 @@ class Header extends React.Component {
       isSearchPage: false
     };
   }
-    
+  
   render() {
     const { location } = this.props;
 
