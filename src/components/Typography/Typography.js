@@ -17,7 +17,7 @@ class Typography extends React.Component {
                     <div
                         css={css`
                             text-transform: ${textCase};
-                            font-family: ${style};
+                            font-family: "${style}";
                             color: ${color};
                             font-size: ${size}px;
                             line-height: ${height}px; /* Not sure that this.props.height in this case relates to CSS line-height... */
