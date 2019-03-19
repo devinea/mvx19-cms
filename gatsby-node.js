@@ -7,8 +7,13 @@ const iosVersion = require('./src/pages/versions/ios-version.json')
 const androidVersion = require('./src/pages/versions/android-version.json')
 const cuxVersion = require('./src/pages/versions/android-version.json')
 
+const DYNAMIC_PATHS  = [ '/guideline/web/',
+                      '/guideline/android/',
+                      '/guideline/cux/',
+                      '/guideline/ios/'];
+
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
+  const { createPage, deletePage } = actions
 
   return graphql(`
     {
@@ -113,8 +118,44 @@ exports.createPages = ({ actions, graphql }) => {
         },
       })
     })
+  }).then(() => {
+    return DYNAMIC_PATHS.forEach((pagePath) => {
+      let page = {};
+      page.path = pagePath;
+      let curVersion
+      if (DYNAMIC_PATHS.includes(page.path)) {
+
+        curVersion = undefined;
+        if (page.path === '/guideline/web/') {
+          curVersion = webVersion.version;
+          page.component = path.resolve(`src/pages/guideline/web/index.js`)
+        }
+        if (page.path === '/guideline/ios/') {
+          curVersion = iosVersion.version;
+          page.component = path.resolve(`src/pages/guideline/ios/index.js`)
+        }
+        if (page.path === '/guideline/android/') {
+          curVersion = androidVersion.version;
+          page.component = path.resolve(`src/pages/guideline/android/index.js`)
+        }
+        if (page.path === '/guideline/cux/') {
+          curVersion = cuxVersion.version;
+          page.component = path.resolve(`src/pages/guideline/cux/index.js`)
+        }
+
+        // You can access the variable "curVersion" in your page queries now
+        createPage({
+          ...page,
+          context: {
+            curVersion
+          },
+        });
+
+      }
+
+    })
   })
-}
+  }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
@@ -233,10 +274,7 @@ exports.onCreatePage = ({ page, actions }) => {
 
   const { createPage, deletePage } = actions
   let curVersion
-  if (page.path === '/guideline/web/' ||
-      page.path === '/guideline/android/' ||
-      page.path === '/guideline/cux/' ||
-      page.path === '/guideline/ios/') {
+  if (DYNAMIC_PATHS.includes(page.path)) {
 
     curVersion = undefined;
     curVersion = (page.path === '/guideline/web/') ?  webVersion.version : curVersion;
@@ -245,7 +283,7 @@ exports.onCreatePage = ({ page, actions }) => {
     curVersion = (page.path === '/guideline/cux/') ?  cuxVersion.version : curVersion;
 
         deletePage(page)
-        // You can access the variable "house" in your page queries now
+        // You can access the variable "curVersion" in your page queries now
         createPage({
           ...page,
           context: {
