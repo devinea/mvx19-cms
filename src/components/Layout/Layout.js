@@ -1,9 +1,8 @@
 import React from 'react';
-import queryString from 'query-string';
 import { navigate } from 'gatsby';
 
 import { ReactReduxContext, connect } from 'react-redux';
-
+import queryString from 'query-string';
 import SEO from '../SEO';
 import Flex from '../Flex';
 import Footer from '../LayoutFooter';
@@ -29,6 +28,17 @@ class Layout extends React.Component {
 
   static contextType = ReactReduxContext;
 
+  componentDidMount = () => {
+    if (this.props.location.pathname == '/search') {
+      const values = queryString.parse(this.props.location.search);
+      if (values.q) {
+        this.toggleSearch(true);
+        this.setState({ searchBackBtn: true });
+        this.setState({ searchValue: values.q });
+      }
+    }
+  }
+
   componentDidUpdate = prevprops => {
     if (
       this.props.location !== prevprops.location &&
@@ -40,6 +50,8 @@ class Layout extends React.Component {
     if (this.props.location !== prevprops.location && this.state.searchToggle) {
       if (this.props.location.pathname != '/search') {
         this.toggleSearch(false);
+        this.setState({ searchValue: '' });
+        this.setState({ searchBackBtn: false });
       }
     }
 
