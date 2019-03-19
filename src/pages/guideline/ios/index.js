@@ -12,8 +12,8 @@ import Panel from '../../../components/Panel';
 import Dropdown from '../../../components/Dropdown';
 import SeeAllButton from '../../../components/SeeAllButton';
 import { ReactReduxContext, connect } from 'react-redux';
-import Image from 'gatsby-background-image'
-import styled from 'react-emotion';
+import BgImage from 'gatsby-background-image'
+import styled from '@emotion/styled';
 
 const getWidths = () => {
   return {
@@ -77,23 +77,16 @@ class GuidelineIosIndexPage extends React.Component {
     const explore = data.explore.edges;
     const panels = data.tabs.edges;
     const posts = data.posts.edges;
-    const image= data.coverImage.childImageSharp.fluid;
-
-    const BgImage =() =>{ 
-      
-      return styled(Image)`
-      background-color: #f8f9fb;
-      height: 400px;
-      background-repeat: no-repeat;
-      background-size: 906px 400px;
-
-      &:after{ 
+    const bgImageDimensions = data.coverImage.childImageSharp.fluid;
+    const BackgroundWrapper = styled.div`
+      .gatsby-background-image-bgimg:after, .gatsby-background-image-bgimg:before {
+        height: 400px;
+        background-color: #f8f9fb;
+        background-repeat: no-repeat;
+        background-size: 906px 400px;
         background-position: calc(50% + 400px);
       }
-      &:before { 
-        display:none !important;
-      }
-    `}
+    `
 
     return (
       <Layout location={location}>
@@ -115,33 +108,29 @@ class GuidelineIosIndexPage extends React.Component {
               marginTop: 40
             }
           }}>
-            <div >
-             <BgImage fluid={image} css={{
-               [media.lessThan('medium')]: {
-                display: 'none'
-              }
-             }}>
-              <div css={{
-                width: 828,
-                margin: '0 auto',
-                paddingBottom: 60,
-                paddingTop: 40,
-                ...getWidths()
-              }}>
-                <h1 css={{
-                  ...getFontStyle(colors.gray_600, 45, 300),
-                  paddingTop: 30,
-                  width: '36%',
-                  [media.lessThan('large')]: {
-                    fontSize: 28
-                  },
-                  [media.lessThan('medium')]: {
-                    fontSize: 30
-                  }
-                }}>Design and Develop delightful iOS mobile apps.</h1>
-              </div>
+            <BackgroundWrapper>
+              <BgImage fluid={bgImageDimensions} classId="bgimg">
+                <div css={{
+                  width: 828,
+                  margin: '0 auto',
+                  paddingBottom: 60,
+                  paddingTop: 40,
+                  ...getWidths()
+                }}>
+                  <h1 css={{
+                    ...getFontStyle(colors.gray_600, 45, 300),
+                    paddingTop: 30,
+                    width: '36%',
+                    [media.lessThan('large')]: {
+                      fontSize: 28
+                    },
+                    [media.lessThan('medium')]: {
+                      fontSize: 30
+                    }
+                  }}>Design and Develop delightful iOS mobile apps.</h1>
+                </div>
               </BgImage>
-            </div>
+            </BackgroundWrapper>
             <div css={{
               width: 828,
               margin: '0 auto',
@@ -285,7 +274,7 @@ class GuidelineIosIndexPage extends React.Component {
             </div>
           </div>
         </Flex>
-        {this.state.mediumSize ? <ResourcesCarousel resource="ios"/> : <ResourcesList resource="ios"/>}
+        {this.state.mediumSize ? <ResourcesCarousel resource="ios" /> : <ResourcesList resource="ios" />}
       </Layout>
     );
   }
