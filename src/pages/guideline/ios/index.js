@@ -12,6 +12,8 @@ import Panel from '../../../components/Panel';
 import Dropdown from '../../../components/Dropdown';
 import SeeAllButton from '../../../components/SeeAllButton';
 import { ReactReduxContext, connect } from 'react-redux';
+import Image from 'gatsby-background-image'
+import styled from 'react-emotion';
 
 const getWidths = () => {
   return {
@@ -75,6 +77,23 @@ class GuidelineIosIndexPage extends React.Component {
     const explore = data.explore.edges;
     const panels = data.tabs.edges;
     const posts = data.posts.edges;
+    const image= data.coverImage.childImageSharp.fluid;
+
+    const BgImage =() =>{ 
+      
+      return styled(Image)`
+      background-color: #f8f9fb;
+      height: 400px;
+      background-repeat: no-repeat;
+      background-size: 906px 400px;
+
+      &:after{ 
+        background-position: calc(50% + 400px);
+      }
+      &:before { 
+        display:none !important;
+      }
+    `}
 
     return (
       <Layout location={location}>
@@ -96,17 +115,12 @@ class GuidelineIosIndexPage extends React.Component {
               marginTop: 40
             }
           }}>
-            <div css={{
-              backgroundColor: '#f8f9fb',
-              height: 400,
-              backgroundImage: 'url(' + iosBackground + ')',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'calc(50% + 400px)',
-              backgroundSize: '906px 400px',
-              [media.lessThan('medium')]: {
-                backgroundImage: 'none'
+            <div >
+             <BgImage fluid={image} css={{
+               [media.lessThan('medium')]: {
+                display: 'none'
               }
-            }}>
+             }}>
               <div css={{
                 width: 828,
                 margin: '0 auto',
@@ -126,6 +140,7 @@ class GuidelineIosIndexPage extends React.Component {
                   }
                 }}>Design and Develop delightful iOS mobile apps.</h1>
               </div>
+              </BgImage>
             </div>
             <div css={{
               width: 828,
@@ -355,6 +370,19 @@ export const pageQuery = graphql`
                     }
                 }
             }
+        }
+        coverImage: file(
+          relativePath: { regex: "/ios_background/" }
+        ) {
+          childImageSharp {
+            fluid(
+              quality: 90
+            ) {
+              ...GatsbyImageSharpFluid
+            }
+            
+          }
+          
         }
     }
 `;
