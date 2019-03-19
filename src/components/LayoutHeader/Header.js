@@ -20,10 +20,6 @@ class Header extends React.Component {
       isSearchPage: false
     };
   }
-
-  componentDidMount() {
-    console.log('mounting header!!!!!!');
-  }
     
   render() {
     const { location } = this.props;

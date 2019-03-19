@@ -76,6 +76,9 @@ class GuidelineIosIndexPage extends React.Component {
     const posts = data.posts.edges;
 
     return (
+      <div css={{
+        width: '100%'
+      }}>
         <Flex
           direction='row'
           shrink='0'
@@ -267,8 +270,9 @@ class GuidelineIosIndexPage extends React.Component {
               })}
             </div>
           </div>
-          <ResourcesList resource="ios" />
         </Flex>
+        {this.state.mediumSize ? <ResourcesCarousel resource="ios"/> : <ResourcesList resource="ios"/>}
+        </div>
     );
   }
 }

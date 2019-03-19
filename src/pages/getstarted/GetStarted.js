@@ -45,6 +45,9 @@ class GetStarted extends React.Component {
     const { location } = this.props;
 
     return (
+      <div css={{
+        width: '100%'
+      }}>
         <Flex
           direction='column'
           css={{
@@ -98,8 +101,9 @@ class GetStarted extends React.Component {
             Get started with Fiori.
           </h1>
           <LearningList />
-          {this.state.mediumSize ? <ResourcesCarousel /> : <ResourcesList />}
         </Flex>
+        {this.state.mediumSize ? <ResourcesCarousel /> : <ResourcesList />}
+        </div>
     );
   }
 }

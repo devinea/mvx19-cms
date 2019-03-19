@@ -29,28 +29,6 @@ class Layout extends React.Component {
 
   static contextType = ReactReduxContext;
 
-  componentDidMount = () => {
-    if (this.props.search && this.props.search.display) {
-      const values = queryString.parse(this.props.location.search);
-
-      if (values.q) {
-        this.toggleSearch(true);
-        this.setState({ searchValue: values.q });
-      } else {
-        this.toggleSearch(false);
-        this.setState({ searchValue: '' });
-      }
-      if (this.props.location.state) {
-        const fromUrl = this.props.location.state.fromUrl || '/';
-        if (fromUrl) {
-          this.setState({ searchFromUrl: fromUrl });
-        }
-      }
-      const backBtn = this.props.search.backBtn || false;
-      this.setState({ searchBackBtn: backBtn });
-    }
-  };
-
   componentDidUpdate = prevprops => {
     if (
       this.props.location !== prevprops.location &&
@@ -59,6 +37,12 @@ class Layout extends React.Component {
       document.body.style.overflow = 'auto';
       this.context.store.dispatch(toggleHamburgerMenuAction(false));
     }
+    if (this.props.location !== prevprops.location && this.state.searchToggle) {
+      if (this.props.location.pathname != '/search') {
+        this.toggleSearch(false);
+      }
+    }
+
   };
 
   _toggleSearch = toggle => {
@@ -91,7 +75,6 @@ class Layout extends React.Component {
         <SEO />
         <Header
           location={location}
-
           onSearchButton={this.toggleSearch}
           onSearch={this.onSearch}
           searchButtonActive={this.state.searchToggle}
