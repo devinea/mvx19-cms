@@ -2,11 +2,11 @@ import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 
 import Carousel from 'nuka-carousel';
-import PagingDots from '../../components/Carousel/PagingDots';
+import PagingDots from '../Carousel/PagingDots';
 
-import { colors, media } from '../../components/theme';
-import Flex from '../../components/Flex';
-import Card from '../../components/Card';
+import { colors, media } from '../theme';
+import Flex from '../Flex';
+import Card from '../Card';
 
 const defaultButtonStyles = disabled => ({
   border: 0,
@@ -20,6 +20,73 @@ const defaultButtonStyles = disabled => ({
 class ResourcesCarousel extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  resourcesRenderer = (category, idx) => {
+    return (
+      <div
+        key={idx}
+        css={{
+          marginBottom: 60
+        }}
+      >
+        <div
+          css={{
+            fontSize: 35,
+            fontWeight: 300,
+            color: colors.gray_100,
+            padding: '33px 0 46px 0',
+            [media.greaterThan('small')]: {
+              minWidth: media.getSize('small').width,
+              maxWidth: media.getSize('small').width,
+              margin: '0 auto'
+            },
+            [media.greaterThan('medium')]: {
+              minWidth: media.getSize('medium').width,
+              maxWidth: media.getSize('medium').width,
+              margin: '0 auto'
+            }
+          }}
+        >
+          {category.title}
+        </div>
+
+        <Carousel
+          initialSlideHeight={476}
+          initialSlideWidth={344}
+          slideWidth='344px'
+          cellSpacing={20}
+          swiping={true}
+          renderCenterLeftControls={null}
+          renderCenterRightControls={null}
+          renderBottomCenterControls={props => (
+            <PagingDots {...props} />
+          )}
+        >
+          {category.data.map((entry, idx) => (
+            <div
+              key={idx}
+              css={{
+                paddingLeft: 10,
+                paddingRight: 10
+              }}
+            >
+              <Card
+                cssProps={{
+                  marginRight: 0,
+                  marginBottom: 24,
+                  ':nth-of-type(2n)': {
+                    marginRight: 24
+                  }
+                }}
+                key={idx}
+                data={entry}
+              />
+            </div>
+          ))}
+        </Carousel>
+      </div>
+    )
   }
 
   render() {
@@ -81,72 +148,22 @@ class ResourcesCarousel extends React.Component {
               resources
             </h1>
 
-            {this.props.data.allGetstartedJson.edges[0].node.data.map(
-              (category, idx) => (
-                <div
-                  key={idx}
-                  css={{
-                    marginBottom: 60
-                  }}
-                >
-                  <div
-                    css={{
-                      fontSize: 35,
-                      fontWeight: 300,
-                      color: colors.gray_100,
-                      padding: '33px 0 46px 0',
-                      [media.greaterThan('small')]: {
-                        minWidth: media.getSize('small').width,
-                        maxWidth: media.getSize('small').width,
-                        margin: '0 auto'
-                      },
-                      [media.greaterThan('medium')]: {
-                        minWidth: media.getSize('medium').width,
-                        maxWidth: media.getSize('medium').width,
-                        margin: '0 auto'
-                      }
-                    }}
-                  >
-                    {category.title}
-                  </div>
-
-                  <Carousel
-                    initialSlideHeight={476}
-                    initialSlideWidth={344}
-                    slideWidth='344px'
-                    cellSpacing={20}
-                    swiping={true}
-                    renderCenterLeftControls={null}
-                    renderCenterRightControls={null}
-                    renderBottomCenterControls={props => (
-                      <PagingDots {...props} />
-                    )}
-                  >
-                    {category.data.map((entry, idx) => (
-                      <div
-                        key={idx}
-                        css={{
-                          paddingLeft: 10,
-                          paddingRight: 10
-                        }}
-                      >
-                        <Card
-                          cssProps={{
-                            marginRight: 0,
-                            marginBottom: 24,
-                            ':nth-of-type(2n)': {
-                              marginRight: 24
-                            }
-                          }}
-                          key={idx}
-                          data={entry}
-                        />
-                      </div>
-                    ))}
-                  </Carousel>
-                </div>
-              )
-            )}
+            {
+              this.props.resource ?
+                this.props.data.allGetstartedJson.edges[0].node.data.map(
+                  (category, idx) => {
+                    if (this.props.resource === category.type) {
+                      return this.resourcesRenderer(category, idx)
+                    }
+                  }
+                )
+                :
+                this.props.data.allGetstartedJson.edges[0].node.data.map(
+                  (category, idx) => {
+                    return this.resourcesRenderer(category, idx)
+                  }
+                )
+            }
           </section>
         </Flex>
       </div>
@@ -154,7 +171,7 @@ class ResourcesCarousel extends React.Component {
   }
 }
 
-export default () => (
+export default (props) => (
   <StaticQuery
     query={graphql`
       query {
@@ -182,6 +199,6 @@ export default () => (
         }
       }
     `}
-    render={data => <ResourcesCarousel data={data} />}
+    render={data => <ResourcesCarousel data={data} {...props}/>}
   />
 );

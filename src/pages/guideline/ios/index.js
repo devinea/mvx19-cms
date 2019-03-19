@@ -5,17 +5,75 @@ import iosBackground from '../../../img/ios_background.png';
 import { Link, graphql } from 'gatsby';
 import { media, colors } from '../../../components/theme';
 import ResourcesList from '../../../components/ResourceList/ResourcesList';
+import ResourcesCarousel from '../../../components/ResourcesCarousel/ResourcesCarousel';
 import Tabs from '../../../components/Tabs';
 import Panel from '../../../components/Panel';
+import Dropdown from '../../../components/Dropdown';
 import SeeAllButton from '../../../components/SeeAllButton';
-import { css } from '@emotion/core';
+import { ReactReduxContext, connect } from 'react-redux';
 
-export default class GuidelineIosIndexPage extends React.Component {
+const getWidths = () => {
+  return {
+    [media.greaterThan('small')]: {
+      minWidth: media.getSize('small').width,
+      maxWidth: media.getSize('small').width
+    },
+    [media.greaterThan('medium')]: {
+      minWidth: media.getSize('medium').width,
+      maxWidth: media.getSize('medium').width
+    },
+    [media.greaterThan('large')]: {
+      minWidth: media.getSize('large').width,
+      maxWidth: media.getSize('large').width
+    },
+    [media.greaterThan('xlarge')]: {
+      minWidth: media.getSize('xlarge').width,
+      maxWidth: media.getSize('xlarge').width
+    }
+  }
+};
+
+const getFontStyle = (color, fontSize, fontWeight) => {
+  return { color, fontSize, fontWeight };
+}
+
+class GuidelineIosIndexPage extends React.Component {
+  static contextType = ReactReduxContext;
+
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      mediumSize: false
+    };
+
+    this.mediaQueryListener = null;
+    this.onMatchMQ = mediaQueryListener => this._onMatchMQ(mediaQueryListener);
+    this.isSmallSize = toggle => this._isSmallSize(toggle);
+  }
+
+  componentDidMount = () => {
+    if (!window.matchMedia) return;
+    const medium = media.getSize('medium');
+    this.mediaQueryListener = window.matchMedia(`(max-width: ${medium.max}px)`);
+    this.mediaQueryListener.addListener(this.onMatchMQ);
+    this.setState({ mediumSize: this.mediaQueryListener.matches });
+  };
+
+  componentWillUnmount = () => {
+    this.mediaQueryListener &&
+      this.mediaQueryListener.removeListener(this.onMatchMQ);
+  };
+
+  _onMatchMQ(mql) {
+    this.setState({ mediumSize: mql.matches });
+  }
+
   render() {
-    const { data, location, pageContext} = this.props;
-    const posts = data.posts.edges;
+    const { data, location, pageContext } = this.props;
     const explore = data.explore.edges;
     const panels = data.tabs.edges;
+    const posts = data.posts.edges;
 
     return (
         <Flex
@@ -26,40 +84,45 @@ export default class GuidelineIosIndexPage extends React.Component {
           valign='stretch'
           css={{
             width: '100%',
-          }}
-        >
+          }}>
           <LeftNav data={data.leftNav.edges[0]} />
-          <div
-            css={{
-              width: '100%',
-              [media.lessThan('large')]: {
-                marginTop: '50px'
+          <div css={{
+            width: '100%',
+            display: 'flex',
+            flexFlow: 'column',
+            [media.lessThan('large')]: {
+              marginTop: 40
+            }
+          }}>
+            <div css={{
+              backgroundColor: '#f8f9fb',
+              height: 400,
+              backgroundImage: 'url(' + iosBackground + ')',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'calc(50% + 400px)',
+              backgroundSize: '906px 400px',
+              [media.lessThan('medium')]: {
+                backgroundImage: 'none'
               }
-            }}
-          >
-            <div
-              css={{
-                backgroundColor: '#f8f9fb',
-                height: 400,
-                backgroundImage: 'url(' + iosBackground + ')',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'calc(50% + 400px)',
-                backgroundSize: '906px 400px'
-              }}
-            >
+            }}>
               <div css={{
                 width: 828,
                 margin: '0 auto',
                 paddingBottom: 60,
-                paddingTop: 40
+                paddingTop: 40,
+                ...getWidths()
               }}>
-              <h1 css={{
-                      color: colors.gray_600,
-                      fontSize: 45,
-                      fontWeight: 300,
-                      paddingTop: 30,
-                      width: '36%'
-                    }}>Design and Develop delightful iOS mobile apps.</h1>
+                <h1 css={{
+                  ...getFontStyle(colors.gray_600, 45, 300),
+                  paddingTop: 30,
+                  width: '36%',
+                  [media.lessThan('large')]: {
+                    fontSize: 28
+                  },
+                  [media.lessThan('medium')]: {
+                    fontSize: 30
+                  }
+                }}>Design and Develop delightful iOS mobile apps.</h1>
               </div>
             </div>
             <div css={{
@@ -67,101 +130,137 @@ export default class GuidelineIosIndexPage extends React.Component {
               margin: '0 auto',
               paddingBottom: 60,
               paddingTop: 40,
-              transition: 'width 0.3s ease-in-out'
+              transition: 'width 0.3s ease-in-out',
+              display: 'inline-block',
+              [media.lessThan('large')]: {
+                display: 'flex',
+                justifyContent: 'space-evenly'
+              },
+              ...getWidths()
             }}>
-              <h1 css={css`
-              color: ${colors.gray_600};
-              font-family: 72-Regular;
-              font-size: 36px;
-              font-weight: normal;
-              letter-spacing: 0.11px;
-              line-height: 43px;`}>explore Fiori for iOS</h1>
-              <Tabs>
-                {panels.map((tab, idx) => {
-                  return (
-                    <div label={tab.node.title} key={idx}>
-                      <h3 css={css`
-                    color: ${colors.gray_600};
-                    font-size: 20px;
-                    font-weight: normal;
-                    line-height: 32px;
-                    margin-bottom: 40px;
-                    `}>{tab.node.desc}</h3>
-                      <div css={css`
-                      display: flex;
-                      flex-wrap: wrap;
-                      justify-content: space-between;
-                      `}>
-                        {
-
-                          explore.map((p, panelIdx) => {
-                            if (p.node.frontmatter.categories && p.node.frontmatter.categories.includes(tab.node.title)) {
-                               return <Panel key={panelIdx} data={p.node} />;
-                            }
-                            return ''
-                          })
-                        }
-                      </div>
-                      <SeeAllButton link={`${location.pathname}/${pageContext.curVersion}/${tab.node.title}`} text={tab.node.title}></SeeAllButton>
+              {this.state.mediumSize ?
+                <div>
+                  <div css={{
+                    display: 'flex',
+                    justifyContent: 'space-between'
+                  }}>
+                    <h1 css={{ ...getFontStyle(colors.gray_600, 36, 'normal') }}>
+                      explore Fiori for iOS
+                    </h1>
+                    <Dropdown options={panels} />
+                  </div>
+                  <div label={this.props.valueForPanels}>
+                    <h3 css={{
+                      ...getFontStyle(colors.gray_600, 20, 'normal'),
+                      marginBottom: 40
+                    }}>{
+                        panels.map((p) => {
+                          if (p.node.title === this.props.valueForPanels) {
+                            return p.node.desc;
+                          }
+                          return '';
+                        })
+                      }</h3>
+                    <div css={{
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      justifyContent: 'space-between'
+                    }}>
+                      {
+                        explore.map((p, panelIdx) => {
+                          if (p.node.frontmatter.categories && p.node.frontmatter.categories.includes(this.props.valueForPanels)) {
+                            return <Panel key={panelIdx} data={p.node} />;
+                          }
+                          return ''
+                        })
+                      }
                     </div>
-                  );
-                })}
-              </Tabs>
+                    <SeeAllButton link={`${location.pathname}/${pageContext.curVersion}/${this.props.valueForPanels}`} text={this.props.valueForPanels}></SeeAllButton>
+                  </div>
+                </div>
+                :
+                <div>
+                  <h1 css={{ ...getFontStyle(colors.gray_600, 36, 'normal') }}>
+                    explore Fiori for iOS
+                  </h1>
+                  <Tabs>
+                    {panels.map((tab, idx) => {
+                      return (
+                        <div label={tab.node.title} key={idx}>
+                          <h3 css={{
+                            ...getFontStyle(colors.gray_600, 20, 'normal'),
+                            marginBottom: 40
+                          }}>{tab.node.desc}</h3>
+                          <div css={{
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            justifyContent: 'space-between'
+                          }}>
+                            {
+                              explore.map((p, panelIdx) => {
+                                if (p.node.frontmatter.categories && p.node.frontmatter.categories.includes(tab.node.title)) {
+                                  return <Panel key={panelIdx} data={p.node} />;
+                                }
+                                return ''
+                              })
+                            }
+                          </div>
+                          <SeeAllButton link={`${location.pathname}/${pageContext.curVersion}/${tab.node.title}`} text={tab.node.title}></SeeAllButton>
+                        </div>
+                      );
+                    })}
+                  </Tabs>
+                </div>}
             </div>
-            <div
-              css={{
-                width: 984,
-                margin: '0 auto',
-                paddingBottom: 20,
-                transition: 'width 0.3s ease-in-out'
-              }}
-            >
-              <h1 css={css`
-              color: ${colors.gray_600};
-              font-family: 72-Regular;
-              font-size: 36px;
-              font-weight: normal;
-              height: 43px;
-              letter-spacing: 0.11px;
-              line-height: 43px;
-              padding: 0 76px 22px 76px;
-              `}>{"what's new"}</h1>
+            <div css={{
+              width: 984,
+              margin: '0 auto',
+              paddingBottom: 20,
+              transition: 'width 0.3s ease-in-out',
+              ...getWidths()
+            }}>
+              <h1 css={{ ...getFontStyle(colors.gray_600, 36, 'normal') }}>{"what's new"}</h1>
               {posts.map((post) => {
                 return (
                   <Link to={post.node.fields.slug} key={post.node.id}>
-                    <div css={css`
-                  height: 180px;
-                  width: 984px;
-                  padding: 15px 76px;
-                  :hover {
-                    border-radius: 7px 7px 7px 7px;
-                    box-shadow: 0 0 10px 0 ${colors.gray_200};
-                    cursor: pointer;
-                  }`}>
-                      <h2 css={css`
-                    font-family: 72-Light;
-                    font-size: 28px;
-                    font-weight: 300;
-                    height: 31px;
-                    letter-spacing: 0;
-                    margin-bottom: 15px;`}>{post.node.frontmatter.title}</h2>
-                      <p css={css`
-                    color: ${colors.gray_700};
-                    font-family: 72-Regular;
-                    font-size: 16px;
-                    font-weight: normal;
-                    height: 48px;
-                    line-height: 24px;
-                    `}>{post.node.frontmatter.description}</p>
-                      <div css={css`
-                    color: ${colors.gray_700};
-                    font-family: 72-Light;
-                    font-size: 14px;
-                    font-weight: 300;
-                    height: 16px;
-                    letter-spacing: 0.04px;
-                    padding: 20px 0;
-                    `}>{post.node.frontmatter.date}</div>
+                    <div css={{
+                      height: 180,
+                      width: 984,
+                      padding: '15px 76px',
+                      ...getWidths(),
+                      [media.lessThan('large')]: {
+                        height: 125,
+                        padding: '15px 0px'
+                      },
+                      ':hover': {
+                        borderRadius: 7,
+                        cursor: 'pointer',
+                        transition: 'all 0.3s',
+                        ':hover': {
+                          boxShadow: '0 0 22px 0 rgba(0, 0, 0, 0.10)'
+                        },
+                      }
+                    }}>
+                      <h2 css={{
+                        ...getFontStyle(colors.gray_600, 28, 300),
+                        height: 31,
+                        marginBottom: 15,
+                        [media.lessThan('large')]: {
+                          fontSize: 24
+                        }
+                      }}>{post.node.frontmatter.title}</h2>
+                      <p css={{
+                        ...getFontStyle(colors.gray_700, 16, 'normal'),
+                        height: 48
+                      }}>{post.node.frontmatter.description}</p>
+                      <div css={{
+                        ...getFontStyle(colors.gray_700, 14, 300),
+                        height: 16,
+                        padding: '20px 0',
+                        [media.lessThan('large')]: {
+                          display: 'none'
+                        }
+                      }}>{post.node.frontmatter.date}</div>
                     </div>
                   </Link>
                 )
@@ -173,6 +272,8 @@ export default class GuidelineIosIndexPage extends React.Component {
     );
   }
 }
+
+export default connect(state => ({ valueForPanels: state.app.valueForPanels }))(GuidelineIosIndexPage);
 
 export const pageQuery = graphql`
     query IosGuidelinePageQuery($curVersion: String!) {
@@ -219,7 +320,7 @@ export const pageQuery = graphql`
                         tags
                         picture {
                             childImageSharp {
-                                sizes(maxWidth: 260, maxHeight: 125) {
+                                sizes(maxWidth: 312, maxHeight: 198) {
                                     ...GatsbyImageSharpSizes
                                 }
                             }
