@@ -6,7 +6,7 @@ class Typography extends React.Component {
   render() {
 
     const { name, uppercase, style, color, size, height } = this.props;
-    const textCase = uppercase === true ? "uppercase" : "lowercase";
+    const textCase = uppercase ? "uppercase" : "lowercase";
 
     return (
     <section>
