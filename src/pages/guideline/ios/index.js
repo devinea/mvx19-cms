@@ -1,6 +1,5 @@
 import React from 'react';
 import Flex from '../../../components/Flex';
-import Layout from '../../../components/Layout';
 import LeftNav from '../../../components/LeftNav';
 import iosBackground from '../../../img/ios_background.png';
 import { Link, graphql } from 'gatsby';
@@ -77,7 +76,9 @@ class GuidelineIosIndexPage extends React.Component {
     const posts = data.posts.edges;
 
     return (
-      <Layout location={location}>
+      <div css={{
+        width: '100%'
+      }}>
         <Flex
           direction='row'
           shrink='0'
@@ -271,7 +272,7 @@ class GuidelineIosIndexPage extends React.Component {
           </div>
         </Flex>
         {this.state.mediumSize ? <ResourcesCarousel resource="ios"/> : <ResourcesList resource="ios"/>}
-      </Layout>
+        </div>
     );
   }
 }

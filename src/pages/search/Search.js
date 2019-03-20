@@ -6,21 +6,19 @@ import { Link } from 'gatsby';
 import queryString from 'query-string';
 import { Index } from 'elasticlunr';
 
-import Layout from '../../components/Layout';
 import Flex from '../../components/Flex';
 import { colors, media } from '../../components/theme';
 
 class Search extends React.Component {
+
   constructor(props) {
     super(props);
 
     this.state = {
-      searchToggle: true,
       searchValue: '',
       searchFromUrl: '/',
       results: []
     };
-    this.toggleSearch = toggle => this._toggleSearch(toggle);
     this.search = (query, idx) => this._search(query, idx);
     this.getOrCreateIndex = () => this._getOrCreateIndex();
   }
@@ -28,12 +26,6 @@ class Search extends React.Component {
   componentDidMount = () => {
     const values = queryString.parse(this.props.location.search);
     const idx = Index.load(this.props.data.search.index);
-
-    if (this.props.location.state) {
-      const fromUrl = this.props.location.state.fromUrl || '/';
-      this.setState({ searchFromUrl: fromUrl });
-    }
-
     if (values.q) {
       this.setState({ searchValue: values.q }, () => {
         this.search(this.state.searchValue, idx);
@@ -50,12 +42,6 @@ class Search extends React.Component {
         this.setState({ searchValue: values.q }, () => {
           this.search(this.state.searchValue, idx);
         });
-      }
-    }
-
-    if (this.props.location.state && this.props.location.state.fromUrl) {
-      if (this.state.searchFromUrl !== this.props.location.state.fromUrl) {
-        this.setState({ searchFromUrl: this.props.location.state.fromUrl });
       }
     }
   };
@@ -75,24 +61,10 @@ class Search extends React.Component {
     }
   };
 
-
-
-
-
-
   render() {
     const { location } = this.props;
 
     return (
-      <Layout
-        location={location}
-        search={{
-          display: this.state.searchToggle,
-          value: this.state.searchValue,
-          fromUrl: this.state.searchFromUrl,
-          backBtn: true
-        }}
-      >
         <Flex
           direction='column'
           css={{
@@ -174,7 +146,6 @@ class Search extends React.Component {
           })}
 
         </Flex>
-      </Layout>
     );
   }
 }

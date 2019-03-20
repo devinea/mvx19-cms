@@ -1,9 +1,8 @@
 import React from 'react';
-import queryString from 'query-string';
 import { navigate } from 'gatsby';
 
 import { ReactReduxContext, connect } from 'react-redux';
-
+import queryString from 'query-string';
 import SEO from '../SEO';
 import Flex from '../Flex';
 import Footer from '../LayoutFooter';
@@ -30,26 +29,15 @@ class Layout extends React.Component {
   static contextType = ReactReduxContext;
 
   componentDidMount = () => {
-    if (this.props.search && this.props.search.display) {
+    if (this.props.location.pathname.startsWith('/search')) {
       const values = queryString.parse(this.props.location.search);
-
       if (values.q) {
         this.toggleSearch(true);
+        this.setState({ searchBackBtn: true });
         this.setState({ searchValue: values.q });
-      } else {
-        this.toggleSearch(false);
-        this.setState({ searchValue: '' });
       }
-      if (this.props.location.state) {
-        const fromUrl = this.props.location.state.fromUrl || '/';
-        if (fromUrl) {
-          this.setState({ searchFromUrl: fromUrl });
-        }
-      }
-      const backBtn = this.props.search.backBtn || false;
-      this.setState({ searchBackBtn: backBtn });
     }
-  };
+  }
 
   componentDidUpdate = prevprops => {
     if (
@@ -59,6 +47,14 @@ class Layout extends React.Component {
       document.body.style.overflow = 'auto';
       this.context.store.dispatch(toggleHamburgerMenuAction(false));
     }
+    if (this.props.location !== prevprops.location && this.state.searchToggle) {
+      if (!this.props.location.pathname.startsWith('/search')) {
+        this.toggleSearch(false);
+        this.setState({ searchValue: '' });
+        this.setState({ searchBackBtn: false });
+      }
+    }
+
   };
 
   _toggleSearch = toggle => {
@@ -91,7 +87,6 @@ class Layout extends React.Component {
         <SEO />
         <Header
           location={location}
-
           onSearchButton={this.toggleSearch}
           onSearch={this.onSearch}
           searchButtonActive={this.state.searchToggle}
