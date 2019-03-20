@@ -29,7 +29,7 @@ class Layout extends React.Component {
   static contextType = ReactReduxContext;
 
   componentDidMount = () => {
-    if (this.props.location.pathname == '/search') {
+    if (this.props.location.pathname.startsWith('/search')) {
       const values = queryString.parse(this.props.location.search);
       if (values.q) {
         this.toggleSearch(true);
@@ -48,7 +48,7 @@ class Layout extends React.Component {
       this.context.store.dispatch(toggleHamburgerMenuAction(false));
     }
     if (this.props.location !== prevprops.location && this.state.searchToggle) {
-      if (this.props.location.pathname != '/search') {
+      if (!this.props.location.pathname.startsWith('/search')) {
         this.toggleSearch(false);
         this.setState({ searchValue: '' });
         this.setState({ searchBackBtn: false });
