@@ -3,6 +3,39 @@
   "title": "Typography Test Entry #1",
   "typography": [
     {
+      "name": "Kpi's",
+      "styles": [
+        {
+          "name": "KPI",
+          "style": "72-Light",
+          "color": "#000000",
+          "size": 48,
+          "height": 60
+        },
+        {
+          "name": "KPI",
+          "style": "72-Light",
+          "color": "#000000",
+          "size": 36,
+          "height": 30
+        },
+        {
+          "name": "KPI",
+          "style": "72-Light",
+          "color": "#000000",
+          "size": 24,
+          "height": 27
+        },
+        {
+          "name": "KPI",
+          "style": "72-Light",
+          "color": "#000000",
+          "size": 18,
+          "height": 22
+        }
+      ]
+    },
+    {
       "name": "Titles",
       "styles": [
         {
@@ -19,6 +52,34 @@
           "color": "#6f7275",
           "size": 18,
           "height": 28
+        },
+        {
+          "name": "Page Subtitle",
+          "style": "72-Light",
+          "color": "#6f7275",
+          "size": 18,
+          "height": 28
+        },
+        {
+          "name": "Table Title",
+          "style": "72-Regular",
+          "color": "#6f7275",
+          "size": 16,
+          "height": 19
+        },
+        {
+          "name": "Box Title",
+          "style": "72-Light",
+          "color": "#32363a",
+          "size": 16,
+          "height": 19
+        },
+        {
+          "name": "Box Subtitle",
+          "style": "72-Regular",
+          "color": "#6f7275",
+          "size": 14,
+          "height": 16
         }
       ]
     },
@@ -29,6 +90,34 @@
           "name": "Input Label (unfilled)",
           "style": "72-Regular",
           "color": "#32363a",
+          "size": 14,
+          "height": 19
+        },
+        {
+          "name": "Input Label (filled)",
+          "style": "72-Regular",
+          "color": "#6f7275",
+          "size": 14,
+          "height": 19
+        },
+        {
+          "name": "Input Text",
+          "style": "72-Regular",
+          "color": "#32363a",
+          "size": 14,
+          "height": 19
+        },
+        {
+          "name": "Disabled Input Text and Autocomplete",
+          "style": "72-Regular",
+          "color": "#949499",
+          "size": 14,
+          "height": 19
+        },
+        {
+          "name": "Placeholder Text",
+          "style": "72-Italic",
+          "color": "#949499",
           "size": 14,
           "height": 19
         }
@@ -43,6 +132,94 @@
           "color": "#0a6ed1",
           "size": 14,
           "height": 19
+        },
+        {
+          "name": "Inactive Tab Item",
+          "style": "72-Regular",
+          "color": "#32363a",
+          "size": 14,
+          "height": 19
+        }
+      ]
+    },
+    {
+      "name": "Microcharts",
+      "styles": [
+        {
+          "name": "Microchart Index",
+          "style": "72-Condensed",
+          "color": "#6f7275",
+          "size": 12,
+          "height": 16
+        },
+        {
+          "name": "Microchart Values",
+          "style": "72-Condensed",
+          "color": "#32363a",
+          "size": 12,
+          "height": 16
+        },
+        {
+          "name": "Microchart Value Active",
+          "style": "72-CondensedBold",
+          "color": "#32363a",
+          "size": 12,
+          "height": 16
+        }
+      ]
+    },
+    {
+      "name": "Other",
+      "styles": [
+        {
+          "name": "Link",
+          "style": "72-Regular",
+          "color": "#0a6ed1",
+          "size": 14,
+          "height": 19
+        },
+        {
+          "name": "Highlight",
+          "style": "72-Bold",
+          "color": "#32363a",
+          "size": 14,
+          "height": 19
+        },
+        {
+          "name": "Label",
+          "style": "72-Regular",
+          "color": "#6f7275",
+          "size": 14,
+          "height": 19
+        },
+        {
+          "name": "Value",
+          "style": "72-Regular",
+          "color": "#32363a",
+          "size": 14,
+          "height": 19
+        },
+        {
+          "name": "Complementing Information",
+          "style": "72-Regular",
+          "color": "#6f7275",
+          "size": 12,
+          "height": 16
+        },
+        {
+          "name": "Form Counter",
+          "style": "72-Regular",
+          "color": "#6f7275",
+          "size": 12,
+          "height": 14
+        },
+        {
+          "name": "Column Header",
+          "uppercase": true,
+          "style": "72-Regular",
+          "color": "#6f7275",
+          "size": 14,
+          "height": 14
         }
       ]
     }
