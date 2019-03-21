@@ -56,7 +56,7 @@ const BackgroundSection = ({ className }) => (
        const imageData = data.coverImage.childImageSharp.fluid
        return (
          <BacgroundWrapper>
-          <BackgroundImage fluid={imageData} classId="bgimg"  css={{
+          <BackgroundImage fluid={imageData} classId="bgimg"  css={{height : 400, 
               [media.lessThan('medium')]: {
                 display: 'none'
               }
