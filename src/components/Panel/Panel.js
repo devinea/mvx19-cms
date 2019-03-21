@@ -38,10 +38,10 @@ const Panel = (props) => (
                 height: 198,
                 display: 'flex',
                 alignItems: 'center',
+                transition: 'all 0.3s ease-in-out',
                 ':hover': {
                     boxShadow: '0 5px 15px 0 rgba(0, 0, 0, 0.15)',
-                    transform: 'translateY(-5px)',
-                    transition: 'all 0.3s ease-in-out'
+                    transform: 'translateY(-5px)'
                 },
                 [media.lessThan('xlarge')]: {
                     width: 260,

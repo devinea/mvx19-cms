@@ -105,7 +105,8 @@ class GuidelineIosIndexPage extends React.Component {
               backgroundPosition: 'calc(50% + 400px)',
               backgroundSize: '906px 400px',
               [media.lessThan('medium')]: {
-                backgroundImage: 'none'
+                backgroundImage: 'none',
+                height: 'auto'
               }
             }}>
               <div css={{
@@ -113,17 +114,23 @@ class GuidelineIosIndexPage extends React.Component {
                 margin: '0 auto',
                 paddingBottom: 60,
                 paddingTop: 40,
+                [media.lessThan('medium')]: {
+                  padding: '20px 28px'
+                },
                 ...getWidths()
               }}>
                 <h1 css={{
-                  ...getFontStyle(colors.gray_600, 45, 300),
+                  ...getFontStyle(colors.gray_600, 40, 300),
                   paddingTop: 30,
                   width: '36%',
                   [media.lessThan('large')]: {
-                    fontSize: 28
+                    fontSize: 30
                   },
                   [media.lessThan('medium')]: {
-                    fontSize: 30
+                    fontSize: 30,
+                    fontWeight: 'normal',
+                    paddingTop: 0,
+                    width: '100%',
                   }
                 }}>Design and Develop delightful iOS mobile apps.</h1>
               </div>
@@ -139,15 +146,26 @@ class GuidelineIosIndexPage extends React.Component {
                 display: 'flex',
                 justifyContent: 'space-evenly'
               },
+              [media.lessThan('medium')]: {
+                paddingBottom: 16
+              },
               ...getWidths()
             }}>
               {this.state.mediumSize ?
                 <div>
                   <div css={{
                     display: 'flex',
-                    justifyContent: 'space-between'
+                    justifyContent: 'space-between',
+                    [media.lessThan('medium')]: {
+                      flexFlow: 'column'
+                    }
                   }}>
-                    <h1 css={{ ...getFontStyle(colors.gray_600, 36, 'normal') }}>
+                    <h1 css={{
+                      ...getFontStyle(colors.gray_600, 36, 'normal'),
+                      [media.lessThan('medium')]: {
+                        ...getFontStyle(colors.gray_600, 30, 'normal')
+                      }
+                    }}>
                       explore Fiori for iOS
                     </h1>
                     <Dropdown options={panels} />
@@ -222,39 +240,47 @@ class GuidelineIosIndexPage extends React.Component {
               transition: 'width 0.3s ease-in-out',
               ...getWidths()
             }}>
-              <h1 css={{ ...getFontStyle(colors.gray_600, 36, 'normal') }}>{"what's new"}</h1>
+              <h1 css={{
+                ...getFontStyle(colors.gray_600, 36, 'normal'),
+                [media.lessThan('medium')]: {
+                  ...getFontStyle(colors.gray_600, 24, 'bold')
+                }
+              }}>{"what's new"}</h1>
               {posts.map((post) => {
                 return (
                   <Link to={post.node.fields.slug} key={post.node.id}>
                     <div css={{
-                      height: 180,
                       width: 984,
                       padding: '15px 76px',
-                      ...getWidths(),
-                      [media.lessThan('large')]: {
-                        height: 125,
-                        padding: '15px 0px'
-                      },
+                      transition: 'all 0.3s',
                       ':hover': {
                         borderRadius: 7,
                         cursor: 'pointer',
-                        transition: 'all 0.3s',
+                        boxShadow: '0 0 22px 0 rgba(0, 0, 0, 0.10)'
+                      },
+                      ...getWidths(),
+                      [media.lessThan('large')]: {
+                        padding: '15px 0px',
                         ':hover': {
-                          boxShadow: '0 0 22px 0 rgba(0, 0, 0, 0.10)'
-                        },
+                          boxShadow: 'unset'
+                        }
+                      },
+                      [media.lessThan('medium')]: {
+                        height: 'auto',
+                        ':hover': {
+                          boxShadow: 'unset'
+                        }
                       }
                     }}>
                       <h2 css={{
-                        ...getFontStyle(colors.gray_600, 28, 300),
-                        height: 31,
+                        ...getFontStyle(colors.gray_600, 28, 'normal'),
                         marginBottom: 15,
                         [media.lessThan('large')]: {
                           fontSize: 24
                         }
                       }}>{post.node.frontmatter.title}</h2>
                       <p css={{
-                        ...getFontStyle(colors.gray_700, 16, 'normal'),
-                        height: 48
+                        ...getFontStyle(colors.gray_600, 18, 'normal')
                       }}>{post.node.frontmatter.description}</p>
                       <div css={{
                         ...getFontStyle(colors.gray_700, 14, 300),
@@ -271,8 +297,8 @@ class GuidelineIosIndexPage extends React.Component {
             </div>
           </div>
         </Flex>
-        {this.state.mediumSize ? <ResourcesCarousel resource="ios"/> : <ResourcesList resource="ios"/>}
-        </div>
+        {this.state.mediumSize ? <ResourcesCarousel resource="ios" /> : <ResourcesList resource="ios" />}
+      </div>
     );
   }
 }
