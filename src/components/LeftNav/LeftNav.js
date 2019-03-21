@@ -343,8 +343,8 @@ class LeftNav extends React.Component {
               transition: 'opacity 0.3s ease-in-out, left 0.3s ease-in-out',
               transitionDelay: '0s',
               opacity: 0,
-              width: 40,
-              height: 40,
+              width: 34,
+              height: 34,
               position: 'fixed',
               zIndex: '2',
               borderRadius: '8px',
@@ -381,7 +381,7 @@ class LeftNav extends React.Component {
               height: 24,
               display: 'block',
               margin: 'auto',
-              lineHeight: '40px'
+              marginTop: '5px'
             }}
             />
           </div>
