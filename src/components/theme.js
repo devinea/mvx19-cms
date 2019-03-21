@@ -43,7 +43,8 @@ const SIZES = {
   small: { min: 0, max: 599, width: 304, column: 64, gutter: 16 },
   medium: { min: 600, max: 1023, width: 528, column: 52, gutter: 16 },
   large: { min: 1024, max: 1279, width: 828, column: 47, gutter: 24 },
-  xlarge: { min: 1280, max: Infinity, width: 984, column: 60, gutter: 24 }
+  xlarge: { min: 1280, max: 1679, width: 984, column: 60, gutter: 24 },
+  xxlarge: { min: 1680, max: Infinity, width: 984, column: 60, gutter: 24 },
 };
 
 const media = {

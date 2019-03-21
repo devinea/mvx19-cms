@@ -4,6 +4,7 @@ import LeftNavLink from './LeftNavLink';
 import { Link } from 'gatsby';
 import crossIcon from './../../img/cross.svg';
 import selectArrowIcon from './../../img/select-arrow.svg';
+import SVG from 'react-inlinesvg';
 
 // Define when the LHS switches to mobile view based on the pre-defined media queries.
 let mobileMedia = false;
@@ -168,7 +169,7 @@ class LeftNav extends React.Component {
             backgroundColor: colors.white,
             display: 'flex',
             left: '-260px',
-            zIndex: 1,
+            zIndex: 3,
             width: '260px',
             transition: 'left 0.3s ease-in-out',
             ...(this.state.navOpen && {
@@ -222,27 +223,42 @@ class LeftNav extends React.Component {
             </div>
             <div
               css={{
-                width: 12,
-                height: 12,
-                backgroundSize: 'cover',
-                backgroundImage: 'url(' + crossIcon + ')',
+                width: 24,
+                height: 24,
                 transition: 'opacity 0.3s ease-in-out',
                 position: 'absolute',
-                right: 12,
+                right: 15,
                 fontSize: 12,
-                top: 39,
+                top: 33,
                 cursor: 'pointer',
                 opacity: '1',
-                [media.greaterThan('xlarge')]: {
+                [media.greaterThan('xxlarge')]: {
                   opacity: '0',
                   pointerEvents: 'none'
                 },
                 [media.lessThan('large')]: {
                   display: 'none'
+                },
+                ':hover': {
+                  '.closeMenuIcon': {
+                    'path, circle, rect, polygon, line, polyline, ellipse': {
+                      fill: colors.blue_300
+                    }
+                  }
                 }
               }}
-              onClick={this.toggleNav}
-            />
+              onClick={this.toggleNav}>          
+                <SVG
+                src='/img/icons/ico_cross_24x24.svg'
+                className='closeMenuIcon'
+                css={{
+                  width: 24,
+                  height: 24,
+                  display: 'block'
+                }}
+              />
+            </div>
+
 <div css={{
             position: 'absolute',
             right: 45,
@@ -265,14 +281,14 @@ class LeftNav extends React.Component {
               position: 'absolute',
               backgroundImage: 'url(' + selectArrowIcon + ')',
               ...(this.state.navOpen && {
-                backgroundImage: 'url(' + crossIcon + ')',
+                backgroundImage: 'url(' + crossIcon + ')',                
               }),
               backgroundRepeat: 'no-repeat',
               backgroundPosition: '10px center',
               width: 50,
               height: 45,
               content: '""'
-            }          
+            }                      
           }}
           onClick={this.toggleNav}
           >{self.state.mobileTitle}&nbsp;</div>            
@@ -327,37 +343,49 @@ class LeftNav extends React.Component {
               transition: 'opacity 0.3s ease-in-out, left 0.3s ease-in-out',
               transitionDelay: '0s',
               opacity: 0,
-              width: 28,
-              height: 28,
-              position: 'absolute',
-              zIndex: '3',
-              borderRadius: '2.5px',
+              width: 40,
+              height: 40,
+              position: 'fixed',
+              zIndex: '2',
+              borderRadius: '8px',
               boxShadow: '0 0 14px 0 rgba(0, 0, 0, 0.11)',
-              top: 29,
+              top: 93,
               left: 0,
               cursor: 'pointer',
               fontFamily: 'SAP-icons',
               fontSize: 18,
               lineHeight: '28px',
               textAlign: 'center',
-              color: colors.gray_500,
-              backgroundColor: 'transparent',
+              color: colors.white,
+              backgroundColor: colors.blue_300,
               pointerEvents: 'none',
-              '::before': {
-                  content: 'attr(data-sap-ui-icon-content)'
-              },
               [media.greaterThan('large')]: {
                 ...(!this.state.navOpen && {
                   opacity: 1,
                   left: 40,
-                  transitionDelay: '0.4s',                  
+                  transitionDelay: '0.3s',                  
                   pointerEvents: 'all'
                 })
-              }
+              },
+              ':hover': {
+                backgroundColor: colors.blue_800
+              }              
             }}
-            data-sap-ui-icon-content=''
             onClick={this.toggleNav}
-          />
+          >                
+            <SVG
+            src='/img/icons/ico-sidebar_24x24.svg'
+            className='openMenuIcon'
+            css={{
+              width: 24,
+              height: 24,
+              display: 'block',
+              margin: 'auto',
+              lineHeight: '40px'
+            }}
+            />
+          </div>
+
       </div>
     )
   }
