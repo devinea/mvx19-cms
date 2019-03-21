@@ -12,7 +12,7 @@ import SeeAllButton from '../../../components/SeeAllButton';
 import { ReactReduxContext, connect } from 'react-redux';
 import BgImage from 'gatsby-background-image'
 import styled from '@emotion/styled';
-import StyledBackgroundImage from './StyledBackgroundImage';
+import StyledBackgroundImage from '../../../components/BackgroundImage/StyledBackgroundImage';
 
 const getWidths = () => {
   return {
