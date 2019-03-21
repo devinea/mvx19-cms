@@ -1,7 +1,6 @@
 import React from 'react';
 import Flex from '../../../components/Flex';
 import LeftNav from '../../../components/LeftNav';
-import iosBackground from '../../../img/ios_background.png';
 import { Link, graphql } from 'gatsby';
 import { media, colors } from '../../../components/theme';
 import ResourcesList from '../../../components/ResourceList/ResourcesList';
@@ -11,6 +10,9 @@ import Panel from '../../../components/Panel';
 import Dropdown from '../../../components/Dropdown';
 import SeeAllButton from '../../../components/SeeAllButton';
 import { ReactReduxContext, connect } from 'react-redux';
+import BgImage from 'gatsby-background-image'
+import styled from '@emotion/styled';
+import StyledBackgroundImage from './StyledBackgroundImage';
 
 const getWidths = () => {
   return {
@@ -97,36 +99,8 @@ class GuidelineIosIndexPage extends React.Component {
               marginTop: 40
             }
           }}>
-            <div css={{
-              backgroundColor: '#f8f9fb',
-              height: 400,
-              backgroundImage: 'url(' + iosBackground + ')',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'calc(50% + 400px)',
-              backgroundSize: '906px 400px',
-              [media.lessThan('medium')]: {
-                backgroundImage: 'none'
-              }
-            }}>
-              <div css={{
-                width: 828,
-                margin: '0 auto',
-                paddingBottom: 60,
-                paddingTop: 40,
-                ...getWidths()
-              }}>
-                <h1 css={{
-                  ...getFontStyle(colors.gray_600, 45, 300),
-                  paddingTop: 30,
-                  width: '36%',
-                  [media.lessThan('large')]: {
-                    fontSize: 28
-                  },
-                  [media.lessThan('medium')]: {
-                    fontSize: 30
-                  }
-                }}>Design and Develop delightful iOS mobile apps.</h1>
-              </div>
+            <div>
+              <StyledBackgroundImage></StyledBackgroundImage>
             </div>
             <div css={{
               width: 828,
@@ -271,8 +245,8 @@ class GuidelineIosIndexPage extends React.Component {
             </div>
           </div>
         </Flex>
-        {this.state.mediumSize ? <ResourcesCarousel resource="ios"/> : <ResourcesList resource="ios"/>}
-        </div>
+        {this.state.mediumSize ? <ResourcesCarousel resource="ios" /> : <ResourcesList resource="ios" />}
+      </div>
     );
   }
 }
@@ -355,7 +329,7 @@ export const pageQuery = graphql`
                         }
                     }
                 }
-            }
+            }  
         }
     }
 `;
