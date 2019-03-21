@@ -15,7 +15,6 @@ const BackgroundSection = ({ className }) => (
             childImageSharp {
               fluid(
                 quality: 90
-                height: '400px'
               ) {
                 ...GatsbyImageSharpFluid
               }
