@@ -9,7 +9,6 @@ class ContributeIndexPage extends React.Component {
   render() {
     const { location } = this.props;
     return (
-      <Layout location={location}>
         <Flex
           direction='row'
           shrink='0'
@@ -24,7 +23,6 @@ class ContributeIndexPage extends React.Component {
         <Img fixed={this.props.data.file.childImageSharp.fixed} />
         </div>
         </Flex>
-      </Layout>
     )
   }
 }

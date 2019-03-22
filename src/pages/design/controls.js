@@ -10,7 +10,6 @@ class DesignControlsIndexPage extends React.Component {
   render() {
     const { location } = this.props;
     return (
-      <Layout location={location}>
         <Flex
           direction='row'
           shrink='0'
@@ -54,7 +53,6 @@ class DesignControlsIndexPage extends React.Component {
               ))}
           </section>
         </Flex>
-      </Layout>
     )
   }
 }

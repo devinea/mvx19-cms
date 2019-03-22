@@ -10,6 +10,7 @@ import CloseButton from '../CloseButton';
 class SearchInput extends Component {
   constructor(props) {
     super(props);
+    const { location } = this.props;
 
     this.searchInput = React.createRef();
     this.state = {
@@ -47,6 +48,8 @@ class SearchInput extends Component {
 
   _onKeyPress = event => {
     if (event.key === 'Enter') {
+      this.setState({ backBtn: true });
+      this.setState({ fromUrl: location.pathname });
       this.props.onEnter(this.state.value);
     }
   };

@@ -71,7 +71,6 @@ const WebGuidelinePost = ({ data, location, pageContext }) => {
   let navOpen = true;
 
   return (
-    <Layout location={location}>
       <Flex
         direction='row'
         shrink='0'
@@ -115,7 +114,6 @@ const WebGuidelinePost = ({ data, location, pageContext }) => {
           />
         </div>
       </Flex>
-    </Layout>
   );
 };
 

@@ -13,7 +13,6 @@ export default class DesignGuidelineIndexPage extends React.Component {
     const { data, location } = this.props;
 
     return (
-      <Layout location={location}>
         <Flex
           direction='row'
           shrink='0'
@@ -45,7 +44,6 @@ export default class DesignGuidelineIndexPage extends React.Component {
             />
           </div>
         </Flex>
-      </Layout>
     );
   }
 }
