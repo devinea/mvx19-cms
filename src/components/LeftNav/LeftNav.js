@@ -340,8 +340,7 @@ class LeftNav extends React.Component {
         </nav>
         <div
             css={{
-              transition: 'opacity 0.3s ease-in-out, left 0.3s ease-in-out',
-              transitionDelay: '0s',
+              transition: 'opacity 0.3s ease-in-out 0s, left 0.3s ease-in-out 0s, backgroundColor 0.3s ease-in-out 0s',
               opacity: 0,
               width: 34,
               height: 34,
@@ -363,7 +362,7 @@ class LeftNav extends React.Component {
                 ...(!this.state.navOpen && {
                   opacity: 1,
                   left: 40,
-                  transitionDelay: '0.3s',                  
+                  transition: 'opacity 0.3s ease-in-out 0.3s, left 0.3s ease-in-out 0.3s, background-color 0.3s ease-in-out 0s',
                   pointerEvents: 'all'
                 })
               },
