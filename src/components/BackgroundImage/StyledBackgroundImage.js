@@ -16,7 +16,7 @@ const BackgroundSection = ({ className }) => (
               fluid(
                 quality: 90
               ) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_noBase64
               }
               
             }
@@ -89,17 +89,16 @@ const BackgroundSection = ({ className }) => (
 )
 
 const StyledBackgroundImage = styled(BackgroundSection)`
-    background-repeat: no-repeat;
-   
+   background-repeat: no-repeat;
+   height: 400px;
   }
 `
 const BacgroundWrapper = styled.div`
-.gatsby-background-image-bgimg:after, .gatsby-background-image-bgimg:before {
   background-color: #f8f9fb ;
-  height: 400px;
-  
-  background-size: 906px 400px ;
-  background-position: calc(50% + 400px);
-`
 
+  .gatsby-background-image-bgimg:after, .gatsby-background-image-bgimg:before {
+    background-size: 906px 400px ;
+    background-position: calc(50% + 400px);
+  }
+`
 export default StyledBackgroundImage
