@@ -1,6 +1,7 @@
 import { setActiveBreakpoint } from '../src/state/app.js';
 
 export const defaultBreakpoints = {
+  xlarge: 1680,
   large: 1280,
   medium: 1024,
   small: 600
@@ -11,7 +12,7 @@ function dispatchActiveQuery(dispatch, mediaQueryState, action) {
     curr.matches ? curr : prev && prev.matches ? prev : null
   );
 
-  const breakpointName = activeQuery ? activeQuery.name : 'xlarge';
+  const breakpointName = activeQuery ? activeQuery.name : 'xxlarge';
   const breakpointSize = activeQuery && activeQuery.breakpoint;
 
   const payload = {

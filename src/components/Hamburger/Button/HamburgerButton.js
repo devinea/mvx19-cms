@@ -19,7 +19,8 @@ class HamburgerButton extends Component {
         this.props.breakPoint.breakpointName !==
           prevProps.breakPoint.breakpointName &&
         (this.props.breakPoint.breakpointName === 'large' ||
-          this.props.breakPoint.breakpointName === 'xlarge')
+          this.props.breakPoint.breakpointName === 'xlarge' ||
+          this.props.breakPoint.breakpointName === 'xxlarge')
       ) {
         this.toggleBodyStyle(false);
         this.context.store.dispatch(toggleHamburgerMenuAction(false));
