@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { ReactReduxContext, connect } from 'react-redux';
 
 import { media, colors, header } from '../../theme';
+import { isLarge, isXLarge, isXXLarge } from '../../../../utils/breakpoints';
 import { toggleHamburgerMenu as toggleHamburgerMenuAction } from '../../../state/app';
 
 class HamburgerButton extends Component {
@@ -18,9 +19,9 @@ class HamburgerButton extends Component {
       if (
         this.props.breakPoint.breakpointName !==
           prevProps.breakPoint.breakpointName &&
-        (this.props.breakPoint.breakpointName === 'large' ||
-          this.props.breakPoint.breakpointName === 'xlarge' ||
-          this.props.breakPoint.breakpointName === 'xxlarge')
+        (isLarge(this.props.breakPoint.breakpointName) ||
+          isXLarge(this.props.breakPoint.breakpointName) ||
+          isXXLarge(this.props.breakPoint.breakpointName))
       ) {
         this.toggleBodyStyle(false);
         this.context.store.dispatch(toggleHamburgerMenuAction(false));

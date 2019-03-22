@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 
 import { ReactReduxContext, connect } from 'react-redux';
 
-import Flex from '../../components/Flex';
+import { isSmall, isMedium } from '../../../utils/breakpoints';
 
-import ResourcesList from '../../components/ResourceList/ResourcesList';
 import LearningList from './LearningList';
-import ResourcesCarousel from '../../components/ResourcesCarousel/ResourcesCarousel';
 
+import Flex from '../../components/Flex';
+import ResourcesList from '../../components/ResourceList/ResourcesList';
+import ResourcesCarousel from '../../components/ResourcesCarousel/ResourcesCarousel';
 import { colors, media } from '../../components/theme';
 
 class GetStarted extends Component {
@@ -28,8 +29,8 @@ class GetStarted extends Component {
         prevProps.breakPoint.breakpointName
       ) {
         if (
-          this.props.breakPoint.breakpointName === 'medium' ||
-          this.props.breakPoint.breakpointName === 'small'
+          isSmall(this.props.breakPoint.breakpointName) ||
+          isMedium(this.props.breakPoint.breakpointName)
         ) {
           this.setState({ carouselDisplay: true });
         } else {

@@ -46,3 +46,23 @@ export function initReduxBreakpoints(
 
   dispatchActiveQuery(this.props.dispatch, this.mediaQueryState, action);
 }
+
+export const isSmall = breakpointToCompare => {
+  return breakpointToCompare === 'small';
+};
+
+export const isMedium = breakpointToCompare => {
+  return breakpointToCompare === 'medium';
+};
+
+export const isLarge = breakpointToCompare => {
+  return breakpointToCompare === 'large';
+};
+
+export const isXLarge = breakpointToCompare => {
+  return breakpointToCompare === 'xlarge';
+};
+
+export const isXXLarge = breakpointToCompare => {
+  return breakpointToCompare === 'xxlarge';
+};
