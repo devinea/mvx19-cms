@@ -10,8 +10,6 @@ import Panel from '../../../components/Panel';
 import Dropdown from '../../../components/Dropdown';
 import SeeAllButton from '../../../components/SeeAllButton';
 import { ReactReduxContext, connect } from 'react-redux';
-import BgImage from 'gatsby-background-image'
-import styled from '@emotion/styled';
 import StyledBackgroundImage from '../../../components/BackgroundImage/StyledBackgroundImage';
 
 const getWidths = () => {
@@ -113,15 +111,26 @@ class GuidelineIosIndexPage extends React.Component {
                 display: 'flex',
                 justifyContent: 'space-evenly'
               },
+              [media.lessThan('medium')]: {
+                paddingBottom: 16
+              },
               ...getWidths()
             }}>
               {this.state.mediumSize ?
                 <div>
                   <div css={{
                     display: 'flex',
-                    justifyContent: 'space-between'
+                    justifyContent: 'space-between',
+                    [media.lessThan('medium')]: {
+                      flexFlow: 'column'
+                    }
                   }}>
-                    <h1 css={{ ...getFontStyle(colors.gray_600, 36, 'normal') }}>
+                    <h1 css={{
+                      ...getFontStyle(colors.gray_600, 36, 'normal'),
+                      [media.lessThan('medium')]: {
+                        ...getFontStyle(colors.gray_600, 30, 'normal')
+                      }
+                    }}>
                       explore Fiori for iOS
                     </h1>
                     <Dropdown options={panels} />
@@ -196,39 +205,47 @@ class GuidelineIosIndexPage extends React.Component {
               transition: 'width 0.3s ease-in-out',
               ...getWidths()
             }}>
-              <h1 css={{ ...getFontStyle(colors.gray_600, 36, 'normal') }}>{"what's new"}</h1>
+              <h1 css={{
+                ...getFontStyle(colors.gray_600, 36, 'normal'),
+                [media.lessThan('medium')]: {
+                  ...getFontStyle(colors.gray_600, 24, 'bold')
+                }
+              }}>{"what's new"}</h1>
               {posts.map((post) => {
                 return (
                   <Link to={post.node.fields.slug} key={post.node.id}>
                     <div css={{
-                      height: 180,
                       width: 984,
                       padding: '15px 76px',
-                      ...getWidths(),
-                      [media.lessThan('large')]: {
-                        height: 125,
-                        padding: '15px 0px'
-                      },
+                      transition: 'all 0.3s',
                       ':hover': {
                         borderRadius: 7,
                         cursor: 'pointer',
-                        transition: 'all 0.3s',
+                        boxShadow: '0 0 22px 0 rgba(0, 0, 0, 0.10)'
+                      },
+                      ...getWidths(),
+                      [media.lessThan('large')]: {
+                        padding: '15px 0px',
                         ':hover': {
-                          boxShadow: '0 0 22px 0 rgba(0, 0, 0, 0.10)'
-                        },
+                          boxShadow: 'unset'
+                        }
+                      },
+                      [media.lessThan('medium')]: {
+                        height: 'auto',
+                        ':hover': {
+                          boxShadow: 'unset'
+                        }
                       }
                     }}>
                       <h2 css={{
-                        ...getFontStyle(colors.gray_600, 28, 300),
-                        height: 31,
+                        ...getFontStyle(colors.gray_600, 28, 'normal'),
                         marginBottom: 15,
                         [media.lessThan('large')]: {
                           fontSize: 24
                         }
                       }}>{post.node.frontmatter.title}</h2>
                       <p css={{
-                        ...getFontStyle(colors.gray_700, 16, 'normal'),
-                        height: 48
+                        ...getFontStyle(colors.gray_600, 18, 'normal')
                       }}>{post.node.frontmatter.description}</p>
                       <div css={{
                         ...getFontStyle(colors.gray_700, 14, 300),

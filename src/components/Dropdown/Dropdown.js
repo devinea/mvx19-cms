@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import selectArrowIcon from './../../img/select-arrow.svg';
-import { ReactReduxContext, connect } from 'react-redux';
+import { ReactReduxContext } from 'react-redux';
 import { selectPanels as selectPanelsAction } from '../../state/app';
-
+import { media } from '../../components/theme';
 import React from 'react';
 
 export default class Dropdown extends React.Component {
@@ -29,7 +29,10 @@ export default class Dropdown extends React.Component {
                 height: 30,
                 overflow: 'hidden',
                 width: 130,
-                margin: '30px 10px'
+                margin: '30px 10px',
+                [media.lessThan('medium')]: {
+                    margin: '0 -8px 20px -8px'
+                }
             }}>
                 <select
                     value={this.state.value}
