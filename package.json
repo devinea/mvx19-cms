@@ -13,7 +13,7 @@
         "gatsby": "^2.1.32",
         "gatsby-image": "^2.0.33",
         "gatsby-plugin-emotion": "^4.0.3",
-        "gatsby-plugin-layout": "^1.0.12",
+        "gatsby-plugin-layout": "^1.0.12",    
         "gatsby-plugin-netlify": "^2.0.12",
         "gatsby-plugin-netlify-cms": "^3.0.14",
         "gatsby-plugin-purgecss": "^2.4.0",

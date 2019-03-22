@@ -9,8 +9,6 @@ import Footer from '../LayoutFooter';
 import Header from '../LayoutHeader';
 import HamburgerMenu from './../Hamburger/Menu';
 
-
-//import { initReduxBreakpoints } from '../responder/utils.js';
 import { initReduxBreakpoints } from '../../../utils/breakpoints';
 
 
