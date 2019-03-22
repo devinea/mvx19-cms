@@ -3,34 +3,30 @@ import React, { Component } from 'react';
 import { ReactReduxContext, connect } from 'react-redux';
 
 import { media, colors, header } from '../../theme';
+import { isLarge, isXLarge, isXXLarge } from '../../../../utils/breakpoints';
 import { toggleHamburgerMenu as toggleHamburgerMenuAction } from '../../../state/app';
 
 class HamburgerButton extends Component {
-
   static contextType = ReactReduxContext;
 
   constructor(props) {
     super(props);
-
-    this.mediaQueryListener = null;
-    this.onMatchMQ = mediaQueryListener => this._onMatchMQ(mediaQueryListener);
     this.toggleBodyStyle = toggle => this._toggleBodyStyle(toggle);
   }
 
-  componentDidMount = () => {
-    const large = media.getSize('large');
-    this.mediaQueryListener = window.matchMedia(`(max-width: ${large.min}px)`);
-    this.mediaQueryListener.addListener(this.onMatchMQ);
-    this.onMatchMQ();
-  };
-
-  componentWillUnmount = () => {
-    this.mediaQueryListener && this.mediaQueryListener.removeListener(this.onMatchMQ);
-  };
-
-  _onMatchMQ = () => {
-    this.toggleBodyStyle(false);
-    this.context.store.dispatch(toggleHamburgerMenuAction(false));
+  componentDidUpdate = prevProps => {
+    if (this.props.breakPoint) {
+      if (
+        this.props.breakPoint.breakpointName !==
+          prevProps.breakPoint.breakpointName &&
+        (isLarge(this.props.breakPoint.breakpointName) ||
+          isXLarge(this.props.breakPoint.breakpointName) ||
+          isXXLarge(this.props.breakPoint.breakpointName))
+      ) {
+        this.toggleBodyStyle(false);
+        this.context.store.dispatch(toggleHamburgerMenuAction(false));
+      }
+    }
   };
 
   _toggleBodyStyle = toggle => {
@@ -126,7 +122,10 @@ class HamburgerButton extends Component {
 }
 
 export default connect(
-  state => ({ isHamburgerMenuOpen: state.app.isHamburgerMenuOpen }),
+  state => ({
+    isHamburgerMenuOpen: state.app.isHamburgerMenuOpen,
+    breakPoint: state.app.breakPoint
+  }),
   dispatch => ({
     toggleHamburgerMenu: open => dispatch(toggleHamburgerMenuAction(open))
   })

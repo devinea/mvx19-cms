@@ -1,53 +1,54 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import Layout from '../../components/Layout';
-import Flex from '../../components/Flex';
+import { ReactReduxContext, connect } from 'react-redux';
 
-import ResourcesList from '../../components/ResourceList/ResourcesList'
+import { isSmall, isMedium } from '../../../utils/breakpoints';
+
 import LearningList from './LearningList';
-import ResourcesCarousel from '../../components/ResourcesCarousel/ResourcesCarousel';
 
+import Flex from '../../components/Flex';
+import ResourcesList from '../../components/ResourceList/ResourcesList';
+import ResourcesCarousel from '../../components/ResourcesCarousel/ResourcesCarousel';
 import { colors, media } from '../../components/theme';
 
-class GetStarted extends React.Component {
+class GetStarted extends Component {
+  static contextType = ReactReduxContext;
+
   constructor(props) {
     super(props);
 
     this.state = {
-      mediumSize: false
+      carouselDisplay: false
     };
-
-    this.mediaQueryListener = null;
-    this.onMatchMQ = mediaQueryListener => this._onMatchMQ(mediaQueryListener);
-    this.isSmallSize = toggle => this._isSmallSize(toggle);
   }
 
-  componentDidMount = () => {
-    if (!window.matchMedia) return;
-    const medium = media.getSize('medium');
-    this.mediaQueryListener = window.matchMedia(`(max-width: ${medium.max}px)`);
-    this.mediaQueryListener.addListener(this.onMatchMQ);
-
-    this.setState({ mediumSize: this.mediaQueryListener.matches });
+  componentDidUpdate = prevProps => {
+    if (this.props.breakPoint) {
+      if (
+        this.props.breakPoint.breakpointName !==
+        prevProps.breakPoint.breakpointName
+      ) {
+        if (
+          isSmall(this.props.breakPoint.breakpointName) ||
+          isMedium(this.props.breakPoint.breakpointName)
+        ) {
+          this.setState({ carouselDisplay: true });
+        } else {
+          this.setState({ carouselDisplay: false });
+        }
+      }
+    }
   };
-
-  componentWillUnmount = () => {
-    this.mediaQueryListener &&
-      this.mediaQueryListener.removeListener(this.onMatchMQ);
-  };
-
-  _onMatchMQ(mql) {
-    this.setState({ mediumSize: mql.matches });
-  }
-
 
   render() {
     const { location } = this.props;
 
     return (
-      <div css={{
-        width: '100%'
-      }}>
+      <div
+        css={{
+          width: '100%'
+        }}
+      >
         <Flex
           direction='column'
           css={{
@@ -102,10 +103,12 @@ class GetStarted extends React.Component {
           </h1>
           <LearningList />
         </Flex>
-        {this.state.mediumSize ? <ResourcesCarousel /> : <ResourcesList />}
-        </div>
+        {this.state.carouselDisplay ? <ResourcesCarousel /> : <ResourcesList />}
+      </div>
     );
   }
 }
 
-export default GetStarted;
+export default connect(state => ({
+  breakPoint: state.app.breakPoint
+}))(GetStarted);

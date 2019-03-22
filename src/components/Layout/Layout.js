@@ -9,6 +9,9 @@ import Footer from '../LayoutFooter';
 import Header from '../LayoutHeader';
 import HamburgerMenu from './../Hamburger/Menu';
 
+import { initReduxBreakpoints } from '../../../utils/breakpoints';
+
+
 import { header, media } from '../theme';
 import { toggleHamburgerMenu as toggleHamburgerMenuAction } from '../../state/app';
 
@@ -22,6 +25,7 @@ class Layout extends React.Component {
       searchFromUrl: '/',
       searchBackBtn: false
     };
+
     this.toggleSearch = toggle => this._toggleSearch(toggle);
     this.onSearch = toggle => this._onSearch(toggle);
   }
@@ -37,7 +41,9 @@ class Layout extends React.Component {
         this.setState({ searchValue: values.q });
       }
     }
-  }
+
+    initReduxBreakpoints.call(this);
+  };
 
   componentDidUpdate = prevprops => {
     if (
@@ -50,16 +56,16 @@ class Layout extends React.Component {
     if (this.props.location !== prevprops.location && this.state.searchToggle) {
       if (!this.props.location.pathname.startsWith('/search')) {
         this.toggleSearch(false);
-        this.setState({ searchValue: '' });
+          this.setState({ searchValue: '' });
         this.setState({ searchBackBtn: false });
       }
     }
-
   };
 
   _toggleSearch = toggle => {
     this.setState({ searchToggle: toggle });
-    const isHamburgerMenuOpen = this.context.store.getState().app.isHamburgerMenuOpen;
+    const isHamburgerMenuOpen = this.context.store.getState().app
+      .isHamburgerMenuOpen;
     // if hamburger menu is open then close it
     if (toggle && isHamburgerMenuOpen) {
       this.context.store.dispatch(toggleHamburgerMenuAction(false));
@@ -74,7 +80,7 @@ class Layout extends React.Component {
   };
 
   render() {
-    const { children, location} = this.props;
+    const { children, location } = this.props;
 
     return (
       <Flex
@@ -118,6 +124,6 @@ class Layout extends React.Component {
   }
 }
 
-export default connect(
-  state => ({ isHamburgerMenuOpen: state.app.isHamburgerMenuOpen })
-)(Layout);
+export default connect(state => ({
+  isHamburgerMenuOpen: state.app.isHamburgerMenuOpen
+}))(Layout);
