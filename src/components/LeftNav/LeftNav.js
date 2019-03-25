@@ -1,20 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { colors, media } from '../theme';
 import LeftNavLink from './LeftNavLink';
 import { Link } from 'gatsby';
 import crossIcon from './../../img/cross.svg';
 import selectArrowIcon from './../../img/select-arrow.svg';
+import { isSmall, isMedium } from '../../../utils/breakpoints';
 import SVG from 'react-inlinesvg';
 
-// Define when the LHS switches to mobile view based on the pre-defined media queries.
-let mobileMedia = false;
-if (typeof window !== 'undefined' && window.matchMedia) {
-  mobileMedia = window.matchMedia(media.lessThan('large').replace('@media ', ''));
-}
-let isMobileMedia = mobileMedia.matches;
-
 let state = {
-  navOpen: !isMobileMedia,
+  navOpen: true,
   sectionOn: null,
   mobileTitle: null,
   opened: []
@@ -68,31 +63,22 @@ class LeftNav extends React.Component {
     this.expandSection = (event, sectionIndex) => this._expandSection(event, sectionIndex);
     this.mouseEnter = element => this._mouseEnter(element);
     this.mouseLeave = () => this._mouseLeave();
-    this.checkMediaQuery = e => this._checkMediaQuery(e);
     this.isOverElement = false;
   }
 
-  /**
-   * Check that when the media query updates, do we now need to close or open the side nav.
-   * @param {e} the media query event
-   */
-  _checkMediaQuery(e) {
-    isMobileMedia = e.matches;
-    state.navOpen = !isMobileMedia;
-    if (!isMobileMedia) {
-      this._openNav();
-    } else {
-      this._closeNavOnMobile();
+  componentDidUpdate = prevProps => {
+    // Determine if the breakpoint has changed, and close the LHS if we've moved to mobile breakpoint.
+    if (
+      this.props.breakPoint.breakpointName !==
+      prevProps.breakPoint.breakpointName
+    ) {
+      if (isSmall(this.props.breakPoint.breakpointName) || isMedium(this.props.breakPoint.breakpointName)) {
+        this._closeNavOnMobile();
+      } else {
+        this._openNav();
+      }
     }
-  }
-
-  componentWillUnmount = () => {
-    mobileMedia.removeListener(this.checkMediaQuery);
-  }
-
-  componentDidMount() {
-    mobileMedia.addListener(this.checkMediaQuery);
-  }
+  };
 
   _toggleNav(event) {
     this.setState({ navOpen: !this.state.navOpen });
@@ -103,11 +89,9 @@ class LeftNav extends React.Component {
   }
 
   _closeNavOnMobile() {
-    if (isMobileMedia) {
-      this.setState({ navOpen: false });
-      this.state.navOpen = false;
-      state = this.state;
-    }
+    this.setState({ navOpen: false });
+    this.state.navOpen = false;
+    state = this.state;
   }
 
   _expandSection(event, id) {
@@ -390,4 +374,6 @@ class LeftNav extends React.Component {
   }
 }
 
-export default LeftNav;
+export default connect(state => ({
+  breakPoint: state.app.breakPoint
+}))(LeftNav);
