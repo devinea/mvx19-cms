@@ -1,14 +1,22 @@
 import React from 'react';
 
 import Flex from '../../../components/Flex';
-import Layout from '../../../components/Layout';
 import { media } from '../../../components/theme';
 
 import LeftNav from '../../../components/LeftNav';
 import designImg from '../../../img/design.png';
 import { graphql } from "gatsby";
+import { setLhsItems } from '../../../../src/state/app.js';
+import { connect } from 'react-redux';
 
-export default class DesignGuidelineIndexPage extends React.Component {
+class DesignGuidelineIndexPage extends React.Component {
+
+  componentDidMount = () => {
+    // Update the LHS Navigation.
+    const { data, dispatch } = this.props;
+    dispatch(setLhsItems(data.leftNav));
+  }
+
   render() {
     const { data, location } = this.props;
 
@@ -23,7 +31,7 @@ export default class DesignGuidelineIndexPage extends React.Component {
             width: '100%',
           }}
         >
-          <LeftNav data={(data.leftNav)}/>
+          <LeftNav/>
           <div
             css={{
               width: '100%',
@@ -47,6 +55,8 @@ export default class DesignGuidelineIndexPage extends React.Component {
     );
   }
 }
+
+export default connect()(DesignGuidelineIndexPage);
 
 export const pageQuery = graphql`
     query CuxGuidelinePageQuery($curVersion: String!) {
