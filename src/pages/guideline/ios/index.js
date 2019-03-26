@@ -1,7 +1,6 @@
 import React from 'react';
 import Flex from '../../../components/Flex';
 import LeftNav from '../../../components/LeftNav';
-import iosBackground from '../../../img/ios_background.png';
 import { Link, graphql } from 'gatsby';
 import { media, colors } from '../../../components/theme';
 import ResourcesList from '../../../components/ResourceList/ResourcesList';
@@ -11,6 +10,7 @@ import Panel from '../../../components/Panel';
 import Dropdown from '../../../components/Dropdown';
 import SeeAllButton from '../../../components/SeeAllButton';
 import { ReactReduxContext, connect } from 'react-redux';
+import StyledBackgroundImage from '../../../components/BackgroundImage/StyledBackgroundImage';
 import { setLhsItems } from '../../../../src/state/app.js';
 
 const getWidths = () => {
@@ -102,43 +102,8 @@ class GuidelineIosIndexPage extends React.Component {
               marginTop: 40
             }
           }}>
-            <div css={{
-              backgroundColor: '#f8f9fb',
-              height: 400,
-              backgroundImage: 'url(' + iosBackground + ')',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'calc(50% + 400px)',
-              backgroundSize: '906px 400px',
-              [media.lessThan('medium')]: {
-                backgroundImage: 'none',
-                height: 'auto'
-              }
-            }}>
-              <div css={{
-                width: 828,
-                margin: '0 auto',
-                paddingBottom: 60,
-                paddingTop: 40,
-                [media.lessThan('medium')]: {
-                  padding: '20px 28px'
-                },
-                ...getWidths()
-              }}>
-                <h1 css={{
-                  ...getFontStyle(colors.gray_600, 40, 300),
-                  paddingTop: 30,
-                  width: '36%',
-                  [media.lessThan('large')]: {
-                    fontSize: 30
-                  },
-                  [media.lessThan('medium')]: {
-                    fontSize: 30,
-                    fontWeight: 'normal',
-                    paddingTop: 0,
-                    width: '100%',
-                  }
-                }}>Design and Develop delightful iOS mobile apps.</h1>
-              </div>
+            <div>
+              <StyledBackgroundImage></StyledBackgroundImage>
             </div>
             <div css={{
               width: 828,
@@ -386,7 +351,7 @@ export const pageQuery = graphql`
                         }
                     }
                 }
-            }
+            }  
         }
     }
 `;
