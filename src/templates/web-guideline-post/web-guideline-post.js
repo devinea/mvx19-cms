@@ -6,12 +6,13 @@ import { graphql, Link } from 'gatsby';
 
 import Filter from '../../components/Filter/Filter.js';
 import Flex from '../../components/Flex';
-import Layout from '../../components/Layout';
 
 import { sharedStyles, media } from '../../components/theme';
 
 import Content, { HTMLContent } from '../../components/Content';
 import LeftNav from '../../components/LeftNav';
+import { setLhsItems } from '../../../src/state/app.js';
+import { connect } from 'react-redux';
 
 
 export const DesignGuidelinePostTemplate = ({
@@ -66,11 +67,18 @@ DesignGuidelinePostTemplate.propTypes = {
 };
 
 
-const WebGuidelinePost = ({ data, location, pageContext }) => {
-  const { markdownRemark: post, guidelineVersions} = data;
-  let navOpen = true;
+class WebGuidelinePost extends React.Component {
 
-  return (
+  componentDidMount = () => {
+    // Update the LHS Navigation.
+    const { data, dispatch } = this.props;
+    dispatch(setLhsItems(data.leftNav));
+  }
+
+  render() {
+    const { data, location, pageContext } = this.props;
+    const { markdownRemark: post, guidelineVersions} = data;
+    return (
       <Flex
         direction='row'
         shrink='0'
@@ -82,7 +90,7 @@ const WebGuidelinePost = ({ data, location, pageContext }) => {
           height: '100%'
         }}
       >
-        <LeftNav data={data.leftNav.edges[0]}/>
+        <LeftNav/>
         <div id="design-guideline-div"
           css={{
             width: 828,
@@ -114,7 +122,8 @@ const WebGuidelinePost = ({ data, location, pageContext }) => {
           />
         </div>
       </Flex>
-  );
+    )
+  };
 };
 
 WebGuidelinePost.propTypes = {
@@ -126,7 +135,7 @@ WebGuidelinePost.propTypes = {
   })
 };
 
-export default WebGuidelinePost;
+export default connect()(WebGuidelinePost);
 
 export const pageQuery = graphql`
   query DesignGuidelinePostByID($id: String!, $version: String!, $templateKey: String!) {
