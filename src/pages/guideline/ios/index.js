@@ -11,6 +11,7 @@ import Dropdown from '../../../components/Dropdown';
 import SeeAllButton from '../../../components/SeeAllButton';
 import { ReactReduxContext, connect } from 'react-redux';
 import StyledBackgroundImage from '../../../components/BackgroundImage/StyledBackgroundImage';
+import { setLhsItems } from '../../../../src/state/app.js';
 
 const getWidths = () => {
   return {
@@ -53,6 +54,10 @@ class GuidelineIosIndexPage extends React.Component {
   }
 
   componentDidMount = () => {
+    // Update the LHS Navigation.
+    const { data, dispatch } = this.props;
+    dispatch(setLhsItems(data.leftNav));
+
     if (!window.matchMedia) return;
     const medium = media.getSize('medium');
     this.mediaQueryListener = window.matchMedia(`(max-width: ${medium.max}px)`);
@@ -88,7 +93,7 @@ class GuidelineIosIndexPage extends React.Component {
           css={{
             width: '100%',
           }}>
-          <LeftNav data={data.leftNav.edges[0]} />
+          <LeftNav/>
           <div css={{
             width: '100%',
             display: 'flex',
