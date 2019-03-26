@@ -4,7 +4,7 @@ import { ReactReduxContext, connect } from 'react-redux';
 
 import { isSmall, isMedium } from '../../../utils/breakpoints';
 
-import LearningList from './LearningList';
+import LearningList from '../../components/LearningList/LearningList';
 
 import Flex from '../../components/Flex';
 import ResourcesList from '../../components/ResourceList/ResourcesList';
@@ -42,7 +42,6 @@ class GetStarted extends Component {
 
   render() {
     const { location } = this.props;
-
     return (
       <div
         css={{
@@ -101,7 +100,7 @@ class GetStarted extends Component {
           >
             Get started with Fiori.
           </h1>
-          <LearningList />
+          <LearningList/>
         </Flex>
         {this.state.carouselDisplay ? <ResourcesCarousel /> : <ResourcesList />}
       </div>

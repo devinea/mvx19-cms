@@ -29,7 +29,7 @@ class Tab extends Component {
         padding: 10px 0px;
         margin-right: 60px;
         color: ${colors.gray_700};
-        font-family: 72-Regular;
+        font-family: "72-Regular";
         font-size: 20px;
         font-weight: normal;
         height: 32px;

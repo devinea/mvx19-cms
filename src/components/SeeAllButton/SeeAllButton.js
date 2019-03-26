@@ -23,7 +23,7 @@ const SeeAllButton = (props) => {
             }
         }}>
             <span css={{
-                fontFamily: '72-Bold',
+                fontFamily: '"72-Bold"',
                 fontSize: 14,
                 fontWeight: 'bold',
                 letterSpacing: 0.05,

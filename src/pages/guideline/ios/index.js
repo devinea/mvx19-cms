@@ -10,6 +10,7 @@ import Tabs from '../../../components/Tabs';
 import Panel from '../../../components/Panel';
 import Dropdown from '../../../components/Dropdown';
 import SeeAllButton from '../../../components/SeeAllButton';
+import BlogList from '../../../components/BlogList/BlogList';
 import { ReactReduxContext, connect } from 'react-redux';
 
 const getWidths = () => {
@@ -240,60 +241,7 @@ class GuidelineIosIndexPage extends React.Component {
               transition: 'width 0.3s ease-in-out',
               ...getWidths()
             }}>
-              <h1 css={{
-                ...getFontStyle(colors.gray_600, 36, 'normal'),
-                [media.lessThan('medium')]: {
-                  ...getFontStyle(colors.gray_600, 24, 'bold')
-                }
-              }}>{"what's new"}</h1>
-              {posts.map((post) => {
-                return (
-                  <Link to={post.node.fields.slug} key={post.node.id}>
-                    <div css={{
-                      width: 984,
-                      padding: '15px 76px',
-                      transition: 'all 0.3s',
-                      ':hover': {
-                        borderRadius: 7,
-                        cursor: 'pointer',
-                        boxShadow: '0 0 22px 0 rgba(0, 0, 0, 0.10)'
-                      },
-                      ...getWidths(),
-                      [media.lessThan('large')]: {
-                        padding: '15px 0px',
-                        ':hover': {
-                          boxShadow: 'unset'
-                        }
-                      },
-                      [media.lessThan('medium')]: {
-                        height: 'auto',
-                        ':hover': {
-                          boxShadow: 'unset'
-                        }
-                      }
-                    }}>
-                      <h2 css={{
-                        ...getFontStyle(colors.gray_600, 28, 'normal'),
-                        marginBottom: 15,
-                        [media.lessThan('large')]: {
-                          fontSize: 24
-                        }
-                      }}>{post.node.frontmatter.title}</h2>
-                      <p css={{
-                        ...getFontStyle(colors.gray_600, 18, 'normal')
-                      }}>{post.node.frontmatter.description}</p>
-                      <div css={{
-                        ...getFontStyle(colors.gray_700, 14, 300),
-                        height: 16,
-                        padding: '20px 0',
-                        [media.lessThan('large')]: {
-                          display: 'none'
-                        }
-                      }}>{post.node.frontmatter.date}</div>
-                    </div>
-                  </Link>
-                )
-              })}
+            <BlogList />
             </div>
           </div>
         </Flex>
