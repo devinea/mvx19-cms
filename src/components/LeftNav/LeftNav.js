@@ -20,44 +20,8 @@ let updating = false;
 class LeftNav extends React.Component {
   
   constructor(props) {
-    super(props);
-    
+    super(props);    
     this.state = state;
-    let sectionOn = null;
-    // Quick copy to this.props.data.leftNavFlattened for some minor backward compatibility
-    if (!this.props.data.leftNavFlattened){
-      this.props.data.leftNavFlattened = (this.props.data.node && this.props.data.node.fields && this.props.data.node.fields.leftNavFlattened) ? this.props.data.node.fields.leftNavFlattened : this.props.data.edges[0].node.fields.leftNavFlattened;
-    }
-
-    if (!this.props.data.leftNavFlattened) {
-      this.props.data.leftNavFlattened = [];
-    }
-    this.topLevelItem = this.props.data.leftNavFlattened.find(item => item.navTitle);
-    for (let i = 0; i < this.props.data.leftNavFlattened.length; i++) {
-      const item = this.props.data.leftNavFlattened[i];
-      // Check if this item is currently selected.
-      if (typeof window !== 'undefined' && window.location && item.slug === decodeURIComponent(window.location.pathname)) {
-        sectionOn = item.id;
-        this.state.mobileTitle = item.title;
-      }
-      if (item.parentId) {
-        const parentItem = this.props.data.leftNavFlattened.find(obj => obj.id == item.parentId);
-        if (!this.state.opened.includes(item.slug)) {
-          item.isHidden = true;
-          // Ensure that the parent element is not expanded.        
-          parentItem.expanded = false;
-        } else {
-          item.isHidden = false;
-          // Ensure that the parent element is expanded.        
-          parentItem.expanded = true;
-        }
-      }
-``    }
-    this.state.sectionOn = sectionOn;
-    if (!sectionOn) {
-      this.state.mobileTitle = 'Overview'
-    }
-
     this.toggleNav = event => this._toggleNav(event);
     this.closeNavOnMobile = () => this._closeNavOnMobile();
     this.expandSection = (event, sectionIndex) => this._expandSection(event, sectionIndex);
@@ -78,6 +42,42 @@ class LeftNav extends React.Component {
         this._openNav();
       }
     }
+    // Determine if the LHS menu items have been updated.
+    if (this.props.lhsItems != prevProps.lhsItems) {
+      let sectionOn = null;
+      if (!this.props.lhsItems.leftNavFlattened){
+        this.props.lhsItems.leftNavFlattened = (this.props.lhsItems.node && this.props.lhsItems.node.fields && this.props.lhsItems.node.fields.leftNavFlattened) ? this.props.lhsItems.node.fields.leftNavFlattened : this.props.lhsItems.edges ? this.props.lhsItems.edges[0].node.fields.leftNavFlattened : [];
+      }
+  
+      if (!this.props.lhsItems.leftNavFlattened) {
+        this.props.lhsItems.leftNavFlattened = [];
+      }
+      this.topLevelItem = this.props.lhsItems.leftNavFlattened.find(item => item.navTitle);
+      for (let i = 0; i < this.props.lhsItems.leftNavFlattened.length; i++) {
+        const item = this.props.lhsItems.leftNavFlattened[i];
+        // Check if this item is currently selected.
+        if (typeof window !== 'undefined' && window.location && item.slug === decodeURIComponent(window.location.pathname)) {
+          sectionOn = item.id;
+          this.state.mobileTitle = item.title;
+        }
+        if (item.parentId) {
+          const parentItem = this.props.lhsItems.leftNavFlattened.find(obj => obj.id == item.parentId);
+          if (!this.state.opened.includes(item.slug)) {
+            item.isHidden = true;
+            // Ensure that the parent element is not expanded.        
+            parentItem.expanded = false;
+          } else {
+            item.isHidden = false;
+            // Ensure that the parent element is expanded.        
+            parentItem.expanded = true;
+          }
+        }
+  ``  }  
+      this.setState({ sectionOn: sectionOn });
+      if (!sectionOn) {
+        this.state.mobileTitle = 'Overview'
+      }    
+    }
   };
 
   _toggleNav(event) {
@@ -86,18 +86,22 @@ class LeftNav extends React.Component {
 
   _openNav() {
     this.setState({ navOpen: true });
-  }
-
-  _closeNavOnMobile() {
-    this.setState({ navOpen: false });
-    this.state.navOpen = false;
+    this.state.navOpen = true;
     state = this.state;
   }
 
+  _closeNavOnMobile() {
+    if (isSmall(this.props.breakPoint.breakpointName) || isMedium(this.props.breakPoint.breakpointName)) {
+      this.setState({ navOpen: false });
+      this.state.navOpen = false;
+      state = this.state;
+    }
+  }
+
   _expandSection(event, id) {
-    const section = this.props.data.leftNavFlattened.find(item => item.id == id);
+    const section = this.props.lhsItems.leftNavFlattened.find(item => item.id == id);
     section.expanded = !section.expanded;
-    const childItems = this.props.data.leftNavFlattened.filter(item => item.parentId == id);
+    const childItems = this.props.lhsItems.leftNavFlattened.filter(item => item.parentId == id);
     for (let childItem of childItems) {
       childItem.isHidden = !childItem.isHidden;
       if (!childItem.isHidden) {
@@ -201,9 +205,11 @@ class LeftNav extends React.Component {
                 width: '100%',
                 float: 'left'
               }}>
+              {this.topLevelItem && this.topLevelItem.id &&
               <Link
                   key={this.topLevelItem.id}
                   to={this.topLevelItem.slug}>{this.topLevelItem.title}</Link>
+              }
             </div>
             <div
               css={{
@@ -306,8 +312,8 @@ class LeftNav extends React.Component {
                   pointerEvents: 'none'
                 }}>
               </div>          
-              {this.props.data.leftNavFlattened && 
-              this.props.data.leftNavFlattened.filter(item => !item.navTitle).map((data, i) => (
+              {this.props.lhsItems.leftNavFlattened && 
+              this.props.lhsItems.leftNavFlattened.filter(item => !item.navTitle).map((data, i) => (
                 <LeftNavLink
                   updating={updating}
                   key={(data.slug === '/designguideline/controls/') ? '' : data.id}
@@ -375,5 +381,6 @@ class LeftNav extends React.Component {
 }
 
 export default connect(state => ({
-  breakPoint: state.app.breakPoint
+  breakPoint: state.app.breakPoint,
+  lhsItems: state.app.lhsItems
 }))(LeftNav);
