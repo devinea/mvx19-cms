@@ -87,7 +87,7 @@ class Post extends React.Component {
       >
         <div
           css={{
-            display: this.props.type === 'blog' ? 'flex' : 'inline-block',
+            display: 'inline-block',
             width: '100%',
             [media.lessThan('medium')]: {
               paddingTop: 15,
@@ -104,8 +104,8 @@ class Post extends React.Component {
               paddingRight: this.props.type === 'blog' ?
                 media.getSize('xlarge').gutter :
                 media.getSize('xlarge').column + media.getSize('xlarge').gutter,
-              paddingBottom: 30,
-              paddingLeft: this.props.type === 'blog' ?
+                paddingBottom: 30,
+                paddingLeft: this.props.type === 'blog' ?
                 media.getSize('xlarge').gutter :
                 media.getSize('xlarge').column + media.getSize('xlarge').gutter,
             }
@@ -151,7 +151,15 @@ class Post extends React.Component {
               }}
             /> :
             <Img sizes={this.props.png} imgStyle={{
-              width: 120
+              [media.lessThan('medium')]: {
+                width: 64,
+                height: 'auto'
+              }
+            }}
+            css={{
+              [media.lessThan('medium')]: {
+                width: 64,
+                height: 'auto'}
             }}/>
             }
           </div>

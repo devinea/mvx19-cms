@@ -117,9 +117,6 @@ class GuidelineIosIndexPage extends React.Component {
                 display: 'flex',
                 justifyContent: 'space-evenly'
               },
-              [media.lessThan('medium')]: {
-                paddingBottom: 16
-              },
               ...getWidths()
             }}>
               {this.state.mediumSize ?
