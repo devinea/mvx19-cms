@@ -47,7 +47,7 @@ class BlogList extends React.Component {
             }
           }}
         >
-          What's new
+          {"What's new"}
         </h1>
         <div
           css={{
