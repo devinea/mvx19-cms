@@ -256,7 +256,7 @@ class LeftNav extends React.Component {
             height: 45,
             lineHeight: '45px',
             display: 'none',
-            fontFamily: '72',
+            fontFamily: '"72-Bold"',
             fontWeight: 'bold',
             color: colors.gray_700,
             fontSize: 16,

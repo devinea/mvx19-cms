@@ -85,7 +85,7 @@ class LearningList extends React.Component {
         >
           {posts.map(({ node: post }) => (
             <Post
-              image={post.frontmatter.picture.publicURL}
+              svg={post.frontmatter.picture.publicURL}
               title={post.frontmatter.title}
               description={post.frontmatter.description}
               url={post.fields.slug}
