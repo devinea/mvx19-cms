@@ -1,7 +1,6 @@
 import React from 'react';
 import Flex from '../../../components/Flex';
 import LeftNav from '../../../components/LeftNav';
-import iosBackground from '../../../img/ios_background.png';
 import { Link, graphql } from 'gatsby';
 import { media, colors } from '../../../components/theme';
 import ResourcesList from '../../../components/ResourceList/ResourcesList';
@@ -10,7 +9,10 @@ import Tabs from '../../../components/Tabs';
 import Panel from '../../../components/Panel';
 import Dropdown from '../../../components/Dropdown';
 import SeeAllButton from '../../../components/SeeAllButton';
+import BlogList from '../../../components/BlogList/BlogList';
 import { ReactReduxContext, connect } from 'react-redux';
+import StyledBackgroundImage from '../../../components/BackgroundImage/StyledBackgroundImage';
+import { setLhsItems } from '../../../../src/state/app.js';
 
 const getWidths = () => {
   return {
@@ -53,6 +55,10 @@ class GuidelineIosIndexPage extends React.Component {
   }
 
   componentDidMount = () => {
+    // Update the LHS Navigation.
+    const { data, dispatch } = this.props;
+    dispatch(setLhsItems(data.leftNav));
+
     if (!window.matchMedia) return;
     const medium = media.getSize('medium');
     this.mediaQueryListener = window.matchMedia(`(max-width: ${medium.max}px)`);
@@ -88,7 +94,7 @@ class GuidelineIosIndexPage extends React.Component {
           css={{
             width: '100%',
           }}>
-          <LeftNav data={data.leftNav.edges[0]} />
+          <LeftNav/>
           <div css={{
             width: '100%',
             display: 'flex',
@@ -97,43 +103,8 @@ class GuidelineIosIndexPage extends React.Component {
               marginTop: 40
             }
           }}>
-            <div css={{
-              backgroundColor: '#f8f9fb',
-              height: 400,
-              backgroundImage: 'url(' + iosBackground + ')',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'calc(50% + 400px)',
-              backgroundSize: '906px 400px',
-              [media.lessThan('medium')]: {
-                backgroundImage: 'none',
-                height: 'auto'
-              }
-            }}>
-              <div css={{
-                width: 828,
-                margin: '0 auto',
-                paddingBottom: 60,
-                paddingTop: 40,
-                [media.lessThan('medium')]: {
-                  padding: '20px 28px'
-                },
-                ...getWidths()
-              }}>
-                <h1 css={{
-                  ...getFontStyle(colors.gray_600, 40, 300),
-                  paddingTop: 30,
-                  width: '36%',
-                  [media.lessThan('large')]: {
-                    fontSize: 30
-                  },
-                  [media.lessThan('medium')]: {
-                    fontSize: 30,
-                    fontWeight: 'normal',
-                    paddingTop: 0,
-                    width: '100%',
-                  }
-                }}>Design and Develop delightful iOS mobile apps.</h1>
-              </div>
+            <div>
+              <StyledBackgroundImage></StyledBackgroundImage>
             </div>
             <div css={{
               width: 828,
@@ -145,9 +116,6 @@ class GuidelineIosIndexPage extends React.Component {
               [media.lessThan('large')]: {
                 display: 'flex',
                 justifyContent: 'space-evenly'
-              },
-              [media.lessThan('medium')]: {
-                paddingBottom: 16
               },
               ...getWidths()
             }}>
@@ -240,60 +208,7 @@ class GuidelineIosIndexPage extends React.Component {
               transition: 'width 0.3s ease-in-out',
               ...getWidths()
             }}>
-              <h1 css={{
-                ...getFontStyle(colors.gray_600, 36, 'normal'),
-                [media.lessThan('medium')]: {
-                  ...getFontStyle(colors.gray_600, 24, 'bold')
-                }
-              }}>{"what's new"}</h1>
-              {posts.map((post) => {
-                return (
-                  <Link to={post.node.fields.slug} key={post.node.id}>
-                    <div css={{
-                      width: 984,
-                      padding: '15px 76px',
-                      transition: 'all 0.3s',
-                      ':hover': {
-                        borderRadius: 7,
-                        cursor: 'pointer',
-                        boxShadow: '0 0 22px 0 rgba(0, 0, 0, 0.10)'
-                      },
-                      ...getWidths(),
-                      [media.lessThan('large')]: {
-                        padding: '15px 0px',
-                        ':hover': {
-                          boxShadow: 'unset'
-                        }
-                      },
-                      [media.lessThan('medium')]: {
-                        height: 'auto',
-                        ':hover': {
-                          boxShadow: 'unset'
-                        }
-                      }
-                    }}>
-                      <h2 css={{
-                        ...getFontStyle(colors.gray_600, 28, 'normal'),
-                        marginBottom: 15,
-                        [media.lessThan('large')]: {
-                          fontSize: 24
-                        }
-                      }}>{post.node.frontmatter.title}</h2>
-                      <p css={{
-                        ...getFontStyle(colors.gray_600, 18, 'normal')
-                      }}>{post.node.frontmatter.description}</p>
-                      <div css={{
-                        ...getFontStyle(colors.gray_700, 14, 300),
-                        height: 16,
-                        padding: '20px 0',
-                        [media.lessThan('large')]: {
-                          display: 'none'
-                        }
-                      }}>{post.node.frontmatter.date}</div>
-                    </div>
-                  </Link>
-                )
-              })}
+            <BlogList />
             </div>
           </div>
         </Flex>
@@ -381,7 +296,7 @@ export const pageQuery = graphql`
                         }
                     }
                 }
-            }
+            }  
         }
     }
 `;

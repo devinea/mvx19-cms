@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SVG from 'react-inlinesvg';
 import { Link } from 'gatsby';
+import Img from 'gatsby-image';
 
 import { colors, media } from '../theme';
 
@@ -22,7 +23,7 @@ class Post extends React.Component {
       <Link
         to={this.props.url}
         css={{
-          display: 'block',
+          display: this.props.type === 'blog' ? 'flex' : 'block',
           [media.lessThan('medium')]: {
             paddingBottom: 15,
             paddingTop: 15,
@@ -100,13 +101,13 @@ class Post extends React.Component {
             },
             [media.greaterThan('xlarge')]: {
               paddingTop: 30,
-              paddingRight:
-                media.getSize('xlarge').column +
-                media.getSize('xlarge').gutter,
-              paddingBottom: 30,
-              paddingLeft:
-                media.getSize('xlarge').column +
-                media.getSize('xlarge').gutter
+              paddingRight: this.props.type === 'blog' ?
+                media.getSize('xlarge').gutter :
+                media.getSize('xlarge').column + media.getSize('xlarge').gutter,
+                paddingBottom: 30,
+                paddingLeft: this.props.type === 'blog' ?
+                media.getSize('xlarge').gutter :
+                media.getSize('xlarge').column + media.getSize('xlarge').gutter,
             }
           }}
         >
@@ -127,13 +128,15 @@ class Post extends React.Component {
                 width: '100%'
               },
               [media.greaterThan('xlarge')]: {
-                maxWidth: 144,
+                maxWidth: this.props.type === 'blog' ? 120 : 144,
                 width: '100%'
               }
             }}
           >
+          {
+            this.props.svg ? 
             <SVG
-              src={this.props.image}
+              src={this.props.svg}
               css={{
                 [media.lessThan('medium')]: {
                   width: 64,
@@ -146,7 +149,19 @@ class Post extends React.Component {
                 [media.greaterThan('large')]: {},
                 display: 'block'
               }}
-            />
+            /> :
+            <Img sizes={this.props.png} imgStyle={{
+              [media.lessThan('medium')]: {
+                width: 64,
+                height: 'auto'
+              }
+            }}
+            css={{
+              [media.lessThan('medium')]: {
+                width: 64,
+                height: 'auto'}
+            }}/>
+            }
           </div>
           <div
             css={{
@@ -182,6 +197,7 @@ class Post extends React.Component {
                 fontWeight: 300,
                 fontWeight: 'normal',
                 lineHeight: '33px',
+                fontFamily: '"72-Bold"',
                 paddingBottom: 24,
                 color: colors.gray_700,
                 [media.lessThan('medium')]: {
@@ -210,6 +226,11 @@ class Post extends React.Component {
               }}
             >
               {this.props.description}
+              <span css={{
+                fontFamily: '"72-Bold"',
+                display: 'block',
+                paddingTop: 15
+              }}>{this.props.date ? this.props.date : ''}</span>
             </div>
           </div>
         </div>

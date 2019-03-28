@@ -4,7 +4,8 @@ const initialState = {
   breakPoint: {
     breakpointName: 'default',
     breakpointSize: null
-  }
+  },
+  lhsItems: []
 };
 
 const TOGGLE_HAMBURGER_MENU = 'TOGGLE_HAMBURGER_MENU';
@@ -24,6 +25,13 @@ export const setActiveBreakpoint = value => ({
   payload: value
 });
 
+const LHS_MENU_ITEMS = 'LHS_MENU_ITEMS';
+export const setLhsItems = value => ({
+    type: LHS_MENU_ITEMS,
+    payload: value
+});
+
+
 export default (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
@@ -33,6 +41,8 @@ export default (state = initialState, action) => {
       return { ...state, valueForPanels: payload };
     case SET_ACTIVE_BREAKPOINT:
       return { ...state, breakPoint: payload };
+    case LHS_MENU_ITEMS:
+      return {...state, lhsItems: payload };
     default:
       return state;
   }

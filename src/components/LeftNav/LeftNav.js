@@ -1,20 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { colors, media } from '../theme';
 import LeftNavLink from './LeftNavLink';
 import { Link } from 'gatsby';
 import crossIcon from './../../img/cross.svg';
 import selectArrowIcon from './../../img/select-arrow.svg';
+import { isSmall, isMedium } from '../../../utils/breakpoints';
 import SVG from 'react-inlinesvg';
 
-// Define when the LHS switches to mobile view based on the pre-defined media queries.
-let mobileMedia = false;
-if (typeof window !== 'undefined' && window.matchMedia) {
-  mobileMedia = window.matchMedia(media.lessThan('large').replace('@media ', ''));
-}
-let isMobileMedia = mobileMedia.matches;
-
 let state = {
-  navOpen: !isMobileMedia,
+  navOpen: true,
   sectionOn: null,
   mobileTitle: null,
   opened: []
@@ -25,74 +20,65 @@ let updating = false;
 class LeftNav extends React.Component {
   
   constructor(props) {
-    super(props);
-    
+    super(props);    
     this.state = state;
-    let sectionOn = null;
-    // Quick copy to this.props.data.leftNavFlattened for some minor backward compatibility
-    if (!this.props.data.leftNavFlattened){
-      this.props.data.leftNavFlattened = (this.props.data.node && this.props.data.node.fields && this.props.data.node.fields.leftNavFlattened) ? this.props.data.node.fields.leftNavFlattened : this.props.data.edges[0].node.fields.leftNavFlattened;
-    }
-
-    if (!this.props.data.leftNavFlattened) {
-      this.props.data.leftNavFlattened = [];
-    }
-    this.topLevelItem = this.props.data.leftNavFlattened.find(item => item.navTitle);
-    for (let i = 0; i < this.props.data.leftNavFlattened.length; i++) {
-      const item = this.props.data.leftNavFlattened[i];
-      // Check if this item is currently selected.
-      if (typeof window !== 'undefined' && window.location && item.slug === decodeURIComponent(window.location.pathname)) {
-        sectionOn = item.id;
-        this.state.mobileTitle = item.title;
-      }
-      if (item.parentId) {
-        const parentItem = this.props.data.leftNavFlattened.find(obj => obj.id == item.parentId);
-        if (!this.state.opened.includes(item.slug)) {
-          item.isHidden = true;
-          // Ensure that the parent element is not expanded.        
-          parentItem.expanded = false;
-        } else {
-          item.isHidden = false;
-          // Ensure that the parent element is expanded.        
-          parentItem.expanded = true;
-        }
-      }
-``    }
-    this.state.sectionOn = sectionOn;
-    if (!sectionOn) {
-      this.state.mobileTitle = 'Overview'
-    }
-
     this.toggleNav = event => this._toggleNav(event);
     this.closeNavOnMobile = () => this._closeNavOnMobile();
     this.expandSection = (event, sectionIndex) => this._expandSection(event, sectionIndex);
     this.mouseEnter = element => this._mouseEnter(element);
     this.mouseLeave = () => this._mouseLeave();
-    this.checkMediaQuery = e => this._checkMediaQuery(e);
     this.isOverElement = false;
   }
 
-  /**
-   * Check that when the media query updates, do we now need to close or open the side nav.
-   * @param {e} the media query event
-   */
-  _checkMediaQuery(e) {
-    isMobileMedia = e.matches;
-    state.navOpen = !isMobileMedia;
-    if (!isMobileMedia) {
-      this._openNav();
-    } else {
-      this._closeNavOnMobile();
+  componentDidUpdate = prevProps => {
+    // Determine if the breakpoint has changed, and close the LHS if we've moved to mobile breakpoint.
+    if (
+      this.props.breakPoint.breakpointName !==
+      prevProps.breakPoint.breakpointName
+    ) {
+      if (isSmall(this.props.breakPoint.breakpointName) || isMedium(this.props.breakPoint.breakpointName)) {
+        this._closeNavOnMobile();
+      } else {
+        this._openNav();
+      }
     }
-  }
-
-  componentWillUnmount = () => {
-    mobileMedia.removeListener(this.checkMediaQuery);
-  }
-
-  componentDidMount() {
-    mobileMedia.addListener(this.checkMediaQuery);
-  }
+    // Determine if the LHS menu items have been updated.
+    if (this.props.lhsItems != prevProps.lhsItems) {
+      let sectionOn = null;
+      if (!this.props.lhsItems.leftNavFlattened){
+        this.props.lhsItems.leftNavFlattened = (this.props.lhsItems.node && this.props.lhsItems.node.fields && this.props.lhsItems.node.fields.leftNavFlattened) ? this.props.lhsItems.node.fields.leftNavFlattened : this.props.lhsItems.edges ? this.props.lhsItems.edges[0].node.fields.leftNavFlattened : [];
+      }
+  
+      if (!this.props.lhsItems.leftNavFlattened) {
+        this.props.lhsItems.leftNavFlattened = [];
+      }
+      this.topLevelItem = this.props.lhsItems.leftNavFlattened.find(item => item.navTitle);
+      for (let i = 0; i < this.props.lhsItems.leftNavFlattened.length; i++) {
+        const item = this.props.lhsItems.leftNavFlattened[i];
+        // Check if this item is currently selected.
+        if (typeof window !== 'undefined' && window.location && item.slug === decodeURIComponent(window.location.pathname)) {
+          sectionOn = item.id;
+          this.state.mobileTitle = item.title;
+        }
+        if (item.parentId) {
+          const parentItem = this.props.lhsItems.leftNavFlattened.find(obj => obj.id == item.parentId);
+          if (!this.state.opened.includes(item.slug)) {
+            item.isHidden = true;
+            // Ensure that the parent element is not expanded.        
+            parentItem.expanded = false;
+          } else {
+            item.isHidden = false;
+            // Ensure that the parent element is expanded.        
+            parentItem.expanded = true;
+          }
+        }
+  ``  }  
+      this.setState({ sectionOn: sectionOn });
+      if (!sectionOn) {
+        this.state.mobileTitle = 'Overview'
+      }    
+    }
+  };
 
   _toggleNav(event) {
     this.setState({ navOpen: !this.state.navOpen });
@@ -100,10 +86,12 @@ class LeftNav extends React.Component {
 
   _openNav() {
     this.setState({ navOpen: true });
+    this.state.navOpen = true;
+    state = this.state;
   }
 
   _closeNavOnMobile() {
-    if (isMobileMedia) {
+    if (isSmall(this.props.breakPoint.breakpointName) || isMedium(this.props.breakPoint.breakpointName)) {
       this.setState({ navOpen: false });
       this.state.navOpen = false;
       state = this.state;
@@ -111,9 +99,9 @@ class LeftNav extends React.Component {
   }
 
   _expandSection(event, id) {
-    const section = this.props.data.leftNavFlattened.find(item => item.id == id);
+    const section = this.props.lhsItems.leftNavFlattened.find(item => item.id == id);
     section.expanded = !section.expanded;
-    const childItems = this.props.data.leftNavFlattened.filter(item => item.parentId == id);
+    const childItems = this.props.lhsItems.leftNavFlattened.filter(item => item.parentId == id);
     for (let childItem of childItems) {
       childItem.isHidden = !childItem.isHidden;
       if (!childItem.isHidden) {
@@ -217,9 +205,11 @@ class LeftNav extends React.Component {
                 width: '100%',
                 float: 'left'
               }}>
+              {this.topLevelItem && this.topLevelItem.id &&
               <Link
                   key={this.topLevelItem.id}
                   to={this.topLevelItem.slug}>{this.topLevelItem.title}</Link>
+              }
             </div>
             <div
               css={{
@@ -266,7 +256,7 @@ class LeftNav extends React.Component {
             height: 45,
             lineHeight: '45px',
             display: 'none',
-            fontFamily: '72',
+            fontFamily: '"72-Bold"',
             fontWeight: 'bold',
             color: colors.gray_700,
             fontSize: 16,
@@ -322,8 +312,8 @@ class LeftNav extends React.Component {
                   pointerEvents: 'none'
                 }}>
               </div>          
-              {this.props.data.leftNavFlattened && 
-              this.props.data.leftNavFlattened.filter(item => !item.navTitle).map((data, i) => (
+              {this.props.lhsItems.leftNavFlattened && 
+              this.props.lhsItems.leftNavFlattened.filter(item => !item.navTitle).map((data, i) => (
                 <LeftNavLink
                   updating={updating}
                   key={(data.slug === '/designguideline/controls/') ? '' : data.id}
@@ -390,4 +380,7 @@ class LeftNav extends React.Component {
   }
 }
 
-export default LeftNav;
+export default connect(state => ({
+  breakPoint: state.app.breakPoint,
+  lhsItems: state.app.lhsItems
+}))(LeftNav);
