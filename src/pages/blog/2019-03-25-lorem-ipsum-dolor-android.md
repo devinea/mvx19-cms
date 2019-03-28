@@ -1,18 +1,14 @@
 ---
 templateKey: blog-post
-title: UI5 library updated to version 1.56.9
-date: 2019-01-14T17:30:17.837Z
-picture: "/img/ui5.jpg"
+title: Lorem ipsum dolor android
+picture: "/img/design.png"
+date: 2019-03-25T17:28:00.700Z
 description: >-
-  Includes translation and internationalization support, along with a built-in
-  support tool for exploring the object tree and binding status
+  Lorem ipsum dolor sit amet, integre intellegam an qui, id aperiri aliquam menandri nec. Justo ocurreret usu at. No inani iracundia mel, eu quo propriae mandamus
 tags:
-  - Theming
-  - Fiori
-  - Developer
-  - Designer
-  - SAPUI5
+  - android
 ---
+
 Lorem ipsum dolor sit amet, integre intellegam an qui, id aperiri aliquam menandri nec. Justo ocurreret usu at. No inani iracundia mel, eu quo propriae mandamus. Id diam reque nec, inermis maiestatis ius ei. Sit ei autem soluta tempor, vel ei legere verterem oportere.
 
 Has cu falli epicuri, cibo aliquip volutpat duo ex. Everti vidisse ullamcorper ad vel. Vim justo illum in, mei ei dicat sententiae. Nostro partiendo gubergren ei nec, viris omnesque temporibus ne eos. Sea te dicant sanctus reformidans, an mea labitur mandamus.

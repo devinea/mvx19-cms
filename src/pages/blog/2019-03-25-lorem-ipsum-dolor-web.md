@@ -1,17 +1,12 @@
 ---
 templateKey: blog-post
-title: Fiori Fundamentals GitHub update available
-picture: /img/github.png
-date: 2019-01-14T17:28:48.700Z
+title: Lorem ipsum dolor web
+picture: ""
+date: 2019-03-25T17:31:00.700Z
 description: >-
-  SAP Fiori Fundamentals is a Fiori 3.0 component library and SASS toolkit for
-  building SAP user interfaces with any technology
+  Lorem ipsum dolor sit amet, integre intellegam an qui
 tags:
-  - Theming
-  - Fiori
-  - Developer
-  - Designer
-  - Fiori Fundamentals
+  - web
 ---
 
 Lorem ipsum dolor sit amet, integre intellegam an qui, id aperiri aliquam menandri nec. Justo ocurreret usu at. No inani iracundia mel, eu quo propriae mandamus. Id diam reque nec, inermis maiestatis ius ei. Sit ei autem soluta tempor, vel ei legere verterem oportere.

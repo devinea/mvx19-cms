@@ -1,21 +1,13 @@
 ---
 templateKey: blog-post
-title: New Sketch Plugin announced
-date: 2019-01-14T17:31:16.654Z
-picture: "/img/sketch.png"
+title: Lorem ipsum dolor cux
+picture: ""
+date: 2019-03-25T17:29:00.700Z
 description: >-
-  Rapidly design Fiori experiences on the platform of your choice using the new
-  Fiori Toolkit available on Sketch
+  Lorem ipsum dolor sit amet, integre intellegam an qui
 tags:
-  - Theming
-  - Fiori
-  - Developer
-  - Designer
-  - Sketch
+  - cux
 ---
-
-`vimeo: https://vimeo.com/261899430`
-
 
 Lorem ipsum dolor sit amet, integre intellegam an qui, id aperiri aliquam menandri nec. Justo ocurreret usu at. No inani iracundia mel, eu quo propriae mandamus. Id diam reque nec, inermis maiestatis ius ei. Sit ei autem soluta tempor, vel ei legere verterem oportere.
 
