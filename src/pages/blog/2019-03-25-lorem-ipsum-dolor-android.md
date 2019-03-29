@@ -1,10 +1,10 @@
 ---
 templateKey: blog-post
-title: Lorem ipsum dolor android
-picture: "/img/design.png"
+title: Lorem ipsum dolor sit amet, integre intellegam an qui, id aperiri aliquam menandri nec android
+picture: ""
 date: 2019-03-25T17:28:00.700Z
 description: >-
-  Lorem ipsum dolor sit amet, integre intellegam an qui, id aperiri aliquam menandri nec. Justo ocurreret usu at. No inani iracundia mel, eu quo propriae mandamus
+  Lorem ipsum dolor sit amet, integre intellegam an qui, id aperiri aliquam menandri nec. Justo ocurreret usu at. No inani iracundia mel, eu quo propriae mandamus, id diam reque nec, inermis maiestatis ius ei. Sit ei autem soluta tempor, vel ei legere verterem oportere.
 tags:
   - android
 ---

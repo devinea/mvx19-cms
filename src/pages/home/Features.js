@@ -98,30 +98,28 @@ class FeaturesList extends React.Component {
         />
         <div
           css={{
+            fontFamily: '"72-Light"',
+            fontWeight: 300,
             [media.greaterThan('small')]: {
               fontSize: 18,
-              fontWeight: 300,
               lineHeight: '30px',
               paddingTop: 0,
               paddingBottom: 5
             },
             [media.greaterThan('medium')]: {
               fontSize: 22,
-              fontWeight: 300,
               lineHeight: '30px',
               paddingTop: 25,
               paddingBottom: 14
             },
             [media.greaterThan('large')]: {
               fontSize: 22,
-              fontWeight: 300,
               lineHeight: '30px',
               paddingTop: 25,
               paddingBottom: 14
             },
             [media.greaterThan('xlarge')]: {
               fontSize: 28,
-              fontWeight: 300,
               lineHeight: '36px',
               paddingTop: 25,
               paddingBottom: 14

@@ -33,17 +33,17 @@ class BlogList extends React.Component {
             },
             [media.greaterThan('medium')]: {
               paddingTop: 0,
-              paddingBottom: 0,
+              paddingBottom: 0
             },
             [media.greaterThan('large')]: {
               paddingTop: 0,
-              paddingBottom: 0,
+              paddingBottom: 0
             },
             [media.greaterThan('xlarge')]: {
               fontSize: 36,
               fontWeight: 700,
               paddingTop: 0,
-              paddingBottom: 0,
+              paddingBottom: 0
             }
           }}
         >
@@ -67,7 +67,7 @@ class BlogList extends React.Component {
         >
           {posts.map(({ node: post }) => (
             <Post
-              type="blog"
+              type='blog'
               png={post.frontmatter.picture.childImageSharp.sizes}
               title={post.frontmatter.title}
               description={post.frontmatter.description}
@@ -86,28 +86,32 @@ export default props => (
   <StaticQuery
     query={graphql`
       query {
-        allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {templateKey: {eq: "blog-post"}}}) {
+        allMarkdownRemark(
+          sort: { order: DESC, fields: [frontmatter___date] }
+          filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+        ) {
           edges {
-              node {
-                  excerpt(pruneLength: 400)
-                  id
-                  fields {
-                      slug
-                  }
-                  frontmatter {
-                      title
-                      templateKey
-                      description
-                      date(formatString: "MMMM DD, YYYY")
-                      picture {
-                        childImageSharp {
-                            sizes(maxWidth: 75) {
-                                ...GatsbyImageSharpSizes
-                            }
-                        }
+            node {
+              excerpt(pruneLength: 400)
+              id
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+                templateKey
+                description
+                date(formatString: "MMMM DD, YYYY")
+                tags
+                picture {
+                  childImageSharp {
+                    sizes(maxWidth: 120, maxHeight: 120) {
+                      ...GatsbyImageSharpSizes
                     }
                   }
+                }
               }
+            }
           }
         }
       }

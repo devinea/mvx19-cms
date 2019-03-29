@@ -44,14 +44,20 @@ class NewsList extends React.Component {
               width: '100%',
               fontSize: 40,
               lineHeight: '50px',
+              fontFamily: '"72-Light"',
               fontWeight: 300,
               color: colors.gray_700,
               marginTop: 40,
               marginRight: 0,
               marginBottom: 30,
-              margingLeft: 0,
-              [media.greaterThan('xlarge', true)]: {},
+              marginLeft: 0,
+              [media.greaterThan('xlarge', true)]: {
+                fontSize: 40,
+                lineHeight: '50px',
+              },
               [media.between('large', 'xlarge', true)]: {
+                fontSize: 32,
+                lineHeight: '45px',
                 paddingLeft:
                   media.getSize('large').column +
                   media.getSize('large').gutter
@@ -78,16 +84,18 @@ class NewsList extends React.Component {
               }
             }}
           >
-            {blogs.map(({ node: blog }) => (
+          {blogs.map(({ node: blog }, index ) => (
               <Blog
+                index={index}
                 image={
                   blog.frontmatter.picture
-                    ? blog.frontmatter.picture.publicURL
+                    ? blog.frontmatter.picture.childImageSharp.sizes
                     : null
                 }
                 tags={blog.frontmatter.tags}
                 title={blog.frontmatter.title}
                 description={blog.frontmatter.description}
+                date={blog.frontmatter.date}
                 url={blog.fields.slug}
                 key={blog.id}
               />
@@ -121,8 +129,11 @@ export default props => (
                 date(formatString: "MMMM DD, YYYY")
                 tags
                 picture {
-                  id
-                  publicURL
+                  childImageSharp {
+                    sizes(maxWidth: 120) {
+                      ...GatsbyImageSharpSizes
+                    }
+                  }
                 }
               }
             }

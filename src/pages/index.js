@@ -91,6 +91,7 @@ class IndexPage extends React.Component {
                 css={{
                   margin: 0,
                   textAlign: 'left',
+                  fontFamily: '"72-Light"',
                   fontWeight: 300,
                   color: colors.gray_700,
                   [media.greaterThan('small')]: {
@@ -261,6 +262,7 @@ class IndexPage extends React.Component {
                   },
                   [media.greaterThan('large')]: {
                     fontSize: 28,
+                    fontFamily: '"72-Light"',
                     fontWeight: 300,
                     lineHeight: '36px',
                     maxWidth: 686,
@@ -271,6 +273,7 @@ class IndexPage extends React.Component {
                   },
                   [media.greaterThan('xlarge')]: {
                     fontSize: 28,
+                    fontFamily: '"72-Light"',
                     fontWeight: 300,
                     lineHeight: '36px',
                     paddingTop: 0,
