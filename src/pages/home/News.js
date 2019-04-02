@@ -74,13 +74,13 @@ class NewsList extends React.Component {
                 paddingBottom: 20
               },
               [media.greaterThan('medium')]: {
-                paddingBottom: 80
+                paddingBottom: 50
               },
               [media.greaterThan('large')]: {
-                paddingBottom: 100
+                paddingBottom: 50
               },
               [media.greaterThan('xlarge')]: {
-                paddingBottom: 100
+                paddingBottom: 50
               }
             }}
           >

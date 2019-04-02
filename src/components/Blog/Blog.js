@@ -59,13 +59,15 @@ class Blog extends React.Component {
               media.getSize('large').column + media.getSize('large').gutter
           },
           [media.lessThan('xlarge', true)]: {
-            ':not(:first-child)': {
+            ':not(:first-of-type)': {
               '> div': {
                 borderTopWidth: 1,
                 borderTopStyle: 'solid',
                 borderTopColor: colors.gray_200
               }
-            },
+            }
+          },
+          [media.between('medium', 'large', true)]: {
             ':hover': {
               boxShadow: '0 0 22px 0 rgba(0, 0, 0, 0.10)',
               '> div': {
@@ -118,7 +120,9 @@ class Blog extends React.Component {
                 paddingLeft: 24,
                 paddingRight: media.getSize('medium').gutter
               },
-              [media.lessThan('medium', true)]: {}
+              [media.lessThan('medium', true)]: {
+                float: 'right'
+              }
             }}
           >
             {!this.state.isImage && (
@@ -135,6 +139,10 @@ class Blog extends React.Component {
                   [media.between('medium', 'large', true)]: {
                     width: 96,
                     height: 96
+                  },
+                  [media.lessThan('medium', true)]: {
+                    width: 64,
+                    height: 64
                   },
                   backgroundColor: colors.gray_200
                 }}
@@ -180,6 +188,17 @@ class Blog extends React.Component {
                         width: 40,
                         height: 40
                       }
+                    },
+                    [media.lessThan('medium', true)]: {
+                      width: 40,
+                      height: 40,
+                      margin: '0 auto',
+                      paddingTop: 12,
+                      display: 'table',
+                      svg: {
+                        width: 40,
+                        height: 40
+                      }
                     }
                   }}
                 />
@@ -199,6 +218,9 @@ class Blog extends React.Component {
                       [media.between('medium', 'large', true)]: {
                         fontSize: 12,
                         lineHeight: '14px'
+                      },
+                      [media.lessThan('medium', true)]: {
+                        display: 'none'
                       }
                     }}
                   >
@@ -259,7 +281,21 @@ class Blog extends React.Component {
                 textOverflow: 'ellipsis',
                 overflow: 'hidden',
                 display: '-webkit-box',
-                wordWrap: 'break-word'
+                wordWrap: 'break-word',
+                [media.lessThan('medium', true)]: {
+                  fontSize: 24,
+                  lineHeight: '27px',
+                  fontWeight: 'normal',
+                  fontFamily: '"72-Regular"',
+                  WebkitLineClamp: '2',
+                  marginBottom: 24,
+                  maxWidth:
+                    media.getSize('small').column * 3 +
+                    media.getSize('small').gutter * 2,
+                  minWidth:
+                    media.getSize('small').column * 3 +
+                    media.getSize('small').gutter * 2
+                }
               }}
             >
               {this.props.title}
@@ -275,7 +311,15 @@ class Blog extends React.Component {
                 textOverflow: 'ellipsis',
                 overflow: 'hidden',
                 display: '-webkit-box',
-                wordWrap: 'break-word'
+                wordWrap: 'break-word',
+                [media.lessThan('medium', true)]: {
+                  maxWidth:
+                    media.getSize('small').column * 4 +
+                    media.getSize('small').gutter * 3,
+                  minWidth:
+                    media.getSize('small').column * 4 +
+                    media.getSize('small').gutter * 3
+                }
               }}
             >
               {this.props.description}
@@ -284,6 +328,7 @@ class Blog extends React.Component {
               css={{
                 fontSize: 12,
                 fontWeight: 700,
+                fontFamily: '"72-Bold"',
                 lineHeight: '14px',
                 color: colors.gray_700,
                 [media.lessThan('large', true)]: {

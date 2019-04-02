@@ -1,7 +1,6 @@
 ---
 templateKey: blog-post
 title: Lorem ipsum dolor ios
-picture: ""
 date: 2019-03-25T17:30:00.700Z
 description: >-
   Lorem ipsum dolor sit amet, integre intellegam an qui

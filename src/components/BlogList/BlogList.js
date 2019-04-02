@@ -1,14 +1,13 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 
-import Post from '../../components/Post';
-
+import Blog from '../../components/Blog';
 import { colors, media } from '../../components/theme';
 
 class BlogList extends React.Component {
   render() {
     const { data } = this.props;
-    const posts = data.allMarkdownRemark.edges;
+    const { edges: blogs } = data.allMarkdownRemark;
 
     return (
       <section
@@ -65,17 +64,23 @@ class BlogList extends React.Component {
             }
           }}
         >
-          {posts.map(({ node: post }) => (
-            <Post
-              type='blog'
-              png={post.frontmatter.picture.childImageSharp.sizes}
-              title={post.frontmatter.title}
-              description={post.frontmatter.description}
-              url={post.fields.slug}
-              key={post.id}
-              date={post.frontmatter.date}
+          {blogs.map(({ node: blog }, index) => (
+            <Blog
+              index={index}
+              image={
+                blog.frontmatter.picture
+                  ? blog.frontmatter.picture.childImageSharp.sizes
+                  : null
+              }
+              tags={blog.frontmatter.tags}
+              title={blog.frontmatter.title}
+              description={blog.frontmatter.description}
+              date={blog.frontmatter.date}
+              url={blog.fields.slug}
+              key={blog.id}
             />
           ))}
+
         </div>
       </section>
     );

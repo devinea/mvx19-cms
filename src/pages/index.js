@@ -9,6 +9,7 @@ import { colors, media } from '../components/theme';
 import Features from './home/Features.js';
 import Platform from './home/Platform.js';
 import News from './home/News.js';
+import Testimonials from './home/Testimonials.js';
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -296,6 +297,7 @@ class IndexPage extends React.Component {
           <Features />
           <Platform />
           <News />
+          <Testimonials />
         </div>
       </div>
     );
