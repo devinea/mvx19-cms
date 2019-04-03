@@ -5,7 +5,6 @@ import { ReactReduxContext, connect } from 'react-redux';
 import { isSmall, isMedium } from '../../../utils/breakpoints';
 
 import LearningList from '../../components/LearningList/LearningList';
-
 import Flex from '../../components/Flex';
 import ResourcesList from '../../components/ResourceList/ResourcesList';
 import ResourcesCarousel from '../../components/ResourcesCarousel/ResourcesCarousel';
