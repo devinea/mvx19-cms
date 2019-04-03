@@ -67,7 +67,7 @@ class ResourcesCarousel extends React.Component {
             <div
               key={idx}
               css={{
-                paddingLeft: 10,
+                paddingLeft: 30,
                 paddingRight: 10
               }}
             >

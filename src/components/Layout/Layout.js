@@ -51,6 +51,7 @@ class Layout extends React.Component {
       (this.props.location.state && this.props.location.state.fromHamburger)
     ) {
       document.body.style.overflow = 'auto';
+      document.body.style.position = 'inherit';
       this.context.store.dispatch(toggleHamburgerMenuAction(false));
     }
     if (this.props.location !== prevprops.location && this.state.searchToggle) {
