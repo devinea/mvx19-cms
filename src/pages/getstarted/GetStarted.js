@@ -22,6 +22,17 @@ class GetStarted extends Component {
     };
   }
 
+  componentDidMount = () => {
+    if (
+      isSmall(this.props.breakPoint.breakpointName) ||
+      isMedium(this.props.breakPoint.breakpointName)
+    ) {
+      this.setState({ carouselDisplay: true });
+    } else {
+      this.setState({ carouselDisplay: false });
+    }
+  };
+
   componentDidUpdate = prevProps => {
     if (this.props.breakPoint) {
       if (
@@ -100,7 +111,7 @@ class GetStarted extends Component {
           >
             Get started with Fiori.
           </h1>
-          <LearningList/>
+          <LearningList />
         </Flex>
         {this.state.carouselDisplay ? <ResourcesCarousel /> : <ResourcesList />}
       </div>
