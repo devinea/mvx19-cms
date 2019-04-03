@@ -47,7 +47,8 @@
     "react-helmet": "^5.2.0",
     "react-inlinesvg": "^0.8.4",
     "react-redux": "^6.0.1",
-    "uuid": "^3.2.1"
+    "uuid": "^3.2.1",
+    "zip-loader": "^1.1.0"
   },
   "keywords": [
     "gatsby"

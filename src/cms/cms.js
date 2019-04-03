@@ -11,6 +11,8 @@ import * as ColorWidget from "netlify-cms-widget-color";
 import ColorCollectionPreview from './preview-templates/ColorCollectionPreview';
 import TypographyCollectionPreview from './preview-templates/TypographyCollectionPreview';
 
+import SketchControl from './sketchControl';
+
 // We need this for injecting the inline css into preview section of admin
 class CSSInjector extends React.Component {
   constructor() {
@@ -125,3 +127,5 @@ CMS.registerEditorComponent({
 });
 
 CMS.registerWidget("color", ColorWidget.Control);
+
+CMS.registerWidget('sketchWidget', SketchControl);

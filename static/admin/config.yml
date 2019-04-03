@@ -281,3 +281,14 @@ collections:
       - {label: 'Overview Page Category', name: 'title', widget: 'string' }
       - {label: 'Overview Page Category Description', name: 'desc', widget: 'string'}
       - {label: 'Ordinal', name: 'ordinal', widget: 'number'}
+  - name: "sketchFileTest"
+    label: "Sketch File Test"
+    folder: "src/pages/sketchfiletest"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - label: "Test Widget"
+        name: "testWidget"
+        widget: "sketchWidget"
