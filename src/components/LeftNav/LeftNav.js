@@ -44,6 +44,11 @@ class LeftNav extends React.Component {
     }
     // Determine if the LHS menu items have been updated.
     if (this.props.lhsItems != prevProps.lhsItems) {
+      if (isSmall(this.props.breakPoint.breakpointName) || isMedium(this.props.breakPoint.breakpointName)) {
+        this._closeNavOnMobile();
+      } else {
+        this._openNav();
+      }
       let sectionOn = null;
       if (!this.props.lhsItems.leftNavFlattened){
         this.props.lhsItems.leftNavFlattened = (this.props.lhsItems.node && this.props.lhsItems.node.fields && this.props.lhsItems.node.fields.leftNavFlattened) ? this.props.lhsItems.node.fields.leftNavFlattened : this.props.lhsItems.edges ? this.props.lhsItems.edges[0].node.fields.leftNavFlattened : [];

@@ -5,7 +5,6 @@ import { ReactReduxContext, connect } from 'react-redux';
 import { isSmall, isMedium } from '../../../utils/breakpoints';
 
 import LearningList from '../../components/LearningList/LearningList';
-
 import Flex from '../../components/Flex';
 import ResourcesList from '../../components/ResourceList/ResourcesList';
 import ResourcesCarousel from '../../components/ResourcesCarousel/ResourcesCarousel';
@@ -21,6 +20,17 @@ class GetStarted extends Component {
       carouselDisplay: false
     };
   }
+
+  componentDidMount = () => {
+    if (
+      isSmall(this.props.breakPoint.breakpointName) ||
+      isMedium(this.props.breakPoint.breakpointName)
+    ) {
+      this.setState({ carouselDisplay: true });
+    } else {
+      this.setState({ carouselDisplay: false });
+    }
+  };
 
   componentDidUpdate = prevProps => {
     if (this.props.breakPoint) {
@@ -100,7 +110,7 @@ class GetStarted extends Component {
           >
             Get started with Fiori.
           </h1>
-          <LearningList/>
+          <LearningList />
         </Flex>
         {this.state.carouselDisplay ? <ResourcesCarousel /> : <ResourcesList />}
       </div>

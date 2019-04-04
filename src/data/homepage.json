@@ -1,0 +1,83 @@
+[
+  {
+    "name": "features",
+    "data": [
+      {
+        "type": "",
+        "title": "Role Based",
+        "description": "Designed for you, your needs and your work",
+        "image": "/img/svg/role_based.svg"
+      },
+      {
+        "type": "",
+        "title": "Adaptive",
+        "description": "Adapts to multiple use cases ands devices",
+        "image": "/img/svg/adaptive.svg"
+      },
+      {
+        "type": "",
+        "title": "Coherent",
+        "description": "Provides one fluid, intuitive experience",
+        "image": "/img/svg/coherent.svg"
+      },
+      {
+        "type": "",
+        "title": "Simple",
+        "description": "Includes only what is necessary",
+        "image": "/img/svg/simple.svg"
+      },
+      {
+        "type": "",
+        "title": "Delightful",
+        "description": "Makes an emotional connection",
+        "image": "/img/svg/delightful.svg"
+      }
+    ]
+  },
+  {
+    "name": "platforms",
+    "data": [
+      {
+        "type": "",
+        "title": "Fiori for web",
+        "url": "/guideline/web",
+        "image": "/img/svg/fiori_web.svg"
+      },
+      {
+        "type": "",
+        "title": "Fiori for iOS",
+        "url": "/guideline/ios",
+        "image": "/img/svg/fiori_ios.svg"
+      },
+      {
+        "type": "",
+        "title": "Fiori for Android",
+        "url": "/guideline/android",
+        "image": "/img/svg/fiori_android.svg"
+      },
+      {
+        "type": "",
+        "title": "Fiori for CUX",
+        "url": "/guideline/cux",
+        "image": "/img/svg/fiori_cux.svg"
+      }
+    ]
+  },
+  {
+    "name": "testimonials",
+    "data": [
+      {
+        "text": "Fiori is the future. When do we want it? How soon is now?",
+        "author": "VP of Enterprise Systems, retail"
+      },
+      {
+        "text": "The way we see it, UX is one of the most important elements in our digital vision for the company. It's not just the back-end.",
+        "author": "CIO, consumer products"
+      },
+      {
+        "text": "The business increasingly thinks of innovation in terms of user experience and customer experience; our IT organization needs to do the same.",
+        "author": "COO, oil & gas"
+      }
+    ]
+  }
+]
