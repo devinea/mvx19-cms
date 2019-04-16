@@ -4,8 +4,8 @@ import { Link } from 'gatsby';
 import SVG from 'react-inlinesvg';
 
 import HamburgerButton from './../Hamburger/Button';
-import SearchButton from './../SearchNew/SearchButton';
-import SearchInput from './../SearchNew/Input';
+import SearchButton from './../Search/SearchButton';
+import SearchInput from './../Search/Input';
 import Container from './../Container';
 import HeaderLink from './HeaderLink';
 
@@ -20,7 +20,7 @@ class Header extends React.Component {
       isSearchPage: false
     };
   }
-  
+
   render() {
     const { location } = this.props;
 
