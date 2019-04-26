@@ -16,6 +16,7 @@ collections:
     folder: "src/pages/designguideline"
     create: true
     slug: "{{fields.version}}-{{slug}}"
+    summary: "Version: {{version}} - {{title}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "web-guideline"}
       - {label: "Title", name: "title", widget: "string"}
@@ -35,6 +36,8 @@ collections:
     folder: "src/pages/guideline_ios"
     create: true
     slug: "{{fields.version}}-{{slug}}"
+    summary: "Version: {{version}} - {{title}}"
+
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "web-guideline"}
       - {label: "Title", name: "title", widget: "string"}
@@ -54,6 +57,7 @@ collections:
     folder: "src/pages/guideline_android"
     create: true
     slug: "{{fields.version}}-{{slug}}"
+    summary: "Version: {{version}} - {{title}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "web-guideline"}
       - {label: "Title", name: "title", widget: "string"}
@@ -73,6 +77,7 @@ collections:
     folder: "src/pages/guideline_cux"
     create: true
     slug: "{{fields.version}}-{{slug}}"
+    summary: "Version: {{version}} - {{title}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "cux-guideline"}
       - {label: "Title", name: "title", widget: "string"}
